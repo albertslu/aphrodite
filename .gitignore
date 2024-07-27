@@ -1,0 +1,12 @@
+# Ignore macOS system files
+.DS_Store
+
+# Ignore Python virtual environment
+venv/
+
+# Ignore node_modules
+node_modules/
+
+# Ignore image files (if you don't want to include them)
+data/images/
+
