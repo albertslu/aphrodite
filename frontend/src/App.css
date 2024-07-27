@@ -1,0 +1,117 @@
+/* src/App.css */
+
+.App {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-group {
+  margin: 10px 0;
+  width: 100%;
+  max-width: 400px;
+  text-align: left;
+}
+
+label {
+  margin-bottom: 5px;
+  font-size: 1.2em;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="file"],
+textarea {
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 100%;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+textarea.full-width-input {
+  height: 100px;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 1em;
+  background-color: #61dafb;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #21a1f1;
+}
+
+span {
+  background: #eee;
+  padding: 5px;
+  border-radius: 5px;
+  margin-right: 5px;
+  display: inline-block;
+}
+
+.profile-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
+  text-align: left;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.profile-card img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.profile-actions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.pass-button {
+  background-color: #ff4d4d;
+}
+
+.pass-button:hover {
+  background-color: #ff1a1a;
+}
+
+.like-button {
+  background-color: #4dff4d;
+}
+
+.like-button:hover {
+  background-color: #1aff1a;
+}
