@@ -3,6 +3,7 @@ import json
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import nltk
+nltk.download('punkt')
 from nltk.tokenize import word_tokenize
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import CountVectorizer
