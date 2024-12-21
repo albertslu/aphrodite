@@ -15,9 +15,9 @@ phrases_start = [
     "I want",
     "Seeking",
     "Hoping to meet",
-    "Prefer someone who is",
+    "Prefer someone ",
     "Searching for"
-]
+]   
 
 phrases_end = [
     "Prefer someone from",
