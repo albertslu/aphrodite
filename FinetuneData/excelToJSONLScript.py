@@ -27,7 +27,6 @@ phrases_end = [
     "Based near"
 ]
 
-
 # Define a function to format data into JSONL format
 def format_data(row):
     prompt = (
