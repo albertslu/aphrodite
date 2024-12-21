@@ -2,7 +2,7 @@ import pandas as pd
 import json
 
 # Load the Excel file
-file_path = "okcupid_profiles.xlsx"  # Replace with your file path
+file_path = "venusdataset.xlsx"  # Replace with your file path
 df = pd.read_excel(file_path)
 
 # Define a function to format data into JSONL format
