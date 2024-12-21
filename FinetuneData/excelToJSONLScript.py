@@ -1,28 +1,32 @@
 import pandas as pd
 import json
 
-# Load the Excel file
-file_path = "venusdataset.xlsx"  # Replace with your file path
-df = pd.read_excel(file_path)
+# Ensure you have the necessary library installed
+# Run this in your terminal if it's not already installed:
+# pip install openpyxl
+
+# Load the first 100 rows of the Excel file
+file_path = "venusdataset.xlsx"  # Adjust the file name if necessary
+df = pd.read_excel(file_path, engine='openpyxl', nrows=100)
 
 # Define a function to format data into JSONL format
 def format_data(row):
     prompt = (
         f"Looking for a {row['age']} year-old, {row['sex']}, {row['orientation']}, "
-        f"who is {row['body_type']} and enjoys '{row['essay0'][:50]}...'. "
+        f"who is {row['body_type']} and enjoys '{str(row['essay0'])[:50]}...'. "
         f"Prefer someone from {row['location']}."
     )
-    completion = row['essay0']
+    completion = row['essay0'] if pd.notna(row['essay0']) else "No description available."
     return {"prompt": prompt, "completion": completion}
 
-# Filter rows with valid descriptions
-df = df.dropna(subset=['essay0'])
+# Drop rows where 'essay0' or critical columns are missing
+df = df.dropna(subset=['age', 'sex', 'orientation', 'body_type', 'location', 'essay0'])
 
-# Generate JSONL data
+# Generate JSONL data for the first 100 entries
 jsonl_data = [format_data(row) for _, row in df.iterrows()]
 
 # Save to a JSONL file
-output_file = "formatted_profiles.jsonl"
+output_file = "formatted_profiles_100.jsonl"
 with open(output_file, 'w') as f:
     for entry in jsonl_data:
         f.write(json.dumps(entry) + "\n")
