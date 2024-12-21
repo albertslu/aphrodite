@@ -9,6 +9,25 @@ import json
 file_path = "venusdataset.xlsx"  # Adjust the file name if necessary
 df = pd.read_excel(file_path, engine='openpyxl', nrows=100)
 
+# Define possible phrases for variation
+phrases_start = [
+    "I'm looking for",
+    "I want",
+    "Seeking",
+    "Hoping to meet",
+    "Prefer someone who is",
+    "Searching for"
+]
+
+phrases_end = [
+    "Prefer someone from",
+    "Ideally located in",
+    "Hoping they are from",
+    "Someone residing in",
+    "Based near"
+]
+
+
 # Define a function to format data into JSONL format
 def format_data(row):
     prompt = (
