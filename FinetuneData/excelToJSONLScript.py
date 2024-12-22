@@ -6,6 +6,12 @@ import random
 file_path = "venusdataset.xlsx"  # Adjust the file name if necessary
 df = pd.read_excel(file_path, engine='openpyxl', nrows=20)
 
+# Normalize gender terms
+gender_map = {
+    "m": "male", "man": "male", "boy": "male", "men": "male", "male": "male",
+    "f": "female", "woman": "female", "girl": "female", "women": "female", "female": "female"
+}
+
 # Define possible phrases for variation
 phrases_start = [
     "Looking for",
@@ -54,6 +60,10 @@ def infer_random_hobby():
     hobbies = ["hiking", "reading", "dancing", "cooking", "traveling", "exploring nature", "fitness"]
     return random.choice(hobbies)
 
+# Define a function to normalize gender
+def normalize_gender(gender):
+    return gender_map.get(gender.lower(), "unknown")  # Map gender or use "unknown" if not in the map
+
 # Define a function to format data into JSONL format
 def format_data(row):
     # Randomly select attributes and phrases
@@ -63,11 +73,14 @@ def format_data(row):
     random_hobby = infer_random_hobby()
     template = random.choice(prompt_templates)
 
+    # Normalize gender
+    normalized_gender = normalize_gender(row["sex"])
+
     # Fill in the template with attributes
     prompt = template.format(
         start_phrase=start_phrase,
         age=row["age"],
-        gender=row["sex"],
+        gender=normalized_gender,
         orientation=row["orientation"],
         trait=trait,
         physical=physical,
@@ -77,7 +90,7 @@ def format_data(row):
     # Include the entire row (multiple fields) in the completion
     completion = {
         "age": row["age"],
-        "sex": row["sex"],
+        "sex": normalized_gender,
         "orientation": row["orientation"],
         "body_type": row["body_type"],
         "location": row["location"],
@@ -87,14 +100,18 @@ def format_data(row):
     
     return {"prompt": prompt, "completion": json.dumps(completion)}
 
-# Drop rows where critical columns are missing
+# Drop rows where critical columns are missing, and log the dropped rows
+initial_count = len(df)
 df = df.dropna(subset=['age', 'sex', 'orientation', 'body_type', 'location', 'essay0'])
+final_count = len(df)
+
+print(f"Rows dropped due to missing values: {initial_count - final_count}")
 
 # Generate JSONL data for the first 20 entries
 jsonl_data = [format_data(row) for _, row in df.iterrows()]
 
 # Save to a JSONL file
-output_file = "formatted_profiles_20.jsonl"
+output_file = "formatted_profiles_20_normalized.jsonl"
 with open(output_file, 'w') as f:
     for entry in jsonl_data:
         f.write(json.dumps(entry) + "\n")
