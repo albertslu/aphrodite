@@ -2,12 +2,9 @@ import pandas as pd
 import json
 import random
 
-# Ensure you have the necessary library installed
-# pip install openpyxl
-
-# Load the first 100 rows of the Excel file
+# Load the first 20 rows of the Excel file
 file_path = "venusdataset.xlsx"  # Adjust the file name if necessary
-df = pd.read_excel(file_path, engine='openpyxl', nrows=100)
+df = pd.read_excel(file_path, engine='openpyxl', nrows=20)
 
 # Define possible phrases for variation
 phrases_start = [
@@ -15,9 +12,8 @@ phrases_start = [
     "I want to meet",
     "Seeking someone who is",
     "Hoping to find",
-    "Would love to meet",
-    "Searching for",
-    "Dreaming of meeting"
+    "Dreaming of meeting",
+    "Searching for"
 ]
 
 # Define traits, hobbies, and other descriptors for variety
@@ -78,18 +74,27 @@ def format_data(row):
         random_hobby=random_hobby
     )
     
-    # The completion is just the essay (description of the profile)
-    completion = row['essay0'] if pd.notna(row['essay0']) else "No description available."
-    return {"prompt": prompt, "completion": completion}
+    # Include the entire row (multiple fields) in the completion
+    completion = {
+        "age": row["age"],
+        "sex": row["sex"],
+        "orientation": row["orientation"],
+        "body_type": row["body_type"],
+        "location": row["location"],
+        "essay0": row["essay0"] if pd.notna(row["essay0"]) else "",
+        "essay1": row["essay1"] if pd.notna(row["essay1"]) else ""
+    }
+    
+    return {"prompt": prompt, "completion": json.dumps(completion)}
 
-# Drop rows where 'essay0' or critical columns are missing
-df = df.dropna(subset=['age', 'sex', 'orientation', 'essay0'])
+# Drop rows where critical columns are missing
+df = df.dropna(subset=['age', 'sex', 'orientation', 'body_type', 'location', 'essay0'])
 
-# Generate JSONL data for the first 100 entries
+# Generate JSONL data for the first 20 entries
 jsonl_data = [format_data(row) for _, row in df.iterrows()]
 
 # Save to a JSONL file
-output_file = "formatted_profiles_100_randomized.jsonl"
+output_file = "formatted_profiles_20.jsonl"
 with open(output_file, 'w') as f:
     for entry in jsonl_data:
         f.write(json.dumps(entry) + "\n")
