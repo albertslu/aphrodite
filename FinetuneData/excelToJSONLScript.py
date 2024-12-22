@@ -4,7 +4,7 @@ import random
 
 # Load the first 20 rows of the Excel file
 file_path = "venusdataset.xlsx"  # Adjust the file name if necessary
-df = pd.read_excel(file_path, engine='openpyxl', nrows=20)
+df = pd.read_excel(file_path, engine='openpyxl', nrows=30)
 
 # Normalize gender terms
 gender_map = {
@@ -111,7 +111,7 @@ print(f"Rows dropped due to missing values: {initial_count - final_count}")
 jsonl_data = [format_data(row) for _, row in df.iterrows()]
 
 # Save to a JSONL file
-output_file = "formatted_profiles_20_normalized.jsonl"
+output_file = "formatted_profiles_30_normalized.jsonl"
 with open(output_file, 'w') as f:
     for entry in jsonl_data:
         f.write(json.dumps(entry) + "\n")
