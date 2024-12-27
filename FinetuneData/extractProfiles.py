@@ -25,5 +25,9 @@ def extract_profiles(df, num_profiles=5):
 # Extract the first 5 profiles for testing
 profiles = extract_profiles(df, num_profiles=5)
 
-# Format profiles as JSON for easy use in prompts
-print(json.dumps(profiles, indent=4))
+# Save profiles to a JSON file
+output_file = "profiles.json"
+with open(output_file, "w") as f:
+    json.dump(profiles, f, indent=4)
+
+print(f"Profiles successfully saved to {output_file}")
