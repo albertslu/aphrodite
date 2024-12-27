@@ -2,7 +2,7 @@ import openai
 import json
 import pandas as pd
 
-openai.api_key = ""
+openai.api_key = "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"
 
 # Load JSONL prompts
 with open("formatted_profiles_100.jsonl", "r") as f:
