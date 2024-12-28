@@ -6,7 +6,7 @@ file_path = "venusdataset.xlsx"  # Replace with your local file path
 df = pd.read_excel(file_path, engine="openpyxl")
 
 # Process profiles
-def extract_profiles_with_conversion(df, num_profiles=100):
+def extract_profiles_with_conversion(df, num_profiles=10):
     profiles = []
     for i, row in df.iterrows():
         profile = {}
@@ -23,10 +23,10 @@ def extract_profiles_with_conversion(df, num_profiles=100):
     return profiles
 
 # Extract the first 100 profiles
-profiles_converted = extract_profiles_with_conversion(df, num_profiles=100)
+profiles_converted = extract_profiles_with_conversion(df, num_profiles=10)
 
 # Save profiles to a JSON file
-output_file = "extracted_100_profiles.json"
+output_file = "extracted_10_profiles.json"
 with open(output_file, "w") as f:
     json.dump(profiles_converted, f, indent=4)
 

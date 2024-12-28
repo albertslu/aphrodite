@@ -2,7 +2,7 @@ import pandas as pd
 import json
 import random
 
-# Load the first 20 rows of the Excel file
+# Load the first 100 rows of the Excel file
 file_path = "venusdataset.xlsx"  # Adjust the file name if necessary
 df = pd.read_excel(file_path, engine='openpyxl', nrows=100)
 
@@ -48,11 +48,11 @@ physical_features = [
 
 # Random templates for prompts
 prompt_templates = [
-    "{start_phrase} a {age} year-old {gender} who is {trait} and {physical}.",
-    "{start_phrase} someone {physical} and {trait}, aged {age}.",
-    "{start_phrase} a partner who is {trait} and {physical}.",
-    "{start_phrase} a {age} year-old, {gender}, {orientation} partner.",
-    "{start_phrase} someone who is {physical} and loves {random_hobby}."
+    "{start_phrase} a {age_range} {gender} who is {trait} and {physical}.",
+    "{start_phrase} someone {physical} and {trait}, aged {age_range}.",
+    "{start_phrase} a partner who is {trait} and {physical}, between {age_range}.",
+    "{start_phrase} a {age_range}, {gender}, {orientation} partner.",
+    "{start_phrase} someone who is {physical} and loves {random_hobby}, aged {age_range}."
 ]
 
 # Function to infer hobbies or add randomness
@@ -63,6 +63,12 @@ def infer_random_hobby():
 # Define a function to normalize gender
 def normalize_gender(gender):
     return gender_map.get(gender.lower(), "unknown")  # Map gender or use "unknown" if not in the map
+
+# Define a function to generate age range
+def generate_age_range(age):
+    lower_bound = max(age - random.randint(1, 5), 18)  # Ensure age is not below 18
+    upper_bound = age + random.randint(1, 5)
+    return f"{lower_bound}-{upper_bound}"
 
 # Define a function to format data into JSONL format
 def format_data(row):
@@ -76,10 +82,13 @@ def format_data(row):
     # Normalize gender
     normalized_gender = normalize_gender(row["sex"])
 
+    # Generate age range
+    age_range = generate_age_range(row["age"])
+
     # Fill in the template with attributes
     prompt = template.format(
         start_phrase=start_phrase,
-        age=row["age"],
+        age_range=age_range,
         gender=normalized_gender,
         orientation=row["orientation"],
         trait=trait,
@@ -111,7 +120,7 @@ print(f"Rows dropped due to missing values: {initial_count - final_count}")
 jsonl_data = [format_data(row) for _, row in df.iterrows()]
 
 # Save to a JSONL file
-output_file = "formatted_profiles_100_normalized.jsonl"
+output_file = "formatted_profiles_with_age_range.jsonl"
 with open(output_file, 'w') as f:
     for entry in jsonl_data:
         f.write(json.dumps(entry) + "\n")
