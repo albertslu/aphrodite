@@ -21,7 +21,7 @@ phrases_start = [
     "Searching for"
 ]
 
-# Define traits, hobbies, physical features, and other descriptors for variety
+# Define traits, hobbies, physical features, and education terms for variety
 traits = [
     "fun-loving",
     "intellectual",
@@ -45,13 +45,22 @@ physical_features = [
     "with bright eyes"
 ]
 
-# Refined prompt templates with optional ethnicity
+education_terms = [
+    "college-educated",
+    "with a college degree",
+    "holding a master's degree",
+    "highly educated",
+    "currently pursuing a degree",
+    "with a strong educational background"
+]
+
+# Refined prompt templates with optional education
 prompt_templates = [
-    "{start_phrase} someone {trait} and {physical}, aged {age_range}.",
+    "{start_phrase} someone {physical}{education} and {trait}, aged {age_range}.",
     "{start_phrase} a {age_range} {gender} who is {ethnicity} and {trait}.",
     "{start_phrase} a {age_range} {gender}, {orientation} partner who is {trait}.",
-    "{start_phrase} a {age_range} {gender} with {physical} looks and {ethnicity}.",
-    "{start_phrase} someone who loves {random_hobby} and is {ethnicity}, aged {age_range}."
+    "{start_phrase} a {age_range} {gender} with {physical} looks{education} and {ethnicity}.",
+    "{start_phrase} someone who loves {random_hobby}{education}, aged {age_range}."
 ]
 
 # Function to infer hobbies or add randomness
@@ -73,6 +82,20 @@ def generate_age_range(age):
 def normalize_ethnicity(ethnicity):
     return ethnicity if isinstance(ethnicity, str) and ethnicity.strip() else "unknown"
 
+# Function to decide if education is included
+def include_education(row):
+    return random.choice([True, False]) and pd.notna(row["education"])
+
+# Function to clean and format prompts
+def clean_prompt(prompt):
+    # Remove multiple spaces, handle trailing commas or conjunctions
+    prompt = prompt.replace(", ,", ",").replace(" ,", ",").strip()
+    if ", and" in prompt:
+        prompt = prompt.replace(", and", " and")
+    if prompt.endswith(","):
+        prompt = prompt[:-1]
+    return prompt
+
 # Define a function to format data into JSONL format
 def format_data(row):
     # Randomly select attributes and phrases
@@ -80,7 +103,6 @@ def format_data(row):
     trait = random.choice(traits)
     physical = random.choice(physical_features)
     random_hobby = infer_random_hobby()
-    template = random.choice(prompt_templates)
 
     # Normalize gender and ethnicity
     normalized_gender = normalize_gender(row["sex"])
@@ -89,7 +111,11 @@ def format_data(row):
     # Generate age range
     age_range = generate_age_range(row["age"])
 
-    # Fill in the template with attributes
+    # Optionally include education
+    education = f", {random.choice(education_terms)}" if include_education(row) else ""
+
+    # Select a random template and format it
+    template = random.choice(prompt_templates)
     prompt = template.format(
         start_phrase=start_phrase,
         age_range=age_range,
@@ -98,8 +124,12 @@ def format_data(row):
         trait=trait,
         physical=physical,
         ethnicity=normalized_ethnicity,
+        education=education,
         random_hobby=random_hobby
     )
+
+    # Clean up the prompt for grammatical correctness
+    prompt = clean_prompt(prompt)
 
     # Include the entire row (multiple fields) in the completion
     completion = {
@@ -109,6 +139,7 @@ def format_data(row):
         "ethnicity": normalized_ethnicity,
         "body_type": row["body_type"],
         "location": row["location"],
+        "education": row["education"] if pd.notna(row["education"]) else "",
         "essay0": row["essay0"] if pd.notna(row["essay0"]) else "",
         "essay1": row["essay1"] if pd.notna(row["essay1"]) else ""
     }
@@ -126,7 +157,7 @@ print(f"Rows dropped due to missing values: {initial_count - final_count}")
 jsonl_data = [format_data(row) for _, row in df.iterrows()]
 
 # Save to a JSONL file
-output_file = "formatted_profiles_with_ethnicity.jsonl"
+output_file = "formatted_profiles_cleaned.jsonl"
 with open(output_file, 'w') as f:
     for entry in jsonl_data:
         f.write(json.dumps(entry) + "\n")
