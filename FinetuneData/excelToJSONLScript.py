@@ -16,7 +16,6 @@ gender_map = {
 phrases_start = [
     "Looking for",
     "I want to meet",
-    "Seeking someone who is",
     "Hoping to find",
     "Dreaming of meeting",
     "Searching for"
@@ -46,13 +45,12 @@ physical_features = [
     "with bright eyes"
 ]
 
-# Random templates for prompts (fixed redundancy issues)
+# Refined prompt templates
 prompt_templates = [
+    "{start_phrase} someone {trait} and {physical}, aged {age_range}.",
     "{start_phrase} a {age_range} {gender} who is {trait} and {physical}.",
-    "{start_phrase} someone {physical} and {trait}, aged {age_range}.",
-    "{start_phrase} a partner who is {trait} and {physical}, between {age_range}.",
-    "{start_phrase} a {age_range} {gender}, {orientation} partner.",
-    "{start_phrase} someone who loves {random_hobby}, is {physical}, and aged {age_range}."
+    "{start_phrase} a partner who loves {random_hobby}, aged {age_range}.",
+    "{start_phrase} a {age_range} {gender}, {orientation} partner."
 ]
 
 # Function to infer hobbies or add randomness
