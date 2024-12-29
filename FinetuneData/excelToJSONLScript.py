@@ -48,11 +48,11 @@ physical_features = [
 
 # Random templates for prompts
 prompt_templates = [
-    "{start_phrase} a {age_range} {gender} who is {trait} and {physical}.",
-    "{start_phrase} someone {physical} and {trait}, aged {age_range}.",
-    "{start_phrase} a partner who is {trait} and {physical}, between {age_range}.",
-    "{start_phrase} a {age_range}, {gender}, {orientation} partner.",
-    "{start_phrase} someone who is {physical} and loves {random_hobby}, aged {age_range}."
+    "{start_phrase} a {age_range} {gender} who is {trait} and {physical}, and belongs to the {ethnicity} ethnicity.",
+    "{start_phrase} someone {physical} and {trait}, aged {age_range}, from the {ethnicity} ethnicity group.",
+    "{start_phrase} a partner who is {trait}, {physical}, and has {education}.",
+    "{start_phrase} a {age_range}, {gender}, {orientation} partner, with an education background of {education}.",
+    "{start_phrase} someone who is {physical}, loves {random_hobby}, and belongs to the {ethnicity} group, aged {age_range}."
 ]
 
 # Function to infer hobbies or add randomness
@@ -93,7 +93,9 @@ def format_data(row):
         orientation=row["orientation"],
         trait=trait,
         physical=physical,
-        random_hobby=random_hobby
+        random_hobby=random_hobby,
+        ethnicity=row["ethnicity"],
+        education=row["education"]
     )
     
     # Include the entire row (multiple fields) in the completion
@@ -103,6 +105,8 @@ def format_data(row):
         "orientation": row["orientation"],
         "body_type": row["body_type"],
         "location": row["location"],
+        "ethnicity": row["ethnicity"],
+        "education": row["education"],
         "essay0": row["essay0"] if pd.notna(row["essay0"]) else "",
         "essay1": row["essay1"] if pd.notna(row["essay1"]) else ""
     }
@@ -111,7 +115,7 @@ def format_data(row):
 
 # Drop rows where critical columns are missing, and log the dropped rows
 initial_count = len(df)
-df = df.dropna(subset=['age', 'sex', 'orientation', 'body_type', 'location', 'essay0'])
+df = df.dropna(subset=['age', 'sex', 'orientation', 'body_type', 'location', 'ethnicity', 'education', 'essay0'])
 final_count = len(df)
 
 print(f"Rows dropped due to missing values: {initial_count - final_count}")
@@ -120,7 +124,7 @@ print(f"Rows dropped due to missing values: {initial_count - final_count}")
 jsonl_data = [format_data(row) for _, row in df.iterrows()]
 
 # Save to a JSONL file
-output_file = "formatted_profiles_with_age_range.jsonl"
+output_file = "formatted_profiles_with_ethnicity_education.jsonl"
 with open(output_file, 'w') as f:
     for entry in jsonl_data:
         f.write(json.dumps(entry) + "\n")
