@@ -46,13 +46,13 @@ physical_features = [
     "with bright eyes"
 ]
 
-# Random templates for prompts
+# Random templates for prompts (fixed redundancy issues)
 prompt_templates = [
     "{start_phrase} a {age_range} {gender} who is {trait} and {physical}.",
     "{start_phrase} someone {physical} and {trait}, aged {age_range}.",
     "{start_phrase} a partner who is {trait} and {physical}, between {age_range}.",
-    "{start_phrase} a {age_range}, {gender}, {orientation} partner.",
-    "{start_phrase} someone who is {physical} and loves {random_hobby}, aged {age_range}."
+    "{start_phrase} a {age_range} {gender}, {orientation} partner.",
+    "{start_phrase} someone who loves {random_hobby}, is {physical}, and aged {age_range}."
 ]
 
 # Function to infer hobbies or add randomness
@@ -95,7 +95,7 @@ def format_data(row):
         physical=physical,
         random_hobby=random_hobby
     )
-    
+
     # Include the entire row (multiple fields) in the completion
     completion = {
         "age": row["age"],
@@ -106,7 +106,7 @@ def format_data(row):
         "essay0": row["essay0"] if pd.notna(row["essay0"]) else "",
         "essay1": row["essay1"] if pd.notna(row["essay1"]) else ""
     }
-    
+
     return {"prompt": prompt, "completion": json.dumps(completion)}
 
 # Drop rows where critical columns are missing, and log the dropped rows
