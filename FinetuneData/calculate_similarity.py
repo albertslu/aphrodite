@@ -1,16 +1,17 @@
+import openai
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 import json
 import os
 from dotenv import load_dotenv
 from openai import OpenAI
+import jsonlines
 
 # Load environment variables from .env file
 load_dotenv()
 
 # Initialize the OpenAI client
 client = OpenAI(api_key=os.getenv("SECRET_API_KEY"))
-
 
 # Function to generate embeddings
 def generate_embedding(text):
@@ -20,11 +21,15 @@ def generate_embedding(text):
     )
     return response.data[0].embedding
 
-
-# Load profiles
+# Load profiles for matching
 with open("extracted_100_profiles.json", "r") as file:
     profiles = json.load(file)
 
+# Load prompts from JSONL file
+prompts = []
+with jsonlines.open('formatted_profiles_cleaned.jsonl', 'r') as reader:
+    for obj in reader:
+        prompts.append(obj['prompt'])
 
 # Generate embeddings for profiles
 profile_embeddings = []
@@ -40,19 +45,6 @@ for profile in profiles:
     if profile_text.strip():  # Only process if there's text
         embedding = generate_embedding(profile_text)
         profile_embeddings.append(embedding)
-
-# Save profile embeddings
-np.save("profile_embeddings.npy", profile_embeddings)
-
-# Define prompts
-prompts = [
-    "Looking for someone adventurous and kind-hearted, aged 25-30.",
-    "Seeking a tall, athletic partner who loves hiking.",
-    "Interested in an intellectual who enjoys deep conversations about philosophy and art.",
-    "Looking for a creative person who is into music and artistic expression.",
-    "Seeking someone who is tech-savvy and works in software development.",
-    "Want to meet someone who enjoys trying different cuisines and traveling."
-]
 
 # Generate embeddings for prompts
 prompt_embeddings = []
@@ -71,11 +63,13 @@ for i, prompt_embedding in enumerate(prompt_embeddings):
     for idx in top_matches:
         profile = profiles[int(idx)]  # Convert numpy.int64 to Python int
         match_info = {
-            "profile_index": int(idx),  # Convert numpy.int64 to Python int
-            "similarity_score": float(similarities[idx]),  # Convert numpy.float64 to Python float
-            "age": int(profile.get("age", -1)),  # Convert to int, use -1 for N/A
+            "profile_index": int(idx),
+            "similarity_score": float(similarities[idx]),
+            "age": int(profile.get("age", -1)),
             "location": profile.get("location", "N/A"),
-            "education": profile.get("education", "N/A")
+            "education": profile.get("education", "N/A"),
+            "ethnicity": profile.get("ethnicity", "N/A"),
+            "body_type": profile.get("body_type", "N/A")
         }
         matches_info.append(match_info)
     
