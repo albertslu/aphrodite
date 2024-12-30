@@ -11,7 +11,7 @@ def clean_value(value):
     if pd.isna(value) or value == "":
         return None
     if isinstance(value, pd.Timestamp):
-        return value.strftime("%Y-%m-%d %H:%M:%S")
+        return value.strftime("%Y-%m-%d-%H-%M")
     return str(value).lower().strip()
 
 def clean_age(age):
@@ -25,13 +25,25 @@ def clean_age(age):
     except (ValueError, TypeError):
         return None
 
-def combine_essays(row):
-    essays = []
-    for i in range(10):  # essays 0-9
-        essay = clean_value(row.get(f'essay{i}'))
-        if essay:
-            essays.append(essay)
-    return ' '.join(essays) if essays else None
+def clean_height(height):
+    try:
+        if pd.isna(height):
+            return None
+        height_val = int(float(height))
+        if 48 <= height_val <= 96:  # Basic height validation (4ft to 8ft)
+            return height_val
+        return None
+    except (ValueError, TypeError):
+        return None
+
+def clean_income(income):
+    try:
+        if pd.isna(income):
+            return -1
+        income_val = int(float(income))
+        return income_val
+    except (ValueError, TypeError):
+        return -1
 
 # Process profiles with better cleaning and validation
 def extract_profiles_with_conversion(df, num_profiles=250):
@@ -45,21 +57,40 @@ def extract_profiles_with_conversion(df, num_profiles=250):
             
         profile = {
             "age": age,
-            "gender": clean_value(row.get('sex')),  # Changed from gender to sex
+            "status": clean_value(row.get('status')),
+            "sex": clean_value(row.get('sex')),
             "orientation": clean_value(row.get('orientation')),
-            "ethnicity": clean_value(row.get('ethnicity')),
-            "height": clean_value(row.get('height')),
             "body_type": clean_value(row.get('body_type')),
+            "diet": clean_value(row.get('diet')),
+            "drinks": clean_value(row.get('drinks')),
+            "drugs": clean_value(row.get('drugs')),
             "education": clean_value(row.get('education')),
-            "occupation": clean_value(row.get('job')),  # Changed from occupation to job
-            "about": combine_essays(row)  # Combine all essays into about field
+            "ethnicity": clean_value(row.get('ethnicity')),
+            "height": clean_height(row.get('height')),
+            "income": clean_income(row.get('income')),
+            "job": clean_value(row.get('job')),
+            "last_online": clean_value(row.get('last_online')),
+            "location": clean_value(row.get('location')),
+            "offspring": clean_value(row.get('offspring')),
+            "pets": clean_value(row.get('pets')),
+            "religion": clean_value(row.get('religion')),
+            "sign": clean_value(row.get('sign')),
+            "smokes": clean_value(row.get('smokes')),
+            "speaks": clean_value(row.get('speaks'))
         }
+        
+        # Add all essays
+        for i in range(10):
+            essay_key = f'essay{i}'
+            essay_value = clean_value(row.get(essay_key))
+            if essay_value:  # Only add non-empty essays
+                profile[essay_key] = essay_value
         
         # Only add profiles with valid required fields
         if (profile["age"] and 
-            profile["gender"] and 
+            profile["sex"] and 
             profile["orientation"] and 
-            all(profile[field] is not None for field in ["gender", "orientation"])):
+            all(profile[field] is not None for field in ["sex", "orientation"])):
             profiles.append(profile)
         else:
             invalid_count += 1
