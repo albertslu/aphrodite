@@ -65,13 +65,15 @@ def save_progress(progress_data):
     with open("evaluation_progress.json", "w") as f:
         json.dump(progress_data, f, indent=2)
 
-def save_final_results(evaluation_results, total_matches, accurate_matches):
+def save_final_results(evaluation_results, total_matches, accurate_matches, yes_count, no_count):
     overall_accuracy = (accurate_matches / total_matches) * 100 if total_matches > 0 else 0
     
     output = {
         "overall_accuracy": overall_accuracy,
         "total_matches_evaluated": total_matches,
         "accurate_matches": accurate_matches,
+        "yes_matches": yes_count,
+        "no_matches": no_count,
         "evaluation_timestamp": datetime.now().isoformat(),
         "detailed_results": evaluation_results
     }
@@ -95,6 +97,14 @@ completed_prompts = set(progress_data["completed_prompts"])
 total_matches = sum(len(result["matches"]) for result in evaluation_results)
 accurate_matches = sum(
     sum(1 for match in result["matches"] if match["is_accurate_match"])
+    for result in evaluation_results
+)
+yes_count = sum(
+    sum(1 for match in result["matches"] if match["is_accurate_match"])
+    for result in evaluation_results
+)
+no_count = sum(
+    sum(1 for match in result["matches"] if not match["is_accurate_match"])
     for result in evaluation_results
 )
 
@@ -129,6 +139,9 @@ for i, result in enumerate(results):
         total_matches += 1
         if is_match:
             accurate_matches += 1
+            yes_count += 1
+        else:
+            no_count += 1
             
         # Save progress after each match
         evaluation_results.append(prompt_evaluation)
@@ -142,10 +155,11 @@ for i, result in enumerate(results):
         time.sleep(0.5)
 
 # Save final results
-overall_accuracy = save_final_results(evaluation_results, total_matches, accurate_matches)
+overall_accuracy = save_final_results(evaluation_results, total_matches, accurate_matches, yes_count, no_count)
 
 print(f"\nEvaluation completed!")
 print(f"Overall accuracy: {overall_accuracy:.2f}%")
 print(f"Total matches evaluated: {total_matches}")
-print(f"Accurate matches: {accurate_matches}")
+print(f"Yes matches: {yes_count} ({(yes_count/total_matches*100):.2f}%)")
+print(f"No matches: {no_count} ({(no_count/total_matches*100):.2f}%)")
 print("Detailed results saved to evaluation_results.json")
