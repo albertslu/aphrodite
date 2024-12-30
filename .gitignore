@@ -10,3 +10,6 @@ node_modules/
 # Ignore image files (if you don't want to include them)
 data/images/
 
+# .gitignore
+.env
+*.env

@@ -2,9 +2,14 @@ import openai
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 import json
+import os
+from dotenv import load_dotenv
 
-# Set your OpenAI API key
-openai.api_key = "your-api-key"
+# Load environment variables from .env file
+load_dotenv()
+
+# Set your OpenAI API key from environment variable
+openai.api_key = os.getenv('SECRET_API_KEY')
 
 # Function to generate embeddings
 def generate_embedding(text):
