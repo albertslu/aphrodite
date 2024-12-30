@@ -48,7 +48,10 @@ np.save("profile_embeddings.npy", profile_embeddings)
 prompts = [
     "Looking for someone adventurous and kind-hearted, aged 25-30.",
     "Seeking a tall, athletic partner who loves hiking.",
-    # Add more prompts here
+    "Interested in an intellectual who enjoys deep conversations about philosophy and art.",
+    "Looking for a creative person who is into music and artistic expression.",
+    "Seeking someone who is tech-savvy and works in software development.",
+    "Want to meet someone who enjoys trying different cuisines and traveling."
 ]
 
 # Generate embeddings for prompts
@@ -62,16 +65,27 @@ results = []
 for i, prompt_embedding in enumerate(prompt_embeddings):
     similarities = cosine_similarity([prompt_embedding], profile_embeddings)[0]
     top_matches = np.argsort(similarities)[-3:][::-1]  # Top 3 matches
-    results.append(
-        {
-            "prompt": prompts[i],
-            "top_matches": top_matches.tolist(),
-            "similarity_scores": similarities[top_matches].tolist(),
+    
+    # Get the actual profile information for top matches
+    matches_info = []
+    for idx in top_matches:
+        profile = profiles[idx]
+        match_info = {
+            "profile_index": idx,
+            "similarity_score": float(similarities[idx]),
+            "age": profile.get("age", "N/A"),
+            "location": profile.get("location", "N/A"),
+            "education": profile.get("education", "N/A")
         }
-    )
+        matches_info.append(match_info)
+    
+    results.append({
+        "prompt": prompts[i],
+        "matches": matches_info
+    })
 
-# Save results
+# Save results with pretty printing
 with open("similarity_results.json", "w") as file:
-    json.dump(results, file)
+    json.dump(results, file, indent=2)
 
 print("Similarity calculations saved to similarity_results.json")
