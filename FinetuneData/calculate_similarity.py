@@ -1,34 +1,45 @@
-import openai
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 import json
 import os
 from dotenv import load_dotenv
+from openai import OpenAI
 
 # Load environment variables from .env file
 load_dotenv()
 
-# Set your OpenAI API key from environment variable
-openai.api_key = os.getenv('SECRET_API_KEY')
+# Initialize the OpenAI client
+client = OpenAI(api_key=os.getenv("SECRET_API_KEY"))
+
 
 # Function to generate embeddings
 def generate_embedding(text):
-    response = openai.Embedding.create(
+    response = client.embeddings.create(
         input=text,
         model="text-embedding-ada-002"
     )
-    return response['data'][0]['embedding']
+    return response.data[0].embedding
+
 
 # Load profiles
-with open("profiles.json", "r") as file:
+with open("extracted_100_profiles.json", "r") as file:
     profiles = json.load(file)
+
 
 # Generate embeddings for profiles
 profile_embeddings = []
 for profile in profiles:
-    profile_text = profile['essay0']  # Use relevant fields (e.g., essay0)
-    embedding = generate_embedding(profile_text)
-    profile_embeddings.append(embedding)
+    # Combine all essay fields
+    essay_fields = [f"essay{i}" for i in range(10)]
+    profile_texts = []
+    for field in essay_fields:
+        if field in profile and profile[field]:
+            profile_texts.append(profile[field])
+    
+    profile_text = " ".join(profile_texts)
+    if profile_text.strip():  # Only process if there's text
+        embedding = generate_embedding(profile_text)
+        profile_embeddings.append(embedding)
 
 # Save profile embeddings
 np.save("profile_embeddings.npy", profile_embeddings)
@@ -51,11 +62,13 @@ results = []
 for i, prompt_embedding in enumerate(prompt_embeddings):
     similarities = cosine_similarity([prompt_embedding], profile_embeddings)[0]
     top_matches = np.argsort(similarities)[-3:][::-1]  # Top 3 matches
-    results.append({
-        "prompt": prompts[i],
-        "top_matches": top_matches.tolist(),
-        "similarity_scores": similarities[top_matches].tolist()
-    })
+    results.append(
+        {
+            "prompt": prompts[i],
+            "top_matches": top_matches.tolist(),
+            "similarity_scores": similarities[top_matches].tolist(),
+        }
+    )
 
 # Save results
 with open("similarity_results.json", "w") as file:
