@@ -69,11 +69,11 @@ for i, prompt_embedding in enumerate(prompt_embeddings):
     # Get the actual profile information for top matches
     matches_info = []
     for idx in top_matches:
-        profile = profiles[idx]
+        profile = profiles[int(idx)]  # Convert numpy.int64 to Python int
         match_info = {
-            "profile_index": idx,
-            "similarity_score": float(similarities[idx]),
-            "age": profile.get("age", "N/A"),
+            "profile_index": int(idx),  # Convert numpy.int64 to Python int
+            "similarity_score": float(similarities[idx]),  # Convert numpy.float64 to Python float
+            "age": int(profile.get("age", -1)),  # Convert to int, use -1 for N/A
             "location": profile.get("location", "N/A"),
             "education": profile.get("education", "N/A")
         }

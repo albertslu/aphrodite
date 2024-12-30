@@ -1,0 +1,158 @@
+[
+  {
+    "prompt": "Looking for someone adventurous and kind-hearted, aged 25-30.",
+    "matches": [
+      {
+        "profile_index": 52,
+        "similarity_score": 0.8204045223243382,
+        "age": 31,
+        "location": "san francisco, california",
+        "education": "graduated from college/university"
+      },
+      {
+        "profile_index": 27,
+        "similarity_score": 0.8199308928989588,
+        "age": 22,
+        "location": "oakland, california",
+        "education": "N/A"
+      },
+      {
+        "profile_index": 71,
+        "similarity_score": 0.8191624800942279,
+        "age": 33,
+        "location": "san francisco, california",
+        "education": "graduated from college/university"
+      }
+    ]
+  },
+  {
+    "prompt": "Seeking a tall, athletic partner who loves hiking.",
+    "matches": [
+      {
+        "profile_index": 90,
+        "similarity_score": 0.8371517599313858,
+        "age": 24,
+        "location": "san francisco, california",
+        "education": "graduated from college/university"
+      },
+      {
+        "profile_index": 78,
+        "similarity_score": 0.8270551140945035,
+        "age": 34,
+        "location": "san francisco, california",
+        "education": "graduated from college/university"
+      },
+      {
+        "profile_index": 27,
+        "similarity_score": 0.8162562611536172,
+        "age": 22,
+        "location": "oakland, california",
+        "education": "N/A"
+      }
+    ]
+  },
+  {
+    "prompt": "Interested in an intellectual who enjoys deep conversations about philosophy and art.",
+    "matches": [
+      {
+        "profile_index": 0,
+        "similarity_score": 0.8565354559614926,
+        "age": 22,
+        "location": "south san francisco, california",
+        "education": "working on college/university"
+      },
+      {
+        "profile_index": 71,
+        "similarity_score": 0.8383672428276248,
+        "age": 33,
+        "location": "san francisco, california",
+        "education": "graduated from college/university"
+      },
+      {
+        "profile_index": 57,
+        "similarity_score": 0.8308574650683638,
+        "age": 21,
+        "location": "san francisco, california",
+        "education": "working on college/university"
+      }
+    ]
+  },
+  {
+    "prompt": "Looking for a creative person who is into music and artistic expression.",
+    "matches": [
+      {
+        "profile_index": 9,
+        "similarity_score": 0.8444318707095466,
+        "age": 37,
+        "location": "san mateo, california",
+        "education": "working on two-year college"
+      },
+      {
+        "profile_index": 89,
+        "similarity_score": 0.8328391752387809,
+        "age": 37,
+        "location": "san francisco, california",
+        "education": "graduated from college/university"
+      },
+      {
+        "profile_index": 59,
+        "similarity_score": 0.8233119105733218,
+        "age": 31,
+        "location": "san francisco, california",
+        "education": "graduated from college/university"
+      }
+    ]
+  },
+  {
+    "prompt": "Seeking someone who is tech-savvy and works in software development.",
+    "matches": [
+      {
+        "profile_index": 52,
+        "similarity_score": 0.8012125770660963,
+        "age": 31,
+        "location": "san francisco, california",
+        "education": "graduated from college/university"
+      },
+      {
+        "profile_index": 71,
+        "similarity_score": 0.7882812065056232,
+        "age": 33,
+        "location": "san francisco, california",
+        "education": "graduated from college/university"
+      },
+      {
+        "profile_index": 39,
+        "similarity_score": 0.787911262785333,
+        "age": 35,
+        "location": "san rafael, california",
+        "education": "graduated from college/university"
+      }
+    ]
+  },
+  {
+    "prompt": "Want to meet someone who enjoys trying different cuisines and traveling.",
+    "matches": [
+      {
+        "profile_index": 54,
+        "similarity_score": 0.8504151969281388,
+        "age": 33,
+        "location": "menlo park, california",
+        "education": "graduated from college/university"
+      },
+      {
+        "profile_index": 19,
+        "similarity_score": 0.8459687597329296,
+        "age": 33,
+        "location": "san francisco, california",
+        "education": "graduated from masters program"
+      },
+      {
+        "profile_index": 88,
+        "similarity_score": 0.8421572398963022,
+        "age": 43,
+        "location": "oakland, california",
+        "education": "two-year college"
+      }
+    ]
+  }
+]
