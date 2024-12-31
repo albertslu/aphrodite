@@ -45,25 +45,36 @@ def extract_orientation(prompt):
 
 def check_basic_criteria(prompt, profile):
     """Check basic non-negotiable criteria (gender, orientation, age)"""
+    # Age check
     min_age, max_age = extract_age_range(prompt)
+    if min_age is not None and max_age is not None:
+        profile_age = profile.get('age')
+        if profile_age is None:
+            return False, "Age information missing"
+        # Add flexibility to age range (+/- 2 years)
+        if not (min_age - 2 <= profile_age <= max_age + 2):
+            return False, "Age outside preferred range"
+    
+    # Gender check
     preferred_gender = extract_gender_preference(prompt)
-    preferred_orientation = extract_orientation(prompt)
-    
-    # Age check - only if age range is specified
-    if min_age and max_age:
-        if not (min_age - 3 <= profile['age'] <= max_age + 3):  # Add more flexibility
-            return False, "Age outside specified range"
-    
-    # Gender check - only if gender is specified
-    if preferred_gender and profile['sex'] != preferred_gender:
-        return False, "Gender does not match preference"
+    if preferred_gender:
+        profile_gender = profile.get('sex')
+        if profile_gender is None:
+            return False, "Gender information missing"
+        if profile_gender.lower() != preferred_gender.lower():
+            return False, "Gender does not match preference"
     
     # Orientation check - only if orientation is specified
-    if preferred_orientation and profile['orientation'] != preferred_orientation:
-        # Special case: if profile is bisexual, they can match with straight/gay preferences
-        if profile['orientation'] == 'bisexual':
-            return True, "Passed basic criteria (bisexual matches all preferences)"
-        return False, "Orientation does not match preference"
+    preferred_orientation = extract_orientation(prompt)
+    if preferred_orientation:
+        profile_orientation = profile.get('orientation')
+        if profile_orientation is None:
+            return False, "Orientation information missing"
+        if profile_orientation != preferred_orientation:
+            # Special case: if profile is bisexual, they can match with straight/gay preferences
+            if profile_orientation == 'bisexual':
+                return True, "Passed basic criteria (bisexual matches all preferences)"
+            return False, "Orientation does not match preference"
     
     return True, "Passed basic criteria"
 
@@ -81,21 +92,22 @@ def evaluate_match(prompt, profile_info, retry_count=0):
         evaluation_prompt = f"""
         Given this dating app prompt: "{prompt}"
         And this profile information:
-        - Age: {profile_info['age']}
-        - Gender: {profile_info['sex']}
-        - Orientation: {profile_info['orientation']}
-        - Location: {profile_info['location']}
-        - Education: {profile_info['education']}
-        - Ethnicity: {profile_info['ethnicity']}
-        - Body Type: {profile_info['body_type']}
-        - Height: {profile_info['height']}
-        - Religion: {profile_info['religion']}
+        - Age: {profile_info.get('age', 'N/A')}
+        - Gender: {profile_info.get('sex', 'N/A')}
+        - Orientation: {profile_info.get('orientation', 'N/A')}
+        - Location: {profile_info.get('location', 'N/A')}
+        - Education: {profile_info.get('education', 'N/A')}
+        - Ethnicity: {profile_info.get('ethnicity', 'N/A')}
+        - Body Type: {profile_info.get('body_type', 'N/A')}
+        - Height: {profile_info.get('height', 'N/A')}
+        - Religion: {profile_info.get('religion', 'N/A')}
         
         The profile has already passed basic criteria checks (age/gender/orientation).
         Now evaluate if this profile matches the remaining requirements in the prompt.
         Consider physical attributes (height, body type, ethnicity), location, education, religion, and other specific requirements.
         
         Be somewhat lenient in matching - if most key requirements are met, consider it a match even if some minor preferences don't align perfectly.
+        If a field is 'N/A' and that field is not specifically mentioned in the prompt, ignore it in the evaluation.
         
         Follow this priority order:
         1. Physical/biometric criteria (height, ethnicity, body type)
