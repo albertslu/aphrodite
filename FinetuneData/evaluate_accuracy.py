@@ -145,10 +145,12 @@ def evaluate_batch(prompts_and_profiles, batch_size=5):
     """
     Evaluate multiple profiles in parallel using batched API calls
     """
+    print(f"Starting batch evaluation of {len(prompts_and_profiles)} profiles in batches of {batch_size}...", flush=True)
     batches = [prompts_and_profiles[i:i + batch_size] for i in range(0, len(prompts_and_profiles), batch_size)]
     all_results = []
     
-    for batch in batches:
+    for batch_num, batch in enumerate(batches):
+        print(f"Processing batch {batch_num + 1}/{len(batches)}...", flush=True)
         # Prepare all prompts for the batch
         messages = []
         for prompt, profile in batch:
@@ -219,8 +221,9 @@ def save_progress(progress_data):
         json.dump(progress_data, f)
 
 def save_final_results(evaluation_results, total_matches, accurate_matches, yes_count, no_count):
+    """Save final evaluation results to JSON file"""
     results = {
-        "overall_accuracy": (accurate_matches / total_matches * 100) if total_matches > 0 else 0,
+        "overall_accuracy": (accurate_matches/total_matches*100) if total_matches > 0 else 0,
         "total_matches_evaluated": total_matches,
         "accurate_matches": accurate_matches,
         "yes_matches": yes_count,
@@ -229,22 +232,38 @@ def save_final_results(evaluation_results, total_matches, accurate_matches, yes_
         "detailed_results": evaluation_results
     }
     
-    with open("evaluation_results.json", "w") as f:
+    with open("evaluation_results_500.json", "w") as f:
         json.dump(results, f, indent=2)
 
 # Load similarity results
-print("Loading similarity results...")
-with open("similarity_results.json", "r") as file:
+print("Loading similarity results...", flush=True)
+with open("similarity_results_500.json", "r") as file:
     results = json.load(file)
+print(f"Loaded results for {len(results)} prompts", flush=True)
+
+# Main evaluation loop
+print("Starting evaluation of matches...")
+evaluation_results = []
+total_matches = 0
+accurate_matches = 0
+yes_count = 0
+no_count = 0
 
 # Load progress
 progress_data = load_progress()
 start_index = progress_data.get("current_index", 0)
+print(f"Starting from index {start_index}", flush=True)
 
 # Prepare batches of prompts and profiles
+print("Preparing profiles for evaluation...", flush=True)
 prompts_and_profiles = []
+batch_map = {}  # Map to track which profiles belong to which prompts
+current_idx = 0
+
 with open("extracted_500_random_profiles.json", "r") as f:
     profiles = json.load(f)
+print(f"Loaded {len(profiles)} profiles", flush=True)
+
 for result in results[start_index:]:
     prompt = result["prompt"]
     for match in result["matches"]:
@@ -253,51 +272,41 @@ for result in results[start_index:]:
         passes_basic, _ = check_basic_criteria(prompt, profile)
         if passes_basic:
             prompts_and_profiles.append((prompt, profile))
+            batch_map[current_idx] = (result, match)
+            current_idx += 1
+
+print(f"Found {len(prompts_and_profiles)} profiles to evaluate", flush=True)
 
 # Process in batches
 batch_results = evaluate_batch(prompts_and_profiles)
 
 # Update results with batch evaluations
-evaluation_results = []
-total_matches = 0
-accurate_matches = 0
-yes_count = 0
-no_count = 0
-result_idx = 0
-for i, result in enumerate(results[start_index:], start=start_index):
-    prompt_results = []
-    for match in result["matches"]:
-        profile = profiles[match["profile_index"]]
-        passes_basic, reason = check_basic_criteria(result["prompt"], profile)
-        
-        if passes_basic:
-            is_match, explanation = batch_results[result_idx]
-            match["is_accurate_match"] = is_match
-            result_idx += 1
-        else:
-            match["is_accurate_match"] = False
-            explanation = reason
-            
-        if match["is_accurate_match"]:
-            accurate_matches += 1
-            yes_count += 1
-        else:
-            no_count += 1
-            
-        total_matches += 1
-        
-        # Save progress every 10 matches
-        if total_matches % 10 == 0:
-            progress_data = {
-                "current_index": i,
-                "total_matches": total_matches,
-                "accurate_matches": accurate_matches,
-                "yes_count": yes_count,
-                "no_count": no_count
-            }
-            save_progress(progress_data)
+for i, (is_match, explanation) in enumerate(batch_results):
+    result, match = batch_map[i]
+    match["is_accurate_match"] = is_match
+    match["explanation"] = explanation
     
-    evaluation_results.append(result)
+    if is_match:
+        accurate_matches += 1
+        yes_count += 1
+    else:
+        no_count += 1
+        
+    total_matches += 1
+    
+    # Save progress every 10 matches
+    if total_matches % 10 == 0:
+        progress_data = {
+            "current_index": start_index + (i // 3),  # Approximate prompt index
+            "total_matches": total_matches,
+            "accurate_matches": accurate_matches,
+            "yes_count": yes_count,
+            "no_count": no_count
+        }
+        save_progress(progress_data)
+
+    if i % 3 == 2 or i == len(batch_results) - 1:  # Every 3rd result or last result
+        evaluation_results.append(result)
 
 # Save final results
 save_final_results(evaluation_results, total_matches, accurate_matches, yes_count, no_count)
