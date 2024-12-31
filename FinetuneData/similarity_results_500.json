@@ -196,7 +196,7 @@
     "matches": [
       {
         "profile_index": 123,
-        "similarity_score": 0.8246685098353718,
+        "similarity_score": 0.8246461653598804,
         "age": 31,
         "location": "berkeley, california",
         "education": "graduated from college/university",
@@ -292,7 +292,7 @@
     "matches": [
       {
         "profile_index": 123,
-        "similarity_score": 0.828073716540916,
+        "similarity_score": 0.828072497451845,
         "age": 31,
         "location": "berkeley, california",
         "education": "graduated from college/university",
@@ -406,7 +406,7 @@
       },
       {
         "profile_index": 123,
-        "similarity_score": 0.8094481445176502,
+        "similarity_score": 0.8094235733922424,
         "age": 31,
         "location": "berkeley, california",
         "education": "graduated from college/university",
@@ -429,7 +429,7 @@
       },
       {
         "profile_index": 123,
-        "similarity_score": 0.8184203501700253,
+        "similarity_score": 0.818402334061449,
         "age": 31,
         "location": "berkeley, california",
         "education": "graduated from college/university",
@@ -452,7 +452,7 @@
     "matches": [
       {
         "profile_index": 123,
-        "similarity_score": 0.8348848701710405,
+        "similarity_score": 0.8348676333868545,
         "age": 31,
         "location": "berkeley, california",
         "education": "graduated from college/university",
@@ -964,7 +964,7 @@
     "matches": [
       {
         "profile_index": 239,
-        "similarity_score": 0.81710384124035,
+        "similarity_score": 0.8171106138918139,
         "age": 31,
         "location": "burlingame, california",
         "education": "graduated from college/university",
@@ -973,7 +973,7 @@
       },
       {
         "profile_index": 310,
-        "similarity_score": 0.8115960993862705,
+        "similarity_score": 0.8116478171041112,
         "age": 30,
         "location": "san francisco, california",
         "education": "graduated from college/university",
@@ -982,7 +982,7 @@
       },
       {
         "profile_index": 141,
-        "similarity_score": 0.8111093137098672,
+        "similarity_score": 0.8111802406384905,
         "age": 38,
         "location": "san francisco, california",
         "education": "graduated from college/university",
@@ -1110,7 +1110,7 @@
       },
       {
         "profile_index": 123,
-        "similarity_score": 0.8089862182999369,
+        "similarity_score": 0.8089792116337725,
         "age": 31,
         "location": "berkeley, california",
         "education": "graduated from college/university",
@@ -1220,7 +1220,7 @@
     "matches": [
       {
         "profile_index": 123,
-        "similarity_score": 0.8060000513368789,
+        "similarity_score": 0.8059813960276092,
         "age": 31,
         "location": "berkeley, california",
         "education": "graduated from college/university",
@@ -1325,7 +1325,7 @@
       },
       {
         "profile_index": 123,
-        "similarity_score": 0.8223799636586671,
+        "similarity_score": 0.8223730416471005,
         "age": 31,
         "location": "berkeley, california",
         "education": "graduated from college/university",
@@ -1389,7 +1389,7 @@
       },
       {
         "profile_index": 123,
-        "similarity_score": 0.8157183566606283,
+        "similarity_score": 0.8157026698144835,
         "age": 31,
         "location": "berkeley, california",
         "education": "graduated from college/university",
@@ -1421,7 +1421,7 @@
       },
       {
         "profile_index": 123,
-        "similarity_score": 0.8194808624082311,
+        "similarity_score": 0.8194725445248859,
         "age": 31,
         "location": "berkeley, california",
         "education": "graduated from college/university",
@@ -1517,7 +1517,7 @@
       },
       {
         "profile_index": 123,
-        "similarity_score": 0.8355404107964263,
+        "similarity_score": 0.8355415132865398,
         "age": 31,
         "location": "berkeley, california",
         "education": "graduated from college/university",
@@ -1540,7 +1540,7 @@
     "matches": [
       {
         "profile_index": 123,
-        "similarity_score": 0.8298900654187029,
+        "similarity_score": 0.8298710669313494,
         "age": 31,
         "location": "berkeley, california",
         "education": "graduated from college/university",
@@ -1668,7 +1668,7 @@
     "matches": [
       {
         "profile_index": 123,
-        "similarity_score": 0.8156957529149984,
+        "similarity_score": 0.8157254505234477,
         "age": 31,
         "location": "berkeley, california",
         "education": "graduated from college/university",
@@ -1709,7 +1709,7 @@
       },
       {
         "profile_index": 123,
-        "similarity_score": 0.8138547545800887,
+        "similarity_score": 0.8138539387256576,
         "age": 31,
         "location": "berkeley, california",
         "education": "graduated from college/university",
@@ -1732,7 +1732,7 @@
     "matches": [
       {
         "profile_index": 123,
-        "similarity_score": 0.8283126139805308,
+        "similarity_score": 0.8283304793661754,
         "age": 31,
         "location": "berkeley, california",
         "education": "graduated from college/university",
@@ -1878,7 +1878,7 @@
       },
       {
         "profile_index": 123,
-        "similarity_score": 0.8215337699164132,
+        "similarity_score": 0.8215289358280372,
         "age": 31,
         "location": "berkeley, california",
         "education": "graduated from college/university",
@@ -1956,7 +1956,7 @@
     "matches": [
       {
         "profile_index": 123,
-        "similarity_score": 0.8244127622794888,
+        "similarity_score": 0.824384937081015,
         "age": 31,
         "location": "berkeley, california",
         "education": "graduated from college/university",
@@ -1988,7 +1988,7 @@
     "matches": [
       {
         "profile_index": 123,
-        "similarity_score": 0.817019140170664,
+        "similarity_score": 0.8170080495547387,
         "age": 31,
         "location": "berkeley, california",
         "education": "graduated from college/university",
@@ -2020,7 +2020,7 @@
     "matches": [
       {
         "profile_index": 123,
-        "similarity_score": 0.8481875990195867,
+        "similarity_score": 0.84818220257053,
         "age": 31,
         "location": "berkeley, california",
         "education": "graduated from college/university",
@@ -2052,7 +2052,7 @@
     "matches": [
       {
         "profile_index": 123,
-        "similarity_score": 0.833043042353486,
+        "similarity_score": 0.833031546674355,
         "age": 31,
         "location": "berkeley, california",
         "education": "graduated from college/university",
@@ -2084,7 +2084,7 @@
     "matches": [
       {
         "profile_index": 123,
-        "similarity_score": 0.8061449756481543,
+        "similarity_score": 0.8061156920805058,
         "age": 31,
         "location": "berkeley, california",
         "education": "graduated from college/university",
@@ -2212,7 +2212,7 @@
     "matches": [
       {
         "profile_index": 123,
-        "similarity_score": 0.8130633592330367,
+        "similarity_score": 0.8130553226410846,
         "age": 31,
         "location": "berkeley, california",
         "education": "graduated from college/university",
@@ -2317,7 +2317,7 @@
       },
       {
         "profile_index": 123,
-        "similarity_score": 0.8181613705979202,
+        "similarity_score": 0.8181375208970938,
         "age": 31,
         "location": "berkeley, california",
         "education": "graduated from college/university",
@@ -2436,7 +2436,7 @@
     "matches": [
       {
         "profile_index": 123,
-        "similarity_score": 0.7874496723166904,
+        "similarity_score": 0.7874322451467397,
         "age": 31,
         "location": "berkeley, california",
         "education": "graduated from college/university",
@@ -2467,6 +2467,15 @@
     "prompt": "Searching for a 27-30 male with with dark hair looks and hispanic / latin, white.",
     "matches": [
       {
+        "profile_index": 188,
+        "similarity_score": 0.7699198134392702,
+        "age": 26,
+        "location": "berkeley, california",
+        "education": "graduated from college/university",
+        "ethnicity": "middle eastern, hispanic / latin",
+        "body_type": "thin"
+      },
+      {
         "profile_index": 415,
         "similarity_score": 0.7699063966547206,
         "age": 28,
@@ -2474,15 +2483,6 @@
         "education": "graduated from college/university",
         "ethnicity": "white, other",
         "body_type": "athletic"
-      },
-      {
-        "profile_index": 188,
-        "similarity_score": 0.769862424478379,
-        "age": 26,
-        "location": "berkeley, california",
-        "education": "graduated from college/university",
-        "ethnicity": "middle eastern, hispanic / latin",
-        "body_type": "thin"
       },
       {
         "profile_index": 310,
@@ -2500,7 +2500,7 @@
     "matches": [
       {
         "profile_index": 123,
-        "similarity_score": 0.8252798935437179,
+        "similarity_score": 0.8252963231608182,
         "age": 31,
         "location": "berkeley, california",
         "education": "graduated from college/university",
@@ -2637,7 +2637,7 @@
       },
       {
         "profile_index": 123,
-        "similarity_score": 0.8041641781118898,
+        "similarity_score": 0.8041501631294746,
         "age": 31,
         "location": "berkeley, california",
         "education": "graduated from college/university",
