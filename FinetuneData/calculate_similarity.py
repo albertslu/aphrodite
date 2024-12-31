@@ -21,7 +21,7 @@ def generate_embedding(text):
 
 
 # Load profiles for matching
-with open("extracted_100_profiles.json", "r") as file:
+with open("extracted_250_random_profiles.json", "r") as file:
     profiles = json.load(file)
 
 # Load prompts from JSONL file

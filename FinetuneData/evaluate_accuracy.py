@@ -195,7 +195,7 @@ try:
             similarity_score = match["similarity_score"]
             
             # Load the profile from extracted profiles
-            with open("extracted_1000_profiles.json", "r") as f:
+            with open("extracted_250_random_profiles.json", "r") as f:
                 profiles = json.load(f)
                 profile_info = profiles[profile_index]
             
