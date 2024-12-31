@@ -71,19 +71,25 @@ def generate_embedding(text):
     return response.data[0].embedding
 
 # Load profiles for matching
-with open("extracted_250_random_profiles.json", "r") as file:
+print("Starting similarity calculation...", flush=True)
+with open("extracted_500_random_profiles.json", "r") as file:
     profiles = json.load(file)
+print(f"Loaded {len(profiles)} profiles", flush=True)
 
 # Load prompts from JSONL file
 prompts = []
 with jsonlines.open("formatted_profiles_cleaned.jsonl", "r") as reader:
     for obj in reader:
         prompts.append(obj["prompt"])
+print(f"Loaded {len(prompts)} prompts", flush=True)
 
 # Generate embeddings for profiles
+print(f"Generating embeddings for {len(profiles)} profiles...", flush=True)
 profile_embeddings = []
 profile_indices = []  # Keep track of which profiles have embeddings
 for i, profile in enumerate(profiles):
+    if i % 50 == 0:  # Print progress every 50 profiles
+        print(f"Processing profile {i}/{len(profiles)}", flush=True)
     # Combine all essay fields
     essay_fields = [f"essay{i}" for i in range(10)]
     profile_texts = []
@@ -98,8 +104,11 @@ for i, profile in enumerate(profiles):
         profile_indices.append(i)
 
 # Generate embeddings for prompts
+print(f"\nGenerating embeddings for {len(prompts)} prompts...", flush=True)
 prompt_embeddings = []
-for prompt in prompts:
+for i, prompt in enumerate(prompts):
+    if i % 10 == 0:  # Print progress every 10 prompts
+        print(f"Processing prompt {i}/{len(prompts)}", flush=True)
     embedding = generate_embedding(prompt)
     prompt_embeddings.append(embedding)
 
@@ -116,10 +125,10 @@ for i, prompt_embedding in enumerate(prompt_embeddings):
     valid_embeddings = []
     valid_indices = []
     
-    print(f"\nProcessing prompt: {prompt}")
-    print(f"Age range: {min_age}-{max_age}")
-    print(f"Desired gender: {desired_gender}")
-    print(f"Desired ethnicities: {desired_ethnicities}")
+    print(f"\nProcessing prompt: {prompt}", flush=True)
+    print(f"Age range: {min_age}-{max_age}", flush=True)
+    print(f"Desired gender: {desired_gender}", flush=True)
+    print(f"Desired ethnicities: {desired_ethnicities}", flush=True)
     
     for idx, profile_idx in enumerate(profile_indices):
         profile = profiles[profile_idx]
@@ -149,7 +158,7 @@ for i, prompt_embedding in enumerate(prompt_embeddings):
         valid_embeddings.append(profile_embeddings[idx])
         valid_indices.append(idx)
 
-    print(f"Found {len(valid_profiles)} profiles matching basic criteria")
+    print(f"Found {len(valid_profiles)} profiles matching basic criteria", flush=True)
 
     # If we have valid profiles, calculate similarity
     matches_info = []
@@ -177,7 +186,7 @@ for i, prompt_embedding in enumerate(prompt_embeddings):
 
     # If we don't have enough matches, fill with most similar profiles that at least match gender
     if len(matches_info) < 3:
-        print(f"Only found {len(matches_info)} matches, looking for backup matches...")
+        print(f"Only found {len(matches_info)} matches, looking for backup matches...", flush=True)
         
     while len(matches_info) < 3:
         # Add profiles that at least match gender if specified
@@ -208,15 +217,15 @@ for i, prompt_embedding in enumerate(prompt_embeddings):
             matches_info.append(match_info)
             valid_profiles.append(profile_idx)
         else:
-            print("No backup matches found!")
+            print("No backup matches found!", flush=True)
             break
 
-    print(f"Final number of matches: {len(matches_info)}\n")
+    print(f"Final number of matches: {len(matches_info)}\n", flush=True)
 
     results.append({"prompt": prompts[i], "matches": matches_info})
 
 # Save results with pretty printing
-with open("similarity_results.json", "w") as file:
+with open("similarity_results_500.json", "w") as file:
     json.dump(results, file, indent=2)
 
-print("Similarity calculations saved to similarity_results.json")
+print("Similarity calculations saved to similarity_results_500.json", flush=True)

@@ -29,11 +29,11 @@ def extract_profiles_with_conversion(df, num_profiles=250):
 
 print(f"Total rows in Excel: {len(df)}")
 
-# Extract 250 random profiles
-profiles_converted = extract_profiles_with_conversion(df, num_profiles=250)
+# Extract 500 random profiles
+profiles_converted = extract_profiles_with_conversion(df, num_profiles=500)
 
 # Save profiles to a JSON file
-output_file = "extracted_250_random_profiles.json"
+output_file = "extracted_500_random_profiles.json"
 with open(output_file, "w", encoding="utf-8") as f:
     json.dump(profiles_converted, f, indent=2, ensure_ascii=False)
 

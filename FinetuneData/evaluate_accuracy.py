@@ -141,6 +141,68 @@ def evaluate_match(prompt, profile_info, retry_count=0):
             print(f"\nFailed to evaluate after retries: {str(e)}")
             return False, f"Error: {str(e)}"
 
+def evaluate_batch(prompts_and_profiles, batch_size=5):
+    """
+    Evaluate multiple profiles in parallel using batched API calls
+    """
+    batches = [prompts_and_profiles[i:i + batch_size] for i in range(0, len(prompts_and_profiles), batch_size)]
+    all_results = []
+    
+    for batch in batches:
+        # Prepare all prompts for the batch
+        messages = []
+        for prompt, profile in batch:
+            evaluation_prompt = f"""
+            Given this dating app prompt: "{prompt}"
+            And this profile information:
+            - Age: {profile.get('age', 'N/A')}
+            - Gender: {profile.get('sex', 'N/A')}
+            - Orientation: {profile.get('orientation', 'N/A')}
+            - Location: {profile.get('location', 'N/A')}
+            - Education: {profile.get('education', 'N/A')}
+            - Ethnicity: {profile.get('ethnicity', 'N/A')}
+            - Body Type: {profile.get('body_type', 'N/A')}
+            - Height: {profile.get('height', 'N/A')}
+            - Religion: {profile.get('religion', 'N/A')}
+            
+            Consider physical attributes (height, body type, ethnicity), location, education, religion, and other specific requirements.
+            
+            Important ethnicity matching rules:
+            - If a profile has multiple ethnicities (e.g. "asian, white"), treat this as matching ANY of those ethnicities
+            - Only require ALL ethnicities to match if the prompt specifically asks for a combination (e.g. "asian AND white")
+            - Default to OR logic for ethnicity matching
+            
+            Respond with either 'Yes' or 'No' and a brief explanation.
+            Keep the explanation concise, maximum 2 sentences.
+            """
+            messages.append({"role": "user", "content": evaluation_prompt})
+        
+        # Make a single API call for the batch
+        try:
+            response = client.chat.completions.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                    {"role": "system", "content": "You are a dating app matching evaluator. Evaluate multiple profiles in sequence. For each profile, respond with Yes/No and a brief explanation."},
+                    *messages
+                ]
+            )
+            
+            # Process responses
+            for i, choice in enumerate(response.choices):
+                result = choice.message.content.strip()
+                is_match = result.lower().startswith('yes')
+                explanation = result.split('.')[0]  # Get first sentence
+                all_results.append((is_match, explanation))
+                
+        except Exception as e:
+            # Handle failed batch by processing individually
+            print(f"Batch failed, processing individually: {str(e)}")
+            for prompt, profile in batch:
+                result = evaluate_match(prompt, profile)
+                all_results.append(result)
+    
+    return all_results
+
 def load_progress():
     """Load progress from file or create default progress"""
     try:
@@ -176,93 +238,78 @@ with open("similarity_results.json", "r") as file:
     results = json.load(file)
 
 # Load progress
-progress = load_progress()
-last_prompt_index = progress["last_prompt_index"]
-last_match_index = progress["last_match_index"]
+progress_data = load_progress()
+start_index = progress_data.get("current_index", 0)
 
+# Prepare batches of prompts and profiles
+prompts_and_profiles = []
+with open("extracted_500_random_profiles.json", "r") as f:
+    profiles = json.load(f)
+for result in results[start_index:]:
+    prompt = result["prompt"]
+    for match in result["matches"]:
+        profile = profiles[match["profile_index"]]
+        # Only add to batch if passes basic criteria
+        passes_basic, _ = check_basic_criteria(prompt, profile)
+        if passes_basic:
+            prompts_and_profiles.append((prompt, profile))
+
+# Process in batches
+batch_results = evaluate_batch(prompts_and_profiles)
+
+# Update results with batch evaluations
 evaluation_results = []
 total_matches = 0
 accurate_matches = 0
 yes_count = 0
 no_count = 0
-
-try:
-    # Process each prompt and its matches
-    for prompt_index, result in enumerate(results):
-        if prompt_index <= last_prompt_index and prompt_index != len(results) - 1:
-            continue
-            
-        prompt = result["prompt"]
-        matches = result["matches"]
-        prompt_results = {"prompt": prompt, "matches": []}
+result_idx = 0
+for i, result in enumerate(results[start_index:], start=start_index):
+    prompt_results = []
+    for match in result["matches"]:
+        profile = profiles[match["profile_index"]]
+        passes_basic, reason = check_basic_criteria(result["prompt"], profile)
         
-        print(f"\nEvaluating prompt {prompt_index + 1}/{len(results)}: {prompt}")
+        if passes_basic:
+            is_match, explanation = batch_results[result_idx]
+            match["is_accurate_match"] = is_match
+            result_idx += 1
+        else:
+            match["is_accurate_match"] = False
+            explanation = reason
+            
+        if match["is_accurate_match"]:
+            accurate_matches += 1
+            yes_count += 1
+        else:
+            no_count += 1
+            
+        total_matches += 1
         
-        # Process each match for the current prompt
-        for match_index, match in enumerate(matches):
-            if prompt_index == last_prompt_index and match_index < last_match_index:
-                continue
-                
-            profile_index = match["profile_index"]
-            similarity_score = match["similarity_score"]
-            
-            # Load the profile from extracted profiles
-            with open("extracted_250_random_profiles.json", "r") as f:
-                profiles = json.load(f)
-                profile_info = profiles[profile_index]
-            
-            print(f"Evaluating match {match_index + 1}/{len(matches)} (Profile {profile_index})... ", end="")
-            is_match, explanation = evaluate_match(prompt, profile_info)
-            
-            if is_match:
-                yes_count += 1
-                print("[+]")
-            else:
-                no_count += 1
-                print("[-]")
-            
-            match_result = {
-                "profile_index": profile_index,
-                "similarity_score": similarity_score,
-                "is_accurate_match": is_match,
-                "explanation": explanation
+        # Save progress every 10 matches
+        if total_matches % 10 == 0:
+            progress_data = {
+                "current_index": i,
+                "total_matches": total_matches,
+                "accurate_matches": accurate_matches,
+                "yes_count": yes_count,
+                "no_count": no_count
             }
-            prompt_results["matches"].append(match_result)
-            
-            total_matches += 1
-            if is_match:
-                accurate_matches += 1
-            
-            # Save progress after each match
-            progress["last_prompt_index"] = prompt_index
-            progress["last_match_index"] = match_index + 1
-            save_progress(progress)
-            
-            # Optional: Add a small delay to avoid rate limiting
-            time.sleep(0.5)
-        
-        evaluation_results.append(prompt_results)
-        
-    # Save final results
-    save_final_results(evaluation_results, total_matches, accurate_matches, yes_count, no_count)
-    print("\nEvaluation complete!")
-    print(f"Total matches evaluated: {total_matches}")
-    print(f"Accurate matches: {accurate_matches}")
-    if total_matches > 0:
-        print(f"Accuracy: {(accurate_matches/total_matches*100):.2f}%")
-    else:
-        print("Accuracy: N/A (no matches evaluated)")
-    print(f"Yes matches: {yes_count}")
-    print(f"No matches: {no_count}")
+            save_progress(progress_data)
+    
+    evaluation_results.append(result)
 
-except KeyboardInterrupt:
-    print("\nEvaluation interrupted. Progress has been saved.")
-    save_final_results(evaluation_results, total_matches, accurate_matches, yes_count, no_count)
-    sys.exit(0)
-except Exception as e:
-    print(f"\nError occurred: {str(e)}")
-    save_final_results(evaluation_results, total_matches, accurate_matches, yes_count, no_count)
-    raise
+# Save final results
+save_final_results(evaluation_results, total_matches, accurate_matches, yes_count, no_count)
+print("\nEvaluation complete!")
+print(f"Total matches evaluated: {total_matches}")
+print(f"Accurate matches: {accurate_matches}")
+if total_matches > 0:
+    print(f"Accuracy: {(accurate_matches/total_matches*100):.2f}%")
+else:
+    print("Accuracy: N/A (no matches evaluated)")
+print(f"Yes matches: {yes_count}")
+print(f"No matches: {no_count}")
 
 # Reset progress file to start fresh next time
-save_progress({"last_prompt_index": -1, "last_match_index": -1})
+save_progress({"current_index": -1, "last_prompt_index": -1, "last_match_index": -1})
