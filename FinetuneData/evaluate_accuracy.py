@@ -130,15 +130,15 @@ def evaluate_match(prompt, profile_info, retry_count=0):
             return False, f"Error: {str(e)}"
 
 def load_progress():
+    """Load progress from file or create default progress"""
     try:
         with open("evaluation_progress.json", "r") as f:
-            data = json.load(f)
-            # Ensure all required fields exist
-            if "last_prompt_index" not in data or "last_match_index" not in data:
-                return {"last_prompt_index": -1, "last_match_index": 0}
-            return data
+            return json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
-        return {"last_prompt_index": -1, "last_match_index": 0}
+        # Create default progress
+        default_progress = {"last_prompt_index": -1, "last_match_index": -1}
+        save_progress(default_progress)
+        return default_progress
 
 def save_progress(progress_data):
     with open("evaluation_progress.json", "w") as f:
@@ -236,7 +236,10 @@ try:
     print("\nEvaluation complete!")
     print(f"Total matches evaluated: {total_matches}")
     print(f"Accurate matches: {accurate_matches}")
-    print(f"Accuracy: {(accurate_matches/total_matches*100):.2f}%")
+    if total_matches > 0:
+        print(f"Accuracy: {(accurate_matches/total_matches*100):.2f}%")
+    else:
+        print("Accuracy: N/A (no matches evaluated)")
     print(f"Yes matches: {yes_count}")
     print(f"No matches: {no_count}")
 
@@ -248,3 +251,6 @@ except Exception as e:
     print(f"\nError occurred: {str(e)}")
     save_final_results(evaluation_results, total_matches, accurate_matches, yes_count, no_count)
     raise
+
+# Reset progress file to start fresh next time
+save_progress({"last_prompt_index": -1, "last_match_index": -1})

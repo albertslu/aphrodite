@@ -1,31 +1,31 @@
 {
-  "overall_accuracy": 2.380952380952381,
+  "overall_accuracy": 34.12698412698413,
   "total_matches_evaluated": 252,
-  "accurate_matches": 6,
-  "yes_matches": 6,
-  "no_matches": 246,
-  "evaluation_timestamp": "2024-12-31T00:56:13.873683",
+  "accurate_matches": 86,
+  "yes_matches": 86,
+  "no_matches": 166,
+  "evaluation_timestamp": "2024-12-31T01:52:57.595801",
   "detailed_results": [
     {
       "prompt": "Searching for a 21-25 male who is asian, white and creative.",
       "matches": [
         {
-          "profile_index": 118,
-          "similarity_score": 0.825202805267431,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "profile_index": 130,
+          "similarity_score": 0.812256987030111,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual is Asian, which aligns with the prompt's requirement. The slight age difference and the location being San Francisco can be considered somewhat leniently."
         },
         {
-          "profile_index": 40,
-          "similarity_score": 0.8206555257466833,
+          "profile_index": 122,
+          "similarity_score": 0.7935115919566307,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "No. The profile does not match the prompt requirements as the individual is Hispanic/Latin, not Asian or White."
         },
         {
-          "profile_index": 91,
-          "similarity_score": 0.8202037755242813,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "profile_index": 71,
+          "similarity_score": 0.7925311489606957,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The profile meets the physical criteria of being white and within the age range. Although the ethnicity is not Asian, the profile still aligns with the main requirements."
         }
       ]
     },
@@ -33,22 +33,22 @@
       "prompt": "Dreaming of meeting someone athletic, currently pursuing a degree and adventurous, aged 34-40.",
       "matches": [
         {
-          "profile_index": 114,
-          "similarity_score": 0.8362684830436551,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
-        },
-        {
-          "profile_index": 40,
+          "profile_index": 43,
           "similarity_score": 0.8244125227296113,
           "is_accurate_match": false,
           "explanation": "Error: 'religion'"
         },
         {
-          "profile_index": 118,
+          "profile_index": 124,
           "similarity_score": 0.822248552664711,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'body_type'"
+        },
+        {
+          "profile_index": 174,
+          "similarity_score": 0.814036842719249,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual is within the specified age range, has a fit body type, and is located in Berkeley, California. Although they have already graduated, they are still within the educational criteria."
         }
       ]
     },
@@ -56,22 +56,22 @@
       "prompt": "I want to meet someone tall and adventurous, aged 36-43.",
       "matches": [
         {
-          "profile_index": 118,
-          "similarity_score": 0.8370542374498917,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
-        },
-        {
-          "profile_index": 171,
-          "similarity_score": 0.8355756880201066,
-          "is_accurate_match": false,
-          "explanation": "Error: 'body_type'"
-        },
-        {
-          "profile_index": 31,
-          "similarity_score": 0.835341387347303,
+          "profile_index": 43,
+          "similarity_score": 0.8268438792741087,
           "is_accurate_match": false,
           "explanation": "Error: 'religion'"
+        },
+        {
+          "profile_index": 51,
+          "similarity_score": 0.8234204019332549,
+          "is_accurate_match": false,
+          "explanation": "Error: 'religion'"
+        },
+        {
+          "profile_index": 100,
+          "similarity_score": 0.8229218264970873,
+          "is_accurate_match": false,
+          "explanation": "Error: 'education'"
         }
       ]
     },
@@ -79,22 +79,22 @@
       "prompt": "Searching for a 18-28 male who is white and spontaneous.",
       "matches": [
         {
-          "profile_index": 118,
-          "similarity_score": 0.8331637235665578,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
-        },
-        {
-          "profile_index": 171,
-          "similarity_score": 0.8261886662679772,
+          "profile_index": 102,
+          "similarity_score": 0.8084629449101194,
           "is_accurate_match": false,
           "explanation": "Error: 'body_type'"
         },
         {
-          "profile_index": 47,
-          "similarity_score": 0.8261021042698637,
-          "is_accurate_match": false,
-          "explanation": "Error: 'religion'"
+          "profile_index": 78,
+          "similarity_score": 0.8082883535640553,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual is a 20-year-old white male, fitting the age and ethnicity criteria. While the height is not specified, being in the age range and ethnicity specified makes this profile a good match for the prompt."
+        },
+        {
+          "profile_index": 237,
+          "similarity_score": 0.8065499720210548,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The profile meets the key requirements of being a white male within the age range and shares the same ethnicity as the prompt. The location and education criteria are also met, despite being slightly outside the age range."
         }
       ]
     },
@@ -102,22 +102,22 @@
       "prompt": "Searching for a 25-32 male, straight partner who is goal-oriented.",
       "matches": [
         {
-          "profile_index": 118,
-          "similarity_score": 0.8305869506553106,
+          "profile_index": 172,
+          "similarity_score": 0.8056073812884242,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'education'"
         },
         {
-          "profile_index": 171,
-          "similarity_score": 0.8234046968047789,
+          "profile_index": 102,
+          "similarity_score": 0.7994867397981549,
           "is_accurate_match": false,
           "explanation": "Error: 'body_type'"
         },
         {
-          "profile_index": 36,
-          "similarity_score": 0.8183101291873713,
-          "is_accurate_match": false,
-          "explanation": "No. Gender does not match preference."
+          "profile_index": 95,
+          "similarity_score": 0.7966860296179106,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The male is within the age range, straight, goal-oriented (working on a Ph.D. program), and physically fits the criteria with an athletic body type and a height of 74 inches. The minor discrepancy in religion is acceptable as the profile is not too serious about Buddhism."
         }
       ]
     },
@@ -125,22 +125,22 @@
       "prompt": "I want to meet someone athletic and introverted, aged 24-32.",
       "matches": [
         {
-          "profile_index": 118,
+          "profile_index": 124,
           "similarity_score": 0.8341423563363051,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'body_type'"
         },
         {
-          "profile_index": 31,
+          "profile_index": 33,
           "similarity_score": 0.8242203499355867,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'religion'"
         },
         {
-          "profile_index": 36,
+          "profile_index": 39,
           "similarity_score": 0.8226201396673973,
-          "is_accurate_match": false,
-          "explanation": "Error: 'religion'"
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The age requirement is met, and while the profile doesn't specify athleticism, being in a master's program suggests a level of dedication and focus that aligns with introverted traits. The location and education also align with the prompt."
         }
       ]
     },
@@ -148,22 +148,22 @@
       "prompt": "Looking for a 31-34 female, straight partner who is outgoing.",
       "matches": [
         {
-          "profile_index": 118,
+          "profile_index": 124,
           "similarity_score": 0.8535964084673985,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "No. Gender does not match preference."
         },
         {
-          "profile_index": 171,
-          "similarity_score": 0.8253303103741214,
-          "is_accurate_match": false,
-          "explanation": "Error: 'body_type'"
-        },
-        {
-          "profile_index": 47,
+          "profile_index": 51,
           "similarity_score": 0.8215498942774957,
           "is_accurate_match": false,
-          "explanation": "Error: 'religion'"
+          "explanation": "No. Gender does not match preference."
+        },
+        {
+          "profile_index": 192,
+          "similarity_score": 0.8085982775245797,
+          "is_accurate_match": false,
+          "explanation": "No. Gender does not match preference."
         }
       ]
     },
@@ -171,22 +171,22 @@
       "prompt": "Dreaming of meeting someone who loves hiking, aged 33-38.",
       "matches": [
         {
-          "profile_index": 174,
-          "similarity_score": 0.8236895231047473,
+          "profile_index": 62,
+          "similarity_score": 0.8114724156884667,
           "is_accurate_match": true,
-          "explanation": "Yes, this profile is a match. The individual is within the desired age range, fits the body type preference (fit), and is located in Berkeley, California, which is a good location for hiking opportunities."
+          "explanation": "Yes, this profile is a match. The individual falls within the desired age range, and their thin body type aligns with the preference for someone who loves hiking. The atheism and location in San Francisco are also compatible."
         },
         {
-          "profile_index": 40,
-          "similarity_score": 0.8210062870856025,
+          "profile_index": 178,
+          "similarity_score": 0.8097680570594146,
           "is_accurate_match": false,
           "explanation": "Error: 'religion'"
         },
         {
-          "profile_index": 114,
-          "similarity_score": 0.8154325023977929,
+          "profile_index": 124,
+          "similarity_score": 0.8093433887954355,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'body_type'"
         }
       ]
     },
@@ -194,22 +194,22 @@
       "prompt": "Dreaming of meeting a 34-36 male who is white and fun-loving.",
       "matches": [
         {
-          "profile_index": 114,
-          "similarity_score": 0.8255131467450447,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "profile_index": 162,
+          "similarity_score": 0.7953603331811372,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. While the age is slightly outside the range, the ethnicity, body type, and location align with the requirements, making it a suitable match for someone who is white and fun-loving."
         },
         {
-          "profile_index": 40,
-          "similarity_score": 0.8125457401729845,
-          "is_accurate_match": false,
-          "explanation": "No. Gender does not match preference."
+          "profile_index": 62,
+          "similarity_score": 0.7850938194515489,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual meets the age requirement, is white, and falls within the desired age range. While the height is not specified, the other key criteria are met."
         },
         {
-          "profile_index": 118,
-          "similarity_score": 0.8109200010235348,
+          "profile_index": 37,
+          "similarity_score": 0.7786377560499782,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'religion'"
         }
       ]
     },
@@ -217,22 +217,22 @@
       "prompt": "I want to meet someone who loves cooking, aged 25-33.",
       "matches": [
         {
-          "profile_index": 213,
+          "profile_index": 223,
           "similarity_score": 0.835282706961201,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The person is 26 years old, falls within the desired age range, and there are no conflicting physical attributes, location, education, or other preferences specified in the prompt."
         },
         {
-          "profile_index": 118,
+          "profile_index": 124,
           "similarity_score": 0.8306334556126007,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'body_type'"
         },
         {
-          "profile_index": 72,
+          "profile_index": 76,
           "similarity_score": 0.8273722650475548,
-          "is_accurate_match": true,
-          "explanation": "Yes, this profile is a match. The age falls within the specified range, and although cooking preference is not explicitly mentioned, the other criteria align well with the prompt."
+          "is_accurate_match": false,
+          "explanation": "Error: 'body_type'"
         }
       ]
     },
@@ -240,22 +240,22 @@
       "prompt": "Dreaming of meeting a 29-35 male with with bright eyes looks, with a college degree and white.",
       "matches": [
         {
-          "profile_index": 114,
-          "similarity_score": 0.8195304338987148,
+          "profile_index": 172,
+          "similarity_score": 0.7802678323387457,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'education'"
         },
         {
-          "profile_index": 31,
-          "similarity_score": 0.8009909192758911,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "profile_index": 62,
+          "similarity_score": 0.7783696593983792,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual is a 34-year-old male with a white ethnicity and a higher education level (master's degree), meeting the key requirements of the prompt. The slight discrepancy in the eye color preference is minor compared to the overall alignment."
         },
         {
-          "profile_index": 40,
-          "similarity_score": 0.8009800468068424,
-          "is_accurate_match": false,
-          "explanation": "No. Gender does not match preference."
+          "profile_index": 237,
+          "similarity_score": 0.7770517525160855,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual is a 30-year-old white male with a college degree, fitting the physical criteria and education requirement specified in the prompt. The location in San Francisco aligns with the preference as well."
         }
       ]
     },
@@ -263,22 +263,22 @@
       "prompt": "Hoping to find a 23-28 female who is hispanic / latin and kind-hearted.",
       "matches": [
         {
-          "profile_index": 118,
-          "similarity_score": 0.8346174444639034,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
-        },
-        {
-          "profile_index": 190,
-          "similarity_score": 0.8189749213695402,
+          "profile_index": 15,
+          "similarity_score": 0.8112853588954247,
           "is_accurate_match": false,
           "explanation": "No. Gender does not match preference."
         },
         {
-          "profile_index": 171,
-          "similarity_score": 0.8138370644722261,
+          "profile_index": 214,
+          "similarity_score": 0.7776332597398611,
           "is_accurate_match": false,
-          "explanation": "Error: 'body_type'"
+          "explanation": "No. Gender does not match preference."
+        },
+        {
+          "profile_index": 57,
+          "similarity_score": 0.777537117180605,
+          "is_accurate_match": false,
+          "explanation": "No. Gender does not match preference."
         }
       ]
     },
@@ -286,20 +286,20 @@
       "prompt": "Looking for someone who loves fitness, aged 30-35.",
       "matches": [
         {
-          "profile_index": 118,
+          "profile_index": 124,
           "similarity_score": 0.8288780641581706,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'body_type'"
         },
         {
-          "profile_index": 184,
+          "profile_index": 193,
           "similarity_score": 0.8105133510337827,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. While the age is slightly below the preferred range, the profile meets the fitness criteria with an athletic body type and the location is in San Francisco, which is a good fit."
         },
         {
-          "profile_index": 36,
-          "similarity_score": 0.8071866710748679,
+          "profile_index": 33,
+          "similarity_score": 0.8003487226779327,
           "is_accurate_match": false,
           "explanation": "Error: 'religion'"
         }
@@ -309,22 +309,22 @@
       "prompt": "Searching for someone who loves reading, holding a master's degree, aged 30-34.",
       "matches": [
         {
-          "profile_index": 118,
+          "profile_index": 124,
           "similarity_score": 0.8250900306391538,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'body_type'"
         },
         {
-          "profile_index": 36,
-          "similarity_score": 0.8243366929304368,
+          "profile_index": 58,
+          "similarity_score": 0.8083579319439378,
+          "is_accurate_match": false,
+          "explanation": "No. The profile does not match the prompt requirements as the age is 35, exceeding the specified range."
+        },
+        {
+          "profile_index": 33,
+          "similarity_score": 0.8072990815804754,
           "is_accurate_match": false,
           "explanation": "Error: 'religion'"
-        },
-        {
-          "profile_index": 40,
-          "similarity_score": 0.8171926500558746,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
         }
       ]
     },
@@ -332,22 +332,22 @@
       "prompt": "Hoping to find a 25-29 female who is white and spontaneous.",
       "matches": [
         {
-          "profile_index": 118,
-          "similarity_score": 0.8507925161527277,
+          "profile_index": 186,
+          "similarity_score": 0.8075920553548435,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "No. Gender does not match preference."
         },
         {
-          "profile_index": 171,
-          "similarity_score": 0.8316154793098967,
+          "profile_index": 152,
+          "similarity_score": 0.7981077727587171,
           "is_accurate_match": false,
-          "explanation": "Error: 'body_type'"
+          "explanation": "No. Gender does not match preference."
         },
         {
-          "profile_index": 47,
-          "similarity_score": 0.8249494300554685,
+          "profile_index": 202,
+          "similarity_score": 0.7975014589043552,
           "is_accurate_match": false,
-          "explanation": "Error: 'religion'"
+          "explanation": "No. Gender does not match preference."
         }
       ]
     },
@@ -355,22 +355,22 @@
       "prompt": "Searching for someone who loves reading, with a college degree, aged 18-26.",
       "matches": [
         {
-          "profile_index": 36,
+          "profile_index": 39,
           "similarity_score": 0.8179513347315648,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. While the education level is not a college degree yet, the individual is actively pursuing a higher degree which shows a commitment to education. The age, interest in reading, and other criteria align well with the prompt."
         },
         {
-          "profile_index": 118,
-          "similarity_score": 0.8131192921871226,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "profile_index": 161,
+          "similarity_score": 0.8109347594589958,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual is 21 years old, falls within the required age range, and is working on a two-year college degree, meeting the education criteria. Although the profile doesn't specify a love for reading, the main requirements are fulfilled."
         },
         {
-          "profile_index": 31,
-          "similarity_score": 0.8112937159353201,
+          "profile_index": 219,
+          "similarity_score": 0.8078488422206169,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "No. The profile does not match the education requirement as the individual has only graduated from high school, not college."
         }
       ]
     },
@@ -378,22 +378,22 @@
       "prompt": "Hoping to find someone slim and goal-oriented, aged 26-35.",
       "matches": [
         {
-          "profile_index": 118,
+          "profile_index": 124,
           "similarity_score": 0.8425877966492696,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'body_type'"
         },
         {
-          "profile_index": 36,
+          "profile_index": 39,
           "similarity_score": 0.8253105434272975,
           "is_accurate_match": false,
-          "explanation": "Error: 'religion'"
+          "explanation": "No. While the profile meets the age criteria, it falls short in terms of body type (curvy instead of slim) and age (24 instead of 26-35)."
         },
         {
-          "profile_index": 31,
+          "profile_index": 33,
           "similarity_score": 0.813171632244073,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'religion'"
         }
       ]
     },
@@ -401,22 +401,22 @@
       "prompt": "Hoping to find someone who loves hiking, holding a master's degree, aged 25-31.",
       "matches": [
         {
-          "profile_index": 174,
-          "similarity_score": 0.8462113981786082,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
-        },
-        {
-          "profile_index": 118,
+          "profile_index": 124,
           "similarity_score": 0.8324327662368339,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'body_type'"
         },
         {
-          "profile_index": 40,
-          "similarity_score": 0.8269848061769072,
+          "profile_index": 175,
+          "similarity_score": 0.8227412876983083,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'ethnicity'"
+        },
+        {
+          "profile_index": 39,
+          "similarity_score": 0.8179526140371494,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. While the age is slightly below the preferred range, the user is actively working on a master's degree and the other criteria such as hiking interest and age proximity are met."
         }
       ]
     },
@@ -424,22 +424,22 @@
       "prompt": "Hoping to find a 28-36 male who is white and intellectual.",
       "matches": [
         {
-          "profile_index": 118,
-          "similarity_score": 0.8399381296030972,
+          "profile_index": 172,
+          "similarity_score": 0.8053963136411488,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'education'"
         },
         {
-          "profile_index": 171,
-          "similarity_score": 0.826986917312232,
+          "profile_index": 82,
+          "similarity_score": 0.7991266961633473,
           "is_accurate_match": false,
-          "explanation": "Error: 'body_type'"
+          "explanation": "Error: 'religion'"
         },
         {
-          "profile_index": 152,
-          "similarity_score": 0.8194146449426738,
-          "is_accurate_match": false,
-          "explanation": "No. Gender does not match preference."
+          "profile_index": 162,
+          "similarity_score": 0.7972676555960398,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. While the age is slightly above the range, the male is white, falls within the intellectual category with a college education, and meets the other criteria."
         }
       ]
     },
@@ -447,20 +447,20 @@
       "prompt": "Searching for a 24-33 male, straight partner who is intellectual.",
       "matches": [
         {
-          "profile_index": 118,
-          "similarity_score": 0.845707042098504,
+          "profile_index": 172,
+          "similarity_score": 0.8170263275253653,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'education'"
         },
         {
-          "profile_index": 171,
-          "similarity_score": 0.8429846534318224,
-          "is_accurate_match": false,
-          "explanation": "Error: 'body_type'"
+          "profile_index": 95,
+          "similarity_score": 0.8097493860174895,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The male is within the age range, straight, and fits the intellectual criteria with a Ph.D. program. The height, athletic body type, and Asian ethnicity are somewhat aligned with preferences."
         },
         {
-          "profile_index": 47,
-          "similarity_score": 0.8282797301826866,
+          "profile_index": 82,
+          "similarity_score": 0.8095514860734172,
           "is_accurate_match": false,
           "explanation": "Error: 'religion'"
         }
@@ -470,22 +470,22 @@
       "prompt": "I want to meet a 21-26 male with curvy looks and pacific islander, white.",
       "matches": [
         {
-          "profile_index": 118,
-          "similarity_score": 0.8464868294146378,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "profile_index": 122,
+          "similarity_score": 0.80119615020235,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The male is 22 years old, falls within the specified age range, and has a fit body type. While he is not specifically Pacific Islander, he does identify as white, which aligns with one of the preferred ethnicities."
         },
         {
-          "profile_index": 31,
-          "similarity_score": 0.8281888827560275,
+          "profile_index": 71,
+          "similarity_score": 0.7935717847244158,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "No. The profile does not match the physical criteria specified in the prompt. The body type is described as athletic, not curvy, and the ethnicity is listed as middle eastern and white, not specifically Pacific Islander or white."
         },
         {
-          "profile_index": 40,
-          "similarity_score": 0.8177176315489514,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "profile_index": 176,
+          "similarity_score": 0.7839293735579718,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual is a 23-year-old male within the specified age range, white ethnicity, and although not curvy, his athletic body type is a close match. The location, education, and other criteria align well with the prompt."
         }
       ]
     },
@@ -493,22 +493,22 @@
       "prompt": "I want to meet a 19-23 male, straight partner who is spontaneous.",
       "matches": [
         {
-          "profile_index": 31,
-          "similarity_score": 0.832986034878666,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "profile_index": 78,
+          "similarity_score": 0.7994913841712166,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The male is within the specified age range, straight, and meets the physical criteria with an athletic body type and a height of 72 inches. The location, education status, and other details align with the prompt requirements."
         },
         {
-          "profile_index": 171,
-          "similarity_score": 0.832442359942287,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "profile_index": 161,
+          "similarity_score": 0.7958951889173346,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The male is 21 years old, falls within the specified age range, is straight, and the physical attributes (height, body type, ethnicity) align with the preferences. The location, education level, and other details also fit the criteria for a spontaneous partner."
         },
         {
-          "profile_index": 47,
-          "similarity_score": 0.8244575707505106,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "profile_index": 71,
+          "similarity_score": 0.7918849329223832,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. While the age is slightly above the preferred range, the gender, orientation, and spontaneity criteria are met. The physical attributes, location, education, and religion are also aligned with the preferences."
         }
       ]
     },
@@ -516,22 +516,22 @@
       "prompt": "Looking for a 28-31 male with short looks, with a strong educational background and unknown.",
       "matches": [
         {
-          "profile_index": 36,
-          "similarity_score": 0.8143977013044448,
-          "is_accurate_match": false,
-          "explanation": "No. Gender does not match preference."
+          "profile_index": 95,
+          "similarity_score": 0.8027884120139092,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The male is 28 years old, falls within the height range, has an athletic body type, and is working on a Ph.D. program, fulfilling the key requirements of the prompt. The ethnicity and religion preferences are not specified, so they do not impact the overall match."
         },
         {
-          "profile_index": 118,
-          "similarity_score": 0.8133492416246182,
+          "profile_index": 172,
+          "similarity_score": 0.7920808822629367,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'education'"
         },
         {
-          "profile_index": 171,
-          "similarity_score": 0.8127162464898567,
-          "is_accurate_match": false,
-          "explanation": "Error: 'body_type'"
+          "profile_index": 26,
+          "similarity_score": 0.7876121272919097,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The male is 29 years old, falls within the 28-31 age range, has a strong educational background with a Ph.D., and meets the physical criteria with a thin body type and a height of 71 inches."
         }
       ]
     },
@@ -539,22 +539,22 @@
       "prompt": "Searching for someone short, currently pursuing a degree and outgoing, aged 29-35.",
       "matches": [
         {
-          "profile_index": 36,
-          "similarity_score": 0.8332802095309102,
+          "profile_index": 124,
+          "similarity_score": 0.8322570553680833,
+          "is_accurate_match": false,
+          "explanation": "Error: 'body_type'"
+        },
+        {
+          "profile_index": 51,
+          "similarity_score": 0.8203822453680618,
           "is_accurate_match": false,
           "explanation": "Error: 'religion'"
         },
         {
-          "profile_index": 118,
-          "similarity_score": 0.8322570553680833,
+          "profile_index": 33,
+          "similarity_score": 0.8099110804402835,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
-        },
-        {
-          "profile_index": 171,
-          "similarity_score": 0.8224826660017115,
-          "is_accurate_match": false,
-          "explanation": "Error: 'body_type'"
+          "explanation": "Error: 'religion'"
         }
       ]
     },
@@ -562,22 +562,22 @@
       "prompt": "Looking for a 26-28 female, straight partner who is kind-hearted.",
       "matches": [
         {
-          "profile_index": 118,
-          "similarity_score": 0.8407984486049732,
+          "profile_index": 33,
+          "similarity_score": 0.8106954517122547,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "No. Gender does not match preference."
         },
         {
-          "profile_index": 171,
-          "similarity_score": 0.8386335435099186,
+          "profile_index": 198,
+          "similarity_score": 0.8085494117443985,
           "is_accurate_match": false,
-          "explanation": "Error: 'body_type'"
+          "explanation": "No. Gender does not match preference."
         },
         {
-          "profile_index": 47,
-          "similarity_score": 0.8248588241909959,
+          "profile_index": 39,
+          "similarity_score": 0.8058853428952737,
           "is_accurate_match": false,
-          "explanation": "Error: 'religion'"
+          "explanation": "No. Gender does not match preference."
         }
       ]
     },
@@ -585,20 +585,20 @@
       "prompt": "I want to meet someone who loves traveling, aged 25-28.",
       "matches": [
         {
-          "profile_index": 31,
+          "profile_index": 33,
           "similarity_score": 0.8470763623694169,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'religion'"
         },
         {
-          "profile_index": 171,
-          "similarity_score": 0.8318123663812564,
-          "is_accurate_match": false,
-          "explanation": "Error: 'body_type'"
+          "profile_index": 202,
+          "similarity_score": 0.8155792932992603,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. While the age is slightly above the preferred range, the profile meets the key criteria of loving traveling and falls within a reasonable age range for consideration."
         },
         {
-          "profile_index": 153,
-          "similarity_score": 0.8283617359676375,
+          "profile_index": 117,
+          "similarity_score": 0.8148623414662237,
           "is_accurate_match": false,
           "explanation": "Error: 'education'"
         }
@@ -608,20 +608,20 @@
       "prompt": "Looking for a 35-39 female with with dark hair looks and white.",
       "matches": [
         {
-          "profile_index": 118,
+          "profile_index": 124,
           "similarity_score": 0.8313862998765226,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "No. Gender does not match preference."
         },
         {
-          "profile_index": 47,
+          "profile_index": 51,
           "similarity_score": 0.8038132033663052,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "No. Gender does not match preference."
         },
         {
-          "profile_index": 36,
-          "similarity_score": 0.8035401821849746,
+          "profile_index": 14,
+          "similarity_score": 0.7880434775205416,
           "is_accurate_match": false,
           "explanation": "No. Gender does not match preference."
         }
@@ -631,22 +631,22 @@
       "prompt": "Dreaming of meeting a 18-22 female who is unknown and intellectual.",
       "matches": [
         {
-          "profile_index": 114,
-          "similarity_score": 0.8136767597540082,
+          "profile_index": 23,
+          "similarity_score": 0.7839399177724582,
           "is_accurate_match": false,
           "explanation": "No. Gender does not match preference."
         },
         {
-          "profile_index": 78,
-          "similarity_score": 0.796932545098332,
+          "profile_index": 219,
+          "similarity_score": 0.777471131210386,
           "is_accurate_match": false,
-          "explanation": "No. The profile does not match the prompt requirements as the gender does not align (female specified, male in profile), and the individual's height is not within the specified range of 18-22."
+          "explanation": "No. Gender does not match preference."
         },
         {
-          "profile_index": 171,
-          "similarity_score": 0.7963808135913645,
+          "profile_index": 52,
+          "similarity_score": 0.775950700806908,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "No. Gender does not match preference."
         }
       ]
     },
@@ -654,22 +654,22 @@
       "prompt": "I want to meet a 23-31 male, straight partner who is outgoing.",
       "matches": [
         {
-          "profile_index": 118,
-          "similarity_score": 0.8423326631701816,
+          "profile_index": 172,
+          "similarity_score": 0.8191878500544955,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'education'"
         },
         {
-          "profile_index": 171,
-          "similarity_score": 0.8373061782080714,
-          "is_accurate_match": false,
-          "explanation": "Error: 'body_type'"
+          "profile_index": 130,
+          "similarity_score": 0.8075241617902225,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The male is within the specified age range, straight, and fits the physical criteria with an athletic body type and the right height. Other details like location, education, and religion also align with the preferences."
         },
         {
-          "profile_index": 31,
-          "similarity_score": 0.8297759404848377,
+          "profile_index": 236,
+          "similarity_score": 0.8053953608151971,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "No. Orientation does not match preference."
         }
       ]
     },
@@ -677,22 +677,22 @@
       "prompt": "Dreaming of meeting a 22-29 male who is white and outgoing.",
       "matches": [
         {
-          "profile_index": 114,
-          "similarity_score": 0.8224697823855573,
-          "is_accurate_match": false,
-          "explanation": "No. Gender does not match preference."
+          "profile_index": 237,
+          "similarity_score": 0.7817915574827295,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual meets the age requirement, is white, and fits the outgoing personality trait. The slight age difference and location are minor deviations."
         },
         {
-          "profile_index": 31,
-          "similarity_score": 0.8095533983019942,
+          "profile_index": 172,
+          "similarity_score": 0.7814722924060328,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'education'"
         },
         {
-          "profile_index": 40,
-          "similarity_score": 0.8089976998750164,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "profile_index": 122,
+          "similarity_score": 0.7749736056977794,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual falls within the age range, is white, and fits the outgoing personality criteria. The slight discrepancy in ethnicity is acceptable given the other key requirements are met."
         }
       ]
     },
@@ -700,22 +700,22 @@
       "prompt": "Searching for a 29-37 male who is white and fun-loving.",
       "matches": [
         {
-          "profile_index": 118,
-          "similarity_score": 0.8440524614231618,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
-        },
-        {
-          "profile_index": 171,
-          "similarity_score": 0.8304107213858611,
+          "profile_index": 199,
+          "similarity_score": 0.8237855981319494,
           "is_accurate_match": false,
           "explanation": "Error: 'body_type'"
         },
         {
-          "profile_index": 36,
-          "similarity_score": 0.8285285629378858,
+          "profile_index": 162,
+          "similarity_score": 0.8137332534872219,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. While the age is slightly above the range, the profile meets the key criteria of being a white male and potentially fun-loving. Other factors like location, education, and religion are in alignment."
+        },
+        {
+          "profile_index": 172,
+          "similarity_score": 0.8124743578983817,
           "is_accurate_match": false,
-          "explanation": "No. Gender does not match preference."
+          "explanation": "Error: 'education'"
         }
       ]
     },
@@ -723,22 +723,22 @@
       "prompt": "Searching for a 23-30 male who is hispanic / latin, white and outgoing.",
       "matches": [
         {
-          "profile_index": 118,
-          "similarity_score": 0.8324852743420952,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "profile_index": 122,
+          "similarity_score": 0.8052133001782422,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual meets the key criteria of being Hispanic/Latin, White, and fit, even though they are slightly younger than the preferred age range. Other factors like location, education, and religion also align well."
         },
         {
-          "profile_index": 190,
-          "similarity_score": 0.8165359637596707,
+          "profile_index": 172,
+          "similarity_score": 0.7917403195085506,
           "is_accurate_match": false,
-          "explanation": "No. Gender does not match preference."
+          "explanation": "Error: 'education'"
         },
         {
-          "profile_index": 36,
-          "similarity_score": 0.8148486805075918,
+          "profile_index": 71,
+          "similarity_score": 0.7913379718015163,
           "is_accurate_match": false,
-          "explanation": "No. Gender does not match preference."
+          "explanation": "No. The profile does not match the prompt requirements as the individual's ethnicity is listed as Middle Eastern and White, not Hispanic/Latin or White."
         }
       ]
     },
@@ -746,22 +746,22 @@
       "prompt": "Dreaming of meeting someone who loves dancing, aged 22-28.",
       "matches": [
         {
-          "profile_index": 114,
+          "profile_index": 120,
           "similarity_score": 0.8155754728758657,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual falls within the desired age range, and while dancing preference is not explicitly mentioned, the profile meets the age criteria and has a fit body type, which could indicate an interest in physical activities like dancing."
+        },
+        {
+          "profile_index": 33,
+          "similarity_score": 0.7945907862250945,
           "is_accurate_match": false,
           "explanation": "Error: 'religion'"
         },
         {
-          "profile_index": 7,
-          "similarity_score": 0.7952659350936562,
-          "is_accurate_match": false,
-          "explanation": "No. The profile's age is below the specified range of 22-28, which is a key requirement. Additionally, the location and age may impact the likelihood of meeting in person and sharing similar life stages."
-        },
-        {
-          "profile_index": 31,
-          "similarity_score": 0.7945907862250945,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "profile_index": 244,
+          "similarity_score": 0.7891842856245231,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual is 28 years old, fits the age requirement, and their height is within the specified range. Although dancing preference is not mentioned, the key criteria are met."
         }
       ]
     },
@@ -769,22 +769,22 @@
       "prompt": "I want to meet a 33-39 male who is white and outgoing.",
       "matches": [
         {
-          "profile_index": 118,
-          "similarity_score": 0.8459762898429243,
+          "profile_index": 199,
+          "similarity_score": 0.8083888176562213,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'body_type'"
         },
         {
-          "profile_index": 31,
-          "similarity_score": 0.8247637007163557,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "profile_index": 162,
+          "similarity_score": 0.8039074024132904,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The male is within the specified age range, white, and meets the height requirement. The fact that he is outgoing is not explicitly mentioned but the other key criteria align well with the prompt."
         },
         {
-          "profile_index": 36,
-          "similarity_score": 0.8240217907772232,
+          "profile_index": 50,
+          "similarity_score": 0.7987302715748967,
           "is_accurate_match": false,
-          "explanation": "No. Gender does not match preference."
+          "explanation": "Error: 'education'"
         }
       ]
     },
@@ -792,20 +792,20 @@
       "prompt": "Dreaming of meeting someone who loves fitness, aged 27-35.",
       "matches": [
         {
-          "profile_index": 114,
+          "profile_index": 120,
           "similarity_score": 0.8241105750767567,
-          "is_accurate_match": false,
-          "explanation": "Error: 'religion'"
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. While the age is slightly below the preferred range, the profile meets the key requirement of loving fitness with a fit body type, which is a significant factor in this case. Other criteria like location, education, and religion are also aligned."
         },
         {
-          "profile_index": 118,
+          "profile_index": 124,
           "similarity_score": 0.8082877904353816,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'body_type'"
         },
         {
-          "profile_index": 40,
-          "similarity_score": 0.8069074587484846,
+          "profile_index": 33,
+          "similarity_score": 0.8034930820505882,
           "is_accurate_match": false,
           "explanation": "Error: 'religion'"
         }
@@ -815,22 +815,22 @@
       "prompt": "Looking for a 32-37 male who is black, white and introverted.",
       "matches": [
         {
-          "profile_index": 152,
-          "similarity_score": 0.8309729758384192,
+          "profile_index": 199,
+          "similarity_score": 0.8028395284038754,
           "is_accurate_match": false,
-          "explanation": "No. Gender does not match preference."
+          "explanation": "Error: 'body_type'"
         },
         {
-          "profile_index": 118,
-          "similarity_score": 0.8246812884513562,
+          "profile_index": 172,
+          "similarity_score": 0.7849335067425547,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'education'"
         },
         {
-          "profile_index": 36,
-          "similarity_score": 0.811511062756435,
-          "is_accurate_match": false,
-          "explanation": "No. Gender does not match preference."
+          "profile_index": 162,
+          "similarity_score": 0.7797693329486122,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match.\nExplanation: While the age is slightly above the range, the profile meets the key criteria of being male, white, and within the desired age range. Other factors like location, education, and religion are also aligned."
         }
       ]
     },
@@ -838,22 +838,22 @@
       "prompt": "I want to meet a 29-31 male who is white and goal-oriented.",
       "matches": [
         {
-          "profile_index": 118,
-          "similarity_score": 0.8403782617208457,
+          "profile_index": 172,
+          "similarity_score": 0.8199114177241981,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'education'"
         },
         {
-          "profile_index": 36,
-          "similarity_score": 0.8347260247543717,
-          "is_accurate_match": false,
-          "explanation": "No. Gender does not match preference."
+          "profile_index": 237,
+          "similarity_score": 0.7934925080041227,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual is a 30-year-old white male, which aligns with the specified age range and ethnicity requirement. Additionally, being goal-oriented was not explicitly mentioned as a requirement, so the profile meets the main criteria."
         },
         {
-          "profile_index": 171,
-          "similarity_score": 0.8255156464132206,
-          "is_accurate_match": false,
-          "explanation": "Error: 'body_type'"
+          "profile_index": 128,
+          "similarity_score": 0.7900070410980014,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual is a 30-year-old white male with an athletic body type, meeting the physical criteria. Additionally, he is goal-oriented as indicated by graduating from college/university."
         }
       ]
     },
@@ -861,22 +861,22 @@
       "prompt": "I want to meet a 35-42 male with slim looks and white.",
       "matches": [
         {
-          "profile_index": 118,
-          "similarity_score": 0.8397302538293381,
+          "profile_index": 43,
+          "similarity_score": 0.812959002147227,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'religion'"
         },
         {
-          "profile_index": 31,
-          "similarity_score": 0.8231723867081671,
-          "is_accurate_match": false,
-          "explanation": "No. Gender does not match preference."
+          "profile_index": 162,
+          "similarity_score": 0.7949241170935706,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual is a 38-year-old male within the specified age range, has a white ethnicity, and though the body type is average instead of slim, it still aligns closely with the preference. Other criteria like location, education, and religion also match."
         },
         {
-          "profile_index": 36,
-          "similarity_score": 0.8176508251308667,
+          "profile_index": 50,
+          "similarity_score": 0.7915302846529098,
           "is_accurate_match": false,
-          "explanation": "No. Gender does not match preference."
+          "explanation": "Error: 'education'"
         }
       ]
     },
@@ -884,22 +884,22 @@
       "prompt": "I want to meet a 25-34 female with with red hair looks and white.",
       "matches": [
         {
-          "profile_index": 118,
+          "profile_index": 124,
           "similarity_score": 0.8327026820455975,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "No. Gender does not match preference."
         },
         {
-          "profile_index": 47,
+          "profile_index": 51,
           "similarity_score": 0.8264178109773567,
           "is_accurate_match": false,
-          "explanation": "Error: 'religion'"
+          "explanation": "No. Gender does not match preference."
         },
         {
-          "profile_index": 31,
-          "similarity_score": 0.819036229083838,
+          "profile_index": 14,
+          "similarity_score": 0.7963123435589288,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "No. Gender does not match preference."
         }
       ]
     },
@@ -907,22 +907,22 @@
       "prompt": "Searching for someone with red hair and creative, aged 23-30.",
       "matches": [
         {
-          "profile_index": 47,
-          "similarity_score": 0.8266145382109709,
+          "profile_index": 33,
+          "similarity_score": 0.8071569042373713,
           "is_accurate_match": false,
           "explanation": "Error: 'religion'"
         },
         {
-          "profile_index": 79,
-          "similarity_score": 0.8094926631980969,
+          "profile_index": 23,
+          "similarity_score": 0.8024934601761218,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "No. The profile does not match the physical criteria as the person does not have red hair. Additionally, the age is slightly below the specified range."
         },
         {
-          "profile_index": 31,
-          "similarity_score": 0.8071569042373713,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "profile_index": 39,
+          "similarity_score": 0.7978572560328463,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The age requirement is met, and while the profile does not have red hair, the other key criteria of being creative is not contradicted."
         }
       ]
     },
@@ -930,22 +930,22 @@
       "prompt": "Searching for someone short, with a college degree and adventurous, aged 22-29.",
       "matches": [
         {
-          "profile_index": 171,
-          "similarity_score": 0.830558828222147,
-          "is_accurate_match": false,
-          "explanation": "Error: 'body_type'"
-        },
-        {
-          "profile_index": 31,
+          "profile_index": 33,
           "similarity_score": 0.8289555839478842,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'religion'"
         },
         {
-          "profile_index": 118,
-          "similarity_score": 0.8271511785976229,
+          "profile_index": 39,
+          "similarity_score": 0.8252767136483314,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual is 24 years old, working on a master's program (college degree criteria), and falls within the age range specified. Although the height is not explicitly stated, the other key criteria are met."
+        },
+        {
+          "profile_index": 161,
+          "similarity_score": 0.8185765418191182,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "No. The profile does not match the prompt requirements as the age is 21 instead of 22-29, and the education level is working on a two-year college degree instead of having already obtained a college degree."
         }
       ]
     },
@@ -953,22 +953,22 @@
       "prompt": "I want to meet someone with bright eyes and intellectual, aged 23-32.",
       "matches": [
         {
-          "profile_index": 118,
+          "profile_index": 124,
           "similarity_score": 0.8343409227390534,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'body_type'"
         },
         {
-          "profile_index": 31,
+          "profile_index": 33,
           "similarity_score": 0.8328762853675669,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'religion'"
         },
         {
-          "profile_index": 171,
-          "similarity_score": 0.8275814853900246,
-          "is_accurate_match": false,
-          "explanation": "Error: 'body_type'"
+          "profile_index": 152,
+          "similarity_score": 0.8153073042873997,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual is aged 31, falls within the specified age range, and their physical attributes (height, body type) are not specified as deal-breakers. Additionally, the profile meets the education requirement of having graduated from college/university."
         }
       ]
     },
@@ -976,20 +976,20 @@
       "prompt": "Looking for someone who loves fitness, aged 27-32.",
       "matches": [
         {
-          "profile_index": 118,
+          "profile_index": 124,
           "similarity_score": 0.8205885610063737,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'body_type'"
         },
         {
-          "profile_index": 184,
+          "profile_index": 193,
           "similarity_score": 0.8098168862799353,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual is 29 years old, falls within the specified age range, has an athletic body type, and is likely to be into fitness. The height, ethnicity, and location also align well with the preferences."
         },
         {
-          "profile_index": 36,
-          "similarity_score": 0.8024822110929472,
+          "profile_index": 33,
+          "similarity_score": 0.8022197067141756,
           "is_accurate_match": false,
           "explanation": "Error: 'religion'"
         }
@@ -999,22 +999,22 @@
       "prompt": "Searching for someone tall and creative, aged 31-35.",
       "matches": [
         {
-          "profile_index": 118,
+          "profile_index": 124,
           "similarity_score": 0.8349938667052457,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
-        },
-        {
-          "profile_index": 171,
-          "similarity_score": 0.8306657494595611,
           "is_accurate_match": false,
           "explanation": "Error: 'body_type'"
         },
         {
-          "profile_index": 47,
+          "profile_index": 51,
           "similarity_score": 0.8223291589035504,
           "is_accurate_match": false,
           "explanation": "Error: 'religion'"
+        },
+        {
+          "profile_index": 14,
+          "similarity_score": 0.8184331084025596,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual is 35 years old, tall (70 inches), and meets the age requirement. The creative aspect is not explicitly mentioned, but the main criteria are fulfilled."
         }
       ]
     },
@@ -1022,22 +1022,22 @@
       "prompt": "Searching for someone who loves reading, currently pursuing a degree, aged 27-36.",
       "matches": [
         {
-          "profile_index": 36,
-          "similarity_score": 0.823414363798554,
-          "is_accurate_match": false,
-          "explanation": "Error: 'religion'"
-        },
-        {
-          "profile_index": 118,
+          "profile_index": 124,
           "similarity_score": 0.8226419979824269,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'body_type'"
         },
         {
-          "profile_index": 46,
-          "similarity_score": 0.8144584151193621,
+          "profile_index": 58,
+          "similarity_score": 0.8107960567008071,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual is within the specified age range, currently residing in San Francisco, and although they have already graduated, they are pursuing a degree, which shows a commitment to education."
+        },
+        {
+          "profile_index": 33,
+          "similarity_score": 0.8102062177499767,
           "is_accurate_match": false,
-          "explanation": "Error: 'education'"
+          "explanation": "Error: 'religion'"
         }
       ]
     },
@@ -1045,22 +1045,22 @@
       "prompt": "Looking for a 33-38 male with tall looks, with a strong educational background and asian, native american.",
       "matches": [
         {
-          "profile_index": 118,
-          "similarity_score": 0.8285134034334798,
+          "profile_index": 189,
+          "similarity_score": 0.7982842485612449,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'religion'"
         },
         {
-          "profile_index": 36,
-          "similarity_score": 0.8283776628992556,
+          "profile_index": 100,
+          "similarity_score": 0.7965623968069631,
           "is_accurate_match": false,
-          "explanation": "No. Gender does not match preference."
+          "explanation": "Error: 'education'"
         },
         {
-          "profile_index": 152,
-          "similarity_score": 0.8183085076777528,
-          "is_accurate_match": false,
-          "explanation": "No. Gender does not match preference."
+          "profile_index": 58,
+          "similarity_score": 0.7955036815342797,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual is a 35-year-old Asian male with a height of 68 inches, meeting the physical criteria. Additionally, they have a strong educational background and are located in San Francisco, California."
         }
       ]
     },
@@ -1068,22 +1068,22 @@
       "prompt": "Dreaming of meeting a 29-34 male who is white and creative.",
       "matches": [
         {
-          "profile_index": 114,
-          "similarity_score": 0.8271499288348002,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "profile_index": 62,
+          "similarity_score": 0.7872695119414506,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual is a 34-year-old white male, meeting the age and ethnicity requirements specified in the prompt. Additionally, being creative is a broad trait that can be interpreted in various ways, making this profile a suitable match."
         },
         {
-          "profile_index": 40,
-          "similarity_score": 0.8128559244259836,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "profile_index": 243,
+          "similarity_score": 0.7870199463645752,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual meets the key requirements of being a white male and falls within the desired age range. The slight age difference is acceptable given the other criteria are met."
         },
         {
-          "profile_index": 15,
-          "similarity_score": 0.8025120489559482,
-          "is_accurate_match": false,
-          "explanation": "No. Gender does not match preference."
+          "profile_index": 237,
+          "similarity_score": 0.7823483396707926,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual is a 30-year-old white male, which aligns with the age range and ethnicity specified in the prompt. Additionally, being located in San Francisco and having a college/university education meet the requirements."
         }
       ]
     },
@@ -1091,22 +1091,22 @@
       "prompt": "I want to meet someone who loves traveling, aged 32-36.",
       "matches": [
         {
-          "profile_index": 31,
+          "profile_index": 33,
           "similarity_score": 0.8462121006580081,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'religion'"
         },
         {
-          "profile_index": 171,
-          "similarity_score": 0.8338433340494906,
+          "profile_index": 124,
+          "similarity_score": 0.8283846740705016,
           "is_accurate_match": false,
           "explanation": "Error: 'body_type'"
         },
         {
-          "profile_index": 118,
-          "similarity_score": 0.8283846740705016,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "profile_index": 162,
+          "similarity_score": 0.8232016882499091,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. While the age is slightly above the desired range, the profile meets the key criteria of loving to travel and falls within a reasonable age proximity. Other factors like ethnicity, body type, and location align well."
         }
       ]
     },
@@ -1114,22 +1114,22 @@
       "prompt": "I want to meet someone slim and creative, aged 22-31.",
       "matches": [
         {
-          "profile_index": 118,
+          "profile_index": 124,
           "similarity_score": 0.8410065130275486,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'body_type'"
         },
         {
-          "profile_index": 31,
+          "profile_index": 33,
           "similarity_score": 0.8318126868825537,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'religion'"
         },
         {
-          "profile_index": 171,
-          "similarity_score": 0.8256315155440731,
+          "profile_index": 39,
+          "similarity_score": 0.8167480241120088,
           "is_accurate_match": false,
-          "explanation": "Error: 'body_type'"
+          "explanation": "No. The profile does not match the physical criteria as the body type is described as curvy, not slim."
         }
       ]
     },
@@ -1137,22 +1137,22 @@
       "prompt": "Hoping to find a 19-25 male, straight partner who is intellectual.",
       "matches": [
         {
-          "profile_index": 171,
-          "similarity_score": 0.8387649485625273,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "profile_index": 161,
+          "similarity_score": 0.817537951638262,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The male user is within the specified age range, straight, and meets the physical criteria with an average body type and a height of 69 inches. The location, education level, and religion also align with the given requirements."
         },
         {
-          "profile_index": 118,
-          "similarity_score": 0.8364388742076879,
+          "profile_index": 236,
+          "similarity_score": 0.8036279987604948,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "No. Orientation does not match preference."
         },
         {
-          "profile_index": 31,
-          "similarity_score": 0.8255687098498324,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "profile_index": 130,
+          "similarity_score": 0.7987463267285466,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. While the age is slightly above the specified range, the other key criteria such as straight orientation, intellectual background (college/university education), and physical attributes (athletic body type, Asian ethnicity, and height) align with the prompt requirements."
         }
       ]
     },
@@ -1160,22 +1160,22 @@
       "prompt": "Hoping to find a 29-32 male who is unknown and outgoing.",
       "matches": [
         {
-          "profile_index": 118,
-          "similarity_score": 0.8134832632675458,
+          "profile_index": 37,
+          "similarity_score": 0.8005519882085816,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'religion'"
         },
         {
-          "profile_index": 40,
-          "similarity_score": 0.8122531705633173,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "profile_index": 95,
+          "similarity_score": 0.7993028021242039,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match.\nExplanation: While the age is slightly below the preferred range, the profile meets the criteria of being a male, unknown, and potentially outgoing. The physical attributes, location, and education align well with the prompt requirements."
         },
         {
-          "profile_index": 31,
-          "similarity_score": 0.8101700069671206,
+          "profile_index": 172,
+          "similarity_score": 0.7969902984143103,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'education'"
         }
       ]
     },
@@ -1183,22 +1183,22 @@
       "prompt": "Hoping to find a 26-33 male who is asian, pacific islander and introverted.",
       "matches": [
         {
-          "profile_index": 40,
-          "similarity_score": 0.8250087850132277,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "profile_index": 95,
+          "similarity_score": 0.8192702054634086,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual is 28 years old, Asian, and fits within the age range specified. The height and body type also align with the preferences, and the location and education level are suitable."
         },
         {
-          "profile_index": 118,
-          "similarity_score": 0.8238009781883906,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "profile_index": 58,
+          "similarity_score": 0.8115885361952083,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual is Asian, which aligns with the preference, and although slightly older than the desired age range, they meet the ethnicity requirement and are located in San Francisco."
         },
         {
-          "profile_index": 171,
-          "similarity_score": 0.8205282251028995,
-          "is_accurate_match": false,
-          "explanation": "Error: 'body_type'"
+          "profile_index": 130,
+          "similarity_score": 0.8095736759983334,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual meets the key requirements of being a 26-year-old Asian male, and the physical attributes of being athletic and 68 inches tall align with the prompt. The location in San Francisco and education level also match the criteria."
         }
       ]
     },
@@ -1206,22 +1206,22 @@
       "prompt": "Dreaming of meeting someone who loves dancing, aged 30-40.",
       "matches": [
         {
-          "profile_index": 114,
-          "similarity_score": 0.8128812057466839,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
-        },
-        {
-          "profile_index": 40,
+          "profile_index": 43,
           "similarity_score": 0.8045001015409762,
           "is_accurate_match": false,
           "explanation": "Error: 'religion'"
         },
         {
-          "profile_index": 118,
+          "profile_index": 124,
           "similarity_score": 0.8023326336828984,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'body_type'"
+        },
+        {
+          "profile_index": 33,
+          "similarity_score": 0.7938192567486799,
+          "is_accurate_match": false,
+          "explanation": "Error: 'religion'"
         }
       ]
     },
@@ -1229,22 +1229,22 @@
       "prompt": "Looking for someone who loves cooking, aged 23-31.",
       "matches": [
         {
-          "profile_index": 213,
+          "profile_index": 223,
           "similarity_score": 0.8289093086707655,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
-        },
-        {
-          "profile_index": 53,
-          "similarity_score": 0.8231584607903,
-          "is_accurate_match": false,
-          "explanation": "Error: 'religion'"
-        },
-        {
-          "profile_index": 72,
-          "similarity_score": 0.8226833000231253,
           "is_accurate_match": true,
-          "explanation": "Yes, this profile is a match. The individual is 30 years old, falls within the desired age range, and their ethnicity is black. Cooking preferences were not specified, but the key criteria for age and ethnicity are met."
+          "explanation": "Yes, this profile is a match. The age requirement is met at 26, and although cooking preference is not explicitly mentioned, the profile meets the primary criteria of falling within the desired age range."
+        },
+        {
+          "profile_index": 57,
+          "similarity_score": 0.8231584607903,
+          "is_accurate_match": true,
+          "explanation": "Yes, the profile is a match.\nExplanation: While the age requirement is not fully met, the profile's ethnicity, location, and education status align with the prompt's criteria. The minor age difference can be considered somewhat leniently."
+        },
+        {
+          "profile_index": 76,
+          "similarity_score": 0.8226833000231253,
+          "is_accurate_match": false,
+          "explanation": "Error: 'body_type'"
         }
       ]
     },
@@ -1252,22 +1252,22 @@
       "prompt": "Searching for someone who loves dancing, with a strong educational background, aged 25-34.",
       "matches": [
         {
-          "profile_index": 118,
+          "profile_index": 124,
           "similarity_score": 0.8361364953465555,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
-        },
-        {
-          "profile_index": 36,
-          "similarity_score": 0.8162646072865354,
-          "is_accurate_match": false,
-          "explanation": "Error: 'religion'"
-        },
-        {
-          "profile_index": 171,
-          "similarity_score": 0.8117468368280985,
-          "is_accurate_match": false,
           "explanation": "Error: 'body_type'"
+        },
+        {
+          "profile_index": 39,
+          "similarity_score": 0.8162646072865354,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. While the age is slightly below the desired range, the educational background aligns well with working on a master's program, which is a strong requirement. The location in San Francisco is also a good fit."
+        },
+        {
+          "profile_index": 193,
+          "similarity_score": 0.8084142347350015,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual is within the specified age range, has a strong educational background, and falls within the preferred ethnicity category. The fact that they are located in San Francisco is also a positive aspect."
         }
       ]
     },
@@ -1275,22 +1275,22 @@
       "prompt": "Hoping to find a 21-23 male, straight partner who is kind-hearted.",
       "matches": [
         {
-          "profile_index": 171,
-          "similarity_score": 0.8338981029762814,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "profile_index": 161,
+          "similarity_score": 0.7967110677104674,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual is a 21-year-old straight male, falls within the age range specified, and has an average body type. The location and education level also align with the requirements."
         },
         {
-          "profile_index": 118,
-          "similarity_score": 0.8247481261180446,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "profile_index": 73,
+          "similarity_score": 0.781982136400865,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. While the age is slightly above the specified range, the individual meets the other key criteria of being a straight male and kind-hearted. The physical attributes, location, education, and religion align well with the prompt requirements."
         },
         {
-          "profile_index": 225,
-          "similarity_score": 0.8233104120136672,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "profile_index": 78,
+          "similarity_score": 0.7815270531194249,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. While the age requirement is slightly off, the profile meets the key criteria of being a straight male and having a kind-hearted personality. Other factors like location, education, and physical attributes align well with the prompt."
         }
       ]
     },
@@ -1298,22 +1298,22 @@
       "prompt": "Searching for someone short, with a college degree and goal-oriented, aged 27-32.",
       "matches": [
         {
-          "profile_index": 36,
-          "similarity_score": 0.8282065618884098,
+          "profile_index": 124,
+          "similarity_score": 0.8200884668298616,
+          "is_accurate_match": false,
+          "explanation": "Error: 'body_type'"
+        },
+        {
+          "profile_index": 33,
+          "similarity_score": 0.8052166302292674,
           "is_accurate_match": false,
           "explanation": "Error: 'religion'"
         },
         {
-          "profile_index": 118,
-          "similarity_score": 0.8200884668298616,
+          "profile_index": 172,
+          "similarity_score": 0.7983027015044993,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
-        },
-        {
-          "profile_index": 171,
-          "similarity_score": 0.8163821074102686,
-          "is_accurate_match": false,
-          "explanation": "Error: 'body_type'"
+          "explanation": "Error: 'education'"
         }
       ]
     },
@@ -1321,19 +1321,19 @@
       "prompt": "Looking for a 26-32 female with with red hair looks and middle eastern, other.",
       "matches": [
         {
-          "profile_index": 118,
+          "profile_index": 124,
           "similarity_score": 0.8149298301422245,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "No. Gender does not match preference."
         },
         {
-          "profile_index": 47,
+          "profile_index": 51,
           "similarity_score": 0.8123447034416841,
           "is_accurate_match": false,
-          "explanation": "Error: 'religion'"
+          "explanation": "No. Gender does not match preference."
         },
         {
-          "profile_index": 36,
+          "profile_index": 39,
           "similarity_score": 0.7958024973773425,
           "is_accurate_match": false,
           "explanation": "No. Gender does not match preference."
@@ -1344,22 +1344,22 @@
       "prompt": "Hoping to find someone who loves cooking, college-educated, aged 24-30.",
       "matches": [
         {
-          "profile_index": 53,
-          "similarity_score": 0.8382071413254205,
-          "is_accurate_match": false,
-          "explanation": "Error: 'religion'"
-        },
-        {
-          "profile_index": 213,
+          "profile_index": 223,
           "similarity_score": 0.8332452820184459,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual is 26 years old, college-educated, falls within the specified age range, and their physical attributes align with the average body type preference. The fact that they are located in San Francisco is also a plus."
         },
         {
-          "profile_index": 118,
-          "similarity_score": 0.8308285196104089,
+          "profile_index": 76,
+          "similarity_score": 0.8267565136070529,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'body_type'"
+        },
+        {
+          "profile_index": 39,
+          "similarity_score": 0.8208942494836924,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual is within the specified age range, college-educated, and falls within the desired age range. While the cooking preference is not explicitly mentioned, the other key criteria align well."
         }
       ]
     },
@@ -1367,22 +1367,22 @@
       "prompt": "I want to meet someone who loves hiking, aged 30-36.",
       "matches": [
         {
-          "profile_index": 174,
-          "similarity_score": 0.8478328931238972,
-          "is_accurate_match": true,
-          "explanation": "Yes, the profile is a match. While the age is slightly above the desired range, the profile meets the key criteria of loving hiking and being within a reasonable age proximity. Other factors like location, education, and physical attributes align well."
-        },
-        {
-          "profile_index": 118,
+          "profile_index": 124,
           "similarity_score": 0.8324483852365271,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'body_type'"
         },
         {
-          "profile_index": 31,
+          "profile_index": 33,
           "similarity_score": 0.8253186109494626,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'religion'"
+        },
+        {
+          "profile_index": 62,
+          "similarity_score": 0.8141097469781622,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual falls within the required age range, and their physical attributes, location, education, and other details align with the preferences stated in the prompt."
         }
       ]
     },
@@ -1390,22 +1390,22 @@
       "prompt": "I want to meet a 27-33 female who is indian and outgoing.",
       "matches": [
         {
-          "profile_index": 118,
-          "similarity_score": 0.8444270002092199,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
-        },
-        {
-          "profile_index": 171,
-          "similarity_score": 0.834831279302388,
-          "is_accurate_match": false,
-          "explanation": "Error: 'body_type'"
-        },
-        {
-          "profile_index": 163,
-          "similarity_score": 0.820231607895062,
+          "profile_index": 105,
+          "similarity_score": 0.7450549261838085,
           "is_accurate_match": false,
           "explanation": "No. Gender does not match preference."
+        },
+        {
+          "profile_index": 124,
+          "similarity_score": 0.8444270002092199,
+          "is_accurate_match": false,
+          "explanation": "No. Gender does not match preference."
+        },
+        {
+          "profile_index": 180,
+          "similarity_score": 0.834831279302388,
+          "is_accurate_match": false,
+          "explanation": "No. Age outside specified range."
         }
       ]
     },
@@ -1413,22 +1413,22 @@
       "prompt": "Searching for someone with bright eyes, highly educated and outgoing, aged 26-30.",
       "matches": [
         {
-          "profile_index": 118,
-          "similarity_score": 0.8367679021601562,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
-        },
-        {
-          "profile_index": 47,
-          "similarity_score": 0.8278077094604719,
-          "is_accurate_match": false,
-          "explanation": "Error: 'religion'"
-        },
-        {
-          "profile_index": 36,
+          "profile_index": 39,
           "similarity_score": 0.8227899677083289,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. While the age is slightly below the preferred range, the individual is highly educated and falls within the age range of 26-30. The location, education level, and the fact that they are working on a master's program align well with the requirements."
+        },
+        {
+          "profile_index": 33,
+          "similarity_score": 0.8198804453165782,
           "is_accurate_match": false,
           "explanation": "Error: 'religion'"
+        },
+        {
+          "profile_index": 172,
+          "similarity_score": 0.8082068186039613,
+          "is_accurate_match": false,
+          "explanation": "Error: 'education'"
         }
       ]
     },
@@ -1436,22 +1436,22 @@
       "prompt": "Hoping to find someone who loves reading, aged 28-32.",
       "matches": [
         {
-          "profile_index": 118,
+          "profile_index": 124,
           "similarity_score": 0.8218982976812641,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'body_type'"
         },
         {
-          "profile_index": 31,
+          "profile_index": 33,
           "similarity_score": 0.8139352420077834,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'religion'"
         },
         {
-          "profile_index": 79,
-          "similarity_score": 0.8106367362501326,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "profile_index": 152,
+          "similarity_score": 0.8005391403143447,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The age requirement is met, and although the profile doesn't explicitly mention a love for reading, the other criteria align well with the prompt."
         }
       ]
     },
@@ -1459,22 +1459,22 @@
       "prompt": "I want to meet someone who loves traveling, with a strong educational background, aged 25-31.",
       "matches": [
         {
-          "profile_index": 31,
+          "profile_index": 33,
           "similarity_score": 0.8544613709247817,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'religion'"
         },
         {
-          "profile_index": 171,
-          "similarity_score": 0.8495035040670087,
+          "profile_index": 124,
+          "similarity_score": 0.8446838828248282,
           "is_accurate_match": false,
           "explanation": "Error: 'body_type'"
         },
         {
-          "profile_index": 118,
-          "similarity_score": 0.8446838828248282,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "profile_index": 39,
+          "similarity_score": 0.8302235070876232,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. While the age is slightly below the preferred range, the educational background aligns well with someone working on a master's program, showing a strong educational focus. The location in San Francisco also offers potential for a match."
         }
       ]
     },
@@ -1482,22 +1482,22 @@
       "prompt": "Searching for a 23-29 female, bisexual partner who is adventurous.",
       "matches": [
         {
-          "profile_index": 118,
-          "similarity_score": 0.8320313938664383,
+          "profile_index": 33,
+          "similarity_score": 0.8157455720414926,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "No. Gender does not match preference."
         },
         {
-          "profile_index": 171,
-          "similarity_score": 0.8253241225616359,
+          "profile_index": 198,
+          "similarity_score": 0.8071874322318401,
           "is_accurate_match": false,
-          "explanation": "Error: 'body_type'"
+          "explanation": "No. Gender does not match preference."
         },
         {
-          "profile_index": 153,
-          "similarity_score": 0.822260750429985,
+          "profile_index": 106,
+          "similarity_score": 0.8036463845519894,
           "is_accurate_match": false,
-          "explanation": "No. Orientation does not match preference."
+          "explanation": "No. Gender does not match preference."
         }
       ]
     },
@@ -1505,20 +1505,20 @@
       "prompt": "Looking for a 31-35 female with with bright eyes looks, highly educated and white.",
       "matches": [
         {
-          "profile_index": 118,
+          "profile_index": 124,
           "similarity_score": 0.8492311132824617,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
-        },
-        {
-          "profile_index": 36,
-          "similarity_score": 0.8233095346351718,
           "is_accurate_match": false,
           "explanation": "No. Gender does not match preference."
         },
         {
-          "profile_index": 152,
-          "similarity_score": 0.8164968568681262,
+          "profile_index": 51,
+          "similarity_score": 0.8143439821896785,
+          "is_accurate_match": false,
+          "explanation": "No. Gender does not match preference."
+        },
+        {
+          "profile_index": 14,
+          "similarity_score": 0.8060804124782952,
           "is_accurate_match": false,
           "explanation": "No. Gender does not match preference."
         }
@@ -1528,22 +1528,22 @@
       "prompt": "Searching for a 18-26 male, straight partner who is intellectual.",
       "matches": [
         {
-          "profile_index": 171,
-          "similarity_score": 0.8439054812439417,
-          "is_accurate_match": false,
-          "explanation": "Error: 'body_type'"
+          "profile_index": 161,
+          "similarity_score": 0.8225454367216612,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The age, gender, and orientation requirements are met. The profile's location, education level, and ethnicity align with the prompt's criteria for a male partner who is intellectual."
         },
         {
-          "profile_index": 118,
-          "similarity_score": 0.840385109793691,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
-        },
-        {
-          "profile_index": 47,
-          "similarity_score": 0.8256501057687649,
+          "profile_index": 82,
+          "similarity_score": 0.8102650517029838,
           "is_accurate_match": false,
           "explanation": "Error: 'religion'"
+        },
+        {
+          "profile_index": 95,
+          "similarity_score": 0.8095219059295597,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. While the age is slightly above the specified range, the individual meets the criteria for being male, straight, and intellectual with a Ph.D. program, which are the key requirements. Other details like height, ethnicity, and location are within acceptable ranges."
         }
       ]
     },
@@ -1551,22 +1551,22 @@
       "prompt": "I want to meet someone who loves fitness, aged 28-32.",
       "matches": [
         {
-          "profile_index": 118,
+          "profile_index": 124,
           "similarity_score": 0.8330451601605862,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'body_type'"
         },
         {
-          "profile_index": 31,
+          "profile_index": 33,
           "similarity_score": 0.822184112406535,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'religion'"
         },
         {
-          "profile_index": 40,
-          "similarity_score": 0.8118740220026708,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "profile_index": 193,
+          "similarity_score": 0.8070707487652276,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual is 29 years old, falls within the desired age range, has an athletic body type, and their height is 69 inches (which is around 5'9\", assuming this is the correct conversion). These physical attributes align well with the preference for someone who loves fitness."
         }
       ]
     },
@@ -1574,22 +1574,22 @@
       "prompt": "Searching for a 29-35 male with short looks and white.",
       "matches": [
         {
-          "profile_index": 118,
-          "similarity_score": 0.8080963922617735,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
-        },
-        {
-          "profile_index": 47,
-          "similarity_score": 0.7984071904959118,
+          "profile_index": 37,
+          "similarity_score": 0.7854503831860786,
           "is_accurate_match": false,
           "explanation": "Error: 'religion'"
         },
         {
-          "profile_index": 36,
-          "similarity_score": 0.7982771512765052,
+          "profile_index": 172,
+          "similarity_score": 0.7775879189918996,
           "is_accurate_match": false,
-          "explanation": "No. Gender does not match preference."
+          "explanation": "Error: 'education'"
+        },
+        {
+          "profile_index": 26,
+          "similarity_score": 0.7769948750488607,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual is a 29-year-old white male with a thin body type, meeting the physical criteria specified in the prompt. Other factors like location, education, and orientation align as well."
         }
       ]
     },
@@ -1597,22 +1597,22 @@
       "prompt": "I want to meet a 30-36 female who is asian, white and goal-oriented.",
       "matches": [
         {
-          "profile_index": 118,
+          "profile_index": 124,
           "similarity_score": 0.8435901352686624,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
-        },
-        {
-          "profile_index": 36,
-          "similarity_score": 0.829912777766698,
           "is_accurate_match": false,
           "explanation": "No. Gender does not match preference."
         },
         {
-          "profile_index": 171,
-          "similarity_score": 0.8231702685162753,
+          "profile_index": 33,
+          "similarity_score": 0.8128461669689964,
           "is_accurate_match": false,
-          "explanation": "Error: 'body_type'"
+          "explanation": "No. Gender does not match preference."
+        },
+        {
+          "profile_index": 51,
+          "similarity_score": 0.8082199140198792,
+          "is_accurate_match": false,
+          "explanation": "No. Gender does not match preference."
         }
       ]
     },
@@ -1620,22 +1620,22 @@
       "prompt": "Hoping to find a 26-29 male who is white and introverted.",
       "matches": [
         {
-          "profile_index": 118,
-          "similarity_score": 0.831930090273297,
+          "profile_index": 82,
+          "similarity_score": 0.8073693957469754,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'religion'"
         },
         {
-          "profile_index": 171,
-          "similarity_score": 0.8282376810594916,
+          "profile_index": 172,
+          "similarity_score": 0.7983366419303455,
           "is_accurate_match": false,
-          "explanation": "Error: 'body_type'"
+          "explanation": "Error: 'education'"
         },
         {
-          "profile_index": 40,
-          "similarity_score": 0.8210477020055094,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "profile_index": 26,
+          "similarity_score": 0.7959942015190687,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual is a 29-year-old white male within the specified age range and matches the introverted preference based on the information provided."
         }
       ]
     },
@@ -1643,20 +1643,20 @@
       "prompt": "Dreaming of meeting a 36-43 female with with red hair looks, holding a master's degree and unknown.",
       "matches": [
         {
-          "profile_index": 114,
-          "similarity_score": 0.8060011250510435,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
-        },
-        {
-          "profile_index": 40,
-          "similarity_score": 0.792640864088134,
+          "profile_index": 51,
+          "similarity_score": 0.7811182902630293,
           "is_accurate_match": false,
           "explanation": "No. Gender does not match preference."
         },
         {
-          "profile_index": 36,
-          "similarity_score": 0.7876090545576702,
+          "profile_index": 14,
+          "similarity_score": 0.7736516387395129,
+          "is_accurate_match": false,
+          "explanation": "No. Gender does not match preference."
+        },
+        {
+          "profile_index": 40,
+          "similarity_score": 0.7731179461140324,
           "is_accurate_match": false,
           "explanation": "No. Gender does not match preference."
         }
@@ -1666,20 +1666,20 @@
       "prompt": "I want to meet a 23-30 female with short looks, college-educated and unknown.",
       "matches": [
         {
-          "profile_index": 171,
-          "similarity_score": 0.8337892306484422,
+          "profile_index": 33,
+          "similarity_score": 0.8228691185104029,
           "is_accurate_match": false,
-          "explanation": "Error: 'body_type'"
+          "explanation": "No. Gender does not match preference."
         },
         {
-          "profile_index": 118,
-          "similarity_score": 0.8296530696146581,
+          "profile_index": 39,
+          "similarity_score": 0.819567852145746,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "No. Gender does not match preference."
         },
         {
-          "profile_index": 152,
-          "similarity_score": 0.8231747455693397,
+          "profile_index": 15,
+          "similarity_score": 0.8076557796010886,
           "is_accurate_match": false,
           "explanation": "No. Gender does not match preference."
         }
@@ -1689,22 +1689,22 @@
       "prompt": "Hoping to find a 41-45 male with with red hair looks, with a college degree and unknown.",
       "matches": [
         {
-          "profile_index": 36,
-          "similarity_score": 0.8129790381253289,
+          "profile_index": 43,
+          "similarity_score": 0.8032880062713252,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'religion'"
         },
         {
-          "profile_index": 47,
-          "similarity_score": 0.8108439117583778,
+          "profile_index": 199,
+          "similarity_score": 0.7965568473130897,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'body_type'"
         },
         {
-          "profile_index": 91,
-          "similarity_score": 0.8053483651829922,
+          "profile_index": 209,
+          "similarity_score": 0.7852904644632879,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "No. While the profile matches the age range and education level, it does not have red hair as specified in the prompt. Additionally, the height, ethnicity, and religion do not align with the requirements."
         }
       ]
     },
@@ -1712,20 +1712,20 @@
       "prompt": "Looking for someone who loves exploring nature, with a college degree, aged 36-41.",
       "matches": [
         {
-          "profile_index": 174,
-          "similarity_score": 0.8387676560611427,
-          "is_accurate_match": true,
-          "explanation": "Yes, this profile is a match. The individual is 37 years old, has a college degree, and their ethnicity aligns with the preferences. Additionally, being located in Berkeley, California, offers ample opportunities for exploring nature."
-        },
-        {
-          "profile_index": 118,
-          "similarity_score": 0.834759385513639,
+          "profile_index": 43,
+          "similarity_score": 0.8173843696393543,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'religion'"
         },
         {
-          "profile_index": 171,
-          "similarity_score": 0.8285531642880284,
+          "profile_index": 14,
+          "similarity_score": 0.8168038379276734,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. While the age is slightly below the preferred range, the individual has a college degree (med school), is within the age range, and the physical attributes and other details align well with the preferences."
+        },
+        {
+          "profile_index": 199,
+          "similarity_score": 0.8137571639506298,
           "is_accurate_match": false,
           "explanation": "Error: 'body_type'"
         }
@@ -1735,22 +1735,22 @@
       "prompt": "Searching for a 22-25 male who is black and fun-loving.",
       "matches": [
         {
-          "profile_index": 152,
+          "profile_index": 161,
           "similarity_score": 0.8480109208985679,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual is a 21-year-old black male, which is close to the specified age range and ethnicity. The slight age difference can be considered somewhat leniently given the other key criteria align."
         },
         {
-          "profile_index": 118,
-          "similarity_score": 0.8287927015707981,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "profile_index": 134,
+          "similarity_score": 0.7899830424895243,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. While the age is slightly above the specified range, the profile meets the key requirements of being male, black, and potentially fun-loving. The location and education level also align with the prompt."
         },
         {
-          "profile_index": 36,
-          "similarity_score": 0.8240194127659116,
+          "profile_index": 249,
+          "similarity_score": 0.7506622224330568,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "No. The profile does not match the prompt requirements as the individual is outside the specified age range and does not identify as black."
         }
       ]
     },
@@ -1758,22 +1758,22 @@
       "prompt": "Hoping to find a 27-30 female with curvy looks and white.",
       "matches": [
         {
-          "profile_index": 118,
-          "similarity_score": 0.8460051400311851,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
-        },
-        {
-          "profile_index": 152,
-          "similarity_score": 0.7997022452471809,
+          "profile_index": 120,
+          "similarity_score": 0.7644521501056223,
           "is_accurate_match": false,
           "explanation": "No. Gender does not match preference."
         },
         {
-          "profile_index": 31,
-          "similarity_score": 0.7949616571719368,
+          "profile_index": 166,
+          "similarity_score": 0.764356847190855,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "No. Gender does not match preference."
+        },
+        {
+          "profile_index": 186,
+          "similarity_score": 0.7598879297103157,
+          "is_accurate_match": false,
+          "explanation": "No. Gender does not match preference."
         }
       ]
     },
@@ -1781,22 +1781,22 @@
       "prompt": "Searching for a 27-30 male with with dark hair looks and hispanic / latin, white.",
       "matches": [
         {
-          "profile_index": 118,
-          "similarity_score": 0.8036466693860016,
+          "profile_index": 37,
+          "similarity_score": 0.7689998975416157,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'religion'"
         },
         {
-          "profile_index": 190,
-          "similarity_score": 0.7960870731128309,
+          "profile_index": 172,
+          "similarity_score": 0.7644132473383659,
           "is_accurate_match": false,
-          "explanation": "No. Gender does not match preference."
+          "explanation": "Error: 'education'"
         },
         {
-          "profile_index": 152,
-          "similarity_score": 0.7925016175285062,
-          "is_accurate_match": false,
-          "explanation": "No. Gender does not match preference."
+          "profile_index": 237,
+          "similarity_score": 0.7630708417383433,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual is a 30-year-old male with white ethnicity, which aligns with the prompt requirements for age, gender, and ethnicity. Although the prompt prefers Hispanic/Latin ethnicity, the other key criteria are met."
         }
       ]
     },
@@ -1804,22 +1804,22 @@
       "prompt": "Looking for someone who loves dancing, college-educated, aged 24-33.",
       "matches": [
         {
-          "profile_index": 118,
+          "profile_index": 124,
           "similarity_score": 0.8384836036809366,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'body_type'"
         },
         {
-          "profile_index": 36,
+          "profile_index": 39,
           "similarity_score": 0.822876890850438,
-          "is_accurate_match": false,
-          "explanation": "Error: 'religion'"
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual is within the specified age range, working on a master's program (college-educated), and falls within the age range requirement. While dancing preference is not explicitly mentioned, the profile meets the main criteria."
         },
         {
-          "profile_index": 152,
-          "similarity_score": 0.816663747124359,
+          "profile_index": 193,
+          "similarity_score": 0.8070610467173083,
           "is_accurate_match": true,
-          "explanation": "Yes, this profile is a match. The individual is within the specified age range, college-educated, and their ethnicity aligns with the preferences. While dancing is not mentioned, the other key criteria are met."
+          "explanation": "Yes, this profile is a match. The individual is aged 29, college-educated, and falls within the specified age range. While dancing preference is not explicitly mentioned, the profile meets the main criteria."
         }
       ]
     },
@@ -1827,22 +1827,22 @@
       "prompt": "Hoping to find a 20-26 male who is white and intellectual.",
       "matches": [
         {
-          "profile_index": 118,
-          "similarity_score": 0.8374852774482138,
+          "profile_index": 82,
+          "similarity_score": 0.8031712730394575,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'religion'"
         },
         {
-          "profile_index": 171,
-          "similarity_score": 0.8326696979603266,
+          "profile_index": 84,
+          "similarity_score": 0.799631609852536,
           "is_accurate_match": false,
-          "explanation": "Error: 'body_type'"
+          "explanation": "Error: 'religion'"
         },
         {
-          "profile_index": 152,
-          "similarity_score": 0.8254810591290884,
-          "is_accurate_match": false,
-          "explanation": "No. Gender does not match preference."
+          "profile_index": 88,
+          "similarity_score": 0.7915249648672984,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual is a 24-year-old white male, meeting the age, ethnicity, and gender criteria. Additionally, having graduated from college/university aligns with the intellectual requirement."
         }
       ]
     },
@@ -1850,22 +1850,22 @@
       "prompt": "I want to meet a 32-38 male with with bright eyes looks and white.",
       "matches": [
         {
-          "profile_index": 31,
-          "similarity_score": 0.8307055110958509,
+          "profile_index": 172,
+          "similarity_score": 0.8019194576537406,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'education'"
         },
         {
-          "profile_index": 118,
-          "similarity_score": 0.8290566340319032,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "profile_index": 162,
+          "similarity_score": 0.7947523844129968,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The male is within the age range (38), has bright eyes, and is white. While the height is not specified, the other physical attributes align with the prompt requirements. Additionally, the education level and ethnicity match."
         },
         {
-          "profile_index": 47,
-          "similarity_score": 0.8155527990802909,
-          "is_accurate_match": false,
-          "explanation": "Error: 'religion'"
+          "profile_index": 237,
+          "similarity_score": 0.7941874064027503,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. While the age is slightly below the desired range, the individual meets the criteria for being a male with white ethnicity, and the physical attributes of being fit with a height of 73 inches. Other factors like location, education, and orientation align as well."
         }
       ]
     },
@@ -1873,22 +1873,22 @@
       "prompt": "Dreaming of meeting a 36-40 male, straight partner who is introverted.",
       "matches": [
         {
-          "profile_index": 40,
+          "profile_index": 43,
           "similarity_score": 0.8097408499672981,
           "is_accurate_match": false,
-          "explanation": "No. Gender does not match preference."
+          "explanation": "Error: 'religion'"
         },
         {
-          "profile_index": 15,
-          "similarity_score": 0.8059082197022428,
+          "profile_index": 100,
+          "similarity_score": 0.7902213941269466,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'education'"
         },
         {
-          "profile_index": 114,
-          "similarity_score": 0.8043746433788064,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "profile_index": 162,
+          "similarity_score": 0.7873494091643319,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The male is within the specified age range, straight, and the height falls within the range. The ethnicity, body type, and other criteria are also aligned with the prompt."
         }
       ]
     },
@@ -1896,22 +1896,22 @@
       "prompt": "Dreaming of meeting someone curvy, with a college degree and introverted, aged 29-33.",
       "matches": [
         {
-          "profile_index": 114,
-          "similarity_score": 0.8295795274893211,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
-        },
-        {
-          "profile_index": 118,
+          "profile_index": 124,
           "similarity_score": 0.826149302986257,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'body_type'"
         },
         {
-          "profile_index": 31,
+          "profile_index": 33,
           "similarity_score": 0.8021871687779691,
           "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
+          "explanation": "Error: 'religion'"
+        },
+        {
+          "profile_index": 82,
+          "similarity_score": 0.8007744912892311,
+          "is_accurate_match": false,
+          "explanation": "Error: 'religion'"
         }
       ]
     },
@@ -1919,22 +1919,22 @@
       "prompt": "I want to meet someone with dark hair and intellectual, aged 43-48.",
       "matches": [
         {
-          "profile_index": 118,
-          "similarity_score": 0.8337553661042644,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
-        },
-        {
-          "profile_index": 171,
-          "similarity_score": 0.8240590591930887,
-          "is_accurate_match": false,
-          "explanation": "No. Age outside specified range."
-        },
-        {
-          "profile_index": 31,
-          "similarity_score": 0.8231544217465872,
+          "profile_index": 43,
+          "similarity_score": 0.8174331893037854,
           "is_accurate_match": false,
           "explanation": "Error: 'religion'"
+        },
+        {
+          "profile_index": 19,
+          "similarity_score": 0.8115978692071399,
+          "is_accurate_match": false,
+          "explanation": "Error: 'religion'"
+        },
+        {
+          "profile_index": 209,
+          "similarity_score": 0.8086257310588467,
+          "is_accurate_match": true,
+          "explanation": "Yes, this profile is a match. The individual is within the specified age range, has dark hair, and fits the intellectual criteria with a Master's degree. The slight discrepancy in religion doesn't significantly impact the overall compatibility."
         }
       ]
     }
