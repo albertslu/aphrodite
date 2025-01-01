@@ -1,10 +1,10 @@
 {
-  "overall_accuracy": 68.29268292682927,
+  "overall_accuracy": 65.85365853658537,
   "total_matches_evaluated": 41,
-  "accurate_matches": 28,
-  "yes_matches": 28,
-  "no_matches": 13,
-  "evaluation_timestamp": "2024-12-31T19:40:26.197911",
+  "accurate_matches": 27,
+  "yes_matches": 27,
+  "no_matches": 14,
+  "evaluation_timestamp": "2024-12-31T19:46:16.397564",
   "detailed_results": [
     {
       "prompt": "Searching for a 21-25 male who is asian, white and creative.",
@@ -29,7 +29,7 @@
           "ethnicity": "asian",
           "body_type": "fit",
           "is_accurate_match": true,
-          "explanation": "Yes"
+          "explanation": "Yes\nFits the age, ethnicity, and spontaneity criteria"
         },
         {
           "profile_index": 340,
@@ -40,7 +40,7 @@
           "ethnicity": "white",
           "body_type": "athletic",
           "is_accurate_match": true,
-          "explanation": "Yes\nThis profile meets the criteria by being within the specified age range, sharing the same orientation, having an athletic body type, and being located close by"
+          "explanation": "Yes\nThis profile meets the criteria by being within the age range, having an athletic body type, and being introverted"
         }
       ]
     },
@@ -56,7 +56,7 @@
           "ethnicity": "white",
           "body_type": "athletic",
           "is_accurate_match": true,
-          "explanation": "Yes"
+          "explanation": "Yes\nThis profile meets the criteria - the individual is a 35-year-old white male who appears to have a fun-loving attitude based on their religion description"
         },
         {
           "profile_index": 141,
@@ -67,7 +67,7 @@
           "ethnicity": "black, white",
           "body_type": "fit",
           "is_accurate_match": true,
-          "explanation": "Yes\nMeets the age requirement, enjoys cooking, and falls within the specified ethnicity and location criteria"
+          "explanation": "Yes\nFits the age requirement, loves cooking, meets the age range, education level, ethnicity, and is located reasonably close"
         },
         {
           "profile_index": 386,
@@ -77,8 +77,8 @@
           "education": "graduated from college/university",
           "ethnicity": "N/A",
           "body_type": "average",
-          "is_accurate_match": true,
-          "explanation": "Yes"
+          "is_accurate_match": false,
+          "explanation": "No"
         }
       ]
     },
@@ -143,7 +143,7 @@
           "ethnicity": "white",
           "body_type": "thin",
           "is_accurate_match": true,
-          "explanation": "Yes"
+          "explanation": "Yes, this profile is a match"
         },
         {
           "profile_index": 212,
@@ -153,8 +153,8 @@
           "education": "graduated from masters program",
           "ethnicity": "white",
           "body_type": "average",
-          "is_accurate_match": true,
-          "explanation": "Yes\nFits criteria of being 29 years old, educated, and physically fit"
+          "is_accurate_match": false,
+          "explanation": "No"
         }
       ]
     },
@@ -170,25 +170,7 @@
           "ethnicity": "white",
           "body_type": "thin",
           "is_accurate_match": true,
-          "explanation": "Yes, he meets all the criteria specified in the prompt - male, straight, outgoing, within the age range, and located in the required area"
-        },
-        {
-          "profile_index": 310,
-          "similarity_score": 0.8095123436170616,
-          "age": 30,
-          "location": "san francisco, california",
-          "education": "graduated from college/university",
-          "ethnicity": "white",
-          "body_type": "jacked"
-        },
-        {
-          "profile_index": 485,
-          "similarity_score": 0.8065259729075094,
-          "age": 29,
-          "location": "south san francisco, california",
-          "education": "graduated from college/university",
-          "ethnicity": "white",
-          "body_type": "fit"
+          "explanation": "Yes"
         }
       ]
     },
@@ -204,7 +186,7 @@
           "ethnicity": "white",
           "body_type": "jacked",
           "is_accurate_match": true,
-          "explanation": "Yes\nThe profile meets the criteria - male, white, 25 years old, and straight"
+          "explanation": "Yes\nMeets the criteria of being a white male within the specified age range and appears to be outgoing based on the profile information"
         },
         {
           "profile_index": 437,
@@ -214,8 +196,8 @@
           "education": "graduated from college/university",
           "ethnicity": "white",
           "body_type": "athletic",
-          "is_accurate_match": true,
-          "explanation": "Yes\nThe profile meets the criteria as the male is within the specified age range, white, and matches the desired location and education level"
+          "is_accurate_match": false,
+          "explanation": "No"
         },
         {
           "profile_index": 459,
@@ -226,7 +208,7 @@
           "ethnicity": "white",
           "body_type": "athletic",
           "is_accurate_match": true,
-          "explanation": "Yes\nThis profile meets the requirements as the individual is a 34-year-old white male who is located in California and fits the age range specified"
+          "explanation": "Yes"
         }
       ]
     },
@@ -242,7 +224,7 @@
           "ethnicity": "N/A",
           "body_type": "average",
           "is_accurate_match": true,
-          "explanation": "Yes\nThis profile matches the criteria of loving fitness, being aged 27-35, and having a fit body type"
+          "explanation": "Yes\nThis profile meets the criteria as the individual is a 31-year-old female who loves fitness, falls within the age range specified, and has a fit body type"
         },
         {
           "profile_index": 74,
@@ -252,8 +234,8 @@
           "education": "graduated from masters program",
           "ethnicity": "white",
           "body_type": "fit",
-          "is_accurate_match": true,
-          "explanation": "Yes"
+          "is_accurate_match": false,
+          "explanation": "No"
         },
         {
           "profile_index": 128,
@@ -302,7 +284,7 @@
           "ethnicity": "white",
           "body_type": "average",
           "is_accurate_match": false,
-          "explanation": "No"
+          "explanation": "No, this profile does not meet the criteria"
         }
       ]
     },
@@ -329,7 +311,7 @@
           "ethnicity": "black",
           "body_type": "average",
           "is_accurate_match": true,
-          "explanation": "Yes"
+          "explanation": "Yes\nMeets the age criteria and location, has the desired education level, and fits the physical attributes"
         },
         {
           "profile_index": 130,
@@ -340,7 +322,7 @@
           "ethnicity": "white",
           "body_type": "fit",
           "is_accurate_match": false,
-          "explanation": "No"
+          "explanation": "No, the profile does not meet the criteria"
         }
       ]
     },
@@ -355,8 +337,8 @@
           "education": "graduated from college/university",
           "ethnicity": "white, other",
           "body_type": "athletic",
-          "is_accurate_match": true,
-          "explanation": "Yes\nThe profile meets the age and orientation criteria, and the location is close"
+          "is_accurate_match": false,
+          "explanation": "No"
         },
         {
           "profile_index": 310,
@@ -377,8 +359,8 @@
           "education": "graduated from masters program",
           "ethnicity": "white",
           "body_type": "athletic",
-          "is_accurate_match": false,
-          "explanation": "No"
+          "is_accurate_match": true,
+          "explanation": "Yes"
         }
       ]
     },
@@ -405,7 +387,7 @@
           "ethnicity": "white",
           "body_type": "jacked",
           "is_accurate_match": true,
-          "explanation": "Yes\nThe profile meets the criteria - the individual is college-educated, within the specified age range, and located in an eligible area for the search"
+          "explanation": "Yes"
         },
         {
           "profile_index": 123,
@@ -432,7 +414,7 @@
           "ethnicity": "white",
           "body_type": "fit",
           "is_accurate_match": true,
-          "explanation": "Yes, this profile is a match"
+          "explanation": "Yes"
         },
         {
           "profile_index": 123,
@@ -442,8 +424,8 @@
           "education": "graduated from college/university",
           "ethnicity": "white",
           "body_type": "fit",
-          "is_accurate_match": false,
-          "explanation": "No"
+          "is_accurate_match": true,
+          "explanation": "Yes\nMeets the age, gender, and orientation requirements, but slightly exceeds the age range specified"
         },
         {
           "profile_index": 330,
@@ -453,8 +435,8 @@
           "education": "graduated from masters program",
           "ethnicity": "white",
           "body_type": "fit",
-          "is_accurate_match": false,
-          "explanation": "No"
+          "is_accurate_match": true,
+          "explanation": "Yes, since the profile is outside the specified age range (37) for the search criteria of 29-35"
         }
       ]
     },
@@ -469,8 +451,8 @@
           "education": "working on college/university",
           "ethnicity": "indian",
           "body_type": "athletic",
-          "is_accurate_match": false,
-          "explanation": "No"
+          "is_accurate_match": true,
+          "explanation": "Yes"
         },
         {
           "profile_index": 81,
@@ -481,7 +463,7 @@
           "ethnicity": "asian",
           "body_type": "fit",
           "is_accurate_match": true,
-          "explanation": "Yes\nThis profile meets all the specified criteria: loves exploring nature, has a college degree, and is within the age range of 36-41"
+          "explanation": "Yes\nMeets the criteria specified - loves exploring nature, has a college degree, and is within the age range"
         },
         {
           "profile_index": 388,
@@ -491,8 +473,8 @@
           "education": "graduated from college/university",
           "ethnicity": "native american, hispanic / latin",
           "body_type": "N/A",
-          "is_accurate_match": false,
-          "explanation": "No"
+          "is_accurate_match": true,
+          "explanation": "Yes"
         }
       ]
     },
@@ -508,7 +490,7 @@
           "ethnicity": "white",
           "body_type": "athletic",
           "is_accurate_match": true,
-          "explanation": "Yes\nThe profile meets the criteria by being a white male within the specified age range, fitting the intellectual requirement"
+          "explanation": "Yes"
         },
         {
           "profile_index": 386,
@@ -519,7 +501,7 @@
           "ethnicity": "N/A",
           "body_type": "average",
           "is_accurate_match": true,
-          "explanation": "Yes\nMeets the age, ethnicity, location, education, and other specified requirements"
+          "explanation": "Yes\nThe profile meets the criteria of being a 32-38 male, white, and within the specified age range"
         },
         {
           "profile_index": 130,
@@ -529,8 +511,8 @@
           "education": "graduated from college/university",
           "ethnicity": "white",
           "body_type": "fit",
-          "is_accurate_match": true,
-          "explanation": "Yes\nMeets the criteria: within the age range, has a college degree, and fits the description of being fit"
+          "is_accurate_match": false,
+          "explanation": "No"
         }
       ]
     },
@@ -546,25 +528,7 @@
           "ethnicity": "white",
           "body_type": "average",
           "is_accurate_match": true,
-          "explanation": "Yes, this profile is a match"
-        },
-        {
-          "profile_index": 347,
-          "similarity_score": 0.8232358886251185,
-          "age": 31,
-          "location": "san francisco, california",
-          "education": "graduated from masters program",
-          "ethnicity": "hispanic / latin, white",
-          "body_type": "average"
-        },
-        {
-          "profile_index": 214,
-          "similarity_score": 0.8224613352749446,
-          "age": 28,
-          "location": "oakland, california",
-          "education": "graduated from college/university",
-          "ethnicity": "asian, white",
-          "body_type": "average"
+          "explanation": "Yes"
         }
       ]
     }
