@@ -153,6 +153,14 @@ def evaluate_batch(prompts_and_profiles, batch_size=3):
                 all_results.append((False, "No. Does not pass basic criteria."))
                 continue
             
+            # Extract essay content for personality traits
+            essay_fields = [f"essay{i}" for i in range(10)]
+            essays = []
+            for field in essay_fields:
+                if field in profile and profile[field]:
+                    essays.append(profile[field])
+            essay_content = " ".join(essays)
+            
             evaluation_prompt = f"""
             Given this dating app prompt: "{prompt}"
             And this profile information:
@@ -166,27 +174,41 @@ def evaluate_batch(prompts_and_profiles, batch_size=3):
             - Height: {profile.get('height', 'N/A')}
             - Religion: {profile.get('religion', 'N/A')}
             
-            The profile has already passed basic criteria checks (age/gender/orientation).
-            Now evaluate if this profile matches the remaining requirements in the prompt.
+            Profile Essays (for personality traits):
+            {essay_content[:1000] if essay_content else "No essays available"}
             
-            Follow this priority order:
-            1. Physical/biometric criteria (height, ethnicity, body type)
-            2. Location and education requirements
-            3. Other preferences (religion, personality traits, interests)
+            This profile has already passed basic criteria checks (age/gender/orientation/ethnicity).
+            Be lenient in your evaluation - this is a dating app and we want to encourage potential matches!
             
-            Important rules:
-            - Be somewhat lenient in matching - if most key requirements are met, consider it a match
-            - If a profile is missing an attribute mentioned in the prompt, ignore that requirement
-            - If a field is 'N/A' and not mentioned in the prompt, ignore it completely
-            - For ethnicity, treat "asian, white" as matching EITHER "asian" OR "white"
-            - Only require ALL ethnicities if prompt explicitly says "AND" between them
+            Evaluation Guidelines:
+            1. Basic Criteria (already checked):
+               - Age is within range (±2 years)
+               - Gender matches
+               - For ethnicity, matching ANY ONE requested ethnicity is good enough
+            
+            2. Physical/Location Requirements:
+               - If prompt specifies location/height/body type, check these
+               - If not mentioned in prompt, ignore these attributes
+               - If profile is missing an attribute that prompt asks for, be lenient
+            
+            3. Personality Traits (be very lenient):
+               - For subjective traits (creative, fun-loving, etc.), assume it's fine
+               - Only reject if profile EXPLICITLY contradicts the trait
+               - Example: If prompt wants "creative" and profile says "I hate creative things", reject
+               - But if profile doesn't mention creativity, that's fine!
+            
+            4. Overall Approach:
+               - This is a dating app - we want to encourage potential matches!
+               - If nothing in the profile contradicts the prompt, lean towards Yes
+               - A match doesn't need to be perfect, just promising enough for a first date
+               - Remember: Users can judge personality better in person
             
             Respond with EXACTLY "Yes" or "No" followed by a brief explanation.
             Keep the explanation very short, under 10 words.
             """
             messages.append({
                 "role": "system",
-                "content": "You are a dating app matching evaluator. Your task is to determine if a profile matches the given prompt requirements. Be somewhat lenient with matches - if most key requirements are met, consider it a match even if some minor preferences don't align perfectly."
+                "content": "You are a dating app matching evaluator. Be lenient and encouraging - if the profile doesn't explicitly contradict the prompt's requirements, consider it a potential match. We want to encourage connections that could work, even if they're not perfect matches. Only reject if there's a clear mismatch on objective criteria or explicit contradiction of requirements."
             })
             messages.append({"role": "user", "content": evaluation_prompt})
         

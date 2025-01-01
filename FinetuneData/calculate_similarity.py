@@ -164,10 +164,23 @@ for i, prompt_embedding in enumerate(prompt_embeddings):
     matches_info = []
     if valid_embeddings:
         similarities = cosine_similarity([prompt_embedding], valid_embeddings)[0]
-        # Lower threshold for initial matches
-        threshold = 0.3  # Lowered from 0.5
-        valid_matches = [(idx, score) for idx, score in enumerate(similarities) if score >= threshold]
-        valid_matches.sort(key=lambda x: x[1], reverse=True)
+        # Get target age (middle of range) for sorting
+        target_age = (min_age + max_age) / 2 if min_age and max_age else None
+        
+        # Create matches with all valid profiles
+        valid_matches = [(idx, score) for idx, score in enumerate(similarities)]
+        
+        # Sort by age difference first (if age specified), then by similarity score
+        if target_age:
+            valid_matches.sort(key=lambda x: (
+                abs(int(profiles[valid_profiles[x[0]]].get('age', 0)) - target_age),  # Smaller age diff = better
+                -x[1]  # Higher similarity = better
+            ))
+        else:
+            # If no age specified, sort by similarity only
+            valid_matches.sort(key=lambda x: -x[1])
+        
+        # Take top 3 matches
         top_matches = valid_matches[:3]
 
         for match_idx, similarity_score in top_matches:
@@ -184,7 +197,7 @@ for i, prompt_embedding in enumerate(prompt_embeddings):
             }
             matches_info.append(match_info)
 
-    # If we don't have enough matches, fill with most similar profiles that at least match gender
+    # Only use backup matches if we have less than 3 valid matches
     if len(matches_info) < 3:
         print(f"Only found {len(matches_info)} matches, looking for backup matches...", flush=True)
         

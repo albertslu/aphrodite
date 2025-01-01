@@ -3,30 +3,30 @@
     "prompt": "Searching for a 21-25 male who is asian, white and creative.",
     "matches": [
       {
-        "profile_index": 26,
-        "similarity_score": 0.8210959619064084,
-        "age": 24,
+        "profile_index": 435,
+        "similarity_score": 0.7772345867778403,
+        "age": 23,
         "location": "san francisco, california",
         "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "thin"
+        "ethnicity": "white, other",
+        "body_type": "average"
       },
       {
-        "profile_index": 142,
-        "similarity_score": 0.8020779692960707,
-        "age": 26,
-        "location": "berkeley, california",
-        "education": "working on ph.d program",
+        "profile_index": 156,
+        "similarity_score": 0.7766363112325394,
+        "age": 23,
+        "location": "palo alto, california",
+        "education": "working on masters program",
         "ethnicity": "asian",
-        "body_type": "fit"
+        "body_type": "average"
       },
       {
-        "profile_index": 340,
-        "similarity_score": 0.801755320775819,
-        "age": 27,
+        "profile_index": 10,
+        "similarity_score": 0.7748245262719036,
+        "age": 23,
         "location": "san francisco, california",
         "education": "graduated from college/university",
-        "ethnicity": "white",
+        "ethnicity": "asian",
         "body_type": "athletic"
       }
     ]
@@ -35,31 +35,31 @@
     "prompt": "Dreaming of meeting someone athletic, currently pursuing a degree and adventurous, aged 34-40.",
     "matches": [
       {
-        "profile_index": 128,
-        "similarity_score": 0.8249522969088308,
-        "age": 35,
+        "profile_index": 492,
+        "similarity_score": 0.805277611497242,
+        "age": 37,
         "location": "san francisco, california",
-        "education": "graduated from masters program",
-        "ethnicity": "white",
-        "body_type": "athletic"
-      },
-      {
-        "profile_index": 141,
-        "similarity_score": 0.8188155049146897,
-        "age": 38,
-        "location": "san francisco, california",
-        "education": "graduated from college/university",
-        "ethnicity": "black, white",
+        "education": "graduated from space camp",
+        "ethnicity": "asian",
         "body_type": "fit"
       },
       {
-        "profile_index": 386,
-        "similarity_score": 0.8152859306177715,
-        "age": 36,
+        "profile_index": 197,
+        "similarity_score": 0.7993209631803677,
+        "age": 37,
         "location": "san francisco, california",
-        "education": "graduated from college/university",
-        "ethnicity": "N/A",
-        "body_type": "average"
+        "education": "graduated from med school",
+        "ethnicity": "asian",
+        "body_type": "athletic"
+      },
+      {
+        "profile_index": 22,
+        "similarity_score": 0.7867710535085582,
+        "age": 37,
+        "location": "san francisco, california",
+        "education": "graduated from masters program",
+        "ethnicity": "indian",
+        "body_type": "full figured"
       }
     ]
   },
@@ -67,31 +67,31 @@
     "prompt": "I want to meet someone tall and adventurous, aged 36-43.",
     "matches": [
       {
-        "profile_index": 386,
-        "similarity_score": 0.8549600195588603,
-        "age": 36,
+        "profile_index": 334,
+        "similarity_score": 0.8039603185389872,
+        "age": 40,
         "location": "san francisco, california",
         "education": "graduated from college/university",
-        "ethnicity": "N/A",
-        "body_type": "average"
+        "ethnicity": "middle eastern, indian",
+        "body_type": "fit"
       },
       {
-        "profile_index": 128,
-        "similarity_score": 0.8215794767191505,
-        "age": 35,
+        "profile_index": 132,
+        "similarity_score": 0.798724771306404,
+        "age": 40,
         "location": "san francisco, california",
-        "education": "graduated from masters program",
+        "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "curvy"
       },
       {
-        "profile_index": 111,
-        "similarity_score": 0.8195467599269152,
-        "age": 37,
-        "location": "oakland, california",
-        "education": "graduated from masters program",
+        "profile_index": 440,
+        "similarity_score": 0.7955461534020247,
+        "age": 40,
+        "location": "san francisco, california",
+        "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "average"
+        "body_type": "fit"
       }
     ]
   },
@@ -99,55 +99,37 @@
     "prompt": "Searching for a 18-28 male who is white and spontaneous.",
     "matches": [
       {
-        "profile_index": 459,
-        "similarity_score": 0.8114552504385304,
-        "age": 25,
-        "location": "novato, california",
-        "education": "working on two-year college",
-        "ethnicity": "white",
-        "body_type": "athletic"
-      },
-      {
-        "profile_index": 443,
-        "similarity_score": 0.8085467898474162,
-        "age": 26,
-        "location": "alameda, california",
-        "education": "working on college/university",
-        "ethnicity": "white",
-        "body_type": "thin"
-      },
-      {
-        "profile_index": 212,
-        "similarity_score": 0.8026546061361178,
-        "age": 26,
-        "location": "oakland, california",
-        "education": "graduated from masters program",
-        "ethnicity": "white",
+        "profile_index": 435,
+        "similarity_score": 0.7739941410665101,
+        "age": 23,
+        "location": "san francisco, california",
+        "education": "graduated from college/university",
+        "ethnicity": "white, other",
         "body_type": "average"
+      },
+      {
+        "profile_index": 7,
+        "similarity_score": 0.7529753783443355,
+        "age": 23,
+        "location": "san mateo, california",
+        "education": "working on two-year college",
+        "ethnicity": "pacific islander, white",
+        "body_type": "fit"
+      },
+      {
+        "profile_index": 292,
+        "similarity_score": 0.7473158391858031,
+        "age": 23,
+        "location": "palo alto, california",
+        "education": "graduated from college/university",
+        "ethnicity": "white",
+        "body_type": "fit"
       }
     ]
   },
   {
     "prompt": "Searching for a 25-32 male, straight partner who is goal-oriented.",
     "matches": [
-      {
-        "profile_index": 399,
-        "similarity_score": 0.8130532175901083,
-        "age": 33,
-        "location": "san francisco, california",
-        "education": "N/A",
-        "ethnicity": "white",
-        "body_type": "thin"
-      },
-      {
-        "profile_index": 310,
-        "similarity_score": 0.8095123436170616,
-        "age": 30,
-        "location": "san francisco, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "jacked"
-      },
       {
         "profile_index": 485,
         "similarity_score": 0.8065259729075094,
@@ -156,6 +138,24 @@
         "education": "graduated from college/university",
         "ethnicity": "white",
         "body_type": "fit"
+      },
+      {
+        "profile_index": 174,
+        "similarity_score": 0.7997184338904979,
+        "age": 28,
+        "location": "san francisco, california",
+        "education": "graduated from two-year college",
+        "ethnicity": "asian",
+        "body_type": "N/A"
+      },
+      {
+        "profile_index": 194,
+        "similarity_score": 0.7980443303394824,
+        "age": 28,
+        "location": "castro valley, california",
+        "education": "working on college/university",
+        "ethnicity": "white",
+        "body_type": "athletic"
       }
     ]
   },
@@ -163,31 +163,31 @@
     "prompt": "I want to meet someone athletic and introverted, aged 24-32.",
     "matches": [
       {
-        "profile_index": 310,
-        "similarity_score": 0.8288741190592133,
-        "age": 30,
-        "location": "san francisco, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "jacked"
+        "profile_index": 385,
+        "similarity_score": 0.8157534977794796,
+        "age": 28,
+        "location": "hercules, california",
+        "education": "two-year college",
+        "ethnicity": "black",
+        "body_type": "average"
       },
       {
-        "profile_index": 437,
-        "similarity_score": 0.8216980590378236,
-        "age": 32,
+        "profile_index": 153,
+        "similarity_score": 0.808896824520249,
+        "age": 28,
         "location": "san mateo, california",
-        "education": "graduated from college/university",
+        "education": "working on college/university",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "full figured"
       },
       {
-        "profile_index": 459,
-        "similarity_score": 0.8193092391491194,
-        "age": 25,
-        "location": "novato, california",
-        "education": "working on two-year college",
-        "ethnicity": "white",
-        "body_type": "athletic"
+        "profile_index": 214,
+        "similarity_score": 0.8074313889903564,
+        "age": 28,
+        "location": "oakland, california",
+        "education": "graduated from college/university",
+        "ethnicity": "asian, white",
+        "body_type": "average"
       }
     ]
   },
@@ -195,31 +195,31 @@
     "prompt": "Looking for a 31-34 female, straight partner who is outgoing.",
     "matches": [
       {
-        "profile_index": 123,
-        "similarity_score": 0.8246685098353718,
-        "age": 31,
-        "location": "berkeley, california",
+        "profile_index": 192,
+        "similarity_score": 0.7951336381602316,
+        "age": 33,
+        "location": "oakland, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
         "body_type": "fit"
       },
       {
-        "profile_index": 386,
-        "similarity_score": 0.8202664393130131,
-        "age": 36,
+        "profile_index": 21,
+        "similarity_score": 0.7918409081371212,
+        "age": 32,
         "location": "san francisco, california",
-        "education": "graduated from college/university",
-        "ethnicity": "N/A",
-        "body_type": "average"
+        "education": "graduated from masters program",
+        "ethnicity": "white",
+        "body_type": "fit"
       },
       {
-        "profile_index": 371,
-        "similarity_score": 0.8114731893966451,
-        "age": 35,
+        "profile_index": 444,
+        "similarity_score": 0.7886029475541465,
+        "age": 32,
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "N/A"
       }
     ]
   },
@@ -236,15 +236,6 @@
         "body_type": "average"
       },
       {
-        "profile_index": 74,
-        "similarity_score": 0.8173781550175047,
-        "age": 40,
-        "location": "oakland, california",
-        "education": "graduated from masters program",
-        "ethnicity": "white",
-        "body_type": "fit"
-      },
-      {
         "profile_index": 128,
         "similarity_score": 0.8162448204700985,
         "age": 35,
@@ -252,6 +243,15 @@
         "education": "graduated from masters program",
         "ethnicity": "white",
         "body_type": "athletic"
+      },
+      {
+        "profile_index": 268,
+        "similarity_score": 0.799648024740601,
+        "age": 35,
+        "location": "san bruno, california",
+        "education": "graduated from masters program",
+        "ethnicity": "white",
+        "body_type": "curvy"
       }
     ]
   },
@@ -268,22 +268,22 @@
         "body_type": "athletic"
       },
       {
-        "profile_index": 141,
-        "similarity_score": 0.800473005607838,
-        "age": 38,
+        "profile_index": 282,
+        "similarity_score": 0.7674293753224892,
+        "age": 35,
         "location": "san francisco, california",
-        "education": "graduated from college/university",
-        "ethnicity": "black, white",
-        "body_type": "fit"
+        "education": "graduated from masters program",
+        "ethnicity": "middle eastern, white",
+        "body_type": "average"
       },
       {
-        "profile_index": 281,
-        "similarity_score": 0.7928156550784842,
-        "age": 34,
-        "location": "south san francisco, california",
-        "education": "graduated from college/university",
+        "profile_index": 148,
+        "similarity_score": 0.7661541726159338,
+        "age": 35,
+        "location": "san francisco, california",
+        "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "average"
+        "body_type": "fit"
       }
     ]
   },
@@ -291,29 +291,29 @@
     "prompt": "I want to meet someone who loves cooking, aged 25-33.",
     "matches": [
       {
-        "profile_index": 123,
-        "similarity_score": 0.828073716540916,
-        "age": 31,
-        "location": "berkeley, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
+        "profile_index": 335,
+        "similarity_score": 0.8144016606073418,
+        "age": 29,
+        "location": "oakland, california",
+        "education": "graduated from space camp",
+        "ethnicity": "black, hispanic / latin",
         "body_type": "fit"
       },
       {
-        "profile_index": 385,
-        "similarity_score": 0.827342454519651,
-        "age": 28,
-        "location": "hercules, california",
-        "education": "two-year college",
-        "ethnicity": "black",
-        "body_type": "average"
+        "profile_index": 417,
+        "similarity_score": 0.8022168187208558,
+        "age": 29,
+        "location": "woodacre, california",
+        "education": "graduated from college/university",
+        "ethnicity": "white",
+        "body_type": "curvy"
       },
       {
-        "profile_index": 130,
-        "similarity_score": 0.8214449305420226,
-        "age": 25,
+        "profile_index": 366,
+        "similarity_score": 0.802058076542981,
+        "age": 29,
         "location": "san francisco, california",
-        "education": "graduated from college/university",
+        "education": "graduated from masters program",
         "ethnicity": "white",
         "body_type": "fit"
       }
@@ -323,31 +323,31 @@
     "prompt": "Dreaming of meeting a 29-35 male with with bright eyes looks, with a college degree and white.",
     "matches": [
       {
-        "profile_index": 415,
-        "similarity_score": 0.8035693095315875,
-        "age": 28,
-        "location": "emeryville, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white, other",
-        "body_type": "athletic"
-      },
-      {
-        "profile_index": 310,
-        "similarity_score": 0.7939731672270962,
-        "age": 30,
+        "profile_index": 116,
+        "similarity_score": 0.7728821998881537,
+        "age": 32,
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "jacked"
+        "body_type": "average"
       },
       {
-        "profile_index": 128,
-        "similarity_score": 0.7937639383912849,
-        "age": 35,
-        "location": "san francisco, california",
-        "education": "graduated from masters program",
+        "profile_index": 289,
+        "similarity_score": 0.7702385590904317,
+        "age": 32,
+        "location": "mountain view, california",
+        "education": "graduated from law school",
         "ethnicity": "white",
         "body_type": "athletic"
+      },
+      {
+        "profile_index": 179,
+        "similarity_score": 0.768410968869342,
+        "age": 32,
+        "location": "san francisco, california",
+        "education": "working on college/university",
+        "ethnicity": "white",
+        "body_type": "N/A"
       }
     ]
   },
@@ -355,13 +355,13 @@
     "prompt": "Hoping to find a 23-28 female who is hispanic / latin and kind-hearted.",
     "matches": [
       {
-        "profile_index": 105,
-        "similarity_score": 0.8004311581572734,
-        "age": 28,
-        "location": "san carlos, california",
-        "education": "N/A",
-        "ethnicity": "hispanic / latin, white",
-        "body_type": "a little extra"
+        "profile_index": 422,
+        "similarity_score": 0.7727006768017659,
+        "age": 25,
+        "location": "san francisco, california",
+        "education": "working on masters program",
+        "ethnicity": "middle eastern, black, native american, indian, hispanic / latin, white",
+        "body_type": "thin"
       },
       {
         "profile_index": 316,
@@ -373,13 +373,13 @@
         "body_type": "average"
       },
       {
-        "profile_index": 422,
-        "similarity_score": 0.7727006768017659,
-        "age": 25,
-        "location": "san francisco, california",
+        "profile_index": 311,
+        "similarity_score": 0.7533726720607403,
+        "age": 24,
+        "location": "oakland, california",
         "education": "working on masters program",
-        "ethnicity": "middle eastern, black, native american, indian, hispanic / latin, white",
-        "body_type": "thin"
+        "ethnicity": "middle eastern, hispanic / latin",
+        "body_type": "N/A"
       }
     ]
   },
@@ -396,22 +396,22 @@
         "body_type": "athletic"
       },
       {
-        "profile_index": 310,
-        "similarity_score": 0.816581057082933,
-        "age": 30,
+        "profile_index": 399,
+        "similarity_score": 0.794728735379642,
+        "age": 33,
         "location": "san francisco, california",
-        "education": "graduated from college/university",
+        "education": "N/A",
         "ethnicity": "white",
-        "body_type": "jacked"
+        "body_type": "thin"
       },
       {
-        "profile_index": 123,
-        "similarity_score": 0.8094481445176502,
-        "age": 31,
-        "location": "berkeley, california",
-        "education": "graduated from college/university",
+        "profile_index": 5,
+        "similarity_score": 0.7942828137964537,
+        "age": 33,
+        "location": "san francisco, california",
+        "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "average"
       }
     ]
   },
@@ -419,17 +419,104 @@
     "prompt": "Searching for someone who loves reading, holding a master's degree, aged 30-34.",
     "matches": [
       {
-        "profile_index": 371,
-        "similarity_score": 0.8229951256359577,
-        "age": 35,
+        "profile_index": 149,
+        "similarity_score": 0.8019273766520582,
+        "age": 32,
         "location": "san francisco, california",
-        "education": "graduated from college/university",
+        "education": "graduated from masters program",
+        "ethnicity": "indian",
+        "body_type": "average"
+      },
+      {
+        "profile_index": 289,
+        "similarity_score": 0.8006316705438563,
+        "age": 32,
+        "location": "mountain view, california",
+        "education": "graduated from law school",
+        "ethnicity": "white",
+        "body_type": "athletic"
+      },
+      {
+        "profile_index": 375,
+        "similarity_score": 0.7975957137962036,
+        "age": 32,
+        "location": "san francisco, california",
+        "education": "graduated from masters program",
+        "ethnicity": "asian",
+        "body_type": "N/A"
+      }
+    ]
+  },
+  {
+    "prompt": "Hoping to find a 25-29 female who is white and spontaneous.",
+    "matches": [
+      {
+        "profile_index": 4,
+        "similarity_score": 0.7961445891058772,
+        "age": 27,
+        "location": "san francisco, california",
+        "education": "working on college/university",
         "ethnicity": "white",
         "body_type": "fit"
       },
       {
+        "profile_index": 173,
+        "similarity_score": 0.7811073264103721,
+        "age": 27,
+        "location": "san francisco, california",
+        "education": "graduated from masters program",
+        "ethnicity": "white",
+        "body_type": "curvy"
+      },
+      {
+        "profile_index": 78,
+        "similarity_score": 0.7623107261499569,
+        "age": 27,
+        "location": "san francisco, california",
+        "education": "graduated from masters program",
+        "ethnicity": "white",
+        "body_type": "athletic"
+      }
+    ]
+  },
+  {
+    "prompt": "Searching for someone who loves reading, with a college degree, aged 18-26.",
+    "matches": [
+      {
+        "profile_index": 234,
+        "similarity_score": 0.8102284141022995,
+        "age": 22,
+        "location": "oakland, california",
+        "education": "working on masters program",
+        "ethnicity": "white",
+        "body_type": "curvy"
+      },
+      {
+        "profile_index": 166,
+        "similarity_score": 0.7996752283076821,
+        "age": 22,
+        "location": "novato, california",
+        "education": "graduated from high school",
+        "ethnicity": "white",
+        "body_type": "full figured"
+      },
+      {
+        "profile_index": 489,
+        "similarity_score": 0.7983047340055502,
+        "age": 22,
+        "location": "berkeley, california",
+        "education": "working on college/university",
+        "ethnicity": "white",
+        "body_type": "average"
+      }
+    ]
+  },
+  {
+    "prompt": "Hoping to find someone slim and goal-oriented, aged 26-35.",
+    "matches": [
+      {
         "profile_index": 123,
-        "similarity_score": 0.8184203501700253,
+        "similarity_score": 0.8133862851599313,
         "age": 31,
         "location": "berkeley, california",
         "education": "graduated from college/university",
@@ -437,8 +524,49 @@
         "body_type": "fit"
       },
       {
+        "profile_index": 310,
+        "similarity_score": 0.8119552009293464,
+        "age": 30,
+        "location": "san francisco, california",
+        "education": "graduated from college/university",
+        "ethnicity": "white",
+        "body_type": "jacked"
+      },
+      {
+        "profile_index": 470,
+        "similarity_score": 0.80885929783488,
+        "age": 31,
+        "location": "pacifica, california",
+        "education": "graduated from two-year college",
+        "ethnicity": "middle eastern",
+        "body_type": "average"
+      }
+    ]
+  },
+  {
+    "prompt": "Hoping to find someone who loves hiking, holding a master's degree, aged 25-31.",
+    "matches": [
+      {
+        "profile_index": 214,
+        "similarity_score": 0.8224613352749446,
+        "age": 28,
+        "location": "oakland, california",
+        "education": "graduated from college/university",
+        "ethnicity": "asian, white",
+        "body_type": "average"
+      },
+      {
+        "profile_index": 385,
+        "similarity_score": 0.8163413576319551,
+        "age": 28,
+        "location": "hercules, california",
+        "education": "two-year college",
+        "ethnicity": "black",
+        "body_type": "average"
+      },
+      {
         "profile_index": 330,
-        "similarity_score": 0.8156452504401285,
+        "similarity_score": 0.8120912937411328,
         "age": 28,
         "location": "san leandro, california",
         "education": "graduated from masters program",
@@ -448,160 +576,32 @@
     ]
   },
   {
-    "prompt": "Hoping to find a 25-29 female who is white and spontaneous.",
-    "matches": [
-      {
-        "profile_index": 123,
-        "similarity_score": 0.8348848701710405,
-        "age": 31,
-        "location": "berkeley, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "fit"
-      },
-      {
-        "profile_index": 366,
-        "similarity_score": 0.815105773083385,
-        "age": 29,
-        "location": "san francisco, california",
-        "education": "graduated from masters program",
-        "ethnicity": "white",
-        "body_type": "fit"
-      },
-      {
-        "profile_index": 221,
-        "similarity_score": 0.8141651865815107,
-        "age": 30,
-        "location": "san rafael, california",
-        "education": "graduated from masters program",
-        "ethnicity": "white",
-        "body_type": "average"
-      }
-    ]
-  },
-  {
-    "prompt": "Searching for someone who loves reading, with a college degree, aged 18-26.",
-    "matches": [
-      {
-        "profile_index": 208,
-        "similarity_score": 0.824863736185381,
-        "age": 18,
-        "location": "orinda, california",
-        "education": "working on college/university",
-        "ethnicity": "indian",
-        "body_type": "athletic"
-      },
-      {
-        "profile_index": 81,
-        "similarity_score": 0.821547971493391,
-        "age": 24,
-        "location": "san francisco, california",
-        "education": "graduated from college/university",
-        "ethnicity": "asian",
-        "body_type": "fit"
-      },
-      {
-        "profile_index": 388,
-        "similarity_score": 0.8173939473581578,
-        "age": 23,
-        "location": "emeryville, california",
-        "education": "graduated from college/university",
-        "ethnicity": "native american, hispanic / latin",
-        "body_type": "N/A"
-      }
-    ]
-  },
-  {
-    "prompt": "Hoping to find someone slim and goal-oriented, aged 26-35.",
-    "matches": [
-      {
-        "profile_index": 437,
-        "similarity_score": 0.826077506258778,
-        "age": 32,
-        "location": "san mateo, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "athletic"
-      },
-      {
-        "profile_index": 386,
-        "similarity_score": 0.8241873184772301,
-        "age": 36,
-        "location": "san francisco, california",
-        "education": "graduated from college/university",
-        "ethnicity": "N/A",
-        "body_type": "average"
-      },
-      {
-        "profile_index": 130,
-        "similarity_score": 0.8156771685354991,
-        "age": 25,
-        "location": "san francisco, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "fit"
-      }
-    ]
-  },
-  {
-    "prompt": "Hoping to find someone who loves hiking, holding a master's degree, aged 25-31.",
-    "matches": [
-      {
-        "profile_index": 212,
-        "similarity_score": 0.8318465432225566,
-        "age": 26,
-        "location": "oakland, california",
-        "education": "graduated from masters program",
-        "ethnicity": "white",
-        "body_type": "average"
-      },
-      {
-        "profile_index": 347,
-        "similarity_score": 0.8232358886251185,
-        "age": 31,
-        "location": "san francisco, california",
-        "education": "graduated from masters program",
-        "ethnicity": "hispanic / latin, white",
-        "body_type": "average"
-      },
-      {
-        "profile_index": 214,
-        "similarity_score": 0.8224613352749446,
-        "age": 28,
-        "location": "oakland, california",
-        "education": "graduated from college/university",
-        "ethnicity": "asian, white",
-        "body_type": "average"
-      }
-    ]
-  },
-  {
     "prompt": "Hoping to find a 28-36 male who is white and intellectual.",
     "matches": [
       {
-        "profile_index": 141,
-        "similarity_score": 0.8027628810399643,
-        "age": 38,
+        "profile_index": 116,
+        "similarity_score": 0.7983154463561026,
+        "age": 32,
         "location": "san francisco, california",
         "education": "graduated from college/university",
-        "ethnicity": "black, white",
-        "body_type": "fit"
+        "ethnicity": "white",
+        "body_type": "average"
       },
       {
-        "profile_index": 415,
-        "similarity_score": 0.8007242246519238,
-        "age": 28,
-        "location": "emeryville, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white, other",
+        "profile_index": 289,
+        "similarity_score": 0.7865947310932568,
+        "age": 32,
+        "location": "mountain view, california",
+        "education": "graduated from law school",
+        "ethnicity": "white",
         "body_type": "athletic"
       },
       {
-        "profile_index": 128,
-        "similarity_score": 0.7994565919958064,
-        "age": 35,
-        "location": "san francisco, california",
-        "education": "graduated from masters program",
+        "profile_index": 437,
+        "similarity_score": 0.7860946573005658,
+        "age": 32,
+        "location": "san mateo, california",
+        "education": "graduated from college/university",
         "ethnicity": "white",
         "body_type": "athletic"
       }
@@ -611,30 +611,30 @@
     "prompt": "Searching for a 24-33 male, straight partner who is intellectual.",
     "matches": [
       {
-        "profile_index": 470,
-        "similarity_score": 0.8211249539292336,
-        "age": 31,
-        "location": "pacifica, california",
-        "education": "graduated from two-year college",
-        "ethnicity": "middle eastern",
-        "body_type": "average"
-      },
-      {
-        "profile_index": 149,
-        "similarity_score": 0.8165011193609402,
-        "age": 32,
-        "location": "san francisco, california",
-        "education": "graduated from masters program",
-        "ethnicity": "indian",
-        "body_type": "average"
-      },
-      {
-        "profile_index": 128,
-        "similarity_score": 0.8160502621621861,
-        "age": 35,
-        "location": "san francisco, california",
-        "education": "graduated from masters program",
+        "profile_index": 194,
+        "similarity_score": 0.8120292622890548,
+        "age": 28,
+        "location": "castro valley, california",
+        "education": "working on college/university",
         "ethnicity": "white",
+        "body_type": "athletic"
+      },
+      {
+        "profile_index": 485,
+        "similarity_score": 0.8106024139007277,
+        "age": 29,
+        "location": "south san francisco, california",
+        "education": "graduated from college/university",
+        "ethnicity": "white",
+        "body_type": "fit"
+      },
+      {
+        "profile_index": 415,
+        "similarity_score": 0.808932475879033,
+        "age": 28,
+        "location": "emeryville, california",
+        "education": "graduated from college/university",
+        "ethnicity": "white, other",
         "body_type": "athletic"
       }
     ]
@@ -643,24 +643,6 @@
     "prompt": "I want to meet a 21-26 male with curvy looks and pacific islander, white.",
     "matches": [
       {
-        "profile_index": 415,
-        "similarity_score": 0.8095910212912162,
-        "age": 28,
-        "location": "emeryville, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white, other",
-        "body_type": "athletic"
-      },
-      {
-        "profile_index": 459,
-        "similarity_score": 0.8038258092616082,
-        "age": 25,
-        "location": "novato, california",
-        "education": "working on two-year college",
-        "ethnicity": "white",
-        "body_type": "athletic"
-      },
-      {
         "profile_index": 279,
         "similarity_score": 0.8016577585979563,
         "age": 24,
@@ -668,6 +650,24 @@
         "education": "graduated from college/university",
         "ethnicity": "white",
         "body_type": "average"
+      },
+      {
+        "profile_index": 26,
+        "similarity_score": 0.7947078055772818,
+        "age": 24,
+        "location": "san francisco, california",
+        "education": "graduated from college/university",
+        "ethnicity": "white",
+        "body_type": "thin"
+      },
+      {
+        "profile_index": 353,
+        "similarity_score": 0.7818155552624915,
+        "age": 24,
+        "location": "oakland, california",
+        "education": "graduated from masters program",
+        "ethnicity": "white",
+        "body_type": "thin"
       }
     ]
   },
@@ -675,31 +675,31 @@
     "prompt": "I want to meet a 19-23 male, straight partner who is spontaneous.",
     "matches": [
       {
-        "profile_index": 459,
-        "similarity_score": 0.8246594262298281,
-        "age": 25,
-        "location": "novato, california",
-        "education": "working on two-year college",
-        "ethnicity": "white",
-        "body_type": "athletic"
-      },
-      {
-        "profile_index": 208,
-        "similarity_score": 0.8221482539599272,
-        "age": 18,
-        "location": "orinda, california",
+        "profile_index": 369,
+        "similarity_score": 0.8059893985620654,
+        "age": 21,
+        "location": "berkeley, california",
         "education": "working on college/university",
-        "ethnicity": "indian",
+        "ethnicity": "asian",
         "body_type": "athletic"
       },
       {
-        "profile_index": 50,
-        "similarity_score": 0.8132115425661277,
-        "age": 25,
+        "profile_index": 201,
+        "similarity_score": 0.7940366505043668,
+        "age": 21,
+        "location": "belmont, california",
+        "education": "working on college/university",
+        "ethnicity": "white",
+        "body_type": "average"
+      },
+      {
+        "profile_index": 213,
+        "similarity_score": 0.7762000168590628,
+        "age": 21,
         "location": "san francisco, california",
-        "education": "college/university",
-        "ethnicity": "N/A",
-        "body_type": "athletic"
+        "education": "working on college/university",
+        "ethnicity": "hispanic / latin, other",
+        "body_type": "skinny"
       }
     ]
   },
@@ -707,49 +707,17 @@
     "prompt": "Looking for a 28-31 male with short looks, with a strong educational background and unknown.",
     "matches": [
       {
-        "profile_index": 317,
-        "similarity_score": 0.8026577837870059,
-        "age": 27,
+        "profile_index": 310,
+        "similarity_score": 0.793600499708179,
+        "age": 30,
         "location": "san francisco, california",
         "education": "graduated from college/university",
-        "ethnicity": "N/A",
-        "body_type": "athletic"
-      },
-      {
-        "profile_index": 470,
-        "similarity_score": 0.7976734165427506,
-        "age": 31,
-        "location": "pacifica, california",
-        "education": "graduated from two-year college",
-        "ethnicity": "middle eastern",
-        "body_type": "average"
-      },
-      {
-        "profile_index": 415,
-        "similarity_score": 0.7961861605935249,
-        "age": 28,
-        "location": "emeryville, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white, other",
-        "body_type": "athletic"
-      }
-    ]
-  },
-  {
-    "prompt": "Searching for someone short, currently pursuing a degree and outgoing, aged 29-35.",
-    "matches": [
-      {
-        "profile_index": 386,
-        "similarity_score": 0.8206273129683478,
-        "age": 36,
-        "location": "san francisco, california",
-        "education": "graduated from college/university",
-        "ethnicity": "N/A",
-        "body_type": "average"
+        "ethnicity": "white",
+        "body_type": "jacked"
       },
       {
         "profile_index": 485,
-        "similarity_score": 0.8126614909842932,
+        "similarity_score": 0.7895115802047713,
         "age": 29,
         "location": "south san francisco, california",
         "education": "graduated from college/university",
@@ -757,13 +725,45 @@
         "body_type": "fit"
       },
       {
-        "profile_index": 470,
-        "similarity_score": 0.8112005300997197,
-        "age": 31,
-        "location": "pacifica, california",
-        "education": "graduated from two-year college",
-        "ethnicity": "middle eastern",
-        "body_type": "average"
+        "profile_index": 479,
+        "similarity_score": 0.7778533203879259,
+        "age": 30,
+        "location": "oakland, california",
+        "education": "graduated from college/university",
+        "ethnicity": "indian",
+        "body_type": "fit"
+      }
+    ]
+  },
+  {
+    "prompt": "Searching for someone short, currently pursuing a degree and outgoing, aged 29-35.",
+    "matches": [
+      {
+        "profile_index": 93,
+        "similarity_score": 0.8028085672578804,
+        "age": 32,
+        "location": "oakland, california",
+        "education": "graduated from college/university",
+        "ethnicity": "white",
+        "body_type": "thin"
+      },
+      {
+        "profile_index": 437,
+        "similarity_score": 0.8020288545259148,
+        "age": 32,
+        "location": "san mateo, california",
+        "education": "graduated from college/university",
+        "ethnicity": "white",
+        "body_type": "athletic"
+      },
+      {
+        "profile_index": 444,
+        "similarity_score": 0.7990512951915014,
+        "age": 32,
+        "location": "san francisco, california",
+        "education": "graduated from college/university",
+        "ethnicity": "white",
+        "body_type": "N/A"
       }
     ]
   },
@@ -771,55 +771,37 @@
     "prompt": "Looking for a 26-28 female, straight partner who is kind-hearted.",
     "matches": [
       {
-        "profile_index": 417,
-        "similarity_score": 0.81380373429607,
-        "age": 29,
-        "location": "woodacre, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "curvy"
-      },
-      {
-        "profile_index": 352,
-        "similarity_score": 0.8121121685294685,
-        "age": 30,
+        "profile_index": 180,
+        "similarity_score": 0.7817355728815676,
+        "age": 27,
         "location": "san francisco, california",
         "education": "graduated from college/university",
-        "ethnicity": "white",
+        "ethnicity": "N/A",
+        "body_type": "fit"
+      },
+      {
+        "profile_index": 134,
+        "similarity_score": 0.7799297196613183,
+        "age": 27,
+        "location": "san bruno, california",
+        "education": "graduated from masters program",
+        "ethnicity": "N/A",
         "body_type": "curvy"
       },
       {
-        "profile_index": 221,
-        "similarity_score": 0.8113208887110426,
-        "age": 30,
-        "location": "san rafael, california",
-        "education": "graduated from masters program",
-        "ethnicity": "white",
-        "body_type": "average"
+        "profile_index": 287,
+        "similarity_score": 0.7776189407805807,
+        "age": 27,
+        "location": "san francisco, california",
+        "education": "graduated from college/university",
+        "ethnicity": "N/A",
+        "body_type": "N/A"
       }
     ]
   },
   {
     "prompt": "I want to meet someone who loves traveling, aged 25-28.",
     "matches": [
-      {
-        "profile_index": 385,
-        "similarity_score": 0.8342703876541573,
-        "age": 28,
-        "location": "hercules, california",
-        "education": "two-year college",
-        "ethnicity": "black",
-        "body_type": "average"
-      },
-      {
-        "profile_index": 174,
-        "similarity_score": 0.8279774232609622,
-        "age": 28,
-        "location": "san francisco, california",
-        "education": "graduated from two-year college",
-        "ethnicity": "asian",
-        "body_type": "N/A"
-      },
       {
         "profile_index": 212,
         "similarity_score": 0.8277451531911763,
@@ -828,6 +810,24 @@
         "education": "graduated from masters program",
         "ethnicity": "white",
         "body_type": "average"
+      },
+      {
+        "profile_index": 4,
+        "similarity_score": 0.8168326386864723,
+        "age": 27,
+        "location": "san francisco, california",
+        "education": "working on college/university",
+        "ethnicity": "white",
+        "body_type": "fit"
+      },
+      {
+        "profile_index": 142,
+        "similarity_score": 0.807859332345821,
+        "age": 26,
+        "location": "berkeley, california",
+        "education": "working on ph.d program",
+        "ethnicity": "asian",
+        "body_type": "fit"
       }
     ]
   },
@@ -835,19 +835,10 @@
     "prompt": "Looking for a 35-39 female with with dark hair looks and white.",
     "matches": [
       {
-        "profile_index": 371,
-        "similarity_score": 0.7841282275774986,
-        "age": 35,
+        "profile_index": 38,
+        "similarity_score": 0.7705236290399805,
+        "age": 37,
         "location": "san francisco, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "fit"
-      },
-      {
-        "profile_index": 192,
-        "similarity_score": 0.7793769101106565,
-        "age": 33,
-        "location": "oakland, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
         "body_type": "fit"
@@ -860,6 +851,15 @@
         "education": "graduated from college/university",
         "ethnicity": "white",
         "body_type": "average"
+      },
+      {
+        "profile_index": 298,
+        "similarity_score": 0.7716287635630563,
+        "age": 36,
+        "location": "san francisco, california",
+        "education": "graduated from masters program",
+        "ethnicity": "white",
+        "body_type": "fit"
       }
     ]
   },
@@ -867,29 +867,29 @@
     "prompt": "Dreaming of meeting a 18-22 female who is unknown and intellectual.",
     "matches": [
       {
-        "profile_index": 456,
-        "similarity_score": 0.8065010097004153,
-        "age": 18,
-        "location": "castro valley, california",
-        "education": "N/A",
-        "ethnicity": "N/A",
-        "body_type": "skinny"
-      },
-      {
-        "profile_index": 232,
-        "similarity_score": 0.8009280684962999,
-        "age": 23,
-        "location": "san francisco, california",
-        "education": "graduated from masters program",
-        "ethnicity": "white",
-        "body_type": "thin"
-      },
-      {
         "profile_index": 193,
         "similarity_score": 0.7923919655721916,
         "age": 20,
         "location": "walnut creek, california",
         "education": "graduated from space camp",
+        "ethnicity": "white",
+        "body_type": "full figured"
+      },
+      {
+        "profile_index": 305,
+        "similarity_score": 0.788152995624248,
+        "age": 19,
+        "location": "oakland, california",
+        "education": "working on college/university",
+        "ethnicity": "black",
+        "body_type": "thin"
+      },
+      {
+        "profile_index": 59,
+        "similarity_score": 0.7773661397429903,
+        "age": 21,
+        "location": "san francisco, california",
+        "education": "graduated from college/university",
         "ethnicity": "white",
         "body_type": "full figured"
       }
@@ -899,8 +899,49 @@
     "prompt": "I want to meet a 23-31 male, straight partner who is outgoing.",
     "matches": [
       {
+        "profile_index": 317,
+        "similarity_score": 0.8018157006458856,
+        "age": 27,
+        "location": "san francisco, california",
+        "education": "graduated from college/university",
+        "ethnicity": "N/A",
+        "body_type": "athletic"
+      },
+      {
+        "profile_index": 343,
+        "similarity_score": 0.8009646899489252,
+        "age": 27,
+        "location": "san pablo, california",
+        "education": "graduated from college/university",
+        "ethnicity": "hispanic / latin",
+        "body_type": "average"
+      },
+      {
+        "profile_index": 150,
+        "similarity_score": 0.7895203425820951,
+        "age": 27,
+        "location": "san francisco, california",
+        "education": "N/A",
+        "ethnicity": "white",
+        "body_type": "fit"
+      }
+    ]
+  },
+  {
+    "prompt": "Dreaming of meeting a 22-29 male who is white and outgoing.",
+    "matches": [
+      {
+        "profile_index": 459,
+        "similarity_score": 0.7944097372079725,
+        "age": 25,
+        "location": "novato, california",
+        "education": "working on two-year college",
+        "ethnicity": "white",
+        "body_type": "athletic"
+      },
+      {
         "profile_index": 443,
-        "similarity_score": 0.8220472162167541,
+        "similarity_score": 0.7880954758892494,
         "age": 26,
         "location": "alameda, california",
         "education": "working on college/university",
@@ -908,17 +949,8 @@
         "body_type": "thin"
       },
       {
-        "profile_index": 174,
-        "similarity_score": 0.8206783963038742,
-        "age": 28,
-        "location": "san francisco, california",
-        "education": "graduated from two-year college",
-        "ethnicity": "asian",
-        "body_type": "N/A"
-      },
-      {
         "profile_index": 212,
-        "similarity_score": 0.8202737663079941,
+        "similarity_score": 0.7857316826279581,
         "age": 26,
         "location": "oakland, california",
         "education": "graduated from masters program",
@@ -928,81 +960,40 @@
     ]
   },
   {
-    "prompt": "Dreaming of meeting a 22-29 male who is white and outgoing.",
-    "matches": [
-      {
-        "profile_index": 310,
-        "similarity_score": 0.8028141707958003,
-        "age": 30,
-        "location": "san francisco, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "jacked"
-      },
-      {
-        "profile_index": 415,
-        "similarity_score": 0.7996398821111536,
-        "age": 28,
-        "location": "emeryville, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white, other",
-        "body_type": "athletic"
-      },
-      {
-        "profile_index": 459,
-        "similarity_score": 0.7944097372079725,
-        "age": 25,
-        "location": "novato, california",
-        "education": "working on two-year college",
-        "ethnicity": "white",
-        "body_type": "athletic"
-      }
-    ]
-  },
-  {
     "prompt": "Searching for a 29-37 male who is white and fun-loving.",
     "matches": [
       {
-        "profile_index": 239,
-        "similarity_score": 0.8171106138918139,
-        "age": 31,
-        "location": "burlingame, california",
-        "education": "graduated from college/university",
+        "profile_index": 399,
+        "similarity_score": 0.8061362091798644,
+        "age": 33,
+        "location": "san francisco, california",
+        "education": "N/A",
+        "ethnicity": "white",
+        "body_type": "thin"
+      },
+      {
+        "profile_index": 114,
+        "similarity_score": 0.7940036998408729,
+        "age": 33,
+        "location": "hayward, california",
+        "education": "N/A",
         "ethnicity": "white",
         "body_type": "average"
       },
       {
-        "profile_index": 310,
-        "similarity_score": 0.8116478171041112,
-        "age": 30,
+        "profile_index": 5,
+        "similarity_score": 0.7928939276154785,
+        "age": 33,
         "location": "san francisco, california",
-        "education": "graduated from college/university",
+        "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "jacked"
-      },
-      {
-        "profile_index": 141,
-        "similarity_score": 0.8111802406384905,
-        "age": 38,
-        "location": "san francisco, california",
-        "education": "graduated from college/university",
-        "ethnicity": "black, white",
-        "body_type": "fit"
+        "body_type": "average"
       }
     ]
   },
   {
     "prompt": "Searching for a 23-30 male who is hispanic / latin, white and outgoing.",
     "matches": [
-      {
-        "profile_index": 143,
-        "similarity_score": 0.8036153008581122,
-        "age": 29,
-        "location": "pacifica, california",
-        "education": "graduated from college/university",
-        "ethnicity": "hispanic / latin",
-        "body_type": "a little extra"
-      },
       {
         "profile_index": 212,
         "similarity_score": 0.8017266522548439,
@@ -1020,6 +1011,15 @@
         "education": "working on college/university",
         "ethnicity": "white",
         "body_type": "thin"
+      },
+      {
+        "profile_index": 343,
+        "similarity_score": 0.7900979648120294,
+        "age": 27,
+        "location": "san pablo, california",
+        "education": "graduated from college/university",
+        "ethnicity": "hispanic / latin",
+        "body_type": "average"
       }
     ]
   },
@@ -1027,31 +1027,31 @@
     "prompt": "Dreaming of meeting someone who loves dancing, aged 22-28.",
     "matches": [
       {
-        "profile_index": 174,
-        "similarity_score": 0.7985057351548179,
-        "age": 28,
-        "location": "san francisco, california",
-        "education": "graduated from two-year college",
-        "ethnicity": "asian",
-        "body_type": "N/A"
-      },
-      {
-        "profile_index": 261,
-        "similarity_score": 0.7970422764575044,
-        "age": 26,
+        "profile_index": 130,
+        "similarity_score": 0.7898150700544859,
+        "age": 25,
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "thin"
+        "body_type": "fit"
       },
       {
-        "profile_index": 415,
-        "similarity_score": 0.7966162862003471,
-        "age": 28,
-        "location": "emeryville, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white, other",
+        "profile_index": 459,
+        "similarity_score": 0.7808418057569091,
+        "age": 25,
+        "location": "novato, california",
+        "education": "working on two-year college",
+        "ethnicity": "white",
         "body_type": "athletic"
+      },
+      {
+        "profile_index": 478,
+        "similarity_score": 0.7784837523314526,
+        "age": 25,
+        "location": "burlingame, california",
+        "education": "graduated from high school",
+        "ethnicity": "white",
+        "body_type": "a little extra"
       }
     ]
   },
@@ -1059,55 +1059,37 @@
     "prompt": "I want to meet a 33-39 male who is white and outgoing.",
     "matches": [
       {
-        "profile_index": 31,
-        "similarity_score": 0.8078933861573395,
-        "age": 34,
-        "location": "larkspur, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "athletic"
-      },
-      {
-        "profile_index": 281,
-        "similarity_score": 0.8076557889692604,
-        "age": 34,
-        "location": "south san francisco, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "average"
-      },
-      {
-        "profile_index": 128,
-        "similarity_score": 0.8072333673907857,
-        "age": 35,
+        "profile_index": 409,
+        "similarity_score": 0.807137567902403,
+        "age": 36,
         "location": "san francisco, california",
-        "education": "graduated from masters program",
+        "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "fit"
+      },
+      {
+        "profile_index": 127,
+        "similarity_score": 0.7797582419865974,
+        "age": 36,
+        "location": "san francisco, california",
+        "education": "N/A",
+        "ethnicity": "white",
+        "body_type": "a little extra"
+      },
+      {
+        "profile_index": 420,
+        "similarity_score": 0.7679657809007732,
+        "age": 36,
+        "location": "san francisco, california",
+        "education": "dropped out of college/university",
+        "ethnicity": "white",
+        "body_type": "fit"
       }
     ]
   },
   {
     "prompt": "Dreaming of meeting someone who loves fitness, aged 27-35.",
     "matches": [
-      {
-        "profile_index": 310,
-        "similarity_score": 0.8173958630071819,
-        "age": 30,
-        "location": "san francisco, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "jacked"
-      },
-      {
-        "profile_index": 437,
-        "similarity_score": 0.8144306176799119,
-        "age": 32,
-        "location": "san mateo, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "athletic"
-      },
       {
         "profile_index": 123,
         "similarity_score": 0.8089862182999369,
@@ -1116,6 +1098,24 @@
         "education": "graduated from college/university",
         "ethnicity": "white",
         "body_type": "fit"
+      },
+      {
+        "profile_index": 360,
+        "similarity_score": 0.7917553564680939,
+        "age": 31,
+        "location": "mountain view, california",
+        "education": "graduated from masters program",
+        "ethnicity": "indian",
+        "body_type": "N/A"
+      },
+      {
+        "profile_index": 470,
+        "similarity_score": 0.7822619989237305,
+        "age": 31,
+        "location": "pacifica, california",
+        "education": "graduated from two-year college",
+        "ethnicity": "middle eastern",
+        "body_type": "average"
       }
     ]
   },
@@ -1123,29 +1123,29 @@
     "prompt": "Looking for a 32-37 male who is black, white and introverted.",
     "matches": [
       {
-        "profile_index": 310,
-        "similarity_score": 0.7882227288932341,
-        "age": 30,
-        "location": "san francisco, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "jacked"
-      },
-      {
-        "profile_index": 141,
-        "similarity_score": 0.7858528864930905,
-        "age": 38,
-        "location": "san francisco, california",
-        "education": "graduated from college/university",
-        "ethnicity": "black, white",
-        "body_type": "fit"
-      },
-      {
         "profile_index": 31,
         "similarity_score": 0.7830951855010451,
         "age": 34,
         "location": "larkspur, california",
         "education": "graduated from college/university",
+        "ethnicity": "white",
+        "body_type": "athletic"
+      },
+      {
+        "profile_index": 281,
+        "similarity_score": 0.778177099935758,
+        "age": 34,
+        "location": "south san francisco, california",
+        "education": "graduated from college/university",
+        "ethnicity": "white",
+        "body_type": "average"
+      },
+      {
+        "profile_index": 128,
+        "similarity_score": 0.7763115549390067,
+        "age": 35,
+        "location": "san francisco, california",
+        "education": "graduated from masters program",
         "ethnicity": "white",
         "body_type": "athletic"
       }
@@ -1164,22 +1164,22 @@
         "body_type": "jacked"
       },
       {
-        "profile_index": 437,
-        "similarity_score": 0.8040961976480085,
-        "age": 32,
-        "location": "san mateo, california",
+        "profile_index": 256,
+        "similarity_score": 0.7964355083547267,
+        "age": 30,
+        "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
         "body_type": "athletic"
       },
       {
-        "profile_index": 485,
-        "similarity_score": 0.8001575455438988,
-        "age": 29,
-        "location": "south san francisco, california",
+        "profile_index": 95,
+        "similarity_score": 0.7882099541730903,
+        "age": 30,
+        "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "athletic"
       }
     ]
   },
@@ -1187,29 +1187,29 @@
     "prompt": "I want to meet a 35-42 male with slim looks and white.",
     "matches": [
       {
-        "profile_index": 242,
-        "similarity_score": 0.8088735613245996,
-        "age": 43,
-        "location": "oakland, california",
-        "education": "graduated from high school",
-        "ethnicity": "asian, black, native american, indian, hispanic / latin, white, other",
-        "body_type": "average"
+        "profile_index": 141,
+        "similarity_score": 0.7972483481546905,
+        "age": 38,
+        "location": "san francisco, california",
+        "education": "graduated from college/university",
+        "ethnicity": "black, white",
+        "body_type": "fit"
       },
       {
-        "profile_index": 281,
-        "similarity_score": 0.8063246417524347,
-        "age": 34,
-        "location": "south san francisco, california",
-        "education": "graduated from college/university",
+        "profile_index": 290,
+        "similarity_score": 0.7713266290365759,
+        "age": 39,
+        "location": "san francisco, california",
+        "education": "dropped out of masters program",
         "ethnicity": "white",
         "body_type": "average"
       },
       {
-        "profile_index": 202,
-        "similarity_score": 0.8023497512008997,
-        "age": 44,
-        "location": "berkeley, california",
-        "education": "N/A",
+        "profile_index": 364,
+        "similarity_score": 0.7529538530044634,
+        "age": 38,
+        "location": "san francisco, california",
+        "education": "graduated from masters program",
         "ethnicity": "white",
         "body_type": "athletic"
       }
@@ -1219,24 +1219,6 @@
     "prompt": "I want to meet a 25-34 female with with red hair looks and white.",
     "matches": [
       {
-        "profile_index": 123,
-        "similarity_score": 0.8060000513368789,
-        "age": 31,
-        "location": "berkeley, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "fit"
-      },
-      {
-        "profile_index": 371,
-        "similarity_score": 0.800938751103193,
-        "age": 35,
-        "location": "san francisco, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "fit"
-      },
-      {
         "profile_index": 269,
         "similarity_score": 0.7995228173794935,
         "age": 29,
@@ -1244,6 +1226,24 @@
         "education": "working on college/university",
         "ethnicity": "white",
         "body_type": "thin"
+      },
+      {
+        "profile_index": 417,
+        "similarity_score": 0.7951361881868023,
+        "age": 29,
+        "location": "woodacre, california",
+        "education": "graduated from college/university",
+        "ethnicity": "white",
+        "body_type": "curvy"
+      },
+      {
+        "profile_index": 352,
+        "similarity_score": 0.7900059017125616,
+        "age": 30,
+        "location": "san francisco, california",
+        "education": "graduated from college/university",
+        "ethnicity": "white",
+        "body_type": "curvy"
       }
     ]
   },
@@ -1251,31 +1251,31 @@
     "prompt": "Searching for someone with red hair and creative, aged 23-30.",
     "matches": [
       {
-        "profile_index": 130,
-        "similarity_score": 0.8099330143176169,
-        "age": 25,
+        "profile_index": 317,
+        "similarity_score": 0.794660313753501,
+        "age": 27,
         "location": "san francisco, california",
         "education": "graduated from college/university",
-        "ethnicity": "white",
+        "ethnicity": "N/A",
+        "body_type": "athletic"
+      },
+      {
+        "profile_index": 142,
+        "similarity_score": 0.7919174691908963,
+        "age": 26,
+        "location": "berkeley, california",
+        "education": "working on ph.d program",
+        "ethnicity": "asian",
         "body_type": "fit"
       },
       {
-        "profile_index": 179,
-        "similarity_score": 0.8039009302685615,
-        "age": 32,
-        "location": "san francisco, california",
-        "education": "working on college/university",
-        "ethnicity": "white",
-        "body_type": "N/A"
-      },
-      {
-        "profile_index": 234,
-        "similarity_score": 0.8007806988197002,
-        "age": 22,
-        "location": "oakland, california",
-        "education": "working on masters program",
-        "ethnicity": "white",
-        "body_type": "curvy"
+        "profile_index": 188,
+        "similarity_score": 0.7878345048995017,
+        "age": 26,
+        "location": "berkeley, california",
+        "education": "graduated from college/university",
+        "ethnicity": "middle eastern, hispanic / latin",
+        "body_type": "thin"
       }
     ]
   },
@@ -1292,15 +1292,6 @@
         "body_type": "fit"
       },
       {
-        "profile_index": 434,
-        "similarity_score": 0.8186963718341153,
-        "age": 24,
-        "location": "san francisco, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "curvy"
-      },
-      {
         "profile_index": 212,
         "similarity_score": 0.8178593191122779,
         "age": 26,
@@ -1308,6 +1299,15 @@
         "education": "graduated from masters program",
         "ethnicity": "white",
         "body_type": "average"
+      },
+      {
+        "profile_index": 142,
+        "similarity_score": 0.8137916950225944,
+        "age": 26,
+        "location": "berkeley, california",
+        "education": "working on ph.d program",
+        "ethnicity": "asian",
+        "body_type": "fit"
       }
     ]
   },
@@ -1315,55 +1315,37 @@
     "prompt": "I want to meet someone with bright eyes and intellectual, aged 23-32.",
     "matches": [
       {
-        "profile_index": 240,
-        "similarity_score": 0.822687159426055,
-        "age": 22,
-        "location": "san francisco, california",
-        "education": "working on college/university",
-        "ethnicity": "N/A",
-        "body_type": "fit"
-      },
-      {
-        "profile_index": 123,
-        "similarity_score": 0.8223799636586671,
-        "age": 31,
-        "location": "berkeley, california",
+        "profile_index": 415,
+        "similarity_score": 0.8156506627184988,
+        "age": 28,
+        "location": "emeryville, california",
         "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "fit"
+        "ethnicity": "white, other",
+        "body_type": "athletic"
       },
       {
-        "profile_index": 355,
-        "similarity_score": 0.8201234426294859,
-        "age": 22,
-        "location": "san francisco, california",
-        "education": "working on masters program",
-        "ethnicity": "white",
-        "body_type": "skinny"
+        "profile_index": 385,
+        "similarity_score": 0.8135939851613313,
+        "age": 28,
+        "location": "hercules, california",
+        "education": "two-year college",
+        "ethnicity": "black",
+        "body_type": "average"
+      },
+      {
+        "profile_index": 214,
+        "similarity_score": 0.8114643665044047,
+        "age": 28,
+        "location": "oakland, california",
+        "education": "graduated from college/university",
+        "ethnicity": "asian, white",
+        "body_type": "average"
       }
     ]
   },
   {
     "prompt": "Looking for someone who loves fitness, aged 27-32.",
     "matches": [
-      {
-        "profile_index": 437,
-        "similarity_score": 0.834421977914136,
-        "age": 32,
-        "location": "san mateo, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "athletic"
-      },
-      {
-        "profile_index": 130,
-        "similarity_score": 0.8150797398317471,
-        "age": 25,
-        "location": "san francisco, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "fit"
-      },
       {
         "profile_index": 310,
         "similarity_score": 0.8144445157581964,
@@ -1372,6 +1354,24 @@
         "education": "graduated from college/university",
         "ethnicity": "white",
         "body_type": "jacked"
+      },
+      {
+        "profile_index": 256,
+        "similarity_score": 0.8003447637413323,
+        "age": 30,
+        "location": "san francisco, california",
+        "education": "graduated from college/university",
+        "ethnicity": "white",
+        "body_type": "athletic"
+      },
+      {
+        "profile_index": 352,
+        "similarity_score": 0.7992517877795726,
+        "age": 30,
+        "location": "san francisco, california",
+        "education": "graduated from college/university",
+        "ethnicity": "white",
+        "body_type": "curvy"
       }
     ]
   },
@@ -1379,46 +1379,37 @@
     "prompt": "Searching for someone tall and creative, aged 31-35.",
     "matches": [
       {
-        "profile_index": 386,
-        "similarity_score": 0.8215095884578324,
-        "age": 36,
+        "profile_index": 399,
+        "similarity_score": 0.7994198792212255,
+        "age": 33,
         "location": "san francisco, california",
-        "education": "graduated from college/university",
-        "ethnicity": "N/A",
-        "body_type": "average"
+        "education": "N/A",
+        "ethnicity": "white",
+        "body_type": "thin"
       },
       {
-        "profile_index": 123,
-        "similarity_score": 0.8157183566606283,
-        "age": 31,
-        "location": "berkeley, california",
+        "profile_index": 192,
+        "similarity_score": 0.7987342445018281,
+        "age": 33,
+        "location": "oakland, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
         "body_type": "fit"
       },
       {
-        "profile_index": 444,
-        "similarity_score": 0.8153050682170639,
-        "age": 32,
+        "profile_index": 302,
+        "similarity_score": 0.7956780118155131,
+        "age": 33,
         "location": "san francisco, california",
-        "education": "graduated from college/university",
+        "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "N/A"
+        "body_type": "athletic"
       }
     ]
   },
   {
     "prompt": "Searching for someone who loves reading, currently pursuing a degree, aged 27-36.",
     "matches": [
-      {
-        "profile_index": 371,
-        "similarity_score": 0.8198292591757734,
-        "age": 35,
-        "location": "san francisco, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "fit"
-      },
       {
         "profile_index": 123,
         "similarity_score": 0.8194808624082311,
@@ -1429,13 +1420,22 @@
         "body_type": "fit"
       },
       {
-        "profile_index": 330,
-        "similarity_score": 0.8177196382631786,
-        "age": 28,
-        "location": "san leandro, california",
+        "profile_index": 375,
+        "similarity_score": 0.8054178751315937,
+        "age": 32,
+        "location": "san francisco, california",
         "education": "graduated from masters program",
-        "ethnicity": "white",
-        "body_type": "fit"
+        "ethnicity": "asian",
+        "body_type": "N/A"
+      },
+      {
+        "profile_index": 149,
+        "similarity_score": 0.7989034107014519,
+        "age": 32,
+        "location": "san francisco, california",
+        "education": "graduated from masters program",
+        "ethnicity": "indian",
+        "body_type": "average"
       }
     ]
   },
@@ -1443,29 +1443,29 @@
     "prompt": "Looking for a 33-38 male with tall looks, with a strong educational background and asian, native american.",
     "matches": [
       {
-        "profile_index": 418,
-        "similarity_score": 0.7873917945954899,
-        "age": 34,
-        "location": "san francisco, california",
-        "education": "graduated from masters program",
-        "ethnicity": "asian",
-        "body_type": "athletic"
+        "profile_index": 129,
+        "similarity_score": 0.7669849039335678,
+        "age": 35,
+        "location": "pleasant hill, california",
+        "education": "graduated from college/university",
+        "ethnicity": "asian, hispanic / latin",
+        "body_type": "average"
       },
       {
-        "profile_index": 467,
-        "similarity_score": 0.7861441900151861,
-        "age": 31,
+        "profile_index": 35,
+        "similarity_score": 0.7402607476467679,
+        "age": 36,
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "asian",
         "body_type": "average"
       },
       {
-        "profile_index": 475,
-        "similarity_score": 0.7835528063661592,
-        "age": 32,
-        "location": "alameda, california",
-        "education": "graduated from college/university",
+        "profile_index": 418,
+        "similarity_score": 0.7873917945954899,
+        "age": 34,
+        "location": "san francisco, california",
+        "education": "graduated from masters program",
         "ethnicity": "asian",
         "body_type": "athletic"
       }
@@ -1475,31 +1475,31 @@
     "prompt": "Dreaming of meeting a 29-34 male who is white and creative.",
     "matches": [
       {
-        "profile_index": 415,
-        "similarity_score": 0.8108153217011459,
-        "age": 28,
-        "location": "emeryville, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white, other",
-        "body_type": "athletic"
+        "profile_index": 179,
+        "similarity_score": 0.7840110581980311,
+        "age": 32,
+        "location": "san francisco, california",
+        "education": "working on college/university",
+        "ethnicity": "white",
+        "body_type": "N/A"
       },
       {
-        "profile_index": 128,
-        "similarity_score": 0.8036290044731123,
-        "age": 35,
+        "profile_index": 283,
+        "similarity_score": 0.7816387808277205,
+        "age": 32,
         "location": "san francisco, california",
         "education": "graduated from masters program",
         "ethnicity": "white",
         "body_type": "athletic"
       },
       {
-        "profile_index": 310,
-        "similarity_score": 0.7861321471073265,
-        "age": 30,
-        "location": "san francisco, california",
-        "education": "graduated from college/university",
+        "profile_index": 289,
+        "similarity_score": 0.7712417008948054,
+        "age": 32,
+        "location": "mountain view, california",
+        "education": "graduated from law school",
         "ethnicity": "white",
-        "body_type": "jacked"
+        "body_type": "athletic"
       }
     ]
   },
@@ -1507,31 +1507,31 @@
     "prompt": "I want to meet someone who loves traveling, aged 32-36.",
     "matches": [
       {
-        "profile_index": 386,
-        "similarity_score": 0.8491667080641663,
-        "age": 36,
-        "location": "san francisco, california",
+        "profile_index": 281,
+        "similarity_score": 0.8147779067204797,
+        "age": 34,
+        "location": "south san francisco, california",
         "education": "graduated from college/university",
-        "ethnicity": "N/A",
+        "ethnicity": "white",
         "body_type": "average"
       },
       {
-        "profile_index": 123,
-        "similarity_score": 0.8355404107964263,
-        "age": 31,
-        "location": "berkeley, california",
+        "profile_index": 58,
+        "similarity_score": 0.8121912259280841,
+        "age": 34,
+        "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "average"
       },
       {
-        "profile_index": 16,
-        "similarity_score": 0.8328285346632045,
-        "age": 36,
+        "profile_index": 124,
+        "similarity_score": 0.8118306326951765,
+        "age": 34,
         "location": "san francisco, california",
-        "education": "graduated from masters program",
-        "ethnicity": "white",
-        "body_type": "fit"
+        "education": "working on ph.d program",
+        "ethnicity": "hispanic / latin, white",
+        "body_type": "average"
       }
     ]
   },
@@ -1539,30 +1539,30 @@
     "prompt": "I want to meet someone slim and creative, aged 22-31.",
     "matches": [
       {
-        "profile_index": 123,
-        "similarity_score": 0.8298900654187029,
-        "age": 31,
-        "location": "berkeley, california",
-        "education": "graduated from college/university",
+        "profile_index": 212,
+        "similarity_score": 0.814153882633195,
+        "age": 26,
+        "location": "oakland, california",
+        "education": "graduated from masters program",
         "ethnicity": "white",
+        "body_type": "average"
+      },
+      {
+        "profile_index": 142,
+        "similarity_score": 0.8116293034164592,
+        "age": 26,
+        "location": "berkeley, california",
+        "education": "working on ph.d program",
+        "ethnicity": "asian",
         "body_type": "fit"
       },
       {
-        "profile_index": 444,
-        "similarity_score": 0.8267532053973019,
-        "age": 32,
+        "profile_index": 317,
+        "similarity_score": 0.8053982790261582,
+        "age": 27,
         "location": "san francisco, california",
         "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "N/A"
-      },
-      {
-        "profile_index": 415,
-        "similarity_score": 0.8235364647200988,
-        "age": 28,
-        "location": "emeryville, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white, other",
+        "ethnicity": "N/A",
         "body_type": "athletic"
       }
     ]
@@ -1571,30 +1571,30 @@
     "prompt": "Hoping to find a 19-25 male, straight partner who is intellectual.",
     "matches": [
       {
-        "profile_index": 208,
-        "similarity_score": 0.8185518486832946,
-        "age": 18,
-        "location": "orinda, california",
-        "education": "working on college/university",
-        "ethnicity": "indian",
-        "body_type": "athletic"
-      },
-      {
-        "profile_index": 459,
-        "similarity_score": 0.8157595957522235,
-        "age": 25,
-        "location": "novato, california",
-        "education": "working on two-year college",
-        "ethnicity": "white",
-        "body_type": "athletic"
-      },
-      {
         "profile_index": 240,
-        "similarity_score": 0.8124981662222283,
+        "similarity_score": 0.8124289062757689,
         "age": 22,
         "location": "san francisco, california",
         "education": "working on college/university",
         "ethnicity": "N/A",
+        "body_type": "fit"
+      },
+      {
+        "profile_index": 166,
+        "similarity_score": 0.8005048041779412,
+        "age": 22,
+        "location": "novato, california",
+        "education": "graduated from high school",
+        "ethnicity": "white",
+        "body_type": "full figured"
+      },
+      {
+        "profile_index": 107,
+        "similarity_score": 0.7954042042926229,
+        "age": 22,
+        "location": "san francisco, california",
+        "education": "graduated from college/university",
+        "ethnicity": "white",
         "body_type": "fit"
       }
     ]
@@ -1612,15 +1612,6 @@
         "body_type": "jacked"
       },
       {
-        "profile_index": 437,
-        "similarity_score": 0.8016619340828898,
-        "age": 32,
-        "location": "san mateo, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "athletic"
-      },
-      {
         "profile_index": 470,
         "similarity_score": 0.8013723235260599,
         "age": 31,
@@ -1628,6 +1619,15 @@
         "education": "graduated from two-year college",
         "ethnicity": "middle eastern",
         "body_type": "average"
+      },
+      {
+        "profile_index": 256,
+        "similarity_score": 0.795240112512668,
+        "age": 30,
+        "location": "san francisco, california",
+        "education": "graduated from college/university",
+        "ethnicity": "white",
+        "body_type": "athletic"
       }
     ]
   },
@@ -1635,31 +1635,31 @@
     "prompt": "Hoping to find a 26-33 male who is asian, pacific islander and introverted.",
     "matches": [
       {
-        "profile_index": 142,
-        "similarity_score": 0.8009179333725338,
-        "age": 26,
-        "location": "berkeley, california",
-        "education": "working on ph.d program",
-        "ethnicity": "asian",
-        "body_type": "fit"
+        "profile_index": 66,
+        "similarity_score": 0.7967175696100495,
+        "age": 29,
+        "location": "alameda, california",
+        "education": "working on masters program",
+        "ethnicity": "asian, pacific islander",
+        "body_type": "athletic"
       },
       {
-        "profile_index": 411,
-        "similarity_score": 0.8005742943177432,
-        "age": 28,
-        "location": "san francisco, california",
-        "education": "graduated from college/university",
+        "profile_index": 273,
+        "similarity_score": 0.7638202138964352,
+        "age": 30,
+        "location": "san mateo, california",
+        "education": "graduated from ph.d program",
         "ethnicity": "asian",
-        "body_type": "N/A"
+        "body_type": "athletic"
       },
       {
-        "profile_index": 174,
-        "similarity_score": 0.7999032559226377,
-        "age": 28,
+        "profile_index": 49,
+        "similarity_score": 0.7551994755523865,
+        "age": 30,
         "location": "san francisco, california",
-        "education": "graduated from two-year college",
+        "education": "working on college/university",
         "ethnicity": "asian",
-        "body_type": "N/A"
+        "body_type": "average"
       }
     ]
   },
@@ -1667,31 +1667,31 @@
     "prompt": "Dreaming of meeting someone who loves dancing, aged 30-40.",
     "matches": [
       {
-        "profile_index": 123,
-        "similarity_score": 0.8156957529149984,
-        "age": 31,
-        "location": "berkeley, california",
+        "profile_index": 371,
+        "similarity_score": 0.7885985018728643,
+        "age": 35,
+        "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
         "body_type": "fit"
       },
       {
-        "profile_index": 174,
-        "similarity_score": 0.7999038862607833,
-        "age": 28,
+        "profile_index": 128,
+        "similarity_score": 0.782427506235145,
+        "age": 35,
         "location": "san francisco, california",
-        "education": "graduated from two-year college",
-        "ethnicity": "asian",
-        "body_type": "N/A"
+        "education": "graduated from masters program",
+        "ethnicity": "white",
+        "body_type": "athletic"
       },
       {
-        "profile_index": 385,
-        "similarity_score": 0.7980681465043067,
-        "age": 28,
-        "location": "hercules, california",
-        "education": "two-year college",
-        "ethnicity": "black",
-        "body_type": "average"
+        "profile_index": 268,
+        "similarity_score": 0.7741898027841461,
+        "age": 35,
+        "location": "san bruno, california",
+        "education": "graduated from masters program",
+        "ethnicity": "white",
+        "body_type": "curvy"
       }
     ]
   },
@@ -1699,31 +1699,31 @@
     "prompt": "Looking for someone who loves cooking, aged 23-31.",
     "matches": [
       {
-        "profile_index": 130,
-        "similarity_score": 0.8224750642605172,
-        "age": 25,
+        "profile_index": 134,
+        "similarity_score": 0.7921895559270735,
+        "age": 27,
+        "location": "san bruno, california",
+        "education": "graduated from masters program",
+        "ethnicity": "N/A",
+        "body_type": "curvy"
+      },
+      {
+        "profile_index": 317,
+        "similarity_score": 0.7799358560913489,
+        "age": 27,
         "location": "san francisco, california",
         "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "fit"
+        "ethnicity": "N/A",
+        "body_type": "athletic"
       },
       {
-        "profile_index": 123,
-        "similarity_score": 0.8138547545800887,
-        "age": 31,
-        "location": "berkeley, california",
+        "profile_index": 117,
+        "similarity_score": 0.7768647958092421,
+        "age": 27,
+        "location": "san francisco, california",
         "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "fit"
-      },
-      {
-        "profile_index": 385,
-        "similarity_score": 0.8067922653244647,
-        "age": 28,
-        "location": "hercules, california",
-        "education": "two-year college",
-        "ethnicity": "black",
-        "body_type": "average"
+        "ethnicity": "N/A",
+        "body_type": "N/A"
       }
     ]
   },
@@ -1731,30 +1731,30 @@
     "prompt": "Searching for someone who loves dancing, with a strong educational background, aged 25-34.",
     "matches": [
       {
-        "profile_index": 123,
-        "similarity_score": 0.8283126139805308,
-        "age": 31,
-        "location": "berkeley, california",
+        "profile_index": 352,
+        "similarity_score": 0.8117734660847247,
+        "age": 30,
+        "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "curvy"
       },
       {
-        "profile_index": 385,
-        "similarity_score": 0.819763580346495,
-        "age": 28,
-        "location": "hercules, california",
-        "education": "two-year college",
-        "ethnicity": "black",
+        "profile_index": 221,
+        "similarity_score": 0.808194899723002,
+        "age": 30,
+        "location": "san rafael, california",
+        "education": "graduated from masters program",
+        "ethnicity": "white",
         "body_type": "average"
       },
       {
-        "profile_index": 330,
-        "similarity_score": 0.8154173383601241,
-        "age": 28,
-        "location": "san leandro, california",
+        "profile_index": 237,
+        "similarity_score": 0.7955169068363486,
+        "age": 30,
+        "location": "oakland, california",
         "education": "graduated from masters program",
-        "ethnicity": "white",
+        "ethnicity": "black",
         "body_type": "fit"
       }
     ]
@@ -1772,37 +1772,28 @@
         "body_type": "full figured"
       },
       {
-        "profile_index": 8,
-        "similarity_score": 0.8077195617583335,
-        "age": 23,
+        "profile_index": 240,
+        "similarity_score": 0.7979330548690579,
+        "age": 22,
         "location": "san francisco, california",
-        "education": "working on high school",
-        "ethnicity": "hispanic / latin",
-        "body_type": "average"
+        "education": "working on college/university",
+        "ethnicity": "N/A",
+        "body_type": "fit"
       },
       {
-        "profile_index": 459,
-        "similarity_score": 0.800761108270322,
-        "age": 25,
-        "location": "novato, california",
-        "education": "working on two-year college",
+        "profile_index": 107,
+        "similarity_score": 0.7859263156261305,
+        "age": 22,
+        "location": "san francisco, california",
+        "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "fit"
       }
     ]
   },
   {
     "prompt": "Searching for someone short, with a college degree and goal-oriented, aged 27-32.",
     "matches": [
-      {
-        "profile_index": 130,
-        "similarity_score": 0.8180864614506793,
-        "age": 25,
-        "location": "san francisco, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "fit"
-      },
       {
         "profile_index": 485,
         "similarity_score": 0.8109085346842452,
@@ -1813,12 +1804,21 @@
         "body_type": "fit"
       },
       {
-        "profile_index": 470,
-        "similarity_score": 0.8061091010091499,
-        "age": 31,
-        "location": "pacifica, california",
-        "education": "graduated from two-year college",
-        "ethnicity": "middle eastern",
+        "profile_index": 417,
+        "similarity_score": 0.7963406246823315,
+        "age": 29,
+        "location": "woodacre, california",
+        "education": "graduated from college/university",
+        "ethnicity": "white",
+        "body_type": "curvy"
+      },
+      {
+        "profile_index": 391,
+        "similarity_score": 0.7901759649893572,
+        "age": 29,
+        "location": "san francisco, california",
+        "education": "graduated from masters program",
+        "ethnicity": "asian",
         "body_type": "average"
       }
     ]
@@ -1826,6 +1826,15 @@
   {
     "prompt": "Looking for a 26-32 female with with red hair looks and middle eastern, other.",
     "matches": [
+      {
+        "profile_index": 167,
+        "similarity_score": 0.734752674723287,
+        "age": 30,
+        "location": "san leandro, california",
+        "education": "graduated from college/university",
+        "ethnicity": "asian, middle eastern, black, native american, indian, pacific islander, hispanic / latin, white, other",
+        "body_type": "full figured"
+      },
       {
         "profile_index": 152,
         "similarity_score": 0.7634900334096534,
@@ -1843,15 +1852,6 @@
         "education": "working on masters program",
         "ethnicity": "middle eastern, black, native american, indian, hispanic / latin, white",
         "body_type": "thin"
-      },
-      {
-        "profile_index": 311,
-        "similarity_score": 0.7523587911688956,
-        "age": 24,
-        "location": "oakland, california",
-        "education": "working on masters program",
-        "ethnicity": "middle eastern, hispanic / latin",
-        "body_type": "N/A"
       }
     ]
   },
@@ -1859,31 +1859,31 @@
     "prompt": "Hoping to find someone who loves cooking, college-educated, aged 24-30.",
     "matches": [
       {
-        "profile_index": 130,
-        "similarity_score": 0.8313585771537148,
-        "age": 25,
+        "profile_index": 134,
+        "similarity_score": 0.8023167810691147,
+        "age": 27,
+        "location": "san bruno, california",
+        "education": "graduated from masters program",
+        "ethnicity": "N/A",
+        "body_type": "curvy"
+      },
+      {
+        "profile_index": 4,
+        "similarity_score": 0.7898602162994917,
+        "age": 27,
+        "location": "san francisco, california",
+        "education": "working on college/university",
+        "ethnicity": "white",
+        "body_type": "fit"
+      },
+      {
+        "profile_index": 117,
+        "similarity_score": 0.7895686624020789,
+        "age": 27,
         "location": "san francisco, california",
         "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "fit"
-      },
-      {
-        "profile_index": 385,
-        "similarity_score": 0.8244375709253379,
-        "age": 28,
-        "location": "hercules, california",
-        "education": "two-year college",
-        "ethnicity": "black",
-        "body_type": "average"
-      },
-      {
-        "profile_index": 123,
-        "similarity_score": 0.8215337699164132,
-        "age": 31,
-        "location": "berkeley, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "fit"
+        "ethnicity": "N/A",
+        "body_type": "N/A"
       }
     ]
   },
@@ -1891,30 +1891,30 @@
     "prompt": "I want to meet someone who loves hiking, aged 30-36.",
     "matches": [
       {
-        "profile_index": 386,
-        "similarity_score": 0.8502297743760339,
-        "age": 36,
+        "profile_index": 399,
+        "similarity_score": 0.8170580870596136,
+        "age": 33,
         "location": "san francisco, california",
-        "education": "graduated from college/university",
-        "ethnicity": "N/A",
-        "body_type": "average"
+        "education": "N/A",
+        "ethnicity": "white",
+        "body_type": "thin"
       },
       {
-        "profile_index": 347,
-        "similarity_score": 0.8305407453308794,
-        "age": 31,
+        "profile_index": 5,
+        "similarity_score": 0.8157725611924357,
+        "age": 33,
         "location": "san francisco, california",
         "education": "graduated from masters program",
-        "ethnicity": "hispanic / latin, white",
+        "ethnicity": "white",
         "body_type": "average"
       },
       {
-        "profile_index": 385,
-        "similarity_score": 0.8211036045052269,
-        "age": 28,
-        "location": "hercules, california",
-        "education": "two-year college",
-        "ethnicity": "black",
+        "profile_index": 331,
+        "similarity_score": 0.813386262713782,
+        "age": 33,
+        "location": "san lorenzo, california",
+        "education": "graduated from college/university",
+        "ethnicity": "hispanic / latin",
         "body_type": "average"
       }
     ]
@@ -1922,6 +1922,15 @@
   {
     "prompt": "I want to meet a 27-33 female who is indian and outgoing.",
     "matches": [
+      {
+        "profile_index": 167,
+        "similarity_score": 0.7599500204991739,
+        "age": 30,
+        "location": "san leandro, california",
+        "education": "graduated from college/university",
+        "ethnicity": "asian, middle eastern, black, native american, indian, pacific islander, hispanic / latin, white, other",
+        "body_type": "full figured"
+      },
       {
         "profile_index": 152,
         "similarity_score": 0.7987472025490654,
@@ -1939,30 +1948,12 @@
         "education": "working on masters program",
         "ethnicity": "middle eastern, black, native american, indian, hispanic / latin, white",
         "body_type": "thin"
-      },
-      {
-        "profile_index": 167,
-        "similarity_score": 0.7599500204991739,
-        "age": 30,
-        "location": "san leandro, california",
-        "education": "graduated from college/university",
-        "ethnicity": "asian, middle eastern, black, native american, indian, pacific islander, hispanic / latin, white, other",
-        "body_type": "full figured"
       }
     ]
   },
   {
     "prompt": "Searching for someone with bright eyes, highly educated and outgoing, aged 26-30.",
     "matches": [
-      {
-        "profile_index": 123,
-        "similarity_score": 0.8244127622794888,
-        "age": 31,
-        "location": "berkeley, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "fit"
-      },
       {
         "profile_index": 214,
         "similarity_score": 0.8168475449353042,
@@ -1973,37 +1964,28 @@
         "body_type": "average"
       },
       {
-        "profile_index": 277,
-        "similarity_score": 0.8161661103605551,
-        "age": 24,
-        "location": "san francisco, california",
+        "profile_index": 415,
+        "similarity_score": 0.8105903720422707,
+        "age": 28,
+        "location": "emeryville, california",
         "education": "graduated from college/university",
-        "ethnicity": "asian",
-        "body_type": "N/A"
+        "ethnicity": "white, other",
+        "body_type": "athletic"
+      },
+      {
+        "profile_index": 385,
+        "similarity_score": 0.8093480991506545,
+        "age": 28,
+        "location": "hercules, california",
+        "education": "two-year college",
+        "ethnicity": "black",
+        "body_type": "average"
       }
     ]
   },
   {
     "prompt": "Hoping to find someone who loves reading, aged 28-32.",
     "matches": [
-      {
-        "profile_index": 123,
-        "similarity_score": 0.817019140170664,
-        "age": 31,
-        "location": "berkeley, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "fit"
-      },
-      {
-        "profile_index": 385,
-        "similarity_score": 0.8137661353718824,
-        "age": 28,
-        "location": "hercules, california",
-        "education": "two-year college",
-        "ethnicity": "black",
-        "body_type": "average"
-      },
       {
         "profile_index": 352,
         "similarity_score": 0.8127665610521282,
@@ -2012,21 +1994,30 @@
         "education": "graduated from college/university",
         "ethnicity": "white",
         "body_type": "curvy"
+      },
+      {
+        "profile_index": 221,
+        "similarity_score": 0.8083712166083267,
+        "age": 30,
+        "location": "san rafael, california",
+        "education": "graduated from masters program",
+        "ethnicity": "white",
+        "body_type": "average"
+      },
+      {
+        "profile_index": 342,
+        "similarity_score": 0.7966272100268537,
+        "age": 30,
+        "location": "san francisco, california",
+        "education": "graduated from college/university",
+        "ethnicity": "white",
+        "body_type": "athletic"
       }
     ]
   },
   {
     "prompt": "I want to meet someone who loves traveling, with a strong educational background, aged 25-31.",
     "matches": [
-      {
-        "profile_index": 123,
-        "similarity_score": 0.8481875990195867,
-        "age": 31,
-        "location": "berkeley, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "fit"
-      },
       {
         "profile_index": 214,
         "similarity_score": 0.8427478707684432,
@@ -2037,13 +2028,22 @@
         "body_type": "average"
       },
       {
-        "profile_index": 212,
-        "similarity_score": 0.8423953789410479,
-        "age": 26,
-        "location": "oakland, california",
-        "education": "graduated from masters program",
-        "ethnicity": "white",
+        "profile_index": 385,
+        "similarity_score": 0.8407644165998793,
+        "age": 28,
+        "location": "hercules, california",
+        "education": "two-year college",
+        "ethnicity": "black",
         "body_type": "average"
+      },
+      {
+        "profile_index": 174,
+        "similarity_score": 0.8344425362690526,
+        "age": 28,
+        "location": "san francisco, california",
+        "education": "graduated from two-year college",
+        "ethnicity": "asian",
+        "body_type": "N/A"
       }
     ]
   },
@@ -2051,31 +2051,31 @@
     "prompt": "Searching for a 23-29 female, bisexual partner who is adventurous.",
     "matches": [
       {
-        "profile_index": 123,
-        "similarity_score": 0.833043042353486,
-        "age": 31,
-        "location": "berkeley, california",
+        "profile_index": 94,
+        "similarity_score": 0.784570364366189,
+        "age": 26,
+        "location": "redwood city, california",
+        "education": "working on masters program",
+        "ethnicity": "white",
+        "body_type": "average"
+      },
+      {
+        "profile_index": 261,
+        "similarity_score": 0.7827058645035954,
+        "age": 26,
+        "location": "san francisco, california",
+        "education": "graduated from college/university",
+        "ethnicity": "white",
+        "body_type": "thin"
+      },
+      {
+        "profile_index": 349,
+        "similarity_score": 0.7811305998343288,
+        "age": 26,
+        "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
         "body_type": "fit"
-      },
-      {
-        "profile_index": 417,
-        "similarity_score": 0.8181410565761427,
-        "age": 29,
-        "location": "woodacre, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "curvy"
-      },
-      {
-        "profile_index": 34,
-        "similarity_score": 0.8125834602763219,
-        "age": 31,
-        "location": "san francisco, california",
-        "education": "N/A",
-        "ethnicity": "white",
-        "body_type": "thin"
       }
     ]
   },
@@ -2083,31 +2083,31 @@
     "prompt": "Looking for a 31-35 female with with bright eyes looks, highly educated and white.",
     "matches": [
       {
-        "profile_index": 123,
-        "similarity_score": 0.8061449756481543,
-        "age": 31,
-        "location": "berkeley, california",
+        "profile_index": 192,
+        "similarity_score": 0.7803384332084182,
+        "age": 33,
+        "location": "oakland, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
         "body_type": "fit"
       },
       {
-        "profile_index": 371,
-        "similarity_score": 0.8004737097572124,
-        "age": 35,
+        "profile_index": 302,
+        "similarity_score": 0.7789154541821306,
+        "age": 33,
         "location": "san francisco, california",
-        "education": "graduated from college/university",
+        "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "athletic"
       },
       {
-        "profile_index": 417,
-        "similarity_score": 0.7933955481752072,
-        "age": 29,
-        "location": "woodacre, california",
-        "education": "graduated from college/university",
+        "profile_index": 406,
+        "similarity_score": 0.7692082602030383,
+        "age": 33,
+        "location": "san francisco, california",
+        "education": "graduated from med school",
         "ethnicity": "white",
-        "body_type": "curvy"
+        "body_type": "N/A"
       }
     ]
   },
@@ -2115,46 +2115,37 @@
     "prompt": "Searching for a 18-26 male, straight partner who is intellectual.",
     "matches": [
       {
-        "profile_index": 208,
-        "similarity_score": 0.8192164002865953,
-        "age": 18,
-        "location": "orinda, california",
+        "profile_index": 240,
+        "similarity_score": 0.8125276133195093,
+        "age": 22,
+        "location": "san francisco, california",
         "education": "working on college/university",
-        "ethnicity": "indian",
-        "body_type": "athletic"
+        "ethnicity": "N/A",
+        "body_type": "fit"
       },
       {
-        "profile_index": 459,
-        "similarity_score": 0.8153468727727766,
-        "age": 25,
-        "location": "novato, california",
-        "education": "working on two-year college",
+        "profile_index": 355,
+        "similarity_score": 0.7980862114878855,
+        "age": 22,
+        "location": "san francisco, california",
+        "education": "working on masters program",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "skinny"
       },
       {
-        "profile_index": 194,
-        "similarity_score": 0.8130599095704786,
-        "age": 28,
-        "location": "castro valley, california",
-        "education": "working on college/university",
+        "profile_index": 107,
+        "similarity_score": 0.7979738124053922,
+        "age": 22,
+        "location": "san francisco, california",
+        "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "fit"
       }
     ]
   },
   {
     "prompt": "I want to meet someone who loves fitness, aged 28-32.",
     "matches": [
-      {
-        "profile_index": 437,
-        "similarity_score": 0.8395122876672371,
-        "age": 32,
-        "location": "san mateo, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "athletic"
-      },
       {
         "profile_index": 310,
         "similarity_score": 0.8262872419559746,
@@ -2165,13 +2156,22 @@
         "body_type": "jacked"
       },
       {
-        "profile_index": 385,
-        "similarity_score": 0.8245843395992041,
-        "age": 28,
-        "location": "hercules, california",
-        "education": "two-year college",
-        "ethnicity": "black",
-        "body_type": "average"
+        "profile_index": 352,
+        "similarity_score": 0.8078955887751693,
+        "age": 30,
+        "location": "san francisco, california",
+        "education": "graduated from college/university",
+        "ethnicity": "white",
+        "body_type": "curvy"
+      },
+      {
+        "profile_index": 256,
+        "similarity_score": 0.7978443288383728,
+        "age": 30,
+        "location": "san francisco, california",
+        "education": "graduated from college/university",
+        "ethnicity": "white",
+        "body_type": "athletic"
       }
     ]
   },
@@ -2179,28 +2179,28 @@
     "prompt": "Searching for a 29-35 male with short looks and white.",
     "matches": [
       {
-        "profile_index": 415,
-        "similarity_score": 0.7798037341322229,
-        "age": 28,
-        "location": "emeryville, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white, other",
-        "body_type": "athletic"
-      },
-      {
-        "profile_index": 111,
-        "similarity_score": 0.7772410541473558,
-        "age": 37,
+        "profile_index": 104,
+        "similarity_score": 0.7724590989320252,
+        "age": 32,
         "location": "oakland, california",
-        "education": "graduated from masters program",
+        "education": "graduated from high school",
         "ethnicity": "white",
         "body_type": "average"
       },
       {
-        "profile_index": 281,
-        "similarity_score": 0.7745831278584348,
-        "age": 34,
-        "location": "south san francisco, california",
+        "profile_index": 437,
+        "similarity_score": 0.7662964090304081,
+        "age": 32,
+        "location": "san mateo, california",
+        "education": "graduated from college/university",
+        "ethnicity": "white",
+        "body_type": "athletic"
+      },
+      {
+        "profile_index": 116,
+        "similarity_score": 0.7616220291089758,
+        "age": 32,
+        "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
         "body_type": "average"
@@ -2211,31 +2211,31 @@
     "prompt": "I want to meet a 30-36 female who is asian, white and goal-oriented.",
     "matches": [
       {
-        "profile_index": 123,
-        "similarity_score": 0.8130633592330367,
-        "age": 31,
-        "location": "berkeley, california",
+        "profile_index": 192,
+        "similarity_score": 0.793574072349791,
+        "age": 33,
+        "location": "oakland, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
         "body_type": "fit"
       },
       {
-        "profile_index": 214,
-        "similarity_score": 0.8126184793985343,
-        "age": 28,
-        "location": "oakland, california",
-        "education": "graduated from college/university",
-        "ethnicity": "asian, white",
-        "body_type": "average"
+        "profile_index": 406,
+        "similarity_score": 0.7911502201816757,
+        "age": 33,
+        "location": "san francisco, california",
+        "education": "graduated from med school",
+        "ethnicity": "white",
+        "body_type": "N/A"
       },
       {
-        "profile_index": 151,
-        "similarity_score": 0.8121134419584466,
-        "age": 37,
+        "profile_index": 302,
+        "similarity_score": 0.7816378257830828,
+        "age": 33,
         "location": "san francisco, california",
-        "education": "graduated from ph.d program",
-        "ethnicity": "asian",
-        "body_type": "fit"
+        "education": "graduated from masters program",
+        "ethnicity": "white",
+        "body_type": "athletic"
       }
     ]
   },
@@ -2243,30 +2243,30 @@
     "prompt": "Hoping to find a 26-29 male who is white and introverted.",
     "matches": [
       {
-        "profile_index": 310,
-        "similarity_score": 0.8067884979765657,
-        "age": 30,
-        "location": "san francisco, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "jacked"
-      },
-      {
-        "profile_index": 459,
-        "similarity_score": 0.803670365504616,
-        "age": 25,
-        "location": "novato, california",
-        "education": "working on two-year college",
+        "profile_index": 194,
+        "similarity_score": 0.799251805957682,
+        "age": 28,
+        "location": "castro valley, california",
+        "education": "working on college/university",
         "ethnicity": "white",
         "body_type": "athletic"
       },
       {
-        "profile_index": 337,
-        "similarity_score": 0.803208958807631,
-        "age": 26,
+        "profile_index": 415,
+        "similarity_score": 0.7935479156389968,
+        "age": 28,
         "location": "emeryville, california",
-        "education": "working on two-year college",
-        "ethnicity": "white",
+        "education": "graduated from college/university",
+        "ethnicity": "white, other",
+        "body_type": "athletic"
+      },
+      {
+        "profile_index": 462,
+        "similarity_score": 0.7922164239223098,
+        "age": 28,
+        "location": "san francisco, california",
+        "education": "working on college/university",
+        "ethnicity": "pacific islander, white",
         "body_type": "fit"
       }
     ]
@@ -2275,24 +2275,6 @@
     "prompt": "Dreaming of meeting a 36-43 female with with red hair looks, holding a master's degree and unknown.",
     "matches": [
       {
-        "profile_index": 371,
-        "similarity_score": 0.7867055519838495,
-        "age": 35,
-        "location": "san francisco, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "fit"
-      },
-      {
-        "profile_index": 151,
-        "similarity_score": 0.7787164814232976,
-        "age": 37,
-        "location": "san francisco, california",
-        "education": "graduated from ph.d program",
-        "ethnicity": "asian",
-        "body_type": "fit"
-      },
-      {
         "profile_index": 425,
         "similarity_score": 0.7768940612352725,
         "age": 39,
@@ -2300,6 +2282,24 @@
         "education": "graduated from masters program",
         "ethnicity": "N/A",
         "body_type": "athletic"
+      },
+      {
+        "profile_index": 12,
+        "similarity_score": 0.7682917568509556,
+        "age": 39,
+        "location": "san francisco, california",
+        "education": "college/university",
+        "ethnicity": "black",
+        "body_type": "curvy"
+      },
+      {
+        "profile_index": 132,
+        "similarity_score": 0.7664894854129993,
+        "age": 40,
+        "location": "san francisco, california",
+        "education": "graduated from college/university",
+        "ethnicity": "white",
+        "body_type": "curvy"
       }
     ]
   },
@@ -2307,55 +2307,37 @@
     "prompt": "I want to meet a 23-30 female with short looks, college-educated and unknown.",
     "matches": [
       {
-        "profile_index": 417,
-        "similarity_score": 0.8195623504092155,
-        "age": 29,
-        "location": "woodacre, california",
-        "education": "graduated from college/university",
+        "profile_index": 94,
+        "similarity_score": 0.8023158572694089,
+        "age": 26,
+        "location": "redwood city, california",
+        "education": "working on masters program",
         "ethnicity": "white",
-        "body_type": "curvy"
+        "body_type": "average"
       },
       {
-        "profile_index": 123,
-        "similarity_score": 0.8181613705979202,
-        "age": 31,
-        "location": "berkeley, california",
-        "education": "graduated from college/university",
+        "profile_index": 4,
+        "similarity_score": 0.801946472946969,
+        "age": 27,
+        "location": "san francisco, california",
+        "education": "working on college/university",
         "ethnicity": "white",
         "body_type": "fit"
       },
       {
-        "profile_index": 59,
-        "similarity_score": 0.8140662403935555,
-        "age": 21,
-        "location": "san francisco, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "full figured"
+        "profile_index": 134,
+        "similarity_score": 0.7896382785995539,
+        "age": 27,
+        "location": "san bruno, california",
+        "education": "graduated from masters program",
+        "ethnicity": "N/A",
+        "body_type": "curvy"
       }
     ]
   },
   {
     "prompt": "Hoping to find a 41-45 male with with red hair looks, with a college degree and unknown.",
     "matches": [
-      {
-        "profile_index": 445,
-        "similarity_score": 0.7897626087863621,
-        "age": 42,
-        "location": "san francisco, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "athletic"
-      },
-      {
-        "profile_index": 202,
-        "similarity_score": 0.7857679727260829,
-        "age": 44,
-        "location": "berkeley, california",
-        "education": "N/A",
-        "ethnicity": "white",
-        "body_type": "athletic"
-      },
       {
         "profile_index": 242,
         "similarity_score": 0.7830814307991913,
@@ -2364,6 +2346,24 @@
         "education": "graduated from high school",
         "ethnicity": "asian, black, native american, indian, hispanic / latin, white, other",
         "body_type": "average"
+      },
+      {
+        "profile_index": 383,
+        "similarity_score": 0.7745337433478741,
+        "age": 43,
+        "location": "oakland, california",
+        "education": "graduated from masters program",
+        "ethnicity": "white",
+        "body_type": "athletic"
+      },
+      {
+        "profile_index": 408,
+        "similarity_score": 0.7495123839245802,
+        "age": 43,
+        "location": "san francisco, california",
+        "education": "graduated from two-year college",
+        "ethnicity": "hispanic / latin",
+        "body_type": "athletic"
       }
     ]
   },
@@ -2371,31 +2371,31 @@
     "prompt": "Looking for someone who loves exploring nature, with a college degree, aged 36-41.",
     "matches": [
       {
-        "profile_index": 386,
-        "similarity_score": 0.8428797288399968,
-        "age": 36,
+        "profile_index": 362,
+        "similarity_score": 0.8100421329053198,
+        "age": 38,
         "location": "san francisco, california",
         "education": "graduated from college/university",
-        "ethnicity": "N/A",
-        "body_type": "average"
-      },
-      {
-        "profile_index": 445,
-        "similarity_score": 0.8202334962249397,
-        "age": 42,
-        "location": "san francisco, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "athletic"
-      },
-      {
-        "profile_index": 151,
-        "similarity_score": 0.817218993638869,
-        "age": 37,
-        "location": "san francisco, california",
-        "education": "graduated from ph.d program",
         "ethnicity": "asian",
+        "body_type": "N/A"
+      },
+      {
+        "profile_index": 141,
+        "similarity_score": 0.805683517222749,
+        "age": 38,
+        "location": "san francisco, california",
+        "education": "graduated from college/university",
+        "ethnicity": "black, white",
         "body_type": "fit"
+      },
+      {
+        "profile_index": 73,
+        "similarity_score": 0.8049374762284334,
+        "age": 39,
+        "location": "san francisco, california",
+        "education": "graduated from masters program",
+        "ethnicity": "N/A",
+        "body_type": "N/A"
       }
     ]
   },
@@ -2403,13 +2403,13 @@
     "prompt": "Searching for a 22-25 male who is black and fun-loving.",
     "matches": [
       {
-        "profile_index": 169,
-        "similarity_score": 0.79111006791745,
-        "age": 26,
-        "location": "berkeley, california",
-        "education": "N/A",
-        "ethnicity": "black",
-        "body_type": "fit"
+        "profile_index": 323,
+        "similarity_score": 0.7875314468887973,
+        "age": 24,
+        "location": "oakland, california",
+        "education": "graduated from high school",
+        "ethnicity": "black, white",
+        "body_type": "athletic"
       },
       {
         "profile_index": 291,
@@ -2421,12 +2421,12 @@
         "body_type": "average"
       },
       {
-        "profile_index": 323,
-        "similarity_score": 0.7875314468887973,
-        "age": 24,
-        "location": "oakland, california",
-        "education": "graduated from high school",
-        "ethnicity": "black, white",
+        "profile_index": 175,
+        "similarity_score": 0.7809620798728165,
+        "age": 22,
+        "location": "san francisco, california",
+        "education": "working on college/university",
+        "ethnicity": "black",
         "body_type": "athletic"
       }
     ]
@@ -2435,31 +2435,31 @@
     "prompt": "Hoping to find a 27-30 female with curvy looks and white.",
     "matches": [
       {
-        "profile_index": 123,
-        "similarity_score": 0.7874496723166904,
-        "age": 31,
-        "location": "berkeley, california",
+        "profile_index": 214,
+        "similarity_score": 0.7777367190153492,
+        "age": 28,
+        "location": "oakland, california",
         "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "fit"
-      },
-      {
-        "profile_index": 94,
-        "similarity_score": 0.780046479458336,
-        "age": 26,
-        "location": "redwood city, california",
-        "education": "working on masters program",
-        "ethnicity": "white",
+        "ethnicity": "asian, white",
         "body_type": "average"
       },
       {
-        "profile_index": 130,
-        "similarity_score": 0.779722666201909,
-        "age": 25,
-        "location": "san francisco, california",
+        "profile_index": 417,
+        "similarity_score": 0.7770574832535574,
+        "age": 29,
+        "location": "woodacre, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "curvy"
+      },
+      {
+        "profile_index": 105,
+        "similarity_score": 0.7695214365636609,
+        "age": 28,
+        "location": "san carlos, california",
+        "education": "N/A",
+        "ethnicity": "hispanic / latin, white",
+        "body_type": "a little extra"
       }
     ]
   },
@@ -2476,46 +2476,28 @@
         "body_type": "athletic"
       },
       {
-        "profile_index": 188,
-        "similarity_score": 0.769862424478379,
-        "age": 26,
-        "location": "berkeley, california",
-        "education": "graduated from college/university",
-        "ethnicity": "middle eastern, hispanic / latin",
-        "body_type": "thin"
+        "profile_index": 194,
+        "similarity_score": 0.7586456157656875,
+        "age": 28,
+        "location": "castro valley, california",
+        "education": "working on college/university",
+        "ethnicity": "white",
+        "body_type": "athletic"
       },
       {
-        "profile_index": 310,
-        "similarity_score": 0.7658217759041528,
-        "age": 30,
-        "location": "san francisco, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "jacked"
+        "profile_index": 139,
+        "similarity_score": 0.7575689970023396,
+        "age": 28,
+        "location": "san pablo, california",
+        "education": "N/A",
+        "ethnicity": "hispanic / latin, white",
+        "body_type": "overweight"
       }
     ]
   },
   {
     "prompt": "Looking for someone who loves dancing, college-educated, aged 24-33.",
     "matches": [
-      {
-        "profile_index": 123,
-        "similarity_score": 0.8252798935437179,
-        "age": 31,
-        "location": "berkeley, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "fit"
-      },
-      {
-        "profile_index": 234,
-        "similarity_score": 0.8227237168111661,
-        "age": 22,
-        "location": "oakland, california",
-        "education": "working on masters program",
-        "ethnicity": "white",
-        "body_type": "curvy"
-      },
       {
         "profile_index": 385,
         "similarity_score": 0.8203912408180463,
@@ -2524,6 +2506,24 @@
         "education": "two-year college",
         "ethnicity": "black",
         "body_type": "average"
+      },
+      {
+        "profile_index": 174,
+        "similarity_score": 0.8123242972919602,
+        "age": 28,
+        "location": "san francisco, california",
+        "education": "graduated from two-year college",
+        "ethnicity": "asian",
+        "body_type": "N/A"
+      },
+      {
+        "profile_index": 330,
+        "similarity_score": 0.8102608711950995,
+        "age": 28,
+        "location": "san leandro, california",
+        "education": "graduated from masters program",
+        "ethnicity": "white",
+        "body_type": "fit"
       }
     ]
   },
@@ -2531,31 +2531,31 @@
     "prompt": "Hoping to find a 20-26 male who is white and intellectual.",
     "matches": [
       {
-        "profile_index": 166,
-        "similarity_score": 0.8089127900647666,
-        "age": 22,
-        "location": "novato, california",
-        "education": "graduated from high school",
-        "ethnicity": "white",
-        "body_type": "full figured"
-      },
-      {
-        "profile_index": 459,
-        "similarity_score": 0.8067093107834707,
-        "age": 25,
-        "location": "novato, california",
-        "education": "working on two-year college",
-        "ethnicity": "white",
-        "body_type": "athletic"
-      },
-      {
-        "profile_index": 415,
-        "similarity_score": 0.805090906986129,
-        "age": 28,
-        "location": "emeryville, california",
+        "profile_index": 435,
+        "similarity_score": 0.7694021143431441,
+        "age": 23,
+        "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white, other",
-        "body_type": "athletic"
+        "body_type": "average"
+      },
+      {
+        "profile_index": 292,
+        "similarity_score": 0.7640508551013104,
+        "age": 23,
+        "location": "palo alto, california",
+        "education": "graduated from college/university",
+        "ethnicity": "white",
+        "body_type": "fit"
+      },
+      {
+        "profile_index": 7,
+        "similarity_score": 0.7515020128066187,
+        "age": 23,
+        "location": "san mateo, california",
+        "education": "working on two-year college",
+        "ethnicity": "pacific islander, white",
+        "body_type": "fit"
       }
     ]
   },
@@ -2572,21 +2572,21 @@
         "body_type": "athletic"
       },
       {
-        "profile_index": 141,
-        "similarity_score": 0.7982377645640336,
-        "age": 38,
+        "profile_index": 148,
+        "similarity_score": 0.7762298972716715,
+        "age": 35,
         "location": "san francisco, california",
-        "education": "graduated from college/university",
-        "ethnicity": "black, white",
+        "education": "graduated from masters program",
+        "ethnicity": "white",
         "body_type": "fit"
       },
       {
-        "profile_index": 281,
-        "similarity_score": 0.797601120756906,
-        "age": 34,
-        "location": "south san francisco, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
+        "profile_index": 282,
+        "similarity_score": 0.7667728394990398,
+        "age": 35,
+        "location": "san francisco, california",
+        "education": "graduated from masters program",
+        "ethnicity": "middle eastern, white",
         "body_type": "average"
       }
     ]
@@ -2594,15 +2594,6 @@
   {
     "prompt": "Dreaming of meeting a 36-40 male, straight partner who is introverted.",
     "matches": [
-      {
-        "profile_index": 128,
-        "similarity_score": 0.7967142900630899,
-        "age": 35,
-        "location": "san francisco, california",
-        "education": "graduated from masters program",
-        "ethnicity": "white",
-        "body_type": "athletic"
-      },
       {
         "profile_index": 141,
         "similarity_score": 0.7943408642695102,
@@ -2613,12 +2604,21 @@
         "body_type": "fit"
       },
       {
-        "profile_index": 314,
-        "similarity_score": 0.7853371159912274,
-        "age": 34,
-        "location": "oakland, california",
-        "education": "N/A",
+        "profile_index": 362,
+        "similarity_score": 0.7656892239259039,
+        "age": 38,
+        "location": "san francisco, california",
+        "education": "graduated from college/university",
         "ethnicity": "asian",
+        "body_type": "N/A"
+      },
+      {
+        "profile_index": 364,
+        "similarity_score": 0.7582872698027857,
+        "age": 38,
+        "location": "san francisco, california",
+        "education": "graduated from masters program",
+        "ethnicity": "white",
         "body_type": "athletic"
       }
     ]
@@ -2645,13 +2645,13 @@
         "body_type": "fit"
       },
       {
-        "profile_index": 485,
-        "similarity_score": 0.8032322416787452,
-        "age": 29,
-        "location": "south san francisco, california",
+        "profile_index": 467,
+        "similarity_score": 0.7813916655701223,
+        "age": 31,
+        "location": "san francisco, california",
         "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "fit"
+        "ethnicity": "asian",
+        "body_type": "average"
       }
     ]
   },
@@ -2668,22 +2668,22 @@
         "body_type": "athletic"
       },
       {
-        "profile_index": 286,
-        "similarity_score": 0.8053467514127172,
-        "age": 48,
+        "profile_index": 137,
+        "similarity_score": 0.7919711563171237,
+        "age": 45,
         "location": "san francisco, california",
-        "education": "N/A",
-        "ethnicity": "white",
+        "education": "space camp",
+        "ethnicity": "N/A",
         "body_type": "fit"
       },
       {
-        "profile_index": 383,
-        "similarity_score": 0.8040412957978866,
-        "age": 43,
-        "location": "oakland, california",
-        "education": "graduated from masters program",
+        "profile_index": 190,
+        "similarity_score": 0.7907206931996849,
+        "age": 45,
+        "location": "alameda, california",
+        "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "curvy"
       }
     ]
   }
