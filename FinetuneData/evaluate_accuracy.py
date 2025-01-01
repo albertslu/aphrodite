@@ -141,7 +141,7 @@ def evaluate_match(prompt, profile_info, retry_count=0):
             print(f"\nFailed to evaluate after retries: {str(e)}")
             return False, f"Error: {str(e)}"
 
-def evaluate_batch(prompts_and_profiles, batch_size=5):
+def evaluate_batch(prompts_and_profiles, batch_size=3):
     """
     Evaluate multiple profiles in parallel using batched API calls
     """
@@ -175,33 +175,31 @@ def evaluate_batch(prompts_and_profiles, batch_size=5):
             - Default to OR logic for ethnicity matching
             
             Respond with either 'Yes' or 'No' and a brief explanation.
-            Keep the explanation concise, maximum 2 sentences.
+            Keep the explanation very short, under 10 words.
             """
             messages.append({"role": "user", "content": evaluation_prompt})
         
-        # Make a single API call for the batch
+        # Make batch API call
         try:
-            response = client.chat.completions.create(
+            responses = client.chat.completions.create(
                 model="gpt-3.5-turbo",
-                messages=[
-                    {"role": "system", "content": "You are a dating app matching evaluator. Evaluate multiple profiles in sequence. For each profile, respond with Yes/No and a brief explanation."},
-                    *messages
-                ]
+                messages=[{"role": "user", "content": msg["content"]} for msg in messages],
+                n=1,
+                temperature=0.3,
             )
             
             # Process responses
-            for i, choice in enumerate(response.choices):
-                result = choice.message.content.strip()
-                is_match = result.lower().startswith('yes')
-                explanation = result.split('.')[0]  # Get first sentence
+            for response in responses.choices:
+                answer = response.message.content.strip().lower()
+                is_match = 'yes' in answer.split()[0]
+                explanation = ' '.join(answer.split()[1:]) if len(answer.split()) > 1 else ''
                 all_results.append((is_match, explanation))
                 
         except Exception as e:
-            # Handle failed batch by processing individually
-            print(f"Batch failed, processing individually: {str(e)}")
-            for prompt, profile in batch:
-                result = evaluate_match(prompt, profile)
-                all_results.append(result)
+            print(f"Error in batch {batch_num + 1}: {str(e)}", flush=True)
+            # Add failed results
+            for _ in batch:
+                all_results.append((False, f"Error: {str(e)}"))
     
     return all_results
 
@@ -276,6 +274,7 @@ batch_results = evaluate_batch(prompts_and_profiles)
 
 # Update results with batch evaluations
 results_map = {}  # Map to track results by prompt
+total_evaluated = len(batch_results)  # This is the actual number of profiles evaluated
 
 for i, (is_match, explanation) in enumerate(batch_results):
     result, match = batch_map[i]
@@ -311,13 +310,13 @@ for i, (is_match, explanation) in enumerate(batch_results):
 # Convert map to list for final results
 evaluation_results = list(results_map.values())
 
-# Save final results
-save_final_results(evaluation_results, total_matches, accurate_matches, yes_count, no_count)
+# Save final results with actual total evaluated
+save_final_results(evaluation_results, total_evaluated, accurate_matches, yes_count, no_count)
 print("\nEvaluation complete!")
-print(f"Total matches evaluated: {total_matches}")
+print(f"Total matches evaluated: {total_evaluated}")
 print(f"Accurate matches: {accurate_matches}")
-if total_matches > 0:
-    print(f"Accuracy: {(accurate_matches/total_matches*100):.2f}%")
+if total_evaluated > 0:
+    print(f"Accuracy: {(accurate_matches/total_evaluated*100):.2f}%")
 else:
     print("Accuracy: N/A (no matches evaluated)")
 print(f"Yes matches: {yes_count}")
