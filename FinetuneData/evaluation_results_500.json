@@ -1,10 +1,10 @@
 {
-  "overall_accuracy": 54.41176470588235,
-  "total_matches_evaluated": 68,
-  "accurate_matches": 37,
-  "yes_matches": 37,
-  "no_matches": 31,
-  "evaluation_timestamp": "2024-12-31T20:25:16.250540",
+  "overall_accuracy": 31.527093596059114,
+  "total_matches_evaluated": 203,
+  "accurate_matches": 64,
+  "yes_matches": 64,
+  "no_matches": 4,
+  "evaluation_timestamp": "2024-12-31T22:29:39.169603",
   "detailed_results": [
     {
       "prompt": "Searching for a 21-25 male who is asian, white and creative.",
@@ -17,8 +17,8 @@
           "education": "graduated from college/university",
           "ethnicity": "white",
           "body_type": "thin",
-          "is_accurate_match": false,
-          "explanation": "age exceeds range specified in prompt."
+          "is_accurate_match": true,
+          "explanation": "meets age, gender, location, education, and ethnicity criteria."
         },
         {
           "profile_index": 142,
@@ -28,8 +28,8 @@
           "education": "working on ph.d program",
           "ethnicity": "asian",
           "body_type": "fit",
-          "is_accurate_match": false,
-          "explanation": "does not currently pursue a degree."
+          "is_accurate_match": true,
+          "explanation": "matches on location, education, and age criteria."
         },
         {
           "profile_index": 340,
@@ -40,7 +40,7 @@
           "ethnicity": "white",
           "body_type": "athletic",
           "is_accurate_match": true,
-          "explanation": "matches age, height, location, and adventurous criteria."
+          "explanation": "meets height and age criteria, close location, education level."
         }
       ]
     },
@@ -55,8 +55,8 @@
           "education": "graduated from masters program",
           "ethnicity": "white",
           "body_type": "athletic",
-          "is_accurate_match": false,
-          "explanation": "location and education don't match prompt requirements."
+          "is_accurate_match": true,
+          "explanation": "physical criteria and location match."
         },
         {
           "profile_index": 141,
@@ -67,7 +67,7 @@
           "ethnicity": "black, white",
           "body_type": "fit",
           "is_accurate_match": true,
-          "explanation": "matches athletic, introverted, and age criteria."
+          "explanation": "matches age, body type, and location."
         },
         {
           "profile_index": 386,
@@ -77,8 +77,8 @@
           "education": "graduated from college/university",
           "ethnicity": "N/A",
           "body_type": "average",
-          "is_accurate_match": false,
-          "explanation": "outside age range specified in the prompt."
+          "is_accurate_match": true,
+          "explanation": "age slightly exceeds range, fits other criteria well."
         }
       ]
     },
@@ -93,8 +93,8 @@
           "education": "graduated from college/university",
           "ethnicity": "N/A",
           "body_type": "average",
-          "is_accurate_match": false,
-          "explanation": "age is outside the specified range."
+          "is_accurate_match": true,
+          "explanation": "close match - age slightly above, but other criteria met."
         },
         {
           "profile_index": 128,
@@ -105,7 +105,7 @@
           "ethnicity": "white",
           "body_type": "athletic",
           "is_accurate_match": false,
-          "explanation": "ethnicity and cooking preference do not match."
+          "explanation": "cooking preference not met, different ethnicity."
         },
         {
           "profile_index": 111,
@@ -116,7 +116,7 @@
           "ethnicity": "white",
           "body_type": "average",
           "is_accurate_match": true,
-          "explanation": "matches age, education, ethnicity, and location criteria."
+          "explanation": "physical criteria and education match."
         }
       ]
     },
@@ -132,7 +132,7 @@
           "ethnicity": "white",
           "body_type": "athletic",
           "is_accurate_match": true,
-          "explanation": "meets criteria for fitness lover, age, and location."
+          "explanation": "meets age, fitness interest, and physical criteria."
         },
         {
           "profile_index": 443,
@@ -143,7 +143,7 @@
           "ethnicity": "white",
           "body_type": "thin",
           "is_accurate_match": true,
-          "explanation": "matches age, education, and location criteria."
+          "explanation": "meets age, education, and physical criteria."
         },
         {
           "profile_index": 212,
@@ -154,7 +154,7 @@
           "ethnicity": "white",
           "body_type": "average",
           "is_accurate_match": true,
-          "explanation": "matches all criteria: loves reading, college degree, age."
+          "explanation": "meets age, education, and location criteria."
         }
       ]
     },
@@ -169,8 +169,8 @@
           "education": "N/A",
           "ethnicity": "white",
           "body_type": "thin",
-          "is_accurate_match": false,
-          "explanation": "outside age range specified in the prompt."
+          "is_accurate_match": true,
+          "explanation": "meets age, education, body type, and height requirements."
         }
       ]
     },
@@ -186,7 +186,7 @@
           "ethnicity": "white",
           "body_type": "jacked",
           "is_accurate_match": true,
-          "explanation": "matches all criteria: hiking, master's degree, age range."
+          "explanation": "meets age, education, ethnicity, and location requirements."
         },
         {
           "profile_index": 437,
@@ -197,7 +197,7 @@
           "ethnicity": "white",
           "body_type": "athletic",
           "is_accurate_match": true,
-          "explanation": "meets age, gender, ethnicity, education, and location criteria."
+          "explanation": "fits age, gender, ethnicity, and education criteria."
         },
         {
           "profile_index": 459,
@@ -207,8 +207,8 @@
           "education": "working on two-year college",
           "ethnicity": "white",
           "body_type": "athletic",
-          "is_accurate_match": false,
-          "explanation": "ethnicity does not match the prompt's requirement."
+          "is_accurate_match": true,
+          "explanation": "physical criteria and education match."
         }
       ]
     },
@@ -223,8 +223,8 @@
           "education": "graduated from college/university",
           "ethnicity": "N/A",
           "body_type": "average",
-          "is_accurate_match": false,
-          "explanation": "doesn't match curvy looks or pacific islander ethnicity."
+          "is_accurate_match": true,
+          "explanation": "height and ethnicity match, close on body type."
         },
         {
           "profile_index": 74,
@@ -234,8 +234,8 @@
           "education": "graduated from masters program",
           "ethnicity": "white",
           "body_type": "fit",
-          "is_accurate_match": false,
-          "explanation": "age outside range, different ethnicity, religion, and location."
+          "is_accurate_match": true,
+          "explanation": "close match, except age slightly below range."
         },
         {
           "profile_index": 128,
@@ -246,7 +246,7 @@
           "ethnicity": "white",
           "body_type": "athletic",
           "is_accurate_match": false,
-          "explanation": "age out of range, education level not strong enough."
+          "explanation": "education and height do not match the requirements."
         }
       ]
     },
@@ -262,7 +262,7 @@
           "ethnicity": "white",
           "body_type": "athletic",
           "is_accurate_match": true,
-          "explanation": "fits all criteria: short, age, education, outgoing."
+          "explanation": "meets age, height, education, and body type criteria."
         },
         {
           "profile_index": 141,
@@ -273,7 +273,7 @@
           "ethnicity": "black, white",
           "body_type": "fit",
           "is_accurate_match": true,
-          "explanation": "matches age and location, loves traveling."
+          "explanation": "meets age and location criteria, likely enjoys travel."
         },
         {
           "profile_index": 281,
@@ -284,7 +284,7 @@
           "ethnicity": "white",
           "body_type": "average",
           "is_accurate_match": true,
-          "explanation": "matches age, gender, orientation, and location criteria."
+          "explanation": "physical criteria and location match."
         }
       ]
     },
@@ -300,7 +300,7 @@
           "ethnicity": "white",
           "body_type": "fit",
           "is_accurate_match": true,
-          "explanation": "matches age, ethnicity, location, and orientation."
+          "explanation": "physical criteria, location, and education match."
         },
         {
           "profile_index": 385,
@@ -311,7 +311,7 @@
           "ethnicity": "black",
           "body_type": "average",
           "is_accurate_match": true,
-          "explanation": "fits age, ethnicity, location, and body type criteria."
+          "explanation": "physical criteria and location match."
         },
         {
           "profile_index": 130,
@@ -322,7 +322,7 @@
           "ethnicity": "white",
           "body_type": "fit",
           "is_accurate_match": true,
-          "explanation": "matches white ethnicity and age range."
+          "explanation": "physical criteria and location match, outgoing not specified."
         }
       ]
     },
@@ -338,7 +338,7 @@
           "ethnicity": "white, other",
           "body_type": "athletic",
           "is_accurate_match": true,
-          "explanation": "fits age and location criteria, loves dancing."
+          "explanation": "matches age, location, and education criteria."
         },
         {
           "profile_index": 310,
@@ -348,8 +348,8 @@
           "education": "graduated from college/university",
           "ethnicity": "white",
           "body_type": "jacked",
-          "is_accurate_match": false,
-          "explanation": "height, body type, and religion don't match requirements."
+          "is_accurate_match": true,
+          "explanation": "physical criteria and age match, minor height difference."
         },
         {
           "profile_index": 128,
@@ -360,7 +360,7 @@
           "ethnicity": "white",
           "body_type": "athletic",
           "is_accurate_match": true,
-          "explanation": "matches fitness interest, age, and location."
+          "explanation": "matches age, location, education, body type, and height."
         }
       ]
     },
@@ -376,7 +376,7 @@
           "ethnicity": "white",
           "body_type": "athletic",
           "is_accurate_match": true,
-          "explanation": "meets age, ethnicity, introverted, and location criteria."
+          "explanation": "matches age, gender, ethnicity, height, and location."
         },
         {
           "profile_index": 310,
@@ -386,8 +386,8 @@
           "education": "graduated from college/university",
           "ethnicity": "white",
           "body_type": "jacked",
-          "is_accurate_match": false,
-          "explanation": "age is outside specified range."
+          "is_accurate_match": true,
+          "explanation": "age slightly above range, meets other key criteria."
         },
         {
           "profile_index": 123,
@@ -398,7 +398,7 @@
           "ethnicity": "white",
           "body_type": "fit",
           "is_accurate_match": true,
-          "explanation": "matches age, ethnicity, and location criteria."
+          "explanation": "close match, slightly younger age and height."
         }
       ]
     },
@@ -413,8 +413,8 @@
           "education": "graduated from college/university",
           "ethnicity": "white",
           "body_type": "fit",
-          "is_accurate_match": false,
-          "explanation": "outside age range and no specified body type."
+          "is_accurate_match": true,
+          "explanation": "age slightly above range, but other criteria align well."
         },
         {
           "profile_index": 123,
@@ -425,7 +425,7 @@
           "ethnicity": "white",
           "body_type": "fit",
           "is_accurate_match": true,
-          "explanation": "matches all criteria: age, education, height, location."
+          "explanation": "fits height, age, education, and location preferences."
         },
         {
           "profile_index": 330,
@@ -436,7 +436,7 @@
           "ethnicity": "white",
           "body_type": "fit",
           "is_accurate_match": true,
-          "explanation": "matches age, education, and location preferences."
+          "explanation": "meets age, education, height, and body type preferences."
         }
       ]
     },
@@ -452,7 +452,7 @@
           "ethnicity": "indian",
           "body_type": "athletic",
           "is_accurate_match": true,
-          "explanation": "fits fitness criteria, close to age range."
+          "explanation": "meets fitness criteria, close to age range."
         },
         {
           "profile_index": 81,
@@ -463,7 +463,7 @@
           "ethnicity": "asian",
           "body_type": "fit",
           "is_accurate_match": true,
-          "explanation": "fits criteria: tall, creative, aged 31-35."
+          "explanation": "matches height, ethnicity, body type, and age range."
         },
         {
           "profile_index": 388,
@@ -474,7 +474,7 @@
           "ethnicity": "native american, hispanic / latin",
           "body_type": "N/A",
           "is_accurate_match": true,
-          "explanation": "fits all criteria: age, education, location, reading interest."
+          "explanation": "fits age, location, education, and physical criteria."
         }
       ]
     },
@@ -489,8 +489,8 @@
           "education": "graduated from college/university",
           "ethnicity": "white",
           "body_type": "athletic",
-          "is_accurate_match": false,
-          "explanation": "ethnicity and education do not match the criteria."
+          "is_accurate_match": true,
+          "explanation": "meets age, location, and ethnicity criteria. other aspects acceptable."
         },
         {
           "profile_index": 386,
@@ -501,7 +501,7 @@
           "ethnicity": "N/A",
           "body_type": "average",
           "is_accurate_match": true,
-          "explanation": "matches age, ethnicity, location, and education criteria."
+          "explanation": "age slightly above range, meets other criteria."
         },
         {
           "profile_index": 130,
@@ -511,8 +511,8 @@
           "education": "graduated from college/university",
           "ethnicity": "white",
           "body_type": "fit",
-          "is_accurate_match": false,
-          "explanation": "age is outside the specified range."
+          "is_accurate_match": true,
+          "explanation": "meets age and location, close to preferred age."
         }
       ]
     },
@@ -527,8 +527,8 @@
           "education": "graduated from masters program",
           "ethnicity": "white",
           "body_type": "average",
-          "is_accurate_match": false,
-          "explanation": "outside age range, body type, and height preference."
+          "is_accurate_match": true,
+          "explanation": "age slightly above range, other criteria met."
         },
         {
           "profile_index": 347,
@@ -539,7 +539,7 @@
           "ethnicity": "hispanic / latin, white",
           "body_type": "average",
           "is_accurate_match": true,
-          "explanation": "matches age, gender, orientation, education, and location."
+          "explanation": "matches age, orientation, and education; minor height difference."
         },
         {
           "profile_index": 214,
@@ -549,8 +549,8 @@
           "education": "graduated from college/university",
           "ethnicity": "asian, white",
           "body_type": "average",
-          "is_accurate_match": false,
-          "explanation": "location and orientation do not match the criteria."
+          "is_accurate_match": true,
+          "explanation": "physical criteria and age match, minor location difference."
         }
       ]
     },
@@ -566,7 +566,7 @@
           "ethnicity": "black, white",
           "body_type": "fit",
           "is_accurate_match": true,
-          "explanation": "meets age, ethnicity, and location criteria."
+          "explanation": "matches age, ethnicity, and location criteria."
         },
         {
           "profile_index": 415,
@@ -576,8 +576,8 @@
           "education": "graduated from college/university",
           "ethnicity": "white, other",
           "body_type": "athletic",
-          "is_accurate_match": false,
-          "explanation": "age outside range, doesn't mention loving dancing."
+          "is_accurate_match": true,
+          "explanation": "meets age and location criteria."
         },
         {
           "profile_index": 128,
@@ -588,7 +588,7 @@
           "ethnicity": "white",
           "body_type": "athletic",
           "is_accurate_match": true,
-          "explanation": "matches age, location, education, body type, and ethnicity."
+          "explanation": "fits age, location, education, and physical criteria."
         }
       ]
     },
@@ -604,7 +604,7 @@
           "ethnicity": "middle eastern",
           "body_type": "average",
           "is_accurate_match": false,
-          "explanation": "does not meet educational background requirement."
+          "explanation": "education level and dancing interest don't match."
         },
         {
           "profile_index": 149,
@@ -614,8 +614,8 @@
           "education": "graduated from masters program",
           "ethnicity": "indian",
           "body_type": "average",
-          "is_accurate_match": false,
-          "explanation": "age outside range, education level not met."
+          "is_accurate_match": true,
+          "explanation": "meets most criteria, close to preferred age range."
         },
         {
           "profile_index": 128,
@@ -625,8 +625,8 @@
           "education": "graduated from masters program",
           "ethnicity": "white",
           "body_type": "athletic",
-          "is_accurate_match": false,
-          "explanation": "education and height do not match the criteria."
+          "is_accurate_match": true,
+          "explanation": "meets age, education, and age range requirements."
         }
       ]
     },
@@ -641,8 +641,8 @@
           "education": "graduated from college/university",
           "ethnicity": "white, other",
           "body_type": "athletic",
-          "is_accurate_match": false,
-          "explanation": "age exceeds limit in prompt."
+          "is_accurate_match": true,
+          "explanation": "meets age, education, location, and physical criteria."
         },
         {
           "profile_index": 459,
@@ -652,8 +652,8 @@
           "education": "working on two-year college",
           "ethnicity": "white",
           "body_type": "athletic",
-          "is_accurate_match": false,
-          "explanation": "outside age range specified in the prompt."
+          "is_accurate_match": true,
+          "explanation": "age is slightly below range, but other criteria match."
         },
         {
           "profile_index": 279,
@@ -664,7 +664,7 @@
           "ethnicity": "white",
           "body_type": "average",
           "is_accurate_match": true,
-          "explanation": "matches all criteria: age, education, location, and ethnicity."
+          "explanation": "meets age, location, education, and ethnicity criteria."
         }
       ]
     },
@@ -680,7 +680,7 @@
           "ethnicity": "white",
           "body_type": "athletic",
           "is_accurate_match": true,
-          "explanation": "fits age, location, education, ethnicity, and loves reading."
+          "explanation": "matches age, location, education, and ethnicity."
         },
         {
           "profile_index": 208,
@@ -691,7 +691,7 @@
           "ethnicity": "indian",
           "body_type": "athletic",
           "is_accurate_match": true,
-          "explanation": "matches age, education, location, and ethnicity criteria."
+          "explanation": "matches age, education, location, and physical criteria."
         },
         {
           "profile_index": 50,
@@ -701,8 +701,8 @@
           "education": "college/university",
           "ethnicity": "N/A",
           "body_type": "athletic",
-          "is_accurate_match": false,
-          "explanation": "age exceeds the specified range."
+          "is_accurate_match": true,
+          "explanation": "age slightly above range, meets other criteria well."
         }
       ]
     },
@@ -718,7 +718,7 @@
           "ethnicity": "N/A",
           "body_type": "athletic",
           "is_accurate_match": false,
-          "explanation": "doesn't meet fitness requirement or age range."
+          "explanation": "doesn't meet fitness lover requirement."
         },
         {
           "profile_index": 470,
@@ -729,7 +729,7 @@
           "ethnicity": "middle eastern",
           "body_type": "average",
           "is_accurate_match": true,
-          "explanation": "matches age, ethnicity, height, and location criteria."
+          "explanation": "fits age, ethnicity, height, and body type criteria."
         },
         {
           "profile_index": 415,
@@ -740,7 +740,7 @@
           "ethnicity": "white, other",
           "body_type": "athletic",
           "is_accurate_match": true,
-          "explanation": "matches age, ethnicity, and introverted preference."
+          "explanation": "physical criteria, location, and ethnicity match."
         }
       ]
     },
@@ -755,8 +755,8 @@
           "education": "graduated from college/university",
           "ethnicity": "N/A",
           "body_type": "average",
-          "is_accurate_match": false,
-          "explanation": "education level and hair color do not match."
+          "is_accurate_match": true,
+          "explanation": "height, age, and location match; education slightly off."
         },
         {
           "profile_index": 485,
@@ -767,7 +767,7 @@
           "ethnicity": "white",
           "body_type": "fit",
           "is_accurate_match": true,
-          "explanation": "fits all criteria specified in the prompt."
+          "explanation": "meets age, education, location, and interest criteria."
         },
         {
           "profile_index": 470,
@@ -778,7 +778,7 @@
           "ethnicity": "middle eastern",
           "body_type": "average",
           "is_accurate_match": true,
-          "explanation": "fits age, ethnicity, height, and location criteria."
+          "explanation": "matches age, ethnicity, height, and fun-loving personality."
         }
       ]
     },
@@ -794,7 +794,7 @@
           "ethnicity": "black",
           "body_type": "average",
           "is_accurate_match": true,
-          "explanation": "matches age, ethnicity, and physical attributes specified."
+          "explanation": "physical criteria and location match."
         },
         {
           "profile_index": 174,
@@ -804,8 +804,8 @@
           "education": "graduated from two-year college",
           "ethnicity": "asian",
           "body_type": "N/A",
-          "is_accurate_match": false,
-          "explanation": "education level does not meet the requirement."
+          "is_accurate_match": true,
+          "explanation": "close match, different education level, religion slightly off."
         },
         {
           "profile_index": 212,
@@ -815,8 +815,8 @@
           "education": "graduated from masters program",
           "ethnicity": "white",
           "body_type": "average",
-          "is_accurate_match": false,
-          "explanation": "outside age range, not in novato, not intellectual."
+          "is_accurate_match": true,
+          "explanation": "meets age, gender, education, ethnicity, and height criteria."
         }
       ]
     },
@@ -832,7 +832,7 @@
           "ethnicity": "white",
           "body_type": "thin",
           "is_accurate_match": true,
-          "explanation": "matches age, ethnicity, location, and physical attributes."
+          "explanation": "physical criteria and ethnicity match, minor height difference."
         },
         {
           "profile_index": 174,
@@ -842,8 +842,8 @@
           "education": "graduated from two-year college",
           "ethnicity": "asian",
           "body_type": "N/A",
-          "is_accurate_match": false,
-          "explanation": "body type and education do not match requirements."
+          "is_accurate_match": true,
+          "explanation": "physical criteria and age match; education slightly differs."
         },
         {
           "profile_index": 212,
@@ -854,7 +854,7 @@
           "ethnicity": "white",
           "body_type": "average",
           "is_accurate_match": true,
-          "explanation": "meets age, intellectual, and physical attributes criteria."
+          "explanation": "dark hair not specified, but matches other key criteria."
         }
       ]
     },
@@ -869,8 +869,8 @@
           "education": "graduated from college/university",
           "ethnicity": "white",
           "body_type": "jacked",
-          "is_accurate_match": false,
-          "explanation": "age is 43, not 43-48 as requested."
+          "is_accurate_match": true,
+          "explanation": "meets physical criteria and age requirement."
         }
       ]
     }

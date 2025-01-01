@@ -19,8 +19,7 @@ def extract_age_range(prompt):
     matches = re.findall(age_pattern, prompt)
     if matches:
         min_age, max_age = map(int, matches[0])
-        # Add a small buffer to age range
-        return max(18, min_age - 2), min(100, max_age + 2)
+        return min_age, max_age
     return None, None
 
 def extract_gender_preference(prompt):
@@ -49,34 +48,29 @@ def check_basic_criteria(prompt, profile):
     min_age, max_age = extract_age_range(prompt)
     if min_age is not None and max_age is not None:
         profile_age = profile.get('age')
-        if profile_age is None:
-            return False, "Age information missing"
-        # Add flexibility to age range (+/- 2 years)
-        if not (min_age - 2 <= profile_age <= max_age + 2):
-            return False, "Age outside preferred range"
-    
+        if profile_age:
+            profile_age = int(profile_age)
+            # Apply ±2 years flexibility here
+            if not (min_age - 2 <= profile_age <= max_age + 2):
+                return False
+        else:
+            return False
+
     # Gender check
-    preferred_gender = extract_gender_preference(prompt)
-    if preferred_gender:
-        profile_gender = profile.get('sex')
-        if profile_gender is None:
-            return False, "Gender information missing"
-        if profile_gender.lower() != preferred_gender.lower():
-            return False, "Gender does not match preference"
-    
-    # Orientation check - only if orientation is specified
-    preferred_orientation = extract_orientation(prompt)
-    if preferred_orientation:
-        profile_orientation = profile.get('orientation')
-        if profile_orientation is None:
-            return False, "Orientation information missing"
-        if profile_orientation != preferred_orientation:
-            # Special case: if profile is bisexual, they can match with straight/gay preferences
-            if profile_orientation == 'bisexual':
-                return True, "Passed basic criteria (bisexual matches all preferences)"
-            return False, "Orientation does not match preference"
-    
-    return True, "Passed basic criteria"
+    desired_gender = extract_gender_preference(prompt)
+    if desired_gender:
+        profile_gender = profile.get('sex', '').lower()
+        if not profile_gender or profile_gender != desired_gender:
+            return False
+
+    # Orientation check
+    desired_orientation = extract_orientation(prompt)
+    if desired_orientation:
+        profile_orientation = profile.get('orientation', '').lower()
+        if not profile_orientation or profile_orientation != desired_orientation:
+            return False
+
+    return True
 
 def evaluate_match(prompt, profile_info, retry_count=0):
     """
@@ -84,9 +78,9 @@ def evaluate_match(prompt, profile_info, retry_count=0):
     """
     try:
         # Step 1: Check basic criteria first
-        passes_basic, reason = check_basic_criteria(prompt, profile_info)
+        passes_basic = check_basic_criteria(prompt, profile_info)
         if not passes_basic:
-            return False, f"No. {reason}."
+            return False, "No. Does not pass basic criteria."
 
         # Step 2: Prepare detailed evaluation for remaining criteria
         evaluation_prompt = f"""
@@ -154,6 +148,11 @@ def evaluate_batch(prompts_and_profiles, batch_size=3):
         # Prepare all prompts for the batch
         messages = []
         for prompt, profile in batch:
+            # First check basic criteria
+            if not check_basic_criteria(prompt, profile):
+                all_results.append((False, "No. Does not pass basic criteria."))
+                continue
+            
             evaluation_prompt = f"""
             Given this dating app prompt: "{prompt}"
             And this profile information:
@@ -167,31 +166,48 @@ def evaluate_batch(prompts_and_profiles, batch_size=3):
             - Height: {profile.get('height', 'N/A')}
             - Religion: {profile.get('religion', 'N/A')}
             
-            Consider physical attributes (height, body type, ethnicity), location, education, religion, and other specific requirements.
+            The profile has already passed basic criteria checks (age/gender/orientation).
+            Now evaluate if this profile matches the remaining requirements in the prompt.
             
-            Important ethnicity matching rules:
-            - If a profile has multiple ethnicities (e.g. "asian, white"), treat this as matching ANY of those ethnicities
-            - Only require ALL ethnicities to match if the prompt specifically asks for a combination (e.g. "asian AND white")
-            - Default to OR logic for ethnicity matching
+            Follow this priority order:
+            1. Physical/biometric criteria (height, ethnicity, body type)
+            2. Location and education requirements
+            3. Other preferences (religion, personality traits, interests)
             
-            Respond with either 'Yes' or 'No' and a brief explanation.
+            Important rules:
+            - Be somewhat lenient in matching - if most key requirements are met, consider it a match
+            - If a profile is missing an attribute mentioned in the prompt, ignore that requirement
+            - If a field is 'N/A' and not mentioned in the prompt, ignore it completely
+            - For ethnicity, treat "asian, white" as matching EITHER "asian" OR "white"
+            - Only require ALL ethnicities if prompt explicitly says "AND" between them
+            
+            Respond with EXACTLY "Yes" or "No" followed by a brief explanation.
             Keep the explanation very short, under 10 words.
             """
+            messages.append({
+                "role": "system",
+                "content": "You are a dating app matching evaluator. Your task is to determine if a profile matches the given prompt requirements. Be somewhat lenient with matches - if most key requirements are met, consider it a match even if some minor preferences don't align perfectly."
+            })
             messages.append({"role": "user", "content": evaluation_prompt})
         
         # Make batch API call
         try:
+            client = OpenAI(api_key=os.getenv("SECRET_API_KEY"))
             responses = client.chat.completions.create(
                 model="gpt-3.5-turbo",
-                messages=[{"role": "user", "content": msg["content"]} for msg in messages],
+                messages=[{"role": "system", "content": msg["content"]} if msg["role"] == "system" else {"role": "user", "content": msg["content"]} for msg in messages],
                 n=1,
-                temperature=0.3,
+                temperature=0.4,
             )
             
             # Process responses
             for response in responses.choices:
                 answer = response.message.content.strip().lower()
-                is_match = 'yes' in answer.split()[0]
+                # Print response for debugging
+                print(f"GPT Response: {answer}", flush=True)
+                # More strict yes/no check
+                first_word = answer.split()[0]
+                is_match = first_word == 'yes'
                 explanation = ' '.join(answer.split()[1:]) if len(answer.split()) > 1 else ''
                 all_results.append((is_match, explanation))
                 
@@ -261,7 +277,7 @@ for result in results[start_index:]:
     for match in result["matches"]:
         profile = profiles[match["profile_index"]]
         # Only add to batch if passes basic criteria
-        passes_basic, _ = check_basic_criteria(prompt, profile)
+        passes_basic = check_basic_criteria(prompt, profile)
         if passes_basic:
             prompts_and_profiles.append((prompt, profile))
             batch_map[current_idx] = (result, match)
@@ -274,7 +290,7 @@ batch_results = evaluate_batch(prompts_and_profiles)
 
 # Update results with batch evaluations
 results_map = {}  # Map to track results by prompt
-total_evaluated = len(batch_results)  # This is the actual number of profiles evaluated
+total_evaluated = len(prompts_and_profiles)  # This is the actual number of profiles evaluated
 
 for i, (is_match, explanation) in enumerate(batch_results):
     result, match = batch_map[i]
@@ -286,26 +302,24 @@ for i, (is_match, explanation) in enumerate(batch_results):
         yes_count += 1
     else:
         no_count += 1
-        
-    total_matches += 1
     
-    # Save progress every 10 matches
-    if total_matches % 10 == 0:
-        progress_data = {
-            "current_index": start_index + (i // 3),  # Approximate prompt index
-            "total_matches": total_matches,
-            "accurate_matches": accurate_matches,
-            "yes_count": yes_count,
-            "no_count": no_count
-        }
-        save_progress(progress_data)
-
     # Group matches by prompt
     prompt = result["prompt"]
     if prompt not in results_map:
         results_map[prompt] = result.copy()
         results_map[prompt]["matches"] = []
     results_map[prompt]["matches"].append(match)
+    
+    # Save progress every 10 matches
+    if i > 0 and i % 10 == 0:
+        progress_data = {
+            "current_index": start_index + (i // 3),  # Approximate prompt index
+            "total_evaluated": total_evaluated,
+            "accurate_matches": accurate_matches,
+            "yes_count": yes_count,
+            "no_count": no_count
+        }
+        save_progress(progress_data)
 
 # Convert map to list for final results
 evaluation_results = list(results_map.values())
