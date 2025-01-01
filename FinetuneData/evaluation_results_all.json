@@ -1,0 +1,4705 @@
+{
+  "evaluation_timestamp": "2025-01-01T01:37:36.442258",
+  "total_prompts": 84,
+  "total_matches": 252,
+  "valid_matches": 228,
+  "accuracy_percentage": 90.47619047619048,
+  "results": [
+    {
+      "prompt": "Searching for a 21-25 male who is asian, white and creative.",
+      "requirements": {
+        "age_range": [
+          21,
+          25
+        ],
+        "gender": "M",
+        "ethnicity": [
+          "asian",
+          "white"
+        ],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 435,
+          "age": 23,
+          "ethnicity": "white, other",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7772345867778403,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 23 within range 21-25",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 156,
+          "age": 23,
+          "ethnicity": "asian",
+          "education": "working on masters program",
+          "similarity_score": 0.7766363112325394,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 23 within range 21-25",
+            "Matches ethnicity: asian"
+          ]
+        },
+        {
+          "profile_index": 10,
+          "age": 23,
+          "ethnicity": "asian",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7748245262719036,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 23 within range 21-25",
+            "Matches ethnicity: asian"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Dreaming of meeting someone athletic, currently pursuing a degree and adventurous, aged 34-40.",
+      "requirements": {
+        "age_range": [
+          34,
+          40
+        ],
+        "gender": null,
+        "ethnicity": [],
+        "education": "any_degree",
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 492,
+          "age": 37,
+          "ethnicity": "asian",
+          "education": "graduated from space camp",
+          "similarity_score": 0.805277611497242,
+          "is_valid": false,
+          "reasons": [
+            "Education 'graduated from space camp' doesn't match requirement: any_degree"
+          ],
+          "criteria_matched": [
+            "Age 37 within range 34-40"
+          ]
+        },
+        {
+          "profile_index": 197,
+          "age": 37,
+          "ethnicity": "asian",
+          "education": "graduated from med school",
+          "similarity_score": 0.7993209631803677,
+          "is_valid": false,
+          "reasons": [
+            "Education 'graduated from med school' doesn't match requirement: any_degree"
+          ],
+          "criteria_matched": [
+            "Age 37 within range 34-40"
+          ]
+        },
+        {
+          "profile_index": 22,
+          "age": 37,
+          "ethnicity": "indian",
+          "education": "graduated from masters program",
+          "similarity_score": 0.7867710535085582,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 37 within range 34-40",
+            "Has a degree as required"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 1
+    },
+    {
+      "prompt": "I want to meet someone tall and adventurous, aged 36-43.",
+      "requirements": {
+        "age_range": [
+          36,
+          43
+        ],
+        "gender": null,
+        "ethnicity": [],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 334,
+          "age": 40,
+          "ethnicity": "middle eastern, indian",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8039603185389872,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 40 within range 36-43"
+          ]
+        },
+        {
+          "profile_index": 132,
+          "age": 40,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.798724771306404,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 40 within range 36-43"
+          ]
+        },
+        {
+          "profile_index": 440,
+          "age": 40,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7955461534020247,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 40 within range 36-43"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Searching for a 18-28 male who is white and spontaneous.",
+      "requirements": {
+        "age_range": [
+          18,
+          28
+        ],
+        "gender": "M",
+        "ethnicity": [
+          "white"
+        ],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 435,
+          "age": 23,
+          "ethnicity": "white, other",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7739941410665101,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 23 within range 18-28",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 7,
+          "age": 23,
+          "ethnicity": "pacific islander, white",
+          "education": "working on two-year college",
+          "similarity_score": 0.7529753783443355,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 23 within range 18-28",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 292,
+          "age": 23,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7473158391858031,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 23 within range 18-28",
+            "Matches ethnicity: white"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Searching for a 25-32 male, straight partner who is goal-oriented.",
+      "requirements": {
+        "age_range": [
+          25,
+          32
+        ],
+        "gender": "M",
+        "ethnicity": [],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 485,
+          "age": 29,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8065259729075094,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 29 within range 25-32"
+          ]
+        },
+        {
+          "profile_index": 174,
+          "age": 28,
+          "ethnicity": "asian",
+          "education": "graduated from two-year college",
+          "similarity_score": 0.7997184338904979,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 28 within range 25-32"
+          ]
+        },
+        {
+          "profile_index": 194,
+          "age": 28,
+          "ethnicity": "white",
+          "education": "working on college/university",
+          "similarity_score": 0.7980443303394824,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 28 within range 25-32"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "I want to meet someone athletic and introverted, aged 24-32.",
+      "requirements": {
+        "age_range": [
+          24,
+          32
+        ],
+        "gender": null,
+        "ethnicity": [],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 385,
+          "age": 28,
+          "ethnicity": "black",
+          "education": "two-year college",
+          "similarity_score": 0.8157534977794796,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 28 within range 24-32"
+          ]
+        },
+        {
+          "profile_index": 153,
+          "age": 28,
+          "ethnicity": "white",
+          "education": "working on college/university",
+          "similarity_score": 0.808896824520249,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 28 within range 24-32"
+          ]
+        },
+        {
+          "profile_index": 214,
+          "age": 28,
+          "ethnicity": "asian, white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8074313889903564,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 28 within range 24-32"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Looking for a 31-34 female, straight partner who is outgoing.",
+      "requirements": {
+        "age_range": [
+          31,
+          34
+        ],
+        "gender": "M",
+        "ethnicity": [],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 192,
+          "age": 33,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7951336381602316,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 33 within range 31-34"
+          ]
+        },
+        {
+          "profile_index": 21,
+          "age": 32,
+          "ethnicity": "white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.7918409081371212,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 32 within range 31-34"
+          ]
+        },
+        {
+          "profile_index": 444,
+          "age": 32,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7886029475541465,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 32 within range 31-34"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Dreaming of meeting someone who loves hiking, aged 33-38.",
+      "requirements": {
+        "age_range": [
+          33,
+          38
+        ],
+        "gender": null,
+        "ethnicity": [],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 386,
+          "age": 36,
+          "ethnicity": "N/A",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8244673205860721,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 36 within range 33-38"
+          ]
+        },
+        {
+          "profile_index": 128,
+          "age": 35,
+          "ethnicity": "white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.8162448204700985,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 35 within range 33-38"
+          ]
+        },
+        {
+          "profile_index": 268,
+          "age": 35,
+          "ethnicity": "white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.799648024740601,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 35 within range 33-38"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Dreaming of meeting a 34-36 male who is white and fun-loving.",
+      "requirements": {
+        "age_range": [
+          34,
+          36
+        ],
+        "gender": "M",
+        "ethnicity": [
+          "white"
+        ],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 128,
+          "age": 35,
+          "ethnicity": "white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.800831603625525,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 35 within range 34-36",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 282,
+          "age": 35,
+          "ethnicity": "middle eastern, white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.7674293753224892,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 35 within range 34-36",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 148,
+          "age": 35,
+          "ethnicity": "white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.7661541726159338,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 35 within range 34-36",
+            "Matches ethnicity: white"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "I want to meet someone who loves cooking, aged 25-33.",
+      "requirements": {
+        "age_range": [
+          25,
+          33
+        ],
+        "gender": null,
+        "ethnicity": [],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 335,
+          "age": 29,
+          "ethnicity": "black, hispanic / latin",
+          "education": "graduated from space camp",
+          "similarity_score": 0.8144016606073418,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 29 within range 25-33"
+          ]
+        },
+        {
+          "profile_index": 417,
+          "age": 29,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8022168187208558,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 29 within range 25-33"
+          ]
+        },
+        {
+          "profile_index": 366,
+          "age": 29,
+          "ethnicity": "white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.802058076542981,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 29 within range 25-33"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Dreaming of meeting a 29-35 male with with bright eyes looks, with a college degree and white.",
+      "requirements": {
+        "age_range": [
+          29,
+          35
+        ],
+        "gender": "M",
+        "ethnicity": [
+          "white"
+        ],
+        "education": "college",
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 116,
+          "age": 32,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7728821998881537,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 32 within range 29-35",
+            "Matches ethnicity: white",
+            "Matches college education requirement"
+          ]
+        },
+        {
+          "profile_index": 289,
+          "age": 32,
+          "ethnicity": "white",
+          "education": "graduated from law school",
+          "similarity_score": 0.7702385590904317,
+          "is_valid": false,
+          "reasons": [
+            "Education 'graduated from law school' doesn't match requirement: college"
+          ],
+          "criteria_matched": [
+            "Age 32 within range 29-35",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 179,
+          "age": 32,
+          "ethnicity": "white",
+          "education": "working on college/university",
+          "similarity_score": 0.768410968869342,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 32 within range 29-35",
+            "Matches ethnicity: white",
+            "Matches college education requirement"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 2
+    },
+    {
+      "prompt": "Hoping to find a 23-28 female who is hispanic / latin and kind-hearted.",
+      "requirements": {
+        "age_range": [
+          23,
+          28
+        ],
+        "gender": "M",
+        "ethnicity": [
+          "hispanic",
+          "latin"
+        ],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 422,
+          "age": 25,
+          "ethnicity": "middle eastern, black, native american, indian, hispanic / latin, white",
+          "education": "working on masters program",
+          "similarity_score": 0.7727006768017659,
+          "is_valid": false,
+          "reasons": [
+            "Ethnicity middle eastern, black, native american, indian, hispanic / latin, white doesn't match any required: ['hispanic', 'latin']"
+          ],
+          "criteria_matched": [
+            "Age 25 within range 23-28"
+          ]
+        },
+        {
+          "profile_index": 316,
+          "age": 24,
+          "ethnicity": "hispanic / latin",
+          "education": "working on ph.d program",
+          "similarity_score": 0.7837455177434522,
+          "is_valid": false,
+          "reasons": [
+            "Ethnicity hispanic / latin doesn't match any required: ['hispanic', 'latin']"
+          ],
+          "criteria_matched": [
+            "Age 24 within range 23-28"
+          ]
+        },
+        {
+          "profile_index": 311,
+          "age": 24,
+          "ethnicity": "middle eastern, hispanic / latin",
+          "education": "working on masters program",
+          "similarity_score": 0.7533726720607403,
+          "is_valid": false,
+          "reasons": [
+            "Ethnicity middle eastern, hispanic / latin doesn't match any required: ['hispanic', 'latin']"
+          ],
+          "criteria_matched": [
+            "Age 24 within range 23-28"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 0
+    },
+    {
+      "prompt": "Looking for someone who loves fitness, aged 30-35.",
+      "requirements": {
+        "age_range": [
+          30,
+          35
+        ],
+        "gender": null,
+        "ethnicity": [],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 437,
+          "age": 32,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8371982644038574,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 32 within range 30-35"
+          ]
+        },
+        {
+          "profile_index": 399,
+          "age": 33,
+          "ethnicity": "white",
+          "education": "N/A",
+          "similarity_score": 0.794728735379642,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 33 within range 30-35"
+          ]
+        },
+        {
+          "profile_index": 5,
+          "age": 33,
+          "ethnicity": "white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.7942828137964537,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 33 within range 30-35"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Searching for someone who loves reading, holding a master's degree, aged 30-34.",
+      "requirements": {
+        "age_range": [
+          30,
+          34
+        ],
+        "gender": null,
+        "ethnicity": [],
+        "education": "any_degree",
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 149,
+          "age": 32,
+          "ethnicity": "indian",
+          "education": "graduated from masters program",
+          "similarity_score": 0.8019273766520582,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 32 within range 30-34",
+            "Has a degree as required"
+          ]
+        },
+        {
+          "profile_index": 289,
+          "age": 32,
+          "ethnicity": "white",
+          "education": "graduated from law school",
+          "similarity_score": 0.8006316705438563,
+          "is_valid": false,
+          "reasons": [
+            "Education 'graduated from law school' doesn't match requirement: any_degree"
+          ],
+          "criteria_matched": [
+            "Age 32 within range 30-34"
+          ]
+        },
+        {
+          "profile_index": 375,
+          "age": 32,
+          "ethnicity": "asian",
+          "education": "graduated from masters program",
+          "similarity_score": 0.7975957137962036,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 32 within range 30-34",
+            "Has a degree as required"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 2
+    },
+    {
+      "prompt": "Hoping to find a 25-29 female who is white and spontaneous.",
+      "requirements": {
+        "age_range": [
+          25,
+          29
+        ],
+        "gender": "M",
+        "ethnicity": [
+          "white"
+        ],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 4,
+          "age": 27,
+          "ethnicity": "white",
+          "education": "working on college/university",
+          "similarity_score": 0.7961445891058772,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 27 within range 25-29",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 173,
+          "age": 27,
+          "ethnicity": "white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.7811073264103721,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 27 within range 25-29",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 78,
+          "age": 27,
+          "ethnicity": "white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.7623107261499569,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 27 within range 25-29",
+            "Matches ethnicity: white"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Searching for someone who loves reading, with a college degree, aged 18-26.",
+      "requirements": {
+        "age_range": [
+          18,
+          26
+        ],
+        "gender": null,
+        "ethnicity": [],
+        "education": "college",
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 234,
+          "age": 22,
+          "ethnicity": "white",
+          "education": "working on masters program",
+          "similarity_score": 0.8102284141022995,
+          "is_valid": false,
+          "reasons": [
+            "Education 'working on masters program' doesn't match requirement: college"
+          ],
+          "criteria_matched": [
+            "Age 22 within range 18-26"
+          ]
+        },
+        {
+          "profile_index": 166,
+          "age": 22,
+          "ethnicity": "white",
+          "education": "graduated from high school",
+          "similarity_score": 0.7996752283076821,
+          "is_valid": false,
+          "reasons": [
+            "Education 'graduated from high school' doesn't match requirement: college"
+          ],
+          "criteria_matched": [
+            "Age 22 within range 18-26"
+          ]
+        },
+        {
+          "profile_index": 489,
+          "age": 22,
+          "ethnicity": "white",
+          "education": "working on college/university",
+          "similarity_score": 0.7983047340055502,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 22 within range 18-26",
+            "Matches college education requirement"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 1
+    },
+    {
+      "prompt": "Hoping to find someone slim and goal-oriented, aged 26-35.",
+      "requirements": {
+        "age_range": [
+          26,
+          35
+        ],
+        "gender": null,
+        "ethnicity": [],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 123,
+          "age": 31,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8133862851599313,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 31 within range 26-35"
+          ]
+        },
+        {
+          "profile_index": 310,
+          "age": 30,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8119552009293464,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 30 within range 26-35"
+          ]
+        },
+        {
+          "profile_index": 470,
+          "age": 31,
+          "ethnicity": "middle eastern",
+          "education": "graduated from two-year college",
+          "similarity_score": 0.80885929783488,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 31 within range 26-35"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Hoping to find someone who loves hiking, holding a master's degree, aged 25-31.",
+      "requirements": {
+        "age_range": [
+          25,
+          31
+        ],
+        "gender": null,
+        "ethnicity": [],
+        "education": "any_degree",
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 214,
+          "age": 28,
+          "ethnicity": "asian, white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8224613352749446,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 28 within range 25-31",
+            "Has a degree as required"
+          ]
+        },
+        {
+          "profile_index": 385,
+          "age": 28,
+          "ethnicity": "black",
+          "education": "two-year college",
+          "similarity_score": 0.8163413576319551,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 28 within range 25-31",
+            "Has a degree as required"
+          ]
+        },
+        {
+          "profile_index": 330,
+          "age": 28,
+          "ethnicity": "white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.8120912937411328,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 28 within range 25-31",
+            "Has a degree as required"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Hoping to find a 28-36 male who is white and intellectual.",
+      "requirements": {
+        "age_range": [
+          28,
+          36
+        ],
+        "gender": "M",
+        "ethnicity": [
+          "white"
+        ],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 116,
+          "age": 32,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7983154463561026,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 32 within range 28-36",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 289,
+          "age": 32,
+          "ethnicity": "white",
+          "education": "graduated from law school",
+          "similarity_score": 0.7865947310932568,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 32 within range 28-36",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 437,
+          "age": 32,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7860946573005658,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 32 within range 28-36",
+            "Matches ethnicity: white"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Searching for a 24-33 male, straight partner who is intellectual.",
+      "requirements": {
+        "age_range": [
+          24,
+          33
+        ],
+        "gender": "M",
+        "ethnicity": [],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 194,
+          "age": 28,
+          "ethnicity": "white",
+          "education": "working on college/university",
+          "similarity_score": 0.8120292622890548,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 28 within range 24-33"
+          ]
+        },
+        {
+          "profile_index": 485,
+          "age": 29,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8106024139007277,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 29 within range 24-33"
+          ]
+        },
+        {
+          "profile_index": 415,
+          "age": 28,
+          "ethnicity": "white, other",
+          "education": "graduated from college/university",
+          "similarity_score": 0.808932475879033,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 28 within range 24-33"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "I want to meet a 21-26 male with curvy looks and pacific islander, white.",
+      "requirements": {
+        "age_range": [
+          21,
+          26
+        ],
+        "gender": "M",
+        "ethnicity": [
+          "white",
+          "pacific islander"
+        ],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 279,
+          "age": 24,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8016577585979563,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 24 within range 21-26",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 26,
+          "age": 24,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7947078055772818,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 24 within range 21-26",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 353,
+          "age": 24,
+          "ethnicity": "white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.7818155552624915,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 24 within range 21-26",
+            "Matches ethnicity: white"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "I want to meet a 19-23 male, straight partner who is spontaneous.",
+      "requirements": {
+        "age_range": [
+          19,
+          23
+        ],
+        "gender": "M",
+        "ethnicity": [],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 369,
+          "age": 21,
+          "ethnicity": "asian",
+          "education": "working on college/university",
+          "similarity_score": 0.8059893985620654,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 21 within range 19-23"
+          ]
+        },
+        {
+          "profile_index": 201,
+          "age": 21,
+          "ethnicity": "white",
+          "education": "working on college/university",
+          "similarity_score": 0.7940366505043668,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 21 within range 19-23"
+          ]
+        },
+        {
+          "profile_index": 213,
+          "age": 21,
+          "ethnicity": "hispanic / latin, other",
+          "education": "working on college/university",
+          "similarity_score": 0.7762000168590628,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 21 within range 19-23"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Looking for a 28-31 male with short looks, with a strong educational background and unknown.",
+      "requirements": {
+        "age_range": [
+          28,
+          31
+        ],
+        "gender": "M",
+        "ethnicity": [],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 310,
+          "age": 30,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.793600499708179,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 30 within range 28-31"
+          ]
+        },
+        {
+          "profile_index": 485,
+          "age": 29,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7895115802047713,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 29 within range 28-31"
+          ]
+        },
+        {
+          "profile_index": 479,
+          "age": 30,
+          "ethnicity": "indian",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7778533203879259,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 30 within range 28-31"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Searching for someone short, currently pursuing a degree and outgoing, aged 29-35.",
+      "requirements": {
+        "age_range": [
+          29,
+          35
+        ],
+        "gender": null,
+        "ethnicity": [],
+        "education": "any_degree",
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 93,
+          "age": 32,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8028085672578804,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 32 within range 29-35",
+            "Has a degree as required"
+          ]
+        },
+        {
+          "profile_index": 437,
+          "age": 32,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8020288545259148,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 32 within range 29-35",
+            "Has a degree as required"
+          ]
+        },
+        {
+          "profile_index": 444,
+          "age": 32,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7990512951915014,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 32 within range 29-35",
+            "Has a degree as required"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Looking for a 26-28 female, straight partner who is kind-hearted.",
+      "requirements": {
+        "age_range": [
+          26,
+          28
+        ],
+        "gender": "M",
+        "ethnicity": [],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 180,
+          "age": 27,
+          "ethnicity": "N/A",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7817355728815676,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 27 within range 26-28"
+          ]
+        },
+        {
+          "profile_index": 134,
+          "age": 27,
+          "ethnicity": "N/A",
+          "education": "graduated from masters program",
+          "similarity_score": 0.7799297196613183,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 27 within range 26-28"
+          ]
+        },
+        {
+          "profile_index": 287,
+          "age": 27,
+          "ethnicity": "N/A",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7776189407805807,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 27 within range 26-28"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "I want to meet someone who loves traveling, aged 25-28.",
+      "requirements": {
+        "age_range": [
+          25,
+          28
+        ],
+        "gender": null,
+        "ethnicity": [],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 212,
+          "age": 26,
+          "ethnicity": "white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.8277451531911763,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 26 within range 25-28"
+          ]
+        },
+        {
+          "profile_index": 4,
+          "age": 27,
+          "ethnicity": "white",
+          "education": "working on college/university",
+          "similarity_score": 0.8168326386864723,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 27 within range 25-28"
+          ]
+        },
+        {
+          "profile_index": 142,
+          "age": 26,
+          "ethnicity": "asian",
+          "education": "working on ph.d program",
+          "similarity_score": 0.807859332345821,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 26 within range 25-28"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Looking for a 35-39 female with with dark hair looks and white.",
+      "requirements": {
+        "age_range": [
+          35,
+          39
+        ],
+        "gender": "M",
+        "ethnicity": [
+          "white"
+        ],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 38,
+          "age": 37,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7705236290399805,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 37 within range 35-39",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 43,
+          "age": 38,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.776005912205596,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 38 within range 35-39",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 298,
+          "age": 36,
+          "ethnicity": "white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.7716287635630563,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 36 within range 35-39",
+            "Matches ethnicity: white"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Dreaming of meeting a 18-22 female who is unknown and intellectual.",
+      "requirements": {
+        "age_range": [
+          18,
+          22
+        ],
+        "gender": "M",
+        "ethnicity": [],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 193,
+          "age": 20,
+          "ethnicity": "white",
+          "education": "graduated from space camp",
+          "similarity_score": 0.7923919655721916,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 20 within range 18-22"
+          ]
+        },
+        {
+          "profile_index": 305,
+          "age": 19,
+          "ethnicity": "black",
+          "education": "working on college/university",
+          "similarity_score": 0.788152995624248,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 19 within range 18-22"
+          ]
+        },
+        {
+          "profile_index": 59,
+          "age": 21,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7773661397429903,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 21 within range 18-22"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "I want to meet a 23-31 male, straight partner who is outgoing.",
+      "requirements": {
+        "age_range": [
+          23,
+          31
+        ],
+        "gender": "M",
+        "ethnicity": [],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 317,
+          "age": 27,
+          "ethnicity": "N/A",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8018157006458856,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 27 within range 23-31"
+          ]
+        },
+        {
+          "profile_index": 343,
+          "age": 27,
+          "ethnicity": "hispanic / latin",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8009646899489252,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 27 within range 23-31"
+          ]
+        },
+        {
+          "profile_index": 150,
+          "age": 27,
+          "ethnicity": "white",
+          "education": "N/A",
+          "similarity_score": 0.7895203425820951,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 27 within range 23-31"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Dreaming of meeting a 22-29 male who is white and outgoing.",
+      "requirements": {
+        "age_range": [
+          22,
+          29
+        ],
+        "gender": "M",
+        "ethnicity": [
+          "white"
+        ],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 459,
+          "age": 25,
+          "ethnicity": "white",
+          "education": "working on two-year college",
+          "similarity_score": 0.7944097372079725,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 25 within range 22-29",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 443,
+          "age": 26,
+          "ethnicity": "white",
+          "education": "working on college/university",
+          "similarity_score": 0.7880954758892494,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 26 within range 22-29",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 212,
+          "age": 26,
+          "ethnicity": "white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.7857316826279581,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 26 within range 22-29",
+            "Matches ethnicity: white"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Searching for a 29-37 male who is white and fun-loving.",
+      "requirements": {
+        "age_range": [
+          29,
+          37
+        ],
+        "gender": "M",
+        "ethnicity": [
+          "white"
+        ],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 399,
+          "age": 33,
+          "ethnicity": "white",
+          "education": "N/A",
+          "similarity_score": 0.8061362091798644,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 33 within range 29-37",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 114,
+          "age": 33,
+          "ethnicity": "white",
+          "education": "N/A",
+          "similarity_score": 0.7940036998408729,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 33 within range 29-37",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 5,
+          "age": 33,
+          "ethnicity": "white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.7928939276154785,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 33 within range 29-37",
+            "Matches ethnicity: white"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Searching for a 23-30 male who is hispanic / latin, white and outgoing.",
+      "requirements": {
+        "age_range": [
+          23,
+          30
+        ],
+        "gender": "M",
+        "ethnicity": [
+          "white",
+          "hispanic",
+          "latin"
+        ],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 212,
+          "age": 26,
+          "ethnicity": "white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.8017266522548439,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 26 within range 23-30",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 443,
+          "age": 26,
+          "ethnicity": "white",
+          "education": "working on college/university",
+          "similarity_score": 0.8014480058875831,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 26 within range 23-30",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 343,
+          "age": 27,
+          "ethnicity": "hispanic / latin",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7900979648120294,
+          "is_valid": false,
+          "reasons": [
+            "Ethnicity hispanic / latin doesn't match any required: ['white', 'hispanic', 'latin']"
+          ],
+          "criteria_matched": [
+            "Age 27 within range 23-30"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 2
+    },
+    {
+      "prompt": "Dreaming of meeting someone who loves dancing, aged 22-28.",
+      "requirements": {
+        "age_range": [
+          22,
+          28
+        ],
+        "gender": null,
+        "ethnicity": [],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 130,
+          "age": 25,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7898150700544859,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 25 within range 22-28"
+          ]
+        },
+        {
+          "profile_index": 459,
+          "age": 25,
+          "ethnicity": "white",
+          "education": "working on two-year college",
+          "similarity_score": 0.7808418057569091,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 25 within range 22-28"
+          ]
+        },
+        {
+          "profile_index": 478,
+          "age": 25,
+          "ethnicity": "white",
+          "education": "graduated from high school",
+          "similarity_score": 0.7784837523314526,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 25 within range 22-28"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "I want to meet a 33-39 male who is white and outgoing.",
+      "requirements": {
+        "age_range": [
+          33,
+          39
+        ],
+        "gender": "M",
+        "ethnicity": [
+          "white"
+        ],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 409,
+          "age": 36,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.807137567902403,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 36 within range 33-39",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 127,
+          "age": 36,
+          "ethnicity": "white",
+          "education": "N/A",
+          "similarity_score": 0.7797582419865974,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 36 within range 33-39",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 420,
+          "age": 36,
+          "ethnicity": "white",
+          "education": "dropped out of college/university",
+          "similarity_score": 0.7679657809007732,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 36 within range 33-39",
+            "Matches ethnicity: white"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Dreaming of meeting someone who loves fitness, aged 27-35.",
+      "requirements": {
+        "age_range": [
+          27,
+          35
+        ],
+        "gender": null,
+        "ethnicity": [],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 123,
+          "age": 31,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8089862182999369,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 31 within range 27-35"
+          ]
+        },
+        {
+          "profile_index": 360,
+          "age": 31,
+          "ethnicity": "indian",
+          "education": "graduated from masters program",
+          "similarity_score": 0.7917553564680939,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 31 within range 27-35"
+          ]
+        },
+        {
+          "profile_index": 470,
+          "age": 31,
+          "ethnicity": "middle eastern",
+          "education": "graduated from two-year college",
+          "similarity_score": 0.7822619989237305,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 31 within range 27-35"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Looking for a 32-37 male who is black, white and introverted.",
+      "requirements": {
+        "age_range": [
+          32,
+          37
+        ],
+        "gender": "M",
+        "ethnicity": [
+          "white",
+          "black"
+        ],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 31,
+          "age": 34,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7830951855010451,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 34 within range 32-37",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 281,
+          "age": 34,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.778177099935758,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 34 within range 32-37",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 128,
+          "age": 35,
+          "ethnicity": "white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.7763115549390067,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 35 within range 32-37",
+            "Matches ethnicity: white"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "I want to meet a 29-31 male who is white and goal-oriented.",
+      "requirements": {
+        "age_range": [
+          29,
+          31
+        ],
+        "gender": "M",
+        "ethnicity": [
+          "white"
+        ],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 310,
+          "age": 30,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8180643482439546,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 30 within range 29-31",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 256,
+          "age": 30,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7964355083547267,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 30 within range 29-31",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 95,
+          "age": 30,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7882099541730903,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 30 within range 29-31",
+            "Matches ethnicity: white"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "I want to meet a 35-42 male with slim looks and white.",
+      "requirements": {
+        "age_range": [
+          35,
+          42
+        ],
+        "gender": "M",
+        "ethnicity": [
+          "white"
+        ],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 141,
+          "age": 38,
+          "ethnicity": "black, white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7972483481546905,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 38 within range 35-42",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 290,
+          "age": 39,
+          "ethnicity": "white",
+          "education": "dropped out of masters program",
+          "similarity_score": 0.7713266290365759,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 39 within range 35-42",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 364,
+          "age": 38,
+          "ethnicity": "white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.7529538530044634,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 38 within range 35-42",
+            "Matches ethnicity: white"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "I want to meet a 25-34 female with with red hair looks and white.",
+      "requirements": {
+        "age_range": [
+          25,
+          34
+        ],
+        "gender": "M",
+        "ethnicity": [
+          "white"
+        ],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 269,
+          "age": 29,
+          "ethnicity": "white",
+          "education": "working on college/university",
+          "similarity_score": 0.7995228173794935,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 29 within range 25-34",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 417,
+          "age": 29,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7951361881868023,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 29 within range 25-34",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 352,
+          "age": 30,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7900059017125616,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 30 within range 25-34",
+            "Matches ethnicity: white"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Searching for someone with red hair and creative, aged 23-30.",
+      "requirements": {
+        "age_range": [
+          23,
+          30
+        ],
+        "gender": null,
+        "ethnicity": [],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 317,
+          "age": 27,
+          "ethnicity": "N/A",
+          "education": "graduated from college/university",
+          "similarity_score": 0.794660313753501,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 27 within range 23-30"
+          ]
+        },
+        {
+          "profile_index": 142,
+          "age": 26,
+          "ethnicity": "asian",
+          "education": "working on ph.d program",
+          "similarity_score": 0.7919174691908963,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 26 within range 23-30"
+          ]
+        },
+        {
+          "profile_index": 188,
+          "age": 26,
+          "ethnicity": "middle eastern, hispanic / latin",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7878345048995017,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 26 within range 23-30"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Searching for someone short, with a college degree and adventurous, aged 22-29.",
+      "requirements": {
+        "age_range": [
+          22,
+          29
+        ],
+        "gender": null,
+        "ethnicity": [],
+        "education": "college",
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 130,
+          "age": 25,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8252544352313058,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 25 within range 22-29",
+            "Matches college education requirement"
+          ]
+        },
+        {
+          "profile_index": 212,
+          "age": 26,
+          "ethnicity": "white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.8178593191122779,
+          "is_valid": false,
+          "reasons": [
+            "Education 'graduated from masters program' doesn't match requirement: college"
+          ],
+          "criteria_matched": [
+            "Age 26 within range 22-29"
+          ]
+        },
+        {
+          "profile_index": 142,
+          "age": 26,
+          "ethnicity": "asian",
+          "education": "working on ph.d program",
+          "similarity_score": 0.8137916950225944,
+          "is_valid": false,
+          "reasons": [
+            "Education 'working on ph.d program' doesn't match requirement: college"
+          ],
+          "criteria_matched": [
+            "Age 26 within range 22-29"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 1
+    },
+    {
+      "prompt": "I want to meet someone with bright eyes and intellectual, aged 23-32.",
+      "requirements": {
+        "age_range": [
+          23,
+          32
+        ],
+        "gender": null,
+        "ethnicity": [],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 415,
+          "age": 28,
+          "ethnicity": "white, other",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8156506627184988,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 28 within range 23-32"
+          ]
+        },
+        {
+          "profile_index": 385,
+          "age": 28,
+          "ethnicity": "black",
+          "education": "two-year college",
+          "similarity_score": 0.8135939851613313,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 28 within range 23-32"
+          ]
+        },
+        {
+          "profile_index": 214,
+          "age": 28,
+          "ethnicity": "asian, white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8114643665044047,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 28 within range 23-32"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Looking for someone who loves fitness, aged 27-32.",
+      "requirements": {
+        "age_range": [
+          27,
+          32
+        ],
+        "gender": null,
+        "ethnicity": [],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 310,
+          "age": 30,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8144445157581964,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 30 within range 27-32"
+          ]
+        },
+        {
+          "profile_index": 256,
+          "age": 30,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8003447637413323,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 30 within range 27-32"
+          ]
+        },
+        {
+          "profile_index": 352,
+          "age": 30,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7992517877795726,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 30 within range 27-32"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Searching for someone tall and creative, aged 31-35.",
+      "requirements": {
+        "age_range": [
+          31,
+          35
+        ],
+        "gender": null,
+        "ethnicity": [],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 399,
+          "age": 33,
+          "ethnicity": "white",
+          "education": "N/A",
+          "similarity_score": 0.7994198792212255,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 33 within range 31-35"
+          ]
+        },
+        {
+          "profile_index": 192,
+          "age": 33,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7987342445018281,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 33 within range 31-35"
+          ]
+        },
+        {
+          "profile_index": 302,
+          "age": 33,
+          "ethnicity": "white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.7956780118155131,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 33 within range 31-35"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Searching for someone who loves reading, currently pursuing a degree, aged 27-36.",
+      "requirements": {
+        "age_range": [
+          27,
+          36
+        ],
+        "gender": null,
+        "ethnicity": [],
+        "education": "any_degree",
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 123,
+          "age": 31,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8194808624082311,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 31 within range 27-36",
+            "Has a degree as required"
+          ]
+        },
+        {
+          "profile_index": 375,
+          "age": 32,
+          "ethnicity": "asian",
+          "education": "graduated from masters program",
+          "similarity_score": 0.8054178751315937,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 32 within range 27-36",
+            "Has a degree as required"
+          ]
+        },
+        {
+          "profile_index": 149,
+          "age": 32,
+          "ethnicity": "indian",
+          "education": "graduated from masters program",
+          "similarity_score": 0.7989034107014519,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 32 within range 27-36",
+            "Has a degree as required"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Looking for a 33-38 male with tall looks, with a strong educational background and asian, native american.",
+      "requirements": {
+        "age_range": [
+          33,
+          38
+        ],
+        "gender": "M",
+        "ethnicity": [
+          "asian",
+          "native american"
+        ],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 129,
+          "age": 35,
+          "ethnicity": "asian, hispanic / latin",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7669849039335678,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 35 within range 33-38",
+            "Matches ethnicity: asian"
+          ]
+        },
+        {
+          "profile_index": 35,
+          "age": 36,
+          "ethnicity": "asian",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7402607476467679,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 36 within range 33-38",
+            "Matches ethnicity: asian"
+          ]
+        },
+        {
+          "profile_index": 418,
+          "age": 34,
+          "ethnicity": "asian",
+          "education": "graduated from masters program",
+          "similarity_score": 0.7873917945954899,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 34 within range 33-38",
+            "Matches ethnicity: asian"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Dreaming of meeting a 29-34 male who is white and creative.",
+      "requirements": {
+        "age_range": [
+          29,
+          34
+        ],
+        "gender": "M",
+        "ethnicity": [
+          "white"
+        ],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 179,
+          "age": 32,
+          "ethnicity": "white",
+          "education": "working on college/university",
+          "similarity_score": 0.7840110581980311,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 32 within range 29-34",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 283,
+          "age": 32,
+          "ethnicity": "white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.7816387808277205,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 32 within range 29-34",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 289,
+          "age": 32,
+          "ethnicity": "white",
+          "education": "graduated from law school",
+          "similarity_score": 0.7712417008948054,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 32 within range 29-34",
+            "Matches ethnicity: white"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "I want to meet someone who loves traveling, aged 32-36.",
+      "requirements": {
+        "age_range": [
+          32,
+          36
+        ],
+        "gender": null,
+        "ethnicity": [],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 281,
+          "age": 34,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8147779067204797,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 34 within range 32-36"
+          ]
+        },
+        {
+          "profile_index": 58,
+          "age": 34,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8121912259280841,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 34 within range 32-36"
+          ]
+        },
+        {
+          "profile_index": 124,
+          "age": 34,
+          "ethnicity": "hispanic / latin, white",
+          "education": "working on ph.d program",
+          "similarity_score": 0.8118306326951765,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 34 within range 32-36"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "I want to meet someone slim and creative, aged 22-31.",
+      "requirements": {
+        "age_range": [
+          22,
+          31
+        ],
+        "gender": null,
+        "ethnicity": [],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 212,
+          "age": 26,
+          "ethnicity": "white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.814153882633195,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 26 within range 22-31"
+          ]
+        },
+        {
+          "profile_index": 142,
+          "age": 26,
+          "ethnicity": "asian",
+          "education": "working on ph.d program",
+          "similarity_score": 0.8116293034164592,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 26 within range 22-31"
+          ]
+        },
+        {
+          "profile_index": 317,
+          "age": 27,
+          "ethnicity": "N/A",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8053982790261582,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 27 within range 22-31"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Hoping to find a 19-25 male, straight partner who is intellectual.",
+      "requirements": {
+        "age_range": [
+          19,
+          25
+        ],
+        "gender": "M",
+        "ethnicity": [],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 240,
+          "age": 22,
+          "ethnicity": "N/A",
+          "education": "working on college/university",
+          "similarity_score": 0.8124289062757689,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 22 within range 19-25"
+          ]
+        },
+        {
+          "profile_index": 166,
+          "age": 22,
+          "ethnicity": "white",
+          "education": "graduated from high school",
+          "similarity_score": 0.8005048041779412,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 22 within range 19-25"
+          ]
+        },
+        {
+          "profile_index": 107,
+          "age": 22,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7954042042926229,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 22 within range 19-25"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Hoping to find a 29-32 male who is unknown and outgoing.",
+      "requirements": {
+        "age_range": [
+          29,
+          32
+        ],
+        "gender": "M",
+        "ethnicity": [],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 310,
+          "age": 30,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8074137967561322,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 30 within range 29-32"
+          ]
+        },
+        {
+          "profile_index": 470,
+          "age": 31,
+          "ethnicity": "middle eastern",
+          "education": "graduated from two-year college",
+          "similarity_score": 0.8013723235260599,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 31 within range 29-32"
+          ]
+        },
+        {
+          "profile_index": 256,
+          "age": 30,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.795240112512668,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 30 within range 29-32"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Hoping to find a 26-33 male who is asian, pacific islander and introverted.",
+      "requirements": {
+        "age_range": [
+          26,
+          33
+        ],
+        "gender": "M",
+        "ethnicity": [
+          "asian",
+          "pacific islander"
+        ],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 66,
+          "age": 29,
+          "ethnicity": "asian, pacific islander",
+          "education": "working on masters program",
+          "similarity_score": 0.7967175696100495,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 29 within range 26-33",
+            "Matches ethnicity: asian, pacific islander"
+          ]
+        },
+        {
+          "profile_index": 273,
+          "age": 30,
+          "ethnicity": "asian",
+          "education": "graduated from ph.d program",
+          "similarity_score": 0.7638202138964352,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 30 within range 26-33",
+            "Matches ethnicity: asian"
+          ]
+        },
+        {
+          "profile_index": 49,
+          "age": 30,
+          "ethnicity": "asian",
+          "education": "working on college/university",
+          "similarity_score": 0.7551994755523865,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 30 within range 26-33",
+            "Matches ethnicity: asian"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Dreaming of meeting someone who loves dancing, aged 30-40.",
+      "requirements": {
+        "age_range": [
+          30,
+          40
+        ],
+        "gender": null,
+        "ethnicity": [],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 371,
+          "age": 35,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7885985018728643,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 35 within range 30-40"
+          ]
+        },
+        {
+          "profile_index": 128,
+          "age": 35,
+          "ethnicity": "white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.782427506235145,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 35 within range 30-40"
+          ]
+        },
+        {
+          "profile_index": 268,
+          "age": 35,
+          "ethnicity": "white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.7741898027841461,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 35 within range 30-40"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Looking for someone who loves cooking, aged 23-31.",
+      "requirements": {
+        "age_range": [
+          23,
+          31
+        ],
+        "gender": null,
+        "ethnicity": [],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 134,
+          "age": 27,
+          "ethnicity": "N/A",
+          "education": "graduated from masters program",
+          "similarity_score": 0.7921895559270735,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 27 within range 23-31"
+          ]
+        },
+        {
+          "profile_index": 317,
+          "age": 27,
+          "ethnicity": "N/A",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7799358560913489,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 27 within range 23-31"
+          ]
+        },
+        {
+          "profile_index": 117,
+          "age": 27,
+          "ethnicity": "N/A",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7768647958092421,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 27 within range 23-31"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Searching for someone who loves dancing, with a strong educational background, aged 25-34.",
+      "requirements": {
+        "age_range": [
+          25,
+          34
+        ],
+        "gender": null,
+        "ethnicity": [],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 352,
+          "age": 30,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8117734660847247,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 30 within range 25-34"
+          ]
+        },
+        {
+          "profile_index": 221,
+          "age": 30,
+          "ethnicity": "white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.808194899723002,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 30 within range 25-34"
+          ]
+        },
+        {
+          "profile_index": 237,
+          "age": 30,
+          "ethnicity": "black",
+          "education": "graduated from masters program",
+          "similarity_score": 0.7955169068363486,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 30 within range 25-34"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Hoping to find a 21-23 male, straight partner who is kind-hearted.",
+      "requirements": {
+        "age_range": [
+          21,
+          23
+        ],
+        "gender": "M",
+        "ethnicity": [],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 166,
+          "age": 22,
+          "ethnicity": "white",
+          "education": "graduated from high school",
+          "similarity_score": 0.8107591257420057,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 22 within range 21-23"
+          ]
+        },
+        {
+          "profile_index": 240,
+          "age": 22,
+          "ethnicity": "N/A",
+          "education": "working on college/university",
+          "similarity_score": 0.7979330548690579,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 22 within range 21-23"
+          ]
+        },
+        {
+          "profile_index": 107,
+          "age": 22,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7859263156261305,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 22 within range 21-23"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Searching for someone short, with a college degree and goal-oriented, aged 27-32.",
+      "requirements": {
+        "age_range": [
+          27,
+          32
+        ],
+        "gender": null,
+        "ethnicity": [],
+        "education": "college",
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 485,
+          "age": 29,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8109085346842452,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 29 within range 27-32",
+            "Matches college education requirement"
+          ]
+        },
+        {
+          "profile_index": 417,
+          "age": 29,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7963406246823315,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 29 within range 27-32",
+            "Matches college education requirement"
+          ]
+        },
+        {
+          "profile_index": 391,
+          "age": 29,
+          "ethnicity": "asian",
+          "education": "graduated from masters program",
+          "similarity_score": 0.7901759649893572,
+          "is_valid": false,
+          "reasons": [
+            "Education 'graduated from masters program' doesn't match requirement: college"
+          ],
+          "criteria_matched": [
+            "Age 29 within range 27-32"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 2
+    },
+    {
+      "prompt": "Looking for a 26-32 female with with red hair looks and middle eastern, other.",
+      "requirements": {
+        "age_range": [
+          26,
+          32
+        ],
+        "gender": "M",
+        "ethnicity": [
+          "middle eastern"
+        ],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 167,
+          "age": 30,
+          "ethnicity": "asian, middle eastern, black, native american, indian, pacific islander, hispanic / latin, white, other",
+          "education": "graduated from college/university",
+          "similarity_score": 0.734752674723287,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 30 within range 26-32",
+            "Matches ethnicity: middle eastern"
+          ]
+        },
+        {
+          "profile_index": 152,
+          "age": 26,
+          "ethnicity": "middle eastern, indian, other",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7634900334096534,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 26 within range 26-32",
+            "Matches ethnicity: middle eastern"
+          ]
+        },
+        {
+          "profile_index": 422,
+          "age": 25,
+          "ethnicity": "middle eastern, black, native american, indian, hispanic / latin, white",
+          "education": "working on masters program",
+          "similarity_score": 0.7582049428363844,
+          "is_valid": false,
+          "reasons": [
+            "Age 25 outside range 26-32"
+          ],
+          "criteria_matched": [
+            "Matches ethnicity: middle eastern"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 2
+    },
+    {
+      "prompt": "Hoping to find someone who loves cooking, college-educated, aged 24-30.",
+      "requirements": {
+        "age_range": [
+          24,
+          30
+        ],
+        "gender": null,
+        "ethnicity": [],
+        "education": "college",
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 134,
+          "age": 27,
+          "ethnicity": "N/A",
+          "education": "graduated from masters program",
+          "similarity_score": 0.8023167810691147,
+          "is_valid": false,
+          "reasons": [
+            "Education 'graduated from masters program' doesn't match requirement: college"
+          ],
+          "criteria_matched": [
+            "Age 27 within range 24-30"
+          ]
+        },
+        {
+          "profile_index": 4,
+          "age": 27,
+          "ethnicity": "white",
+          "education": "working on college/university",
+          "similarity_score": 0.7898602162994917,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 27 within range 24-30",
+            "Matches college education requirement"
+          ]
+        },
+        {
+          "profile_index": 117,
+          "age": 27,
+          "ethnicity": "N/A",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7895686624020789,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 27 within range 24-30",
+            "Matches college education requirement"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 2
+    },
+    {
+      "prompt": "I want to meet someone who loves hiking, aged 30-36.",
+      "requirements": {
+        "age_range": [
+          30,
+          36
+        ],
+        "gender": null,
+        "ethnicity": [],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 399,
+          "age": 33,
+          "ethnicity": "white",
+          "education": "N/A",
+          "similarity_score": 0.8170580870596136,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 33 within range 30-36"
+          ]
+        },
+        {
+          "profile_index": 5,
+          "age": 33,
+          "ethnicity": "white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.8157725611924357,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 33 within range 30-36"
+          ]
+        },
+        {
+          "profile_index": 331,
+          "age": 33,
+          "ethnicity": "hispanic / latin",
+          "education": "graduated from college/university",
+          "similarity_score": 0.813386262713782,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 33 within range 30-36"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "I want to meet a 27-33 female who is indian and outgoing.",
+      "requirements": {
+        "age_range": [
+          27,
+          33
+        ],
+        "gender": "M",
+        "ethnicity": [
+          "indian"
+        ],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 167,
+          "age": 30,
+          "ethnicity": "asian, middle eastern, black, native american, indian, pacific islander, hispanic / latin, white, other",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7599500204991739,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 30 within range 27-33",
+            "Matches ethnicity: indian"
+          ]
+        },
+        {
+          "profile_index": 152,
+          "age": 26,
+          "ethnicity": "middle eastern, indian, other",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7987472025490654,
+          "is_valid": false,
+          "reasons": [
+            "Age 26 outside range 27-33"
+          ],
+          "criteria_matched": [
+            "Matches ethnicity: indian"
+          ]
+        },
+        {
+          "profile_index": 422,
+          "age": 25,
+          "ethnicity": "middle eastern, black, native american, indian, hispanic / latin, white",
+          "education": "working on masters program",
+          "similarity_score": 0.7860196077308528,
+          "is_valid": false,
+          "reasons": [
+            "Age 25 outside range 27-33"
+          ],
+          "criteria_matched": [
+            "Matches ethnicity: indian"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 1
+    },
+    {
+      "prompt": "Searching for someone with bright eyes, highly educated and outgoing, aged 26-30.",
+      "requirements": {
+        "age_range": [
+          26,
+          30
+        ],
+        "gender": null,
+        "ethnicity": [],
+        "education": "any_degree",
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 214,
+          "age": 28,
+          "ethnicity": "asian, white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8168475449353042,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 28 within range 26-30",
+            "Has a degree as required"
+          ]
+        },
+        {
+          "profile_index": 415,
+          "age": 28,
+          "ethnicity": "white, other",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8105903720422707,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 28 within range 26-30",
+            "Has a degree as required"
+          ]
+        },
+        {
+          "profile_index": 385,
+          "age": 28,
+          "ethnicity": "black",
+          "education": "two-year college",
+          "similarity_score": 0.8093480991506545,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 28 within range 26-30",
+            "Has a degree as required"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Hoping to find someone who loves reading, aged 28-32.",
+      "requirements": {
+        "age_range": [
+          28,
+          32
+        ],
+        "gender": null,
+        "ethnicity": [],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 352,
+          "age": 30,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8127665610521282,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 30 within range 28-32"
+          ]
+        },
+        {
+          "profile_index": 221,
+          "age": 30,
+          "ethnicity": "white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.8083712166083267,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 30 within range 28-32"
+          ]
+        },
+        {
+          "profile_index": 342,
+          "age": 30,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7966272100268537,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 30 within range 28-32"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "I want to meet someone who loves traveling, with a strong educational background, aged 25-31.",
+      "requirements": {
+        "age_range": [
+          25,
+          31
+        ],
+        "gender": null,
+        "ethnicity": [],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 214,
+          "age": 28,
+          "ethnicity": "asian, white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8427478707684432,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 28 within range 25-31"
+          ]
+        },
+        {
+          "profile_index": 385,
+          "age": 28,
+          "ethnicity": "black",
+          "education": "two-year college",
+          "similarity_score": 0.8407644165998793,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 28 within range 25-31"
+          ]
+        },
+        {
+          "profile_index": 174,
+          "age": 28,
+          "ethnicity": "asian",
+          "education": "graduated from two-year college",
+          "similarity_score": 0.8344425362690526,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 28 within range 25-31"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Searching for a 23-29 female, bisexual partner who is adventurous.",
+      "requirements": {
+        "age_range": [
+          23,
+          29
+        ],
+        "gender": "M",
+        "ethnicity": [],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 94,
+          "age": 26,
+          "ethnicity": "white",
+          "education": "working on masters program",
+          "similarity_score": 0.784570364366189,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 26 within range 23-29"
+          ]
+        },
+        {
+          "profile_index": 261,
+          "age": 26,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7827058645035954,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 26 within range 23-29"
+          ]
+        },
+        {
+          "profile_index": 349,
+          "age": 26,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7811305998343288,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 26 within range 23-29"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Looking for a 31-35 female with with bright eyes looks, highly educated and white.",
+      "requirements": {
+        "age_range": [
+          31,
+          35
+        ],
+        "gender": "M",
+        "ethnicity": [
+          "white"
+        ],
+        "education": "any_degree",
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 192,
+          "age": 33,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7803384332084182,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 33 within range 31-35",
+            "Matches ethnicity: white",
+            "Has a degree as required"
+          ]
+        },
+        {
+          "profile_index": 302,
+          "age": 33,
+          "ethnicity": "white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.7789154541821306,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 33 within range 31-35",
+            "Matches ethnicity: white",
+            "Has a degree as required"
+          ]
+        },
+        {
+          "profile_index": 406,
+          "age": 33,
+          "ethnicity": "white",
+          "education": "graduated from med school",
+          "similarity_score": 0.7692082602030383,
+          "is_valid": false,
+          "reasons": [
+            "Education 'graduated from med school' doesn't match requirement: any_degree"
+          ],
+          "criteria_matched": [
+            "Age 33 within range 31-35",
+            "Matches ethnicity: white"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 2
+    },
+    {
+      "prompt": "Searching for a 18-26 male, straight partner who is intellectual.",
+      "requirements": {
+        "age_range": [
+          18,
+          26
+        ],
+        "gender": "M",
+        "ethnicity": [],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 240,
+          "age": 22,
+          "ethnicity": "N/A",
+          "education": "working on college/university",
+          "similarity_score": 0.8125276133195093,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 22 within range 18-26"
+          ]
+        },
+        {
+          "profile_index": 355,
+          "age": 22,
+          "ethnicity": "white",
+          "education": "working on masters program",
+          "similarity_score": 0.7980862114878855,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 22 within range 18-26"
+          ]
+        },
+        {
+          "profile_index": 107,
+          "age": 22,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7979738124053922,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 22 within range 18-26"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "I want to meet someone who loves fitness, aged 28-32.",
+      "requirements": {
+        "age_range": [
+          28,
+          32
+        ],
+        "gender": null,
+        "ethnicity": [],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 310,
+          "age": 30,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8262872419559746,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 30 within range 28-32"
+          ]
+        },
+        {
+          "profile_index": 352,
+          "age": 30,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8078955887751693,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 30 within range 28-32"
+          ]
+        },
+        {
+          "profile_index": 256,
+          "age": 30,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7978443288383728,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 30 within range 28-32"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Searching for a 29-35 male with short looks and white.",
+      "requirements": {
+        "age_range": [
+          29,
+          35
+        ],
+        "gender": "M",
+        "ethnicity": [
+          "white"
+        ],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 104,
+          "age": 32,
+          "ethnicity": "white",
+          "education": "graduated from high school",
+          "similarity_score": 0.7724590989320252,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 32 within range 29-35",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 437,
+          "age": 32,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7662964090304081,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 32 within range 29-35",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 116,
+          "age": 32,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7616220291089758,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 32 within range 29-35",
+            "Matches ethnicity: white"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "I want to meet a 30-36 female who is asian, white and goal-oriented.",
+      "requirements": {
+        "age_range": [
+          30,
+          36
+        ],
+        "gender": "M",
+        "ethnicity": [
+          "asian",
+          "white"
+        ],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 192,
+          "age": 33,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.793574072349791,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 33 within range 30-36",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 406,
+          "age": 33,
+          "ethnicity": "white",
+          "education": "graduated from med school",
+          "similarity_score": 0.7911502201816757,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 33 within range 30-36",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 302,
+          "age": 33,
+          "ethnicity": "white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.7816378257830828,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 33 within range 30-36",
+            "Matches ethnicity: white"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Hoping to find a 26-29 male who is white and introverted.",
+      "requirements": {
+        "age_range": [
+          26,
+          29
+        ],
+        "gender": "M",
+        "ethnicity": [
+          "white"
+        ],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 194,
+          "age": 28,
+          "ethnicity": "white",
+          "education": "working on college/university",
+          "similarity_score": 0.799251805957682,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 28 within range 26-29",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 415,
+          "age": 28,
+          "ethnicity": "white, other",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7935479156389968,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 28 within range 26-29",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 462,
+          "age": 28,
+          "ethnicity": "pacific islander, white",
+          "education": "working on college/university",
+          "similarity_score": 0.7922164239223098,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 28 within range 26-29",
+            "Matches ethnicity: white"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Dreaming of meeting a 36-43 female with with red hair looks, holding a master's degree and unknown.",
+      "requirements": {
+        "age_range": [
+          36,
+          43
+        ],
+        "gender": "M",
+        "ethnicity": [],
+        "education": "any_degree",
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 425,
+          "age": 39,
+          "ethnicity": "N/A",
+          "education": "graduated from masters program",
+          "similarity_score": 0.7768940612352725,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 39 within range 36-43",
+            "Has a degree as required"
+          ]
+        },
+        {
+          "profile_index": 12,
+          "age": 39,
+          "ethnicity": "black",
+          "education": "college/university",
+          "similarity_score": 0.7682917568509556,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 39 within range 36-43",
+            "Has a degree as required"
+          ]
+        },
+        {
+          "profile_index": 132,
+          "age": 40,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7664894854129993,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 40 within range 36-43",
+            "Has a degree as required"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "I want to meet a 23-30 female with short looks, college-educated and unknown.",
+      "requirements": {
+        "age_range": [
+          23,
+          30
+        ],
+        "gender": "M",
+        "ethnicity": [],
+        "education": "college",
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 94,
+          "age": 26,
+          "ethnicity": "white",
+          "education": "working on masters program",
+          "similarity_score": 0.8023158572694089,
+          "is_valid": false,
+          "reasons": [
+            "Education 'working on masters program' doesn't match requirement: college"
+          ],
+          "criteria_matched": [
+            "Age 26 within range 23-30"
+          ]
+        },
+        {
+          "profile_index": 4,
+          "age": 27,
+          "ethnicity": "white",
+          "education": "working on college/university",
+          "similarity_score": 0.801946472946969,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 27 within range 23-30",
+            "Matches college education requirement"
+          ]
+        },
+        {
+          "profile_index": 134,
+          "age": 27,
+          "ethnicity": "N/A",
+          "education": "graduated from masters program",
+          "similarity_score": 0.7896382785995539,
+          "is_valid": false,
+          "reasons": [
+            "Education 'graduated from masters program' doesn't match requirement: college"
+          ],
+          "criteria_matched": [
+            "Age 27 within range 23-30"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 1
+    },
+    {
+      "prompt": "Hoping to find a 41-45 male with with red hair looks, with a college degree and unknown.",
+      "requirements": {
+        "age_range": [
+          41,
+          45
+        ],
+        "gender": "M",
+        "ethnicity": [],
+        "education": "college",
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 242,
+          "age": 43,
+          "ethnicity": "asian, black, native american, indian, hispanic / latin, white, other",
+          "education": "graduated from high school",
+          "similarity_score": 0.7830814307991913,
+          "is_valid": false,
+          "reasons": [
+            "Education 'graduated from high school' doesn't match requirement: college"
+          ],
+          "criteria_matched": [
+            "Age 43 within range 41-45"
+          ]
+        },
+        {
+          "profile_index": 383,
+          "age": 43,
+          "ethnicity": "white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.7745337433478741,
+          "is_valid": false,
+          "reasons": [
+            "Education 'graduated from masters program' doesn't match requirement: college"
+          ],
+          "criteria_matched": [
+            "Age 43 within range 41-45"
+          ]
+        },
+        {
+          "profile_index": 408,
+          "age": 43,
+          "ethnicity": "hispanic / latin",
+          "education": "graduated from two-year college",
+          "similarity_score": 0.7495123839245802,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 43 within range 41-45",
+            "Matches college education requirement"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 1
+    },
+    {
+      "prompt": "Looking for someone who loves exploring nature, with a college degree, aged 36-41.",
+      "requirements": {
+        "age_range": [
+          36,
+          41
+        ],
+        "gender": null,
+        "ethnicity": [],
+        "education": "college",
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 362,
+          "age": 38,
+          "ethnicity": "asian",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8100421329053198,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 38 within range 36-41",
+            "Matches college education requirement"
+          ]
+        },
+        {
+          "profile_index": 141,
+          "age": 38,
+          "ethnicity": "black, white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.805683517222749,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 38 within range 36-41",
+            "Matches college education requirement"
+          ]
+        },
+        {
+          "profile_index": 73,
+          "age": 39,
+          "ethnicity": "N/A",
+          "education": "graduated from masters program",
+          "similarity_score": 0.8049374762284334,
+          "is_valid": false,
+          "reasons": [
+            "Education 'graduated from masters program' doesn't match requirement: college"
+          ],
+          "criteria_matched": [
+            "Age 39 within range 36-41"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 2
+    },
+    {
+      "prompt": "Searching for a 22-25 male who is black and fun-loving.",
+      "requirements": {
+        "age_range": [
+          22,
+          25
+        ],
+        "gender": "M",
+        "ethnicity": [
+          "black"
+        ],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 323,
+          "age": 24,
+          "ethnicity": "black, white",
+          "education": "graduated from high school",
+          "similarity_score": 0.7875314468887973,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 24 within range 22-25",
+            "Matches ethnicity: black"
+          ]
+        },
+        {
+          "profile_index": 291,
+          "age": 22,
+          "ethnicity": "black",
+          "education": "N/A",
+          "similarity_score": 0.7904398960349867,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 22 within range 22-25",
+            "Matches ethnicity: black"
+          ]
+        },
+        {
+          "profile_index": 175,
+          "age": 22,
+          "ethnicity": "black",
+          "education": "working on college/university",
+          "similarity_score": 0.7809620798728165,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 22 within range 22-25",
+            "Matches ethnicity: black"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Hoping to find a 27-30 female with curvy looks and white.",
+      "requirements": {
+        "age_range": [
+          27,
+          30
+        ],
+        "gender": "M",
+        "ethnicity": [
+          "white"
+        ],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 214,
+          "age": 28,
+          "ethnicity": "asian, white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7777367190153492,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 28 within range 27-30",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 417,
+          "age": 29,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7770574832535574,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 29 within range 27-30",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 105,
+          "age": 28,
+          "ethnicity": "hispanic / latin, white",
+          "education": "N/A",
+          "similarity_score": 0.7695214365636609,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 28 within range 27-30",
+            "Matches ethnicity: white"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Searching for a 27-30 male with with dark hair looks and hispanic / latin, white.",
+      "requirements": {
+        "age_range": [
+          27,
+          30
+        ],
+        "gender": "M",
+        "ethnicity": [
+          "white",
+          "hispanic",
+          "latin"
+        ],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 415,
+          "age": 28,
+          "ethnicity": "white, other",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7699063966547206,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 28 within range 27-30",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 194,
+          "age": 28,
+          "ethnicity": "white",
+          "education": "working on college/university",
+          "similarity_score": 0.7586456157656875,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 28 within range 27-30",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 139,
+          "age": 28,
+          "ethnicity": "hispanic / latin, white",
+          "education": "N/A",
+          "similarity_score": 0.7575689970023396,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 28 within range 27-30",
+            "Matches ethnicity: white"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Looking for someone who loves dancing, college-educated, aged 24-33.",
+      "requirements": {
+        "age_range": [
+          24,
+          33
+        ],
+        "gender": null,
+        "ethnicity": [],
+        "education": "college",
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 385,
+          "age": 28,
+          "ethnicity": "black",
+          "education": "two-year college",
+          "similarity_score": 0.8203912408180463,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 28 within range 24-33",
+            "Matches college education requirement"
+          ]
+        },
+        {
+          "profile_index": 174,
+          "age": 28,
+          "ethnicity": "asian",
+          "education": "graduated from two-year college",
+          "similarity_score": 0.8123242972919602,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 28 within range 24-33",
+            "Matches college education requirement"
+          ]
+        },
+        {
+          "profile_index": 330,
+          "age": 28,
+          "ethnicity": "white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.8102608711950995,
+          "is_valid": false,
+          "reasons": [
+            "Education 'graduated from masters program' doesn't match requirement: college"
+          ],
+          "criteria_matched": [
+            "Age 28 within range 24-33"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 2
+    },
+    {
+      "prompt": "Hoping to find a 20-26 male who is white and intellectual.",
+      "requirements": {
+        "age_range": [
+          20,
+          26
+        ],
+        "gender": "M",
+        "ethnicity": [
+          "white"
+        ],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 435,
+          "age": 23,
+          "ethnicity": "white, other",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7694021143431441,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 23 within range 20-26",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 292,
+          "age": 23,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7640508551013104,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 23 within range 20-26",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 7,
+          "age": 23,
+          "ethnicity": "pacific islander, white",
+          "education": "working on two-year college",
+          "similarity_score": 0.7515020128066187,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 23 within range 20-26",
+            "Matches ethnicity: white"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "I want to meet a 32-38 male with with bright eyes looks and white.",
+      "requirements": {
+        "age_range": [
+          32,
+          38
+        ],
+        "gender": "M",
+        "ethnicity": [
+          "white"
+        ],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 128,
+          "age": 35,
+          "ethnicity": "white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.8025755497123547,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 35 within range 32-38",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 148,
+          "age": 35,
+          "ethnicity": "white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.7762298972716715,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 35 within range 32-38",
+            "Matches ethnicity: white"
+          ]
+        },
+        {
+          "profile_index": 282,
+          "age": 35,
+          "ethnicity": "middle eastern, white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.7667728394990398,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 35 within range 32-38",
+            "Matches ethnicity: white"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Dreaming of meeting a 36-40 male, straight partner who is introverted.",
+      "requirements": {
+        "age_range": [
+          36,
+          40
+        ],
+        "gender": "M",
+        "ethnicity": [],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 141,
+          "age": 38,
+          "ethnicity": "black, white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7943408642695102,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 38 within range 36-40"
+          ]
+        },
+        {
+          "profile_index": 362,
+          "age": 38,
+          "ethnicity": "asian",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7656892239259039,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 38 within range 36-40"
+          ]
+        },
+        {
+          "profile_index": 364,
+          "age": 38,
+          "ethnicity": "white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.7582872698027857,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 38 within range 36-40"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "Dreaming of meeting someone curvy, with a college degree and introverted, aged 29-33.",
+      "requirements": {
+        "age_range": [
+          29,
+          33
+        ],
+        "gender": null,
+        "ethnicity": [],
+        "education": "college",
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 470,
+          "age": 31,
+          "ethnicity": "middle eastern",
+          "education": "graduated from two-year college",
+          "similarity_score": 0.8057116269292699,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 31 within range 29-33",
+            "Matches college education requirement"
+          ]
+        },
+        {
+          "profile_index": 123,
+          "age": 31,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8041641781118898,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 31 within range 29-33",
+            "Matches college education requirement"
+          ]
+        },
+        {
+          "profile_index": 467,
+          "age": 31,
+          "ethnicity": "asian",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7813916655701223,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 31 within range 29-33",
+            "Matches college education requirement"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    },
+    {
+      "prompt": "I want to meet someone with dark hair and intellectual, aged 43-48.",
+      "requirements": {
+        "age_range": [
+          43,
+          48
+        ],
+        "gender": null,
+        "ethnicity": [],
+        "education": null,
+        "other_traits": []
+      },
+      "matches": [
+        {
+          "profile_index": 439,
+          "age": 45,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8102132916444152,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 45 within range 43-48"
+          ]
+        },
+        {
+          "profile_index": 137,
+          "age": 45,
+          "ethnicity": "N/A",
+          "education": "space camp",
+          "similarity_score": 0.7919711563171237,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 45 within range 43-48"
+          ]
+        },
+        {
+          "profile_index": 190,
+          "age": 45,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7907206931996849,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 45 within range 43-48"
+          ]
+        }
+      ],
+      "match_count": 3,
+      "valid_match_count": 3
+    }
+  ]
+}
