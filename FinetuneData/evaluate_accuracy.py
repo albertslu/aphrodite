@@ -207,14 +207,8 @@ def evaluate_batch(prompts_and_profiles, batch_size=5):
 
 def load_progress():
     """Load progress from file or create default progress"""
-    try:
-        with open("evaluation_progress.json", "r") as f:
-            return json.load(f)
-    except (FileNotFoundError, json.JSONDecodeError):
-        # Create default progress
-        default_progress = {"last_prompt_index": -1, "last_match_index": -1}
-        save_progress(default_progress)
-        return default_progress
+    # Always start fresh
+    return {"current_index": 0, "total_matches": 0, "accurate_matches": 0, "yes_count": 0, "no_count": 0}
 
 def save_progress(progress_data):
     with open("evaluation_progress.json", "w") as f:
