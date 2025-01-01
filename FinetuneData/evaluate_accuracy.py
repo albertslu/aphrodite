@@ -275,6 +275,9 @@ print(f"Found {len(prompts_and_profiles)} profiles to evaluate", flush=True)
 batch_results = evaluate_batch(prompts_and_profiles)
 
 # Update results with batch evaluations
+current_result = None
+current_matches = []
+
 for i, (is_match, explanation) in enumerate(batch_results):
     result, match = batch_map[i]
     match["is_accurate_match"] = is_match
@@ -299,8 +302,17 @@ for i, (is_match, explanation) in enumerate(batch_results):
         }
         save_progress(progress_data)
 
-    if i % 3 == 2 or i == len(batch_results) - 1:  # Every 3rd result or last result
-        evaluation_results.append(result)
+    # Add result to evaluation_results
+    if current_result != result:
+        if current_result is not None:
+            evaluation_results.append(current_result)
+        current_result = result
+        current_matches = []
+    current_matches.append(match)
+
+# Add the last result if any
+if current_result is not None:
+    evaluation_results.append(current_result)
 
 # Save final results
 save_final_results(evaluation_results, total_matches, accurate_matches, yes_count, no_count)
