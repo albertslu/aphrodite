@@ -65,6 +65,46 @@ def matches_gender(profile_gender, desired_gender):
         profile_gender = 'F'
     return profile_gender == desired_gender
 
+def check_height_requirement(prompt, profile):
+    """
+    Check if profile meets height requirements from prompt
+    Men: tall >= 72 inches (6'0"), short <= 67 inches (5'7")
+    Women: tall >= 68 inches (5'8"), short <= 63 inches (5'3")
+    Allow ±2 inches flexibility only for the minimum height requirement for tall
+    """
+    height = profile.get('height', None)
+    if height is None:
+        return True  # Skip height check if not specified
+        
+    gender = profile.get('sex', '').lower()
+    if not gender:  # Skip if gender not specified
+        return True
+        
+    prompt_lower = prompt.lower()
+    
+    # Define height thresholds
+    if gender == 'm':
+        tall_threshold = 72  # 6'0"
+        short_threshold = 67  # 5'7"
+    else:  # 'f'
+        tall_threshold = 68  # 5'8"
+        short_threshold = 63  # 5'3"
+    
+    # Check if prompt mentions height
+    if "tall" in prompt_lower:
+        # Only allow 2 inches flexibility for minimum height
+        return height >= (tall_threshold - 2)
+    elif "short" in prompt_lower:
+        # No flexibility for maximum height
+        return height <= short_threshold
+    
+    return True  # No height requirement in prompt
+
+def format_height(inches):
+    feet = inches // 12
+    remaining_inches = inches % 12
+    return f"{feet}'{remaining_inches}\""
+
 # Function to generate embeddings
 def generate_embedding(text):
     response = client.embeddings.create(input=text, model="text-embedding-ada-002")
@@ -154,6 +194,10 @@ for i, prompt_embedding in enumerate(prompt_embeddings):
             if not matches_ethnicity(profile_ethnicity, desired_ethnicities):
                 continue
 
+        # Height check
+        if not check_height_requirement(prompt, profile):
+            continue
+
         valid_profiles.append(profile_idx)
         valid_embeddings.append(profile_embeddings[idx])
         valid_indices.append(idx)
@@ -194,7 +238,17 @@ for i, prompt_embedding in enumerate(prompt_embeddings):
                 "education": profile.get("education", "N/A"),
                 "ethnicity": profile.get("ethnicity", "N/A"),
                 "body_type": profile.get("body_type", "N/A"),
+                "sex": profile.get("sex", "N/A"),  # Added gender to output
             }
+            
+            # Add height information if prompt mentions height
+            if "tall" in prompt.lower() or "short" in prompt.lower():
+                height = profile.get("height")
+                if height is not None:
+                    match_info["height"] = format_height(height)
+                else:
+                    match_info["height"] = "Not specified"
+            
             matches_info.append(match_info)
 
     # Only use backup matches if we have less than 3 valid matches
@@ -226,7 +280,17 @@ for i, prompt_embedding in enumerate(prompt_embeddings):
                 "education": profile.get("education", "N/A"),
                 "ethnicity": profile.get("ethnicity", "N/A"),
                 "body_type": profile.get("body_type", "N/A"),
+                "sex": profile.get("sex", "N/A"),  # Added gender to output
             }
+            
+            # Add height information if prompt mentions height
+            if "tall" in prompt.lower() or "short" in prompt.lower():
+                height = profile.get("height")
+                if height is not None:
+                    match_info["height"] = format_height(height)
+                else:
+                    match_info["height"] = "Not specified"
+            
             matches_info.append(match_info)
             valid_profiles.append(profile_idx)
         else:

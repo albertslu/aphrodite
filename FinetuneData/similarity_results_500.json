@@ -9,7 +9,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white, other",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "m"
       },
       {
         "profile_index": 156,
@@ -18,7 +19,8 @@
         "location": "palo alto, california",
         "education": "working on masters program",
         "ethnicity": "asian",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "m"
       },
       {
         "profile_index": 10,
@@ -27,7 +29,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "asian",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       }
     ]
   },
@@ -41,7 +44,8 @@
         "location": "san francisco, california",
         "education": "graduated from space camp",
         "ethnicity": "asian",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "m"
       },
       {
         "profile_index": 197,
@@ -50,7 +54,8 @@
         "location": "san francisco, california",
         "education": "graduated from med school",
         "ethnicity": "asian",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "f"
       },
       {
         "profile_index": 22,
@@ -59,7 +64,8 @@
         "location": "san francisco, california",
         "education": "graduated from masters program",
         "ethnicity": "indian",
-        "body_type": "full figured"
+        "body_type": "full figured",
+        "sex": "f"
       }
     ]
   },
@@ -67,31 +73,37 @@
     "prompt": "I want to meet someone tall and adventurous, aged 36-43.",
     "matches": [
       {
-        "profile_index": 334,
-        "similarity_score": 0.8039603185389872,
+        "profile_index": 98,
+        "similarity_score": 0.7940828508558557,
         "age": 40,
-        "location": "san francisco, california",
-        "education": "graduated from college/university",
-        "ethnicity": "middle eastern, indian",
-        "body_type": "fit"
+        "location": "hayward, california",
+        "education": "working on college/university",
+        "ethnicity": "white",
+        "body_type": "average",
+        "sex": "m",
+        "height": "6'0\""
       },
       {
-        "profile_index": 132,
-        "similarity_score": 0.798724771306404,
+        "profile_index": 74,
+        "similarity_score": 0.7923175982500134,
         "age": 40,
-        "location": "san francisco, california",
-        "education": "graduated from college/university",
+        "location": "oakland, california",
+        "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "curvy"
+        "body_type": "fit",
+        "sex": "f",
+        "height": "5'9\""
       },
       {
-        "profile_index": 440,
-        "similarity_score": 0.7955461534020247,
+        "profile_index": 3,
+        "similarity_score": 0.7903693566662059,
         "age": 40,
         "location": "san francisco, california",
-        "education": "graduated from college/university",
+        "education": "college/university",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "curvy",
+        "sex": "f",
+        "height": "5'7\""
       }
     ]
   },
@@ -105,7 +117,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white, other",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "m"
       },
       {
         "profile_index": 7,
@@ -114,7 +127,8 @@
         "location": "san mateo, california",
         "education": "working on two-year college",
         "ethnicity": "pacific islander, white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "m"
       },
       {
         "profile_index": 292,
@@ -123,7 +137,8 @@
         "location": "palo alto, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "m"
       }
     ]
   },
@@ -137,7 +152,8 @@
         "location": "south san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "m"
       },
       {
         "profile_index": 174,
@@ -146,7 +162,8 @@
         "location": "san francisco, california",
         "education": "graduated from two-year college",
         "ethnicity": "asian",
-        "body_type": "N/A"
+        "body_type": "N/A",
+        "sex": "m"
       },
       {
         "profile_index": 194,
@@ -155,7 +172,8 @@
         "location": "castro valley, california",
         "education": "working on college/university",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       }
     ]
   },
@@ -169,7 +187,8 @@
         "location": "hercules, california",
         "education": "two-year college",
         "ethnicity": "black",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "f"
       },
       {
         "profile_index": 153,
@@ -178,7 +197,8 @@
         "location": "san mateo, california",
         "education": "working on college/university",
         "ethnicity": "white",
-        "body_type": "full figured"
+        "body_type": "full figured",
+        "sex": "f"
       },
       {
         "profile_index": 214,
@@ -187,7 +207,8 @@
         "location": "oakland, california",
         "education": "graduated from college/university",
         "ethnicity": "asian, white",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "f"
       }
     ]
   },
@@ -201,7 +222,8 @@
         "location": "oakland, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "f"
       },
       {
         "profile_index": 21,
@@ -210,7 +232,8 @@
         "location": "san francisco, california",
         "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "f"
       },
       {
         "profile_index": 444,
@@ -219,7 +242,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "N/A"
+        "body_type": "N/A",
+        "sex": "f"
       }
     ]
   },
@@ -233,7 +257,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "N/A",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "f"
       },
       {
         "profile_index": 128,
@@ -242,7 +267,8 @@
         "location": "san francisco, california",
         "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       },
       {
         "profile_index": 268,
@@ -251,7 +277,8 @@
         "location": "san bruno, california",
         "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "curvy"
+        "body_type": "curvy",
+        "sex": "f"
       }
     ]
   },
@@ -265,7 +292,8 @@
         "location": "san francisco, california",
         "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       },
       {
         "profile_index": 282,
@@ -274,7 +302,8 @@
         "location": "san francisco, california",
         "education": "graduated from masters program",
         "ethnicity": "middle eastern, white",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "m"
       },
       {
         "profile_index": 148,
@@ -283,7 +312,8 @@
         "location": "san francisco, california",
         "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "m"
       }
     ]
   },
@@ -297,7 +327,8 @@
         "location": "oakland, california",
         "education": "graduated from space camp",
         "ethnicity": "black, hispanic / latin",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "f"
       },
       {
         "profile_index": 417,
@@ -306,7 +337,8 @@
         "location": "woodacre, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "curvy"
+        "body_type": "curvy",
+        "sex": "f"
       },
       {
         "profile_index": 366,
@@ -315,7 +347,8 @@
         "location": "san francisco, california",
         "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "f"
       }
     ]
   },
@@ -329,7 +362,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "m"
       },
       {
         "profile_index": 289,
@@ -338,7 +372,8 @@
         "location": "mountain view, california",
         "education": "graduated from law school",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       },
       {
         "profile_index": 179,
@@ -347,7 +382,8 @@
         "location": "san francisco, california",
         "education": "working on college/university",
         "ethnicity": "white",
-        "body_type": "N/A"
+        "body_type": "N/A",
+        "sex": "m"
       }
     ]
   },
@@ -361,7 +397,8 @@
         "location": "san francisco, california",
         "education": "working on masters program",
         "ethnicity": "middle eastern, black, native american, indian, hispanic / latin, white",
-        "body_type": "thin"
+        "body_type": "thin",
+        "sex": "f"
       },
       {
         "profile_index": 316,
@@ -370,7 +407,8 @@
         "location": "berkeley, california",
         "education": "working on ph.d program",
         "ethnicity": "hispanic / latin",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "f"
       },
       {
         "profile_index": 311,
@@ -379,7 +417,8 @@
         "location": "oakland, california",
         "education": "working on masters program",
         "ethnicity": "middle eastern, hispanic / latin",
-        "body_type": "N/A"
+        "body_type": "N/A",
+        "sex": "f"
       }
     ]
   },
@@ -393,7 +432,8 @@
         "location": "san mateo, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       },
       {
         "profile_index": 399,
@@ -402,7 +442,8 @@
         "location": "san francisco, california",
         "education": "N/A",
         "ethnicity": "white",
-        "body_type": "thin"
+        "body_type": "thin",
+        "sex": "m"
       },
       {
         "profile_index": 5,
@@ -411,7 +452,8 @@
         "location": "san francisco, california",
         "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "m"
       }
     ]
   },
@@ -425,7 +467,8 @@
         "location": "san francisco, california",
         "education": "graduated from masters program",
         "ethnicity": "indian",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "m"
       },
       {
         "profile_index": 289,
@@ -434,7 +477,8 @@
         "location": "mountain view, california",
         "education": "graduated from law school",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       },
       {
         "profile_index": 375,
@@ -443,7 +487,8 @@
         "location": "san francisco, california",
         "education": "graduated from masters program",
         "ethnicity": "asian",
-        "body_type": "N/A"
+        "body_type": "N/A",
+        "sex": "f"
       }
     ]
   },
@@ -457,7 +502,8 @@
         "location": "san francisco, california",
         "education": "working on college/university",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "f"
       },
       {
         "profile_index": 173,
@@ -466,7 +512,8 @@
         "location": "san francisco, california",
         "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "curvy"
+        "body_type": "curvy",
+        "sex": "f"
       },
       {
         "profile_index": 78,
@@ -475,7 +522,8 @@
         "location": "san francisco, california",
         "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "f"
       }
     ]
   },
@@ -489,7 +537,8 @@
         "location": "oakland, california",
         "education": "working on masters program",
         "ethnicity": "white",
-        "body_type": "curvy"
+        "body_type": "curvy",
+        "sex": "f"
       },
       {
         "profile_index": 166,
@@ -498,7 +547,8 @@
         "location": "novato, california",
         "education": "graduated from high school",
         "ethnicity": "white",
-        "body_type": "full figured"
+        "body_type": "full figured",
+        "sex": "m"
       },
       {
         "profile_index": 489,
@@ -507,7 +557,8 @@
         "location": "berkeley, california",
         "education": "working on college/university",
         "ethnicity": "white",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "f"
       }
     ]
   },
@@ -521,7 +572,8 @@
         "location": "berkeley, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "f"
       },
       {
         "profile_index": 310,
@@ -530,7 +582,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "jacked"
+        "body_type": "jacked",
+        "sex": "m"
       },
       {
         "profile_index": 470,
@@ -539,7 +592,8 @@
         "location": "pacifica, california",
         "education": "graduated from two-year college",
         "ethnicity": "middle eastern",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "m"
       }
     ]
   },
@@ -553,7 +607,8 @@
         "location": "oakland, california",
         "education": "graduated from college/university",
         "ethnicity": "asian, white",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "f"
       },
       {
         "profile_index": 385,
@@ -562,7 +617,8 @@
         "location": "hercules, california",
         "education": "two-year college",
         "ethnicity": "black",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "f"
       },
       {
         "profile_index": 330,
@@ -571,7 +627,8 @@
         "location": "san leandro, california",
         "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "f"
       }
     ]
   },
@@ -585,7 +642,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "m"
       },
       {
         "profile_index": 289,
@@ -594,7 +652,8 @@
         "location": "mountain view, california",
         "education": "graduated from law school",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       },
       {
         "profile_index": 437,
@@ -603,7 +662,8 @@
         "location": "san mateo, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       }
     ]
   },
@@ -617,7 +677,8 @@
         "location": "castro valley, california",
         "education": "working on college/university",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       },
       {
         "profile_index": 485,
@@ -626,7 +687,8 @@
         "location": "south san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "m"
       },
       {
         "profile_index": 415,
@@ -635,7 +697,8 @@
         "location": "emeryville, california",
         "education": "graduated from college/university",
         "ethnicity": "white, other",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       }
     ]
   },
@@ -649,7 +712,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "m"
       },
       {
         "profile_index": 26,
@@ -658,7 +722,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "thin"
+        "body_type": "thin",
+        "sex": "m"
       },
       {
         "profile_index": 353,
@@ -667,7 +732,8 @@
         "location": "oakland, california",
         "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "thin"
+        "body_type": "thin",
+        "sex": "m"
       }
     ]
   },
@@ -681,7 +747,8 @@
         "location": "berkeley, california",
         "education": "working on college/university",
         "ethnicity": "asian",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       },
       {
         "profile_index": 201,
@@ -690,7 +757,8 @@
         "location": "belmont, california",
         "education": "working on college/university",
         "ethnicity": "white",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "m"
       },
       {
         "profile_index": 213,
@@ -699,7 +767,8 @@
         "location": "san francisco, california",
         "education": "working on college/university",
         "ethnicity": "hispanic / latin, other",
-        "body_type": "skinny"
+        "body_type": "skinny",
+        "sex": "m"
       }
     ]
   },
@@ -707,31 +776,37 @@
     "prompt": "Looking for a 28-31 male with short looks, with a strong educational background and unknown.",
     "matches": [
       {
-        "profile_index": 310,
-        "similarity_score": 0.793600499708179,
-        "age": 30,
+        "profile_index": 66,
+        "similarity_score": 0.7748232968756559,
+        "age": 29,
+        "location": "alameda, california",
+        "education": "working on masters program",
+        "ethnicity": "asian, pacific islander",
+        "body_type": "athletic",
+        "sex": "m",
+        "height": "5'5\""
+      },
+      {
+        "profile_index": 467,
+        "similarity_score": 0.7778558387507587,
+        "age": 31,
         "location": "san francisco, california",
         "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "jacked"
+        "ethnicity": "asian",
+        "body_type": "average",
+        "sex": "m",
+        "height": "5'6\""
       },
       {
-        "profile_index": 485,
-        "similarity_score": 0.7895115802047713,
-        "age": 29,
-        "location": "south san francisco, california",
+        "profile_index": 411,
+        "similarity_score": 0.7719440553182346,
+        "age": 28,
+        "location": "san francisco, california",
         "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "fit"
-      },
-      {
-        "profile_index": 479,
-        "similarity_score": 0.7778533203879259,
-        "age": 30,
-        "location": "oakland, california",
-        "education": "graduated from college/university",
-        "ethnicity": "indian",
-        "body_type": "fit"
+        "ethnicity": "asian",
+        "body_type": "N/A",
+        "sex": "m",
+        "height": "5'7\""
       }
     ]
   },
@@ -739,31 +814,37 @@
     "prompt": "Searching for someone short, currently pursuing a degree and outgoing, aged 29-35.",
     "matches": [
       {
-        "profile_index": 93,
-        "similarity_score": 0.8028085672578804,
-        "age": 32,
-        "location": "oakland, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "thin"
-      },
-      {
-        "profile_index": 437,
-        "similarity_score": 0.8020288545259148,
-        "age": 32,
-        "location": "san mateo, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "athletic"
-      },
-      {
         "profile_index": 444,
         "similarity_score": 0.7990512951915014,
         "age": 32,
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "N/A"
+        "body_type": "N/A",
+        "sex": "f",
+        "height": "5'3\""
+      },
+      {
+        "profile_index": 149,
+        "similarity_score": 0.7813138646783373,
+        "age": 32,
+        "location": "san francisco, california",
+        "education": "graduated from masters program",
+        "ethnicity": "indian",
+        "body_type": "average",
+        "sex": "m",
+        "height": "5'7\""
+      },
+      {
+        "profile_index": 375,
+        "similarity_score": 0.7719170141598433,
+        "age": 32,
+        "location": "san francisco, california",
+        "education": "graduated from masters program",
+        "ethnicity": "asian",
+        "body_type": "N/A",
+        "sex": "f",
+        "height": "5'2\""
       }
     ]
   },
@@ -777,7 +858,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "N/A",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "f"
       },
       {
         "profile_index": 134,
@@ -786,7 +868,8 @@
         "location": "san bruno, california",
         "education": "graduated from masters program",
         "ethnicity": "N/A",
-        "body_type": "curvy"
+        "body_type": "curvy",
+        "sex": "f"
       },
       {
         "profile_index": 287,
@@ -795,7 +878,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "N/A",
-        "body_type": "N/A"
+        "body_type": "N/A",
+        "sex": "f"
       }
     ]
   },
@@ -809,7 +893,8 @@
         "location": "oakland, california",
         "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "m"
       },
       {
         "profile_index": 4,
@@ -818,7 +903,8 @@
         "location": "san francisco, california",
         "education": "working on college/university",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "f"
       },
       {
         "profile_index": 142,
@@ -827,7 +913,8 @@
         "location": "berkeley, california",
         "education": "working on ph.d program",
         "ethnicity": "asian",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "m"
       }
     ]
   },
@@ -841,7 +928,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "f"
       },
       {
         "profile_index": 43,
@@ -850,7 +938,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "f"
       },
       {
         "profile_index": 298,
@@ -859,7 +948,8 @@
         "location": "san francisco, california",
         "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "f"
       }
     ]
   },
@@ -873,7 +963,8 @@
         "location": "walnut creek, california",
         "education": "graduated from space camp",
         "ethnicity": "white",
-        "body_type": "full figured"
+        "body_type": "full figured",
+        "sex": "f"
       },
       {
         "profile_index": 305,
@@ -882,7 +973,8 @@
         "location": "oakland, california",
         "education": "working on college/university",
         "ethnicity": "black",
-        "body_type": "thin"
+        "body_type": "thin",
+        "sex": "f"
       },
       {
         "profile_index": 59,
@@ -891,7 +983,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "full figured"
+        "body_type": "full figured",
+        "sex": "f"
       }
     ]
   },
@@ -905,7 +998,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "N/A",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       },
       {
         "profile_index": 343,
@@ -914,7 +1008,8 @@
         "location": "san pablo, california",
         "education": "graduated from college/university",
         "ethnicity": "hispanic / latin",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "m"
       },
       {
         "profile_index": 150,
@@ -923,7 +1018,8 @@
         "location": "san francisco, california",
         "education": "N/A",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "m"
       }
     ]
   },
@@ -937,7 +1033,8 @@
         "location": "novato, california",
         "education": "working on two-year college",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       },
       {
         "profile_index": 443,
@@ -946,7 +1043,8 @@
         "location": "alameda, california",
         "education": "working on college/university",
         "ethnicity": "white",
-        "body_type": "thin"
+        "body_type": "thin",
+        "sex": "m"
       },
       {
         "profile_index": 212,
@@ -955,7 +1053,8 @@
         "location": "oakland, california",
         "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "m"
       }
     ]
   },
@@ -969,7 +1068,8 @@
         "location": "san francisco, california",
         "education": "N/A",
         "ethnicity": "white",
-        "body_type": "thin"
+        "body_type": "thin",
+        "sex": "m"
       },
       {
         "profile_index": 114,
@@ -978,7 +1078,8 @@
         "location": "hayward, california",
         "education": "N/A",
         "ethnicity": "white",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "m"
       },
       {
         "profile_index": 5,
@@ -987,7 +1088,8 @@
         "location": "san francisco, california",
         "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "m"
       }
     ]
   },
@@ -1001,7 +1103,8 @@
         "location": "oakland, california",
         "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "m"
       },
       {
         "profile_index": 443,
@@ -1010,7 +1113,8 @@
         "location": "alameda, california",
         "education": "working on college/university",
         "ethnicity": "white",
-        "body_type": "thin"
+        "body_type": "thin",
+        "sex": "m"
       },
       {
         "profile_index": 343,
@@ -1019,7 +1123,8 @@
         "location": "san pablo, california",
         "education": "graduated from college/university",
         "ethnicity": "hispanic / latin",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "m"
       }
     ]
   },
@@ -1033,7 +1138,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "f"
       },
       {
         "profile_index": 459,
@@ -1042,7 +1148,8 @@
         "location": "novato, california",
         "education": "working on two-year college",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       },
       {
         "profile_index": 478,
@@ -1051,7 +1158,8 @@
         "location": "burlingame, california",
         "education": "graduated from high school",
         "ethnicity": "white",
-        "body_type": "a little extra"
+        "body_type": "a little extra",
+        "sex": "m"
       }
     ]
   },
@@ -1065,7 +1173,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "m"
       },
       {
         "profile_index": 127,
@@ -1074,7 +1183,8 @@
         "location": "san francisco, california",
         "education": "N/A",
         "ethnicity": "white",
-        "body_type": "a little extra"
+        "body_type": "a little extra",
+        "sex": "m"
       },
       {
         "profile_index": 420,
@@ -1083,7 +1193,8 @@
         "location": "san francisco, california",
         "education": "dropped out of college/university",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "m"
       }
     ]
   },
@@ -1097,7 +1208,8 @@
         "location": "berkeley, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "f"
       },
       {
         "profile_index": 360,
@@ -1106,7 +1218,8 @@
         "location": "mountain view, california",
         "education": "graduated from masters program",
         "ethnicity": "indian",
-        "body_type": "N/A"
+        "body_type": "N/A",
+        "sex": "m"
       },
       {
         "profile_index": 470,
@@ -1115,7 +1228,8 @@
         "location": "pacifica, california",
         "education": "graduated from two-year college",
         "ethnicity": "middle eastern",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "m"
       }
     ]
   },
@@ -1129,7 +1243,8 @@
         "location": "larkspur, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       },
       {
         "profile_index": 281,
@@ -1138,7 +1253,8 @@
         "location": "south san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "m"
       },
       {
         "profile_index": 128,
@@ -1147,7 +1263,8 @@
         "location": "san francisco, california",
         "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       }
     ]
   },
@@ -1161,7 +1278,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "jacked"
+        "body_type": "jacked",
+        "sex": "m"
       },
       {
         "profile_index": 256,
@@ -1170,7 +1288,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       },
       {
         "profile_index": 95,
@@ -1179,7 +1298,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       }
     ]
   },
@@ -1193,7 +1313,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "black, white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "m"
       },
       {
         "profile_index": 290,
@@ -1202,7 +1323,8 @@
         "location": "san francisco, california",
         "education": "dropped out of masters program",
         "ethnicity": "white",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "m"
       },
       {
         "profile_index": 364,
@@ -1211,7 +1333,8 @@
         "location": "san francisco, california",
         "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       }
     ]
   },
@@ -1225,7 +1348,8 @@
         "location": "san francisco, california",
         "education": "working on college/university",
         "ethnicity": "white",
-        "body_type": "thin"
+        "body_type": "thin",
+        "sex": "f"
       },
       {
         "profile_index": 417,
@@ -1234,7 +1358,8 @@
         "location": "woodacre, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "curvy"
+        "body_type": "curvy",
+        "sex": "f"
       },
       {
         "profile_index": 352,
@@ -1243,7 +1368,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "curvy"
+        "body_type": "curvy",
+        "sex": "f"
       }
     ]
   },
@@ -1257,7 +1383,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "N/A",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       },
       {
         "profile_index": 142,
@@ -1266,7 +1393,8 @@
         "location": "berkeley, california",
         "education": "working on ph.d program",
         "ethnicity": "asian",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "m"
       },
       {
         "profile_index": 188,
@@ -1275,7 +1403,8 @@
         "location": "berkeley, california",
         "education": "graduated from college/university",
         "ethnicity": "middle eastern, hispanic / latin",
-        "body_type": "thin"
+        "body_type": "thin",
+        "sex": "m"
       }
     ]
   },
@@ -1283,31 +1412,37 @@
     "prompt": "Searching for someone short, with a college degree and adventurous, aged 22-29.",
     "matches": [
       {
-        "profile_index": 130,
-        "similarity_score": 0.8252544352313058,
-        "age": 25,
-        "location": "san francisco, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "fit"
-      },
-      {
-        "profile_index": 212,
-        "similarity_score": 0.8178593191122779,
-        "age": 26,
-        "location": "oakland, california",
-        "education": "graduated from masters program",
-        "ethnicity": "white",
-        "body_type": "average"
-      },
-      {
         "profile_index": 142,
         "similarity_score": 0.8137916950225944,
         "age": 26,
         "location": "berkeley, california",
         "education": "working on ph.d program",
         "ethnicity": "asian",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "m",
+        "height": "5'7\""
+      },
+      {
+        "profile_index": 459,
+        "similarity_score": 0.8080144199206143,
+        "age": 25,
+        "location": "novato, california",
+        "education": "working on two-year college",
+        "ethnicity": "white",
+        "body_type": "athletic",
+        "sex": "m",
+        "height": "5'4\""
+      },
+      {
+        "profile_index": 351,
+        "similarity_score": 0.7981699727597245,
+        "age": 25,
+        "location": "san francisco, california",
+        "education": "working on masters program",
+        "ethnicity": "N/A",
+        "body_type": "a little extra",
+        "sex": "f",
+        "height": "5'1\""
       }
     ]
   },
@@ -1321,7 +1456,8 @@
         "location": "emeryville, california",
         "education": "graduated from college/university",
         "ethnicity": "white, other",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       },
       {
         "profile_index": 385,
@@ -1330,7 +1466,8 @@
         "location": "hercules, california",
         "education": "two-year college",
         "ethnicity": "black",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "f"
       },
       {
         "profile_index": 214,
@@ -1339,7 +1476,8 @@
         "location": "oakland, california",
         "education": "graduated from college/university",
         "ethnicity": "asian, white",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "f"
       }
     ]
   },
@@ -1353,7 +1491,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "jacked"
+        "body_type": "jacked",
+        "sex": "m"
       },
       {
         "profile_index": 256,
@@ -1362,7 +1501,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       },
       {
         "profile_index": 352,
@@ -1371,7 +1511,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "curvy"
+        "body_type": "curvy",
+        "sex": "f"
       }
     ]
   },
@@ -1385,7 +1526,9 @@
         "location": "san francisco, california",
         "education": "N/A",
         "ethnicity": "white",
-        "body_type": "thin"
+        "body_type": "thin",
+        "sex": "m",
+        "height": "6'0\""
       },
       {
         "profile_index": 192,
@@ -1394,7 +1537,9 @@
         "location": "oakland, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "f",
+        "height": "5'6\""
       },
       {
         "profile_index": 302,
@@ -1403,7 +1548,9 @@
         "location": "san francisco, california",
         "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "f",
+        "height": "5'6\""
       }
     ]
   },
@@ -1417,7 +1564,8 @@
         "location": "berkeley, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "f"
       },
       {
         "profile_index": 375,
@@ -1426,7 +1574,8 @@
         "location": "san francisco, california",
         "education": "graduated from masters program",
         "ethnicity": "asian",
-        "body_type": "N/A"
+        "body_type": "N/A",
+        "sex": "f"
       },
       {
         "profile_index": 149,
@@ -1435,7 +1584,8 @@
         "location": "san francisco, california",
         "education": "graduated from masters program",
         "ethnicity": "indian",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "m"
       }
     ]
   },
@@ -1443,31 +1593,37 @@
     "prompt": "Looking for a 33-38 male with tall looks, with a strong educational background and asian, native american.",
     "matches": [
       {
-        "profile_index": 129,
-        "similarity_score": 0.7669849039335678,
-        "age": 35,
-        "location": "pleasant hill, california",
-        "education": "graduated from college/university",
-        "ethnicity": "asian, hispanic / latin",
-        "body_type": "average"
-      },
-      {
         "profile_index": 35,
-        "similarity_score": 0.7402607476467679,
+        "similarity_score": 0.7403004214820719,
         "age": 36,
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "asian",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "m",
+        "height": "5'10\""
       },
       {
-        "profile_index": 418,
-        "similarity_score": 0.7873917945954899,
+        "profile_index": 296,
+        "similarity_score": 0.7660580368980963,
         "age": 34,
         "location": "san francisco, california",
-        "education": "graduated from masters program",
+        "education": "graduated from college/university",
         "ethnicity": "asian",
-        "body_type": "athletic"
+        "body_type": "fit",
+        "sex": "m",
+        "height": "5'11\""
+      },
+      {
+        "profile_index": 314,
+        "similarity_score": 0.7646880912248452,
+        "age": 34,
+        "location": "oakland, california",
+        "education": "N/A",
+        "ethnicity": "asian",
+        "body_type": "athletic",
+        "sex": "m",
+        "height": "5'11\""
       }
     ]
   },
@@ -1481,7 +1637,8 @@
         "location": "san francisco, california",
         "education": "working on college/university",
         "ethnicity": "white",
-        "body_type": "N/A"
+        "body_type": "N/A",
+        "sex": "m"
       },
       {
         "profile_index": 283,
@@ -1490,7 +1647,8 @@
         "location": "san francisco, california",
         "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       },
       {
         "profile_index": 289,
@@ -1499,7 +1657,8 @@
         "location": "mountain view, california",
         "education": "graduated from law school",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       }
     ]
   },
@@ -1513,7 +1672,8 @@
         "location": "south san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "m"
       },
       {
         "profile_index": 58,
@@ -1522,7 +1682,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "m"
       },
       {
         "profile_index": 124,
@@ -1531,7 +1692,8 @@
         "location": "san francisco, california",
         "education": "working on ph.d program",
         "ethnicity": "hispanic / latin, white",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "f"
       }
     ]
   },
@@ -1545,7 +1707,8 @@
         "location": "oakland, california",
         "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "m"
       },
       {
         "profile_index": 142,
@@ -1554,7 +1717,8 @@
         "location": "berkeley, california",
         "education": "working on ph.d program",
         "ethnicity": "asian",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "m"
       },
       {
         "profile_index": 317,
@@ -1563,7 +1727,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "N/A",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       }
     ]
   },
@@ -1572,30 +1737,33 @@
     "matches": [
       {
         "profile_index": 240,
-        "similarity_score": 0.8124289062757689,
+        "similarity_score": 0.8124981662222283,
         "age": 22,
         "location": "san francisco, california",
         "education": "working on college/university",
         "ethnicity": "N/A",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "m"
       },
       {
         "profile_index": 166,
-        "similarity_score": 0.8005048041779412,
+        "similarity_score": 0.8005850328968833,
         "age": 22,
         "location": "novato, california",
         "education": "graduated from high school",
         "ethnicity": "white",
-        "body_type": "full figured"
+        "body_type": "full figured",
+        "sex": "m"
       },
       {
         "profile_index": 107,
-        "similarity_score": 0.7954042042926229,
+        "similarity_score": 0.7954712535631776,
         "age": 22,
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "m"
       }
     ]
   },
@@ -1609,7 +1777,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "jacked"
+        "body_type": "jacked",
+        "sex": "m"
       },
       {
         "profile_index": 470,
@@ -1618,7 +1787,8 @@
         "location": "pacifica, california",
         "education": "graduated from two-year college",
         "ethnicity": "middle eastern",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "m"
       },
       {
         "profile_index": 256,
@@ -1627,7 +1797,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       }
     ]
   },
@@ -1641,7 +1812,8 @@
         "location": "alameda, california",
         "education": "working on masters program",
         "ethnicity": "asian, pacific islander",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       },
       {
         "profile_index": 273,
@@ -1650,7 +1822,8 @@
         "location": "san mateo, california",
         "education": "graduated from ph.d program",
         "ethnicity": "asian",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       },
       {
         "profile_index": 49,
@@ -1659,7 +1832,8 @@
         "location": "san francisco, california",
         "education": "working on college/university",
         "ethnicity": "asian",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "m"
       }
     ]
   },
@@ -1673,7 +1847,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "f"
       },
       {
         "profile_index": 128,
@@ -1682,7 +1857,8 @@
         "location": "san francisco, california",
         "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       },
       {
         "profile_index": 268,
@@ -1691,7 +1867,8 @@
         "location": "san bruno, california",
         "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "curvy"
+        "body_type": "curvy",
+        "sex": "f"
       }
     ]
   },
@@ -1705,7 +1882,8 @@
         "location": "san bruno, california",
         "education": "graduated from masters program",
         "ethnicity": "N/A",
-        "body_type": "curvy"
+        "body_type": "curvy",
+        "sex": "f"
       },
       {
         "profile_index": 317,
@@ -1714,7 +1892,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "N/A",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       },
       {
         "profile_index": 117,
@@ -1723,7 +1902,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "N/A",
-        "body_type": "N/A"
+        "body_type": "N/A",
+        "sex": "m"
       }
     ]
   },
@@ -1737,7 +1917,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "curvy"
+        "body_type": "curvy",
+        "sex": "f"
       },
       {
         "profile_index": 221,
@@ -1746,7 +1927,8 @@
         "location": "san rafael, california",
         "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "f"
       },
       {
         "profile_index": 237,
@@ -1755,7 +1937,8 @@
         "location": "oakland, california",
         "education": "graduated from masters program",
         "ethnicity": "black",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "f"
       }
     ]
   },
@@ -1769,7 +1952,8 @@
         "location": "novato, california",
         "education": "graduated from high school",
         "ethnicity": "white",
-        "body_type": "full figured"
+        "body_type": "full figured",
+        "sex": "m"
       },
       {
         "profile_index": 240,
@@ -1778,7 +1962,8 @@
         "location": "san francisco, california",
         "education": "working on college/university",
         "ethnicity": "N/A",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "m"
       },
       {
         "profile_index": 107,
@@ -1787,7 +1972,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "m"
       }
     ]
   },
@@ -1795,31 +1981,37 @@
     "prompt": "Searching for someone short, with a college degree and goal-oriented, aged 27-32.",
     "matches": [
       {
-        "profile_index": 485,
-        "similarity_score": 0.8109085346842452,
-        "age": 29,
-        "location": "south san francisco, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "fit"
-      },
-      {
-        "profile_index": 417,
-        "similarity_score": 0.7963406246823315,
-        "age": 29,
-        "location": "woodacre, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "curvy"
-      },
-      {
         "profile_index": 391,
         "similarity_score": 0.7901759649893572,
         "age": 29,
         "location": "san francisco, california",
         "education": "graduated from masters program",
         "ethnicity": "asian",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "f",
+        "height": "5'2\""
+      },
+      {
+        "profile_index": 221,
+        "similarity_score": 0.788779870921229,
+        "age": 30,
+        "location": "san rafael, california",
+        "education": "graduated from masters program",
+        "ethnicity": "white",
+        "body_type": "average",
+        "sex": "f",
+        "height": "5'2\""
+      },
+      {
+        "profile_index": 66,
+        "similarity_score": 0.7840504647596964,
+        "age": 29,
+        "location": "alameda, california",
+        "education": "working on masters program",
+        "ethnicity": "asian, pacific islander",
+        "body_type": "athletic",
+        "sex": "m",
+        "height": "5'5\""
       }
     ]
   },
@@ -1833,7 +2025,8 @@
         "location": "san leandro, california",
         "education": "graduated from college/university",
         "ethnicity": "asian, middle eastern, black, native american, indian, pacific islander, hispanic / latin, white, other",
-        "body_type": "full figured"
+        "body_type": "full figured",
+        "sex": "f"
       },
       {
         "profile_index": 152,
@@ -1842,7 +2035,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "middle eastern, indian, other",
-        "body_type": "thin"
+        "body_type": "thin",
+        "sex": "f"
       },
       {
         "profile_index": 422,
@@ -1851,7 +2045,8 @@
         "location": "san francisco, california",
         "education": "working on masters program",
         "ethnicity": "middle eastern, black, native american, indian, hispanic / latin, white",
-        "body_type": "thin"
+        "body_type": "thin",
+        "sex": "f"
       }
     ]
   },
@@ -1865,7 +2060,8 @@
         "location": "san bruno, california",
         "education": "graduated from masters program",
         "ethnicity": "N/A",
-        "body_type": "curvy"
+        "body_type": "curvy",
+        "sex": "f"
       },
       {
         "profile_index": 4,
@@ -1874,7 +2070,8 @@
         "location": "san francisco, california",
         "education": "working on college/university",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "f"
       },
       {
         "profile_index": 117,
@@ -1883,7 +2080,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "N/A",
-        "body_type": "N/A"
+        "body_type": "N/A",
+        "sex": "m"
       }
     ]
   },
@@ -1897,7 +2095,8 @@
         "location": "san francisco, california",
         "education": "N/A",
         "ethnicity": "white",
-        "body_type": "thin"
+        "body_type": "thin",
+        "sex": "m"
       },
       {
         "profile_index": 5,
@@ -1906,7 +2105,8 @@
         "location": "san francisco, california",
         "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "m"
       },
       {
         "profile_index": 331,
@@ -1915,7 +2115,8 @@
         "location": "san lorenzo, california",
         "education": "graduated from college/university",
         "ethnicity": "hispanic / latin",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "m"
       }
     ]
   },
@@ -1929,7 +2130,8 @@
         "location": "san leandro, california",
         "education": "graduated from college/university",
         "ethnicity": "asian, middle eastern, black, native american, indian, pacific islander, hispanic / latin, white, other",
-        "body_type": "full figured"
+        "body_type": "full figured",
+        "sex": "f"
       },
       {
         "profile_index": 152,
@@ -1938,7 +2140,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "middle eastern, indian, other",
-        "body_type": "thin"
+        "body_type": "thin",
+        "sex": "f"
       },
       {
         "profile_index": 422,
@@ -1947,7 +2150,8 @@
         "location": "san francisco, california",
         "education": "working on masters program",
         "ethnicity": "middle eastern, black, native american, indian, hispanic / latin, white",
-        "body_type": "thin"
+        "body_type": "thin",
+        "sex": "f"
       }
     ]
   },
@@ -1961,7 +2165,8 @@
         "location": "oakland, california",
         "education": "graduated from college/university",
         "ethnicity": "asian, white",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "f"
       },
       {
         "profile_index": 415,
@@ -1970,7 +2175,8 @@
         "location": "emeryville, california",
         "education": "graduated from college/university",
         "ethnicity": "white, other",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       },
       {
         "profile_index": 385,
@@ -1979,7 +2185,8 @@
         "location": "hercules, california",
         "education": "two-year college",
         "ethnicity": "black",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "f"
       }
     ]
   },
@@ -1993,7 +2200,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "curvy"
+        "body_type": "curvy",
+        "sex": "f"
       },
       {
         "profile_index": 221,
@@ -2002,7 +2210,8 @@
         "location": "san rafael, california",
         "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "f"
       },
       {
         "profile_index": 342,
@@ -2011,7 +2220,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "f"
       }
     ]
   },
@@ -2025,7 +2235,8 @@
         "location": "oakland, california",
         "education": "graduated from college/university",
         "ethnicity": "asian, white",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "f"
       },
       {
         "profile_index": 385,
@@ -2034,7 +2245,8 @@
         "location": "hercules, california",
         "education": "two-year college",
         "ethnicity": "black",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "f"
       },
       {
         "profile_index": 174,
@@ -2043,7 +2255,8 @@
         "location": "san francisco, california",
         "education": "graduated from two-year college",
         "ethnicity": "asian",
-        "body_type": "N/A"
+        "body_type": "N/A",
+        "sex": "m"
       }
     ]
   },
@@ -2057,7 +2270,8 @@
         "location": "redwood city, california",
         "education": "working on masters program",
         "ethnicity": "white",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "f"
       },
       {
         "profile_index": 261,
@@ -2066,7 +2280,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "thin"
+        "body_type": "thin",
+        "sex": "f"
       },
       {
         "profile_index": 349,
@@ -2075,7 +2290,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "f"
       }
     ]
   },
@@ -2089,7 +2305,8 @@
         "location": "oakland, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "f"
       },
       {
         "profile_index": 302,
@@ -2098,7 +2315,8 @@
         "location": "san francisco, california",
         "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "f"
       },
       {
         "profile_index": 406,
@@ -2107,7 +2325,8 @@
         "location": "san francisco, california",
         "education": "graduated from med school",
         "ethnicity": "white",
-        "body_type": "N/A"
+        "body_type": "N/A",
+        "sex": "f"
       }
     ]
   },
@@ -2121,7 +2340,8 @@
         "location": "san francisco, california",
         "education": "working on college/university",
         "ethnicity": "N/A",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "m"
       },
       {
         "profile_index": 355,
@@ -2130,7 +2350,8 @@
         "location": "san francisco, california",
         "education": "working on masters program",
         "ethnicity": "white",
-        "body_type": "skinny"
+        "body_type": "skinny",
+        "sex": "m"
       },
       {
         "profile_index": 107,
@@ -2139,7 +2360,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "m"
       }
     ]
   },
@@ -2153,7 +2375,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "jacked"
+        "body_type": "jacked",
+        "sex": "m"
       },
       {
         "profile_index": 352,
@@ -2162,7 +2385,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "curvy"
+        "body_type": "curvy",
+        "sex": "f"
       },
       {
         "profile_index": 256,
@@ -2171,7 +2395,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       }
     ]
   },
@@ -2179,31 +2404,37 @@
     "prompt": "Searching for a 29-35 male with short looks and white.",
     "matches": [
       {
-        "profile_index": 104,
-        "similarity_score": 0.7724590989320252,
+        "profile_index": 271,
+        "similarity_score": 0.7445439048591037,
         "age": 32,
-        "location": "oakland, california",
-        "education": "graduated from high school",
-        "ethnicity": "white",
-        "body_type": "average"
+        "location": "fremont, california",
+        "education": "graduated from two-year college",
+        "ethnicity": "black, white",
+        "body_type": "athletic",
+        "sex": "m",
+        "height": "5'7\""
       },
       {
-        "profile_index": 437,
-        "similarity_score": 0.7662964090304081,
-        "age": 32,
-        "location": "san mateo, california",
-        "education": "graduated from college/university",
-        "ethnicity": "white",
-        "body_type": "athletic"
-      },
-      {
-        "profile_index": 116,
-        "similarity_score": 0.7616220291089758,
+        "profile_index": 283,
+        "similarity_score": 0.7427264492792985,
         "age": 32,
         "location": "san francisco, california",
+        "education": "graduated from masters program",
+        "ethnicity": "white",
+        "body_type": "athletic",
+        "sex": "m",
+        "height": "5'7\""
+      },
+      {
+        "profile_index": 281,
+        "similarity_score": 0.7745848590994177,
+        "age": 34,
+        "location": "south san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "m",
+        "height": "5'6\""
       }
     ]
   },
@@ -2217,7 +2448,8 @@
         "location": "oakland, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "f"
       },
       {
         "profile_index": 406,
@@ -2226,7 +2458,8 @@
         "location": "san francisco, california",
         "education": "graduated from med school",
         "ethnicity": "white",
-        "body_type": "N/A"
+        "body_type": "N/A",
+        "sex": "f"
       },
       {
         "profile_index": 302,
@@ -2235,7 +2468,8 @@
         "location": "san francisco, california",
         "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "f"
       }
     ]
   },
@@ -2249,7 +2483,8 @@
         "location": "castro valley, california",
         "education": "working on college/university",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       },
       {
         "profile_index": 415,
@@ -2258,7 +2493,8 @@
         "location": "emeryville, california",
         "education": "graduated from college/university",
         "ethnicity": "white, other",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       },
       {
         "profile_index": 462,
@@ -2267,7 +2503,8 @@
         "location": "san francisco, california",
         "education": "working on college/university",
         "ethnicity": "pacific islander, white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "m"
       }
     ]
   },
@@ -2281,7 +2518,8 @@
         "location": "san francisco, california",
         "education": "graduated from masters program",
         "ethnicity": "N/A",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "f"
       },
       {
         "profile_index": 12,
@@ -2290,7 +2528,8 @@
         "location": "san francisco, california",
         "education": "college/university",
         "ethnicity": "black",
-        "body_type": "curvy"
+        "body_type": "curvy",
+        "sex": "f"
       },
       {
         "profile_index": 132,
@@ -2299,7 +2538,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "curvy"
+        "body_type": "curvy",
+        "sex": "f"
       }
     ]
   },
@@ -2313,7 +2553,9 @@
         "location": "redwood city, california",
         "education": "working on masters program",
         "ethnicity": "white",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "f",
+        "height": "5'3\""
       },
       {
         "profile_index": 4,
@@ -2322,16 +2564,20 @@
         "location": "san francisco, california",
         "education": "working on college/university",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "f",
+        "height": "5'2\""
       },
       {
-        "profile_index": 134,
-        "similarity_score": 0.7896382785995539,
+        "profile_index": 287,
+        "similarity_score": 0.7773906629742613,
         "age": 27,
-        "location": "san bruno, california",
-        "education": "graduated from masters program",
+        "location": "san francisco, california",
+        "education": "graduated from college/university",
         "ethnicity": "N/A",
-        "body_type": "curvy"
+        "body_type": "N/A",
+        "sex": "f",
+        "height": "5'2\""
       }
     ]
   },
@@ -2345,7 +2591,8 @@
         "location": "oakland, california",
         "education": "graduated from high school",
         "ethnicity": "asian, black, native american, indian, hispanic / latin, white, other",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "m"
       },
       {
         "profile_index": 383,
@@ -2354,7 +2601,8 @@
         "location": "oakland, california",
         "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       },
       {
         "profile_index": 408,
@@ -2363,7 +2611,8 @@
         "location": "san francisco, california",
         "education": "graduated from two-year college",
         "ethnicity": "hispanic / latin",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       }
     ]
   },
@@ -2377,7 +2626,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "asian",
-        "body_type": "N/A"
+        "body_type": "N/A",
+        "sex": "m"
       },
       {
         "profile_index": 141,
@@ -2386,7 +2636,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "black, white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "m"
       },
       {
         "profile_index": 73,
@@ -2395,7 +2646,8 @@
         "location": "san francisco, california",
         "education": "graduated from masters program",
         "ethnicity": "N/A",
-        "body_type": "N/A"
+        "body_type": "N/A",
+        "sex": "f"
       }
     ]
   },
@@ -2409,7 +2661,8 @@
         "location": "oakland, california",
         "education": "graduated from high school",
         "ethnicity": "black, white",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       },
       {
         "profile_index": 291,
@@ -2418,16 +2671,18 @@
         "location": "vallejo, california",
         "education": "N/A",
         "ethnicity": "black",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "m"
       },
       {
         "profile_index": 175,
-        "similarity_score": 0.7809620798728165,
+        "similarity_score": 0.780976660810081,
         "age": 22,
         "location": "san francisco, california",
         "education": "working on college/university",
         "ethnicity": "black",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       }
     ]
   },
@@ -2441,7 +2696,8 @@
         "location": "oakland, california",
         "education": "graduated from college/university",
         "ethnicity": "asian, white",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "f"
       },
       {
         "profile_index": 417,
@@ -2450,7 +2706,8 @@
         "location": "woodacre, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "curvy"
+        "body_type": "curvy",
+        "sex": "f"
       },
       {
         "profile_index": 105,
@@ -2459,7 +2716,8 @@
         "location": "san carlos, california",
         "education": "N/A",
         "ethnicity": "hispanic / latin, white",
-        "body_type": "a little extra"
+        "body_type": "a little extra",
+        "sex": "f"
       }
     ]
   },
@@ -2473,7 +2731,8 @@
         "location": "emeryville, california",
         "education": "graduated from college/university",
         "ethnicity": "white, other",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       },
       {
         "profile_index": 194,
@@ -2482,7 +2741,8 @@
         "location": "castro valley, california",
         "education": "working on college/university",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       },
       {
         "profile_index": 139,
@@ -2491,7 +2751,8 @@
         "location": "san pablo, california",
         "education": "N/A",
         "ethnicity": "hispanic / latin, white",
-        "body_type": "overweight"
+        "body_type": "overweight",
+        "sex": "m"
       }
     ]
   },
@@ -2505,7 +2766,8 @@
         "location": "hercules, california",
         "education": "two-year college",
         "ethnicity": "black",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "f"
       },
       {
         "profile_index": 174,
@@ -2514,7 +2776,8 @@
         "location": "san francisco, california",
         "education": "graduated from two-year college",
         "ethnicity": "asian",
-        "body_type": "N/A"
+        "body_type": "N/A",
+        "sex": "m"
       },
       {
         "profile_index": 330,
@@ -2523,7 +2786,8 @@
         "location": "san leandro, california",
         "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "f"
       }
     ]
   },
@@ -2537,7 +2801,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "white, other",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "m"
       },
       {
         "profile_index": 292,
@@ -2546,7 +2811,8 @@
         "location": "palo alto, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "m"
       },
       {
         "profile_index": 7,
@@ -2555,7 +2821,8 @@
         "location": "san mateo, california",
         "education": "working on two-year college",
         "ethnicity": "pacific islander, white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "m"
       }
     ]
   },
@@ -2569,7 +2836,8 @@
         "location": "san francisco, california",
         "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       },
       {
         "profile_index": 148,
@@ -2578,7 +2846,8 @@
         "location": "san francisco, california",
         "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "m"
       },
       {
         "profile_index": 282,
@@ -2587,7 +2856,8 @@
         "location": "san francisco, california",
         "education": "graduated from masters program",
         "ethnicity": "middle eastern, white",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "m"
       }
     ]
   },
@@ -2601,7 +2871,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "black, white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "m"
       },
       {
         "profile_index": 362,
@@ -2610,7 +2881,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "asian",
-        "body_type": "N/A"
+        "body_type": "N/A",
+        "sex": "m"
       },
       {
         "profile_index": 364,
@@ -2619,7 +2891,8 @@
         "location": "san francisco, california",
         "education": "graduated from masters program",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       }
     ]
   },
@@ -2633,7 +2906,8 @@
         "location": "pacifica, california",
         "education": "graduated from two-year college",
         "ethnicity": "middle eastern",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "m"
       },
       {
         "profile_index": 123,
@@ -2642,7 +2916,8 @@
         "location": "berkeley, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "f"
       },
       {
         "profile_index": 467,
@@ -2651,7 +2926,8 @@
         "location": "san francisco, california",
         "education": "graduated from college/university",
         "ethnicity": "asian",
-        "body_type": "average"
+        "body_type": "average",
+        "sex": "m"
       }
     ]
   },
@@ -2665,16 +2941,18 @@
         "location": "oakland, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "athletic"
+        "body_type": "athletic",
+        "sex": "m"
       },
       {
         "profile_index": 137,
-        "similarity_score": 0.7919711563171237,
+        "similarity_score": 0.7919710389166517,
         "age": 45,
         "location": "san francisco, california",
         "education": "space camp",
         "ethnicity": "N/A",
-        "body_type": "fit"
+        "body_type": "fit",
+        "sex": "f"
       },
       {
         "profile_index": 190,
@@ -2683,7 +2961,8 @@
         "location": "alameda, california",
         "education": "graduated from college/university",
         "ethnicity": "white",
-        "body_type": "curvy"
+        "body_type": "curvy",
+        "sex": "f"
       }
     ]
   }
