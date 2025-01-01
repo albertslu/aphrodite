@@ -1,9 +1,9 @@
 {
-  "evaluation_timestamp": "2025-01-01T01:37:36.442258",
+  "evaluation_timestamp": "2025-01-01T10:52:31.052229",
   "total_prompts": 84,
   "total_matches": 252,
-  "valid_matches": 228,
-  "accuracy_percentage": 90.47619047619048,
+  "valid_matches": 209,
+  "accuracy_percentage": 82.93650793650794,
   "results": [
     {
       "prompt": "Searching for a 21-25 male who is asian, white and creative.",
@@ -78,43 +78,43 @@
       },
       "matches": [
         {
-          "profile_index": 492,
-          "age": 37,
-          "ethnicity": "asian",
-          "education": "graduated from space camp",
-          "similarity_score": 0.805277611497242,
-          "is_valid": false,
-          "reasons": [
-            "Education 'graduated from space camp' doesn't match requirement: any_degree"
-          ],
-          "criteria_matched": [
-            "Age 37 within range 34-40"
-          ]
-        },
-        {
-          "profile_index": 197,
-          "age": 37,
-          "ethnicity": "asian",
-          "education": "graduated from med school",
-          "similarity_score": 0.7993209631803677,
-          "is_valid": false,
-          "reasons": [
-            "Education 'graduated from med school' doesn't match requirement: any_degree"
-          ],
-          "criteria_matched": [
-            "Age 37 within range 34-40"
-          ]
-        },
-        {
-          "profile_index": 22,
-          "age": 37,
-          "ethnicity": "indian",
+          "profile_index": 255,
+          "age": 67,
+          "ethnicity": "white",
           "education": "graduated from masters program",
-          "similarity_score": 0.7867710535085582,
+          "similarity_score": 0.8294942134559352,
+          "is_valid": false,
+          "reasons": [
+            "Age 67 outside range 34-40"
+          ],
+          "criteria_matched": [
+            "Has a degree as required"
+          ]
+        },
+        {
+          "profile_index": 128,
+          "age": 35,
+          "ethnicity": "white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.8249522969088308,
           "is_valid": true,
           "reasons": [],
           "criteria_matched": [
-            "Age 37 within range 34-40",
+            "Age 35 within range 34-40",
+            "Has a degree as required"
+          ]
+        },
+        {
+          "profile_index": 208,
+          "age": 18,
+          "ethnicity": "indian",
+          "education": "working on college/university",
+          "similarity_score": 0.821686235842626,
+          "is_valid": false,
+          "reasons": [
+            "Age 18 outside range 34-40"
+          ],
+          "criteria_matched": [
             "Has a degree as required"
           ]
         }
@@ -136,11 +136,11 @@
       },
       "matches": [
         {
-          "profile_index": 334,
+          "profile_index": 98,
           "age": 40,
-          "ethnicity": "middle eastern, indian",
-          "education": "graduated from college/university",
-          "similarity_score": 0.8039603185389872,
+          "ethnicity": "white",
+          "education": "working on college/university",
+          "similarity_score": 0.7940828508558557,
           "is_valid": true,
           "reasons": [],
           "criteria_matched": [
@@ -148,11 +148,11 @@
           ]
         },
         {
-          "profile_index": 132,
+          "profile_index": 74,
           "age": 40,
           "ethnicity": "white",
-          "education": "graduated from college/university",
-          "similarity_score": 0.798724771306404,
+          "education": "graduated from masters program",
+          "similarity_score": 0.7923175982500134,
           "is_valid": true,
           "reasons": [],
           "criteria_matched": [
@@ -160,11 +160,11 @@
           ]
         },
         {
-          "profile_index": 440,
+          "profile_index": 3,
           "age": 40,
           "ethnicity": "white",
-          "education": "graduated from college/university",
-          "similarity_score": 0.7955461534020247,
+          "education": "college/university",
+          "similarity_score": 0.7903693566662059,
           "is_valid": true,
           "reasons": [],
           "criteria_matched": [
@@ -590,7 +590,7 @@
           "age": 32,
           "ethnicity": "white",
           "education": "graduated from law school",
-          "similarity_score": 0.7702385590904317,
+          "similarity_score": 0.7702806199482499,
           "is_valid": false,
           "reasons": [
             "Education 'graduated from law school' doesn't match requirement: college"
@@ -601,22 +601,23 @@
           ]
         },
         {
-          "profile_index": 179,
+          "profile_index": 283,
           "age": 32,
           "ethnicity": "white",
-          "education": "working on college/university",
-          "similarity_score": 0.768410968869342,
-          "is_valid": true,
-          "reasons": [],
+          "education": "graduated from masters program",
+          "similarity_score": 0.7611034880361126,
+          "is_valid": false,
+          "reasons": [
+            "Education 'graduated from masters program' doesn't match requirement: college"
+          ],
           "criteria_matched": [
             "Age 32 within range 29-35",
-            "Matches ethnicity: white",
-            "Matches college education requirement"
+            "Matches ethnicity: white"
           ]
         }
       ],
       "match_count": 3,
-      "valid_match_count": 2
+      "valid_match_count": 1
     },
     {
       "prompt": "Hoping to find a 23-28 female who is hispanic / latin and kind-hearted.",
@@ -764,7 +765,7 @@
           "age": 32,
           "ethnicity": "white",
           "education": "graduated from law school",
-          "similarity_score": 0.8006316705438563,
+          "similarity_score": 0.8006524586506927,
           "is_valid": false,
           "reasons": [
             "Education 'graduated from law school' doesn't match requirement: any_degree"
@@ -876,25 +877,25 @@
           ]
         },
         {
-          "profile_index": 166,
+          "profile_index": 355,
           "age": 22,
           "ethnicity": "white",
-          "education": "graduated from high school",
-          "similarity_score": 0.7996752283076821,
+          "education": "working on masters program",
+          "similarity_score": 0.7931046222042463,
           "is_valid": false,
           "reasons": [
-            "Education 'graduated from high school' doesn't match requirement: college"
+            "Education 'working on masters program' doesn't match requirement: college"
           ],
           "criteria_matched": [
             "Age 22 within range 18-26"
           ]
         },
         {
-          "profile_index": 489,
+          "profile_index": 452,
           "age": 22,
-          "ethnicity": "white",
-          "education": "working on college/university",
-          "similarity_score": 0.7983047340055502,
+          "ethnicity": "middle eastern, white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.787097469851317,
           "is_valid": true,
           "reasons": [],
           "criteria_matched": [
@@ -973,32 +974,6 @@
       },
       "matches": [
         {
-          "profile_index": 214,
-          "age": 28,
-          "ethnicity": "asian, white",
-          "education": "graduated from college/university",
-          "similarity_score": 0.8224613352749446,
-          "is_valid": true,
-          "reasons": [],
-          "criteria_matched": [
-            "Age 28 within range 25-31",
-            "Has a degree as required"
-          ]
-        },
-        {
-          "profile_index": 385,
-          "age": 28,
-          "ethnicity": "black",
-          "education": "two-year college",
-          "similarity_score": 0.8163413576319551,
-          "is_valid": true,
-          "reasons": [],
-          "criteria_matched": [
-            "Age 28 within range 25-31",
-            "Has a degree as required"
-          ]
-        },
-        {
           "profile_index": 330,
           "age": 28,
           "ethnicity": "white",
@@ -1010,10 +985,37 @@
             "Age 28 within range 25-31",
             "Has a degree as required"
           ]
+        },
+        {
+          "profile_index": 84,
+          "age": 28,
+          "ethnicity": "asian",
+          "education": "graduated from law school",
+          "similarity_score": 0.7593134080559667,
+          "is_valid": false,
+          "reasons": [
+            "Education 'graduated from law school' doesn't match requirement: any_degree"
+          ],
+          "criteria_matched": [
+            "Age 28 within range 25-31"
+          ]
+        },
+        {
+          "profile_index": 391,
+          "age": 29,
+          "ethnicity": "asian",
+          "education": "graduated from masters program",
+          "similarity_score": 0.8157576171827905,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 29 within range 25-31",
+            "Has a degree as required"
+          ]
         }
       ],
       "match_count": 3,
-      "valid_match_count": 3
+      "valid_match_count": 2
     },
     {
       "prompt": "Hoping to find a 28-36 male who is white and intellectual.",
@@ -1048,7 +1050,7 @@
           "age": 32,
           "ethnicity": "white",
           "education": "graduated from law school",
-          "similarity_score": 0.7865947310932568,
+          "similarity_score": 0.7865290397712427,
           "is_valid": true,
           "reasons": [],
           "criteria_matched": [
@@ -1203,7 +1205,7 @@
           "age": 21,
           "ethnicity": "asian",
           "education": "working on college/university",
-          "similarity_score": 0.8059893985620654,
+          "similarity_score": 0.8058801698604984,
           "is_valid": true,
           "reasons": [],
           "criteria_matched": [
@@ -1215,7 +1217,7 @@
           "age": 21,
           "ethnicity": "white",
           "education": "working on college/university",
-          "similarity_score": 0.7940366505043668,
+          "similarity_score": 0.7939417976070513,
           "is_valid": true,
           "reasons": [],
           "criteria_matched": [
@@ -1227,7 +1229,7 @@
           "age": 21,
           "ethnicity": "hispanic / latin, other",
           "education": "working on college/university",
-          "similarity_score": 0.7762000168590628,
+          "similarity_score": 0.7761075232160795,
           "is_valid": true,
           "reasons": [],
           "criteria_matched": [
@@ -1252,44 +1254,44 @@
       },
       "matches": [
         {
-          "profile_index": 310,
-          "age": 30,
+          "profile_index": 286,
+          "age": 48,
           "ethnicity": "white",
-          "education": "graduated from college/university",
-          "similarity_score": 0.793600499708179,
-          "is_valid": true,
-          "reasons": [],
-          "criteria_matched": [
-            "Age 30 within range 28-31"
-          ]
+          "education": "N/A",
+          "similarity_score": 0.8221474374496407,
+          "is_valid": false,
+          "reasons": [
+            "Age 48 outside range 28-31"
+          ],
+          "criteria_matched": []
         },
         {
-          "profile_index": 485,
-          "age": 29,
-          "ethnicity": "white",
-          "education": "graduated from college/university",
-          "similarity_score": 0.7895115802047713,
-          "is_valid": true,
-          "reasons": [],
-          "criteria_matched": [
-            "Age 29 within range 28-31"
-          ]
-        },
-        {
-          "profile_index": 479,
-          "age": 30,
+          "profile_index": 208,
+          "age": 18,
           "ethnicity": "indian",
-          "education": "graduated from college/university",
-          "similarity_score": 0.7778533203879259,
-          "is_valid": true,
-          "reasons": [],
-          "criteria_matched": [
-            "Age 30 within range 28-31"
-          ]
+          "education": "working on college/university",
+          "similarity_score": 0.8113404769244107,
+          "is_valid": false,
+          "reasons": [
+            "Age 18 outside range 28-31"
+          ],
+          "criteria_matched": []
+        },
+        {
+          "profile_index": 166,
+          "age": 22,
+          "ethnicity": "white",
+          "education": "graduated from high school",
+          "similarity_score": 0.8096323452729655,
+          "is_valid": false,
+          "reasons": [
+            "Age 22 outside range 28-31"
+          ],
+          "criteria_matched": []
         }
       ],
       "match_count": 3,
-      "valid_match_count": 3
+      "valid_match_count": 0
     },
     {
       "prompt": "Searching for someone short, currently pursuing a degree and outgoing, aged 29-35.",
@@ -1305,47 +1307,50 @@
       },
       "matches": [
         {
-          "profile_index": 93,
-          "age": 32,
-          "ethnicity": "white",
-          "education": "graduated from college/university",
-          "similarity_score": 0.8028085672578804,
-          "is_valid": true,
-          "reasons": [],
+          "profile_index": 208,
+          "age": 18,
+          "ethnicity": "indian",
+          "education": "working on college/university",
+          "similarity_score": 0.8262124877579375,
+          "is_valid": false,
+          "reasons": [
+            "Age 18 outside range 29-35"
+          ],
           "criteria_matched": [
-            "Age 32 within range 29-35",
             "Has a degree as required"
           ]
         },
         {
-          "profile_index": 437,
-          "age": 32,
-          "ethnicity": "white",
+          "profile_index": 277,
+          "age": 24,
+          "ethnicity": "asian",
           "education": "graduated from college/university",
-          "similarity_score": 0.8020288545259148,
-          "is_valid": true,
-          "reasons": [],
+          "similarity_score": 0.8239606557974459,
+          "is_valid": false,
+          "reasons": [
+            "Age 24 outside range 29-35"
+          ],
           "criteria_matched": [
-            "Age 32 within range 29-35",
             "Has a degree as required"
           ]
         },
         {
-          "profile_index": 444,
-          "age": 32,
+          "profile_index": 130,
+          "age": 25,
           "ethnicity": "white",
           "education": "graduated from college/university",
-          "similarity_score": 0.7990512951915014,
-          "is_valid": true,
-          "reasons": [],
+          "similarity_score": 0.8214317410917313,
+          "is_valid": false,
+          "reasons": [
+            "Age 25 outside range 29-35"
+          ],
           "criteria_matched": [
-            "Age 32 within range 29-35",
             "Has a degree as required"
           ]
         }
       ],
       "match_count": 3,
-      "valid_match_count": 3
+      "valid_match_count": 0
     },
     {
       "prompt": "Looking for a 26-28 female, straight partner who is kind-hearted.",
@@ -1389,7 +1394,7 @@
           "age": 27,
           "ethnicity": "N/A",
           "education": "graduated from college/university",
-          "similarity_score": 0.7776189407805807,
+          "similarity_score": 0.7776891797807037,
           "is_valid": true,
           "reasons": [],
           "criteria_matched": [
@@ -1979,7 +1984,7 @@
           "age": 34,
           "ethnicity": "white",
           "education": "graduated from college/university",
-          "similarity_score": 0.7830951855010451,
+          "similarity_score": 0.7830169864321439,
           "is_valid": true,
           "reasons": [],
           "criteria_matched": [
@@ -1992,7 +1997,7 @@
           "age": 34,
           "ethnicity": "white",
           "education": "graduated from college/university",
-          "similarity_score": 0.778177099935758,
+          "similarity_score": 0.7780710830280424,
           "is_valid": true,
           "reasons": [],
           "criteria_matched": [
@@ -2005,7 +2010,7 @@
           "age": 35,
           "ethnicity": "white",
           "education": "graduated from masters program",
-          "similarity_score": 0.7763115549390067,
+          "similarity_score": 0.7762005425098624,
           "is_valid": true,
           "reasons": [],
           "criteria_matched": [
@@ -2258,33 +2263,6 @@
       },
       "matches": [
         {
-          "profile_index": 130,
-          "age": 25,
-          "ethnicity": "white",
-          "education": "graduated from college/university",
-          "similarity_score": 0.8252544352313058,
-          "is_valid": true,
-          "reasons": [],
-          "criteria_matched": [
-            "Age 25 within range 22-29",
-            "Matches college education requirement"
-          ]
-        },
-        {
-          "profile_index": 212,
-          "age": 26,
-          "ethnicity": "white",
-          "education": "graduated from masters program",
-          "similarity_score": 0.8178593191122779,
-          "is_valid": false,
-          "reasons": [
-            "Education 'graduated from masters program' doesn't match requirement: college"
-          ],
-          "criteria_matched": [
-            "Age 26 within range 22-29"
-          ]
-        },
-        {
           "profile_index": 142,
           "age": 26,
           "ethnicity": "asian",
@@ -2296,6 +2274,33 @@
           ],
           "criteria_matched": [
             "Age 26 within range 22-29"
+          ]
+        },
+        {
+          "profile_index": 351,
+          "age": 25,
+          "ethnicity": "N/A",
+          "education": "working on masters program",
+          "similarity_score": 0.7981699727597245,
+          "is_valid": false,
+          "reasons": [
+            "Education 'working on masters program' doesn't match requirement: college"
+          ],
+          "criteria_matched": [
+            "Age 25 within range 22-29"
+          ]
+        },
+        {
+          "profile_index": 188,
+          "age": 26,
+          "ethnicity": "middle eastern, hispanic / latin",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7973411550466318,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 26 within range 22-29",
+            "Matches college education requirement"
           ]
         }
       ],
@@ -2475,47 +2480,49 @@
       },
       "matches": [
         {
-          "profile_index": 123,
-          "age": 31,
+          "profile_index": 81,
+          "age": 24,
+          "ethnicity": "asian",
+          "education": "graduated from college/university",
+          "similarity_score": 0.827129941895881,
+          "is_valid": false,
+          "reasons": [
+            "Age 24 outside range 27-36"
+          ],
+          "criteria_matched": [
+            "Has a degree as required"
+          ]
+        },
+        {
+          "profile_index": 208,
+          "age": 18,
+          "ethnicity": "indian",
+          "education": "working on college/university",
+          "similarity_score": 0.8231238379984277,
+          "is_valid": false,
+          "reasons": [
+            "Age 18 outside range 27-36"
+          ],
+          "criteria_matched": [
+            "Has a degree as required"
+          ]
+        },
+        {
+          "profile_index": 371,
+          "age": 35,
           "ethnicity": "white",
           "education": "graduated from college/university",
-          "similarity_score": 0.8194808624082311,
+          "similarity_score": 0.8198292591757734,
           "is_valid": true,
           "reasons": [],
           "criteria_matched": [
-            "Age 31 within range 27-36",
-            "Has a degree as required"
-          ]
-        },
-        {
-          "profile_index": 375,
-          "age": 32,
-          "ethnicity": "asian",
-          "education": "graduated from masters program",
-          "similarity_score": 0.8054178751315937,
-          "is_valid": true,
-          "reasons": [],
-          "criteria_matched": [
-            "Age 32 within range 27-36",
-            "Has a degree as required"
-          ]
-        },
-        {
-          "profile_index": 149,
-          "age": 32,
-          "ethnicity": "indian",
-          "education": "graduated from masters program",
-          "similarity_score": 0.7989034107014519,
-          "is_valid": true,
-          "reasons": [],
-          "criteria_matched": [
-            "Age 32 within range 27-36",
+            "Age 35 within range 27-36",
             "Has a degree as required"
           ]
         }
       ],
       "match_count": 3,
-      "valid_match_count": 3
+      "valid_match_count": 1
     },
     {
       "prompt": "Looking for a 33-38 male with tall looks, with a strong educational background and asian, native american.",
@@ -2534,47 +2541,47 @@
       },
       "matches": [
         {
-          "profile_index": 129,
-          "age": 35,
-          "ethnicity": "asian, hispanic / latin",
-          "education": "graduated from college/university",
-          "similarity_score": 0.7669849039335678,
-          "is_valid": true,
-          "reasons": [],
-          "criteria_matched": [
-            "Age 35 within range 33-38",
-            "Matches ethnicity: asian"
-          ]
+          "profile_index": 286,
+          "age": 48,
+          "ethnicity": "white",
+          "education": "N/A",
+          "similarity_score": 0.829520846919031,
+          "is_valid": false,
+          "reasons": [
+            "Age 48 outside range 33-38",
+            "Ethnicity white doesn't match any required: ['asian', 'native american']"
+          ],
+          "criteria_matched": []
         },
         {
-          "profile_index": 35,
-          "age": 36,
-          "ethnicity": "asian",
+          "profile_index": 26,
+          "age": 24,
+          "ethnicity": "white",
           "education": "graduated from college/university",
-          "similarity_score": 0.7402607476467679,
-          "is_valid": true,
-          "reasons": [],
-          "criteria_matched": [
-            "Age 36 within range 33-38",
-            "Matches ethnicity: asian"
-          ]
+          "similarity_score": 0.8085623624111573,
+          "is_valid": false,
+          "reasons": [
+            "Age 24 outside range 33-38",
+            "Ethnicity white doesn't match any required: ['asian', 'native american']"
+          ],
+          "criteria_matched": []
         },
         {
-          "profile_index": 418,
-          "age": 34,
-          "ethnicity": "asian",
-          "education": "graduated from masters program",
-          "similarity_score": 0.7873917945954899,
-          "is_valid": true,
-          "reasons": [],
-          "criteria_matched": [
-            "Age 34 within range 33-38",
-            "Matches ethnicity: asian"
-          ]
+          "profile_index": 208,
+          "age": 18,
+          "ethnicity": "indian",
+          "education": "working on college/university",
+          "similarity_score": 0.8049346838395803,
+          "is_valid": false,
+          "reasons": [
+            "Age 18 outside range 33-38",
+            "Ethnicity indian doesn't match any required: ['asian', 'native american']"
+          ],
+          "criteria_matched": []
         }
       ],
       "match_count": 3,
-      "valid_match_count": 3
+      "valid_match_count": 0
     },
     {
       "prompt": "Dreaming of meeting a 29-34 male who is white and creative.",
@@ -2622,7 +2629,7 @@
           "age": 32,
           "ethnicity": "white",
           "education": "graduated from law school",
-          "similarity_score": 0.7712417008948054,
+          "similarity_score": 0.7713384184304986,
           "is_valid": true,
           "reasons": [],
           "criteria_matched": [
@@ -2758,7 +2765,7 @@
           "age": 22,
           "ethnicity": "N/A",
           "education": "working on college/university",
-          "similarity_score": 0.8124289062757689,
+          "similarity_score": 0.8124981662222283,
           "is_valid": true,
           "reasons": [],
           "criteria_matched": [
@@ -2770,7 +2777,7 @@
           "age": 22,
           "ethnicity": "white",
           "education": "graduated from high school",
-          "similarity_score": 0.8005048041779412,
+          "similarity_score": 0.8005850328968833,
           "is_valid": true,
           "reasons": [],
           "criteria_matched": [
@@ -2782,7 +2789,7 @@
           "age": 22,
           "ethnicity": "white",
           "education": "graduated from college/university",
-          "similarity_score": 0.7954042042926229,
+          "similarity_score": 0.7954712535631776,
           "is_valid": true,
           "reasons": [],
           "criteria_matched": [
@@ -3025,44 +3032,44 @@
       },
       "matches": [
         {
-          "profile_index": 352,
-          "age": 30,
+          "profile_index": 123,
+          "age": 31,
           "ethnicity": "white",
           "education": "graduated from college/university",
-          "similarity_score": 0.8117734660847247,
+          "similarity_score": 0.8283126139805308,
           "is_valid": true,
           "reasons": [],
           "criteria_matched": [
-            "Age 30 within range 25-34"
+            "Age 31 within range 25-34"
           ]
         },
         {
-          "profile_index": 221,
-          "age": 30,
+          "profile_index": 255,
+          "age": 67,
           "ethnicity": "white",
           "education": "graduated from masters program",
-          "similarity_score": 0.808194899723002,
-          "is_valid": true,
-          "reasons": [],
-          "criteria_matched": [
-            "Age 30 within range 25-34"
-          ]
+          "similarity_score": 0.820533934602821,
+          "is_valid": false,
+          "reasons": [
+            "Age 67 outside range 25-34"
+          ],
+          "criteria_matched": []
         },
         {
-          "profile_index": 237,
-          "age": 30,
-          "ethnicity": "black",
-          "education": "graduated from masters program",
-          "similarity_score": 0.7955169068363486,
-          "is_valid": true,
-          "reasons": [],
-          "criteria_matched": [
-            "Age 30 within range 25-34"
-          ]
+          "profile_index": 402,
+          "age": 42,
+          "ethnicity": "N/A",
+          "education": "N/A",
+          "similarity_score": 0.8201153782499973,
+          "is_valid": false,
+          "reasons": [
+            "Age 42 outside range 25-34"
+          ],
+          "criteria_matched": []
         }
       ],
       "match_count": 3,
-      "valid_match_count": 3
+      "valid_match_count": 1
     },
     {
       "prompt": "Hoping to find a 21-23 male, straight partner who is kind-hearted.",
@@ -3131,32 +3138,6 @@
       },
       "matches": [
         {
-          "profile_index": 485,
-          "age": 29,
-          "ethnicity": "white",
-          "education": "graduated from college/university",
-          "similarity_score": 0.8109085346842452,
-          "is_valid": true,
-          "reasons": [],
-          "criteria_matched": [
-            "Age 29 within range 27-32",
-            "Matches college education requirement"
-          ]
-        },
-        {
-          "profile_index": 417,
-          "age": 29,
-          "ethnicity": "white",
-          "education": "graduated from college/university",
-          "similarity_score": 0.7963406246823315,
-          "is_valid": true,
-          "reasons": [],
-          "criteria_matched": [
-            "Age 29 within range 27-32",
-            "Matches college education requirement"
-          ]
-        },
-        {
           "profile_index": 391,
           "age": 29,
           "ethnicity": "asian",
@@ -3169,10 +3150,38 @@
           "criteria_matched": [
             "Age 29 within range 27-32"
           ]
+        },
+        {
+          "profile_index": 221,
+          "age": 30,
+          "ethnicity": "white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.788779870921229,
+          "is_valid": false,
+          "reasons": [
+            "Education 'graduated from masters program' doesn't match requirement: college"
+          ],
+          "criteria_matched": [
+            "Age 30 within range 27-32"
+          ]
+        },
+        {
+          "profile_index": 66,
+          "age": 29,
+          "ethnicity": "asian, pacific islander",
+          "education": "working on masters program",
+          "similarity_score": 0.7840504647596964,
+          "is_valid": false,
+          "reasons": [
+            "Education 'working on masters program' doesn't match requirement: college"
+          ],
+          "criteria_matched": [
+            "Age 29 within range 27-32"
+          ]
         }
       ],
       "match_count": 3,
-      "valid_match_count": 2
+      "valid_match_count": 0
     },
     {
       "prompt": "Looking for a 26-32 female with with red hair looks and middle eastern, other.",
@@ -3261,11 +3270,11 @@
           ]
         },
         {
-          "profile_index": 4,
+          "profile_index": 117,
           "age": 27,
-          "ethnicity": "white",
-          "education": "working on college/university",
-          "similarity_score": 0.7898602162994917,
+          "ethnicity": "N/A",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7895686624020789,
           "is_valid": true,
           "reasons": [],
           "criteria_matched": [
@@ -3274,11 +3283,11 @@
           ]
         },
         {
-          "profile_index": 117,
+          "profile_index": 317,
           "age": 27,
           "ethnicity": "N/A",
           "education": "graduated from college/university",
-          "similarity_score": 0.7895686624020789,
+          "similarity_score": 0.786842507139561,
           "is_valid": true,
           "reasons": [],
           "criteria_matched": [
@@ -3526,44 +3535,44 @@
       },
       "matches": [
         {
-          "profile_index": 214,
-          "age": 28,
-          "ethnicity": "asian, white",
+          "profile_index": 255,
+          "age": 67,
+          "ethnicity": "white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.8585965874063405,
+          "is_valid": false,
+          "reasons": [
+            "Age 67 outside range 25-31"
+          ],
+          "criteria_matched": []
+        },
+        {
+          "profile_index": 386,
+          "age": 36,
+          "ethnicity": "N/A",
           "education": "graduated from college/university",
-          "similarity_score": 0.8427478707684432,
-          "is_valid": true,
-          "reasons": [],
-          "criteria_matched": [
-            "Age 28 within range 25-31"
-          ]
+          "similarity_score": 0.8579385997335985,
+          "is_valid": false,
+          "reasons": [
+            "Age 36 outside range 25-31"
+          ],
+          "criteria_matched": []
         },
         {
-          "profile_index": 385,
-          "age": 28,
-          "ethnicity": "black",
-          "education": "two-year college",
-          "similarity_score": 0.8407644165998793,
-          "is_valid": true,
-          "reasons": [],
-          "criteria_matched": [
-            "Age 28 within range 25-31"
-          ]
-        },
-        {
-          "profile_index": 174,
-          "age": 28,
-          "ethnicity": "asian",
-          "education": "graduated from two-year college",
-          "similarity_score": 0.8344425362690526,
-          "is_valid": true,
-          "reasons": [],
-          "criteria_matched": [
-            "Age 28 within range 25-31"
-          ]
+          "profile_index": 11,
+          "age": 52,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8511136114008859,
+          "is_valid": false,
+          "reasons": [
+            "Age 52 outside range 25-31"
+          ],
+          "criteria_matched": []
         }
       ],
       "match_count": 3,
-      "valid_match_count": 3
+      "valid_match_count": 0
     },
     {
       "prompt": "Searching for a 23-29 female, bisexual partner who is adventurous.",
@@ -3802,11 +3811,11 @@
       },
       "matches": [
         {
-          "profile_index": 104,
+          "profile_index": 271,
           "age": 32,
-          "ethnicity": "white",
-          "education": "graduated from high school",
-          "similarity_score": 0.7724590989320252,
+          "ethnicity": "black, white",
+          "education": "graduated from two-year college",
+          "similarity_score": 0.7445439048591037,
           "is_valid": true,
           "reasons": [],
           "criteria_matched": [
@@ -3815,11 +3824,11 @@
           ]
         },
         {
-          "profile_index": 437,
+          "profile_index": 283,
           "age": 32,
           "ethnicity": "white",
-          "education": "graduated from college/university",
-          "similarity_score": 0.7662964090304081,
+          "education": "graduated from masters program",
+          "similarity_score": 0.7427264492792985,
           "is_valid": true,
           "reasons": [],
           "criteria_matched": [
@@ -3828,15 +3837,15 @@
           ]
         },
         {
-          "profile_index": 116,
-          "age": 32,
+          "profile_index": 281,
+          "age": 34,
           "ethnicity": "white",
           "education": "graduated from college/university",
-          "similarity_score": 0.7616220291089758,
+          "similarity_score": 0.7745848590994177,
           "is_valid": true,
           "reasons": [],
           "criteria_matched": [
-            "Age 32 within range 29-35",
+            "Age 34 within range 29-35",
             "Matches ethnicity: white"
           ]
         }
@@ -3988,11 +3997,11 @@
           ]
         },
         {
-          "profile_index": 12,
+          "profile_index": 204,
           "age": 39,
-          "ethnicity": "black",
-          "education": "college/university",
-          "similarity_score": 0.7682917568509556,
+          "ethnicity": "white",
+          "education": "graduated from masters program",
+          "similarity_score": 0.7610894632880203,
           "is_valid": true,
           "reasons": [],
           "criteria_matched": [
@@ -4001,15 +4010,15 @@
           ]
         },
         {
-          "profile_index": 132,
-          "age": 40,
-          "ethnicity": "white",
-          "education": "graduated from college/university",
-          "similarity_score": 0.7664894854129993,
+          "profile_index": 73,
+          "age": 39,
+          "ethnicity": "N/A",
+          "education": "graduated from masters program",
+          "similarity_score": 0.7571380955780562,
           "is_valid": true,
           "reasons": [],
           "criteria_matched": [
-            "Age 40 within range 36-43",
+            "Age 39 within range 36-43",
             "Has a degree as required"
           ]
         }
@@ -4045,11 +4054,11 @@
           ]
         },
         {
-          "profile_index": 4,
+          "profile_index": 287,
           "age": 27,
-          "ethnicity": "white",
-          "education": "working on college/university",
-          "similarity_score": 0.801946472946969,
+          "ethnicity": "N/A",
+          "education": "graduated from college/university",
+          "similarity_score": 0.777416689026585,
           "is_valid": true,
           "reasons": [],
           "criteria_matched": [
@@ -4058,14 +4067,14 @@
           ]
         },
         {
-          "profile_index": 134,
+          "profile_index": 187,
           "age": 27,
-          "ethnicity": "N/A",
-          "education": "graduated from masters program",
-          "similarity_score": 0.7896382785995539,
+          "ethnicity": "asian",
+          "education": "working on ph.d program",
+          "similarity_score": 0.7727218064863818,
           "is_valid": false,
           "reasons": [
-            "Education 'graduated from masters program' doesn't match requirement: college"
+            "Education 'working on ph.d program' doesn't match requirement: college"
           ],
           "criteria_matched": [
             "Age 27 within range 23-30"
@@ -4088,20 +4097,6 @@
         "other_traits": []
       },
       "matches": [
-        {
-          "profile_index": 242,
-          "age": 43,
-          "ethnicity": "asian, black, native american, indian, hispanic / latin, white, other",
-          "education": "graduated from high school",
-          "similarity_score": 0.7830814307991913,
-          "is_valid": false,
-          "reasons": [
-            "Education 'graduated from high school' doesn't match requirement: college"
-          ],
-          "criteria_matched": [
-            "Age 43 within range 41-45"
-          ]
-        },
         {
           "profile_index": 383,
           "age": 43,
@@ -4128,10 +4123,23 @@
             "Age 43 within range 41-45",
             "Matches college education requirement"
           ]
+        },
+        {
+          "profile_index": 445,
+          "age": 42,
+          "ethnicity": "white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.7897626087863621,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 42 within range 41-45",
+            "Matches college education requirement"
+          ]
         }
       ],
       "match_count": 3,
-      "valid_match_count": 1
+      "valid_match_count": 2
     },
     {
       "prompt": "Looking for someone who loves exploring nature, with a college degree, aged 36-41.",
@@ -4328,7 +4336,7 @@
           "age": 28,
           "ethnicity": "white, other",
           "education": "graduated from college/university",
-          "similarity_score": 0.7699063966547206,
+          "similarity_score": 0.7706580639282432,
           "is_valid": true,
           "reasons": [],
           "criteria_matched": [
@@ -4341,7 +4349,7 @@
           "age": 28,
           "ethnicity": "white",
           "education": "working on college/university",
-          "similarity_score": 0.7586456157656875,
+          "similarity_score": 0.7600062129783166,
           "is_valid": true,
           "reasons": [],
           "criteria_matched": [
@@ -4354,7 +4362,7 @@
           "age": 28,
           "ethnicity": "hispanic / latin, white",
           "education": "N/A",
-          "similarity_score": 0.7575689970023396,
+          "similarity_score": 0.7584443151735625,
           "is_valid": true,
           "reasons": [],
           "criteria_matched": [
@@ -4380,19 +4388,6 @@
       },
       "matches": [
         {
-          "profile_index": 385,
-          "age": 28,
-          "ethnicity": "black",
-          "education": "two-year college",
-          "similarity_score": 0.8203912408180463,
-          "is_valid": true,
-          "reasons": [],
-          "criteria_matched": [
-            "Age 28 within range 24-33",
-            "Matches college education requirement"
-          ]
-        },
-        {
           "profile_index": 174,
           "age": 28,
           "ethnicity": "asian",
@@ -4417,6 +4412,19 @@
           ],
           "criteria_matched": [
             "Age 28 within range 24-33"
+          ]
+        },
+        {
+          "profile_index": 214,
+          "age": 28,
+          "ethnicity": "asian, white",
+          "education": "graduated from college/university",
+          "similarity_score": 0.8038762196605712,
+          "is_valid": true,
+          "reasons": [],
+          "criteria_matched": [
+            "Age 28 within range 24-33",
+            "Matches college education requirement"
           ]
         }
       ],

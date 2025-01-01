@@ -100,6 +100,45 @@ def check_height_requirement(prompt, profile):
     
     return True  # No height requirement in prompt
 
+def check_education_requirement(prompt, profile):
+    """Check if profile meets education requirements from prompt"""
+    education = profile.get('education', '').lower()
+    prompt_lower = prompt.lower()
+    
+    # Map of education levels and what they satisfy
+    education_hierarchy = {
+        'graduated from law school': ['college', 'university', 'master', 'phd', 'doctorate', 'graduate'],
+        'graduated from med school': ['college', 'university', 'master', 'phd', 'doctorate', 'graduate'],
+        'graduated from ph.d program': ['college', 'university', 'master', 'phd', 'doctorate', 'graduate'],
+        'graduated from masters program': ['college', 'university', 'master', 'graduate'],
+        'graduated from college/university': ['college', 'university'],
+        'working on masters program': ['college', 'university'],
+        'working on ph.d program': ['college', 'university'],
+        'working on med school': ['college', 'university'],
+        'working on law school': ['college', 'university'],
+        'working on college/university': [],
+        'dropped out of college/university': [],
+        'graduated from high school': [],
+        'working on high school': [],
+        'dropped out of high school': [],
+        'graduated from space camp': [],
+        'graduated from two-year college': ['college'],
+        'working on two-year college': []
+    }
+    
+    # Check if prompt mentions education
+    education_keywords = ['college', 'university', 'degree', 'education', 'school', 'master', 'phd', 'doctorate', 'graduate']
+    has_education_requirement = any(keyword in prompt_lower for keyword in education_keywords)
+    
+    if not has_education_requirement:
+        return True
+        
+    # Get what levels this education satisfies
+    satisfies_levels = education_hierarchy.get(education, [])
+    
+    # Check if the education level meets any of the requirements in the prompt
+    return any(level in prompt_lower for level in satisfies_levels)
+
 def format_height(inches):
     feet = inches // 12
     remaining_inches = inches % 12
@@ -196,6 +235,10 @@ for i, prompt_embedding in enumerate(prompt_embeddings):
 
         # Height check
         if not check_height_requirement(prompt, profile):
+            continue
+
+        # Education check
+        if not check_education_requirement(prompt, profile):
             continue
 
         valid_profiles.append(profile_idx)
