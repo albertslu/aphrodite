@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-01T18:11:25.931050",
+  "timestamp": "2025-01-01T20:14:37.391766",
   "statistics": {
     "total_prompts": 200,
     "total_matches": 590,
@@ -603,6 +603,7 @@
           "evaluation": {
             "is_valid": true,
             "matches": [
+              "Height 5'3\" meets short requirement for f",
               "Age 36 within range 32-39"
             ],
             "mismatches": [
@@ -616,6 +617,7 @@
           "evaluation": {
             "is_valid": true,
             "matches": [
+              "Height 5'3\" meets short requirement for f",
               "Age 37 within range 32-39"
             ],
             "mismatches": [
@@ -629,6 +631,7 @@
           "evaluation": {
             "is_valid": true,
             "matches": [
+              "Height 5'5\" meets short requirement for m",
               "Age 33 within range 32-39"
             ],
             "mismatches": [
@@ -3065,6 +3068,7 @@
           "evaluation": {
             "is_valid": true,
             "matches": [
+              "Height 6'3\" meets tall requirement for m",
               "Age 35 within range 34-39",
               "Gender matches: M"
             ],
@@ -3077,6 +3081,7 @@
           "evaluation": {
             "is_valid": true,
             "matches": [
+              "Height 6'0\" meets tall requirement for m",
               "Age 38 within range 34-39",
               "Gender matches: M"
             ],
@@ -3089,6 +3094,7 @@
           "evaluation": {
             "is_valid": true,
             "matches": [
+              "Height 6'0\" meets tall requirement for m",
               "Age 37 within range 34-39",
               "Gender matches: M"
             ],
@@ -4119,6 +4125,7 @@
           "evaluation": {
             "is_valid": true,
             "matches": [
+              "Height 5'6\" meets tall requirement for f",
               "Age 37 within range 35-41"
             ],
             "mismatches": [
@@ -4132,6 +4139,7 @@
           "evaluation": {
             "is_valid": true,
             "matches": [
+              "Height 5'8\" meets tall requirement for f",
               "Age 39 within range 35-41"
             ],
             "mismatches": [
@@ -4145,6 +4153,7 @@
           "evaluation": {
             "is_valid": true,
             "matches": [
+              "Height 6'0\" meets tall requirement for m",
               "Age 37 within range 35-41"
             ],
             "mismatches": [
@@ -4163,6 +4172,7 @@
           "evaluation": {
             "is_valid": true,
             "matches": [
+              "Height 6'2\" meets tall requirement for m",
               "Age 28 within range 27-29"
             ],
             "mismatches": [
@@ -4176,6 +4186,7 @@
           "evaluation": {
             "is_valid": true,
             "matches": [
+              "Height 6'3\" meets tall requirement for m",
               "Age 29 within range 27-29"
             ],
             "mismatches": [
@@ -4189,6 +4200,7 @@
           "evaluation": {
             "is_valid": true,
             "matches": [
+              "Height 6'1\" meets tall requirement for m",
               "Age 27 within range 27-29"
             ],
             "mismatches": [
@@ -6223,6 +6235,7 @@
           "evaluation": {
             "is_valid": true,
             "matches": [
+              "Height 6'0\" meets tall requirement for m",
               "Age 49 within range 45-52",
               "Gender matches: M"
             ],
@@ -6235,6 +6248,7 @@
           "evaluation": {
             "is_valid": true,
             "matches": [
+              "Height 5'11\" meets tall requirement for m",
               "Age 48 within range 45-52",
               "Gender matches: M"
             ],
@@ -6247,6 +6261,7 @@
           "evaluation": {
             "is_valid": true,
             "matches": [
+              "Height 6'0\" meets tall requirement for m",
               "Age 50 within range 45-52",
               "Gender matches: M"
             ],
@@ -8113,6 +8128,7 @@
           "evaluation": {
             "is_valid": true,
             "matches": [
+              "Height 6'0\" meets tall requirement for m",
               "Age 49 within range 45-50"
             ],
             "mismatches": [
@@ -8126,6 +8142,7 @@
           "evaluation": {
             "is_valid": true,
             "matches": [
+              "Height 6'0\" meets tall requirement for m",
               "Age 50 within range 45-50"
             ],
             "mismatches": [
@@ -8139,6 +8156,7 @@
           "evaluation": {
             "is_valid": true,
             "matches": [
+              "Height 6'2\" meets tall requirement for m",
               "Age 45 within range 45-50"
             ],
             "mismatches": [

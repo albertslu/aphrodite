@@ -84,6 +84,50 @@ def extract_requirements(prompt):
     
     return requirements
 
+def check_height_requirement(prompt, profile):
+    """
+    Check if profile meets height requirements from prompt
+    Men: tall >= 72 inches (6'0"), short <= 67 inches (5'7")
+    Women: tall >= 68 inches (5'8"), short <= 63 inches (5'3")
+    Allow ±2 inches flexibility only for the minimum height requirement for tall
+    """
+    height = profile.get('height')
+    if not height:
+        return True, None  # Skip height check if not specified
+        
+    gender = profile.get('gender', '').lower()
+    if not gender:  # Skip if gender not specified
+        return True, None
+        
+    # Convert height string to inches if it's in format "X'Y""
+    if isinstance(height, str) and "'" in height:
+        feet, inches = height.replace('"', '').split("'")
+        height = int(feet) * 12 + int(inches)
+    
+    # Define height thresholds
+    if gender == 'm':
+        tall_threshold = 72  # 6'0"
+        short_threshold = 67  # 5'7"
+    else:  # 'f'
+        tall_threshold = 68  # 5'8"
+        short_threshold = 63  # 5'3"
+    
+    height_desc = f"{height//12}'{height%12}\""
+    
+    # Check if prompt mentions height
+    if "tall" in prompt.lower():
+        if height >= (tall_threshold - 2):
+            return True, f"Height {height_desc} meets tall requirement for {gender}"
+        else:
+            return False, f"Height {height_desc} does not meet tall requirement for {gender} (min: {(tall_threshold-2)//12}'{(tall_threshold-2)%12}\")"
+    elif "short" in prompt.lower():
+        if height <= short_threshold:
+            return True, f"Height {height_desc} meets short requirement for {gender}"
+        else:
+            return False, f"Height {height_desc} does not meet short requirement for {gender} (max: {short_threshold//12}'{short_threshold%12}\")"
+    
+    return True, None
+
 def evaluate_match(prompt, match):
     """Evaluate a single match against prompt requirements"""
     requirements = extract_requirements(prompt)
@@ -92,6 +136,14 @@ def evaluate_match(prompt, match):
         "matches": [],
         "mismatches": []
     }
+    
+    # Check height requirements
+    height_valid, height_message = check_height_requirement(prompt, match)
+    if not height_valid:
+        result["is_valid"] = False
+        result["mismatches"].append(height_message)
+    elif height_message:
+        result["matches"].append(height_message)
     
     # Check age
     if requirements["age_range"]:
