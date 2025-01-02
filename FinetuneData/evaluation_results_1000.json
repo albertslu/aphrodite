@@ -1,10 +1,10 @@
 {
-  "timestamp": "2025-01-01T18:00:46.385340",
+  "timestamp": "2025-01-01T18:11:25.931050",
   "statistics": {
     "total_prompts": 200,
     "total_matches": 590,
-    "valid_matches": 576,
-    "accuracy_percentage": 97.6271186440678,
+    "valid_matches": 578,
+    "accuracy_percentage": 97.96610169491525,
     "avg_matches_per_prompt": 2.95
   },
   "match_details": [
@@ -41,14 +41,13 @@
           "profile_index": 297,
           "similarity_score": 0.7955839852384847,
           "evaluation": {
-            "is_valid": false,
+            "is_valid": true,
             "matches": [
               "Age 31 within range 26-33",
-              "Gender matches: F"
+              "Gender matches: F",
+              "Matches college education requirement"
             ],
-            "mismatches": [
-              "Education mismatch: wanted college, got graduated from masters program"
-            ]
+            "mismatches": []
           }
         }
       ]
@@ -4559,14 +4558,13 @@
           "profile_index": 897,
           "similarity_score": 0.8148610275028784,
           "evaluation": {
-            "is_valid": false,
+            "is_valid": true,
             "matches": [
               "Age 42 within range 35-43",
-              "Gender matches: M"
+              "Gender matches: M",
+              "Matches college education requirement"
             ],
-            "mismatches": [
-              "Education mismatch: wanted college, got graduated from masters program"
-            ]
+            "mismatches": []
           }
         }
       ]

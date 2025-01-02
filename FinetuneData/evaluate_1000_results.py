@@ -125,8 +125,13 @@ def evaluate_match(prompt, match):
     # Check education
     if requirements["education"] and match['education']:
         edu = match['education'].lower()
-        if requirements["education"] == "college" and any(k in edu for k in ["college", "university", "undergraduate"]):
-            result["matches"].append("Matches college education requirement")
+        if requirements["education"] == "college":
+            # Consider any higher education as meeting "college-educated" requirement
+            if any(k in edu for k in ["college", "university", "undergraduate", "master", "graduate", "phd", "doctorate"]):
+                result["matches"].append("Matches college education requirement")
+            else:
+                result["is_valid"] = False
+                result["mismatches"].append(f"Education mismatch: wanted college education, got {edu}")
         elif requirements["education"] == "masters" and any(k in edu for k in ["master", "graduate"]):
             result["matches"].append("Matches masters education requirement")
         elif requirements["education"] == "phd" and any(k in edu for k in ["phd", "doctorate"]):
