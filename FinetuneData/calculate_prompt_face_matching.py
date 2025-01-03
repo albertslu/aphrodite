@@ -190,6 +190,16 @@ class PromptFaceMatcher:
         
         return matches
 
+def format_demographics(demo):
+    parts = []
+    if demo['age']:
+        parts.append(f"Age {demo['age']}")
+    if demo['gender']:
+        parts.append(demo['gender'])
+    if demo['ethnicity']:
+        parts.append(demo['ethnicity'])
+    return ", ".join(parts) if parts else "No specific demographics extracted"
+
 def main():
     matcher = PromptFaceMatcher('AllFaces', 'generated_200_prompts.jsonl')
     
@@ -199,14 +209,30 @@ def main():
     # Find matches for all prompts
     matches = matcher.find_matches(top_k=5)
     
-    # Print some example matches
-    print("\nExample matches:")
-    for match in matches[:3]:  # Show first 3 prompts
-        print(f"\nPrompt: {match['prompt']}")
-        print(f"Extracted demographics: {match['extracted_demographics']}")
-        print("Top matches:")
-        for m in match['top_matches'][:3]:  # Show top 3 matches
-            print(f"  {m['image']}: Similarity score = {m['similarity_score']:.3f}")
+    # Save all matches to a JSON file
+    with open('prompt_face_matches.json', 'w') as f:
+        json.dump(matches, f, indent=2)
+    
+    # Print matches in a nice format with a minimum similarity threshold
+    print("\n=== Face Matching Results ===")
+    print("Note: Only showing matches with similarity score > 0.6")
+    print("Matches are scored based on age (30%), gender (30%), and ethnicity (40%)")
+    print("=" * 80)
+    
+    for match in matches:
+        # Filter matches with similarity score > 0.6
+        good_matches = [m for m in match['top_matches'] if m['similarity_score'] > 0.6]
+        
+        if good_matches:
+            print(f"\nPrompt: {match['prompt']}")
+            print(f"Looking for: {format_demographics(match['extracted_demographics'])}")
+            print("\nMatching Profiles:")
+            
+            for m in good_matches[:3]:  # Show top 3 good matches
+                print(f"- {m['image']} (Score: {m['similarity_score']:.2f})")
+                demo = matcher.demographic_data[m['image']]
+                print(f"  Demographics: Age {demo['age']}, {demo['gender']}, {demo['dominant_race']}")
+            print("-" * 80)
 
 if __name__ == "__main__":
     main()
