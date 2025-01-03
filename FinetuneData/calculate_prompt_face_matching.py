@@ -184,10 +184,6 @@ class PromptFaceMatcher:
                 ]
             })
         
-        # Save matches to file
-        with open('prompt_face_matches.json', 'w') as f:
-            json.dump(matches, f, indent=2)
-        
         return matches
 
 def format_demographics(demo):
@@ -209,9 +205,33 @@ def main():
     # Find matches for all prompts
     matches = matcher.find_matches(top_k=5)
     
-    # Save all matches to a JSON file
+    # Organize results by prompt for better readability
+    organized_results = {
+        "prompts": []
+    }
+    
+    for match in matches:
+        prompt_result = {
+            "prompt": match['prompt'],
+            "target_demographics": match['extracted_demographics'],
+            "matches": []
+        }
+        
+        # Filter matches with similarity score > 0.6
+        good_matches = [m for m in match['top_matches'] if m['similarity_score'] > 0.6]
+        for m in good_matches[:5]:  # Keep top 5 good matches
+            match_info = {
+                "image": m['image'],
+                "similarity_score": m['similarity_score'],
+                "demographics": matcher.demographic_data[m['image']]
+            }
+            prompt_result["matches"].append(match_info)
+        
+        organized_results["prompts"].append(prompt_result)
+    
+    # Save organized results to JSON file
     with open('prompt_face_matches.json', 'w') as f:
-        json.dump(matches, f, indent=2)
+        json.dump(organized_results, f, indent=2)
     
     # Print matches in a nice format with a minimum similarity threshold
     print("\n=== Face Matching Results ===")

@@ -130,17 +130,17 @@
     "dominant_race": "white"
   },
   "Abid_Hamid_Mahmud_Al-Tikriti_0001.jpg": {
-    "age": 23.0,
+    "age": 33.0,
     "gender": "Man",
     "race": {
-      "asian": 21.819232940673828,
-      "indian": 0.07902616262435913,
-      "black": 0.36975452303886414,
-      "white": 70.78724670410156,
-      "middle eastern": 0.17787452042102814,
-      "latino hispanic": 6.766871452331543
+      "asian": 0.13005690276622772,
+      "indian": 7.773508548736572,
+      "black": 8.10707950592041,
+      "white": 8.88862133026123,
+      "middle eastern": 62.479339599609375,
+      "latino hispanic": 12.621397972106934
     },
-    "dominant_race": "white"
+    "dominant_race": "middle eastern"
   },
   "Abner_Martinez_0001.jpg": {
     "age": 22.0,
@@ -4160,17 +4160,17 @@
     "dominant_race": "white"
   },
   "Carol_Burnett_0001.jpg": {
-    "age": 41.0,
-    "gender": "Woman",
+    "age": 24.0,
+    "gender": "Man",
     "race": {
-      "asian": 4.778883457183838,
-      "indian": 2.9110379219055176,
-      "black": 1.0804340839385986,
-      "white": 36.61421585083008,
-      "middle eastern": 14.892709732055664,
-      "latino hispanic": 39.722721099853516
+      "asian": 1.4452842473983765,
+      "indian": 0.024780472740530968,
+      "black": 0.004113400354981422,
+      "white": 95.15562438964844,
+      "middle eastern": 2.190913200378418,
+      "latino hispanic": 1.1792888641357422
     },
-    "dominant_race": "latino hispanic"
+    "dominant_race": "white"
   },
   "Carrie-Anne_Moss_0001.jpg": {
     "age": 34.0,
