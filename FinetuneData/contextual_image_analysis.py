@@ -1,121 +1,63 @@
 import torch
-from transformers import AutoProcessor, AutoModelForImageClassification
 from PIL import Image
-import requests
+import clip
 from typing import List, Dict
 import json
 
 class ContextualImageAnalyzer:
     def __init__(self):
-        # Initialize different models for specific tasks
-        self.scene_classifier = self._init_scene_classifier()
-        self.activity_classifier = self._init_activity_classifier()
-        self.style_classifier = self._init_style_classifier()
-        
-        # Define categories for different aspects
-        self.categories = {
-            'lifestyle': ['traveling', 'outdoors', 'fitness', 'nightlife', 'cooking', 'arts'],
-            'activities': ['hiking', 'swimming', 'dancing', 'yoga', 'sports', 'music'],
-            'social_context': ['group_photo', 'solo', 'with_pets', 'with_family'],
-            'style': ['casual', 'formal', 'athletic', 'fashionable', 'professional'],
-            'location_type': ['beach', 'city', 'nature', 'gym', 'restaurant', 'home']
-        }
+        # Load the CLIP model
+        self.device = "cuda" if torch.cuda.is_available() else "cpu"
+        self.model, self.preprocess = clip.load("ViT-B/32", device=self.device)
 
-    def _init_scene_classifier(self):
-        # Initialize a model for scene recognition
-        # You can use models like ResNet trained on Places365 dataset
-        processor = AutoProcessor.from_pretrained("microsoft/resnet-50")
-        model = AutoModelForImageClassification.from_pretrained("microsoft/resnet-50")
-        return {"processor": processor, "model": model}
-
-    def _init_activity_classifier(self):
-        # Initialize model for activity recognition
-        # Could use models trained on datasets like Stanford Actions or Kinetics
-        pass
-
-    def _init_style_classifier(self):
-        # Initialize model for fashion/style detection
-        # Could use models trained on fashion datasets
-        pass
-
-    def analyze_image(self, image_path: str) -> Dict:
+    def analyze_image(self, image_path: str, prompts: List[str]) -> Dict:
         """
-        Analyze an image for multiple contextual aspects
+        Analyze an image against any set of textual descriptions/prompts
+        Args:
+            image_path: Path to the image
+            prompts: List of text descriptions to check against the image
+                    e.g. ["person playing sports", "someone who loves traveling",
+                          "professional photographer", "fashion enthusiast"]
         """
         try:
+            # Load and preprocess the image
             image = Image.open(image_path)
+            image_input = self.preprocess(image).unsqueeze(0).to(self.device)
             
-            # Analyze different aspects
-            results = {
-                'lifestyle_indicators': self._detect_lifestyle(image),
-                'activities': self._detect_activities(image),
-                'social_context': self._detect_social_context(image),
-                'style': self._detect_style(image),
-                'location': self._detect_location(image)
-            }
+            # Encode text descriptions
+            text_tokens = clip.tokenize(prompts).to(self.device)
             
-            # Add confidence scores
-            results['confidence_scores'] = {
-                aspect: score 
-                for aspect, score in self._calculate_confidence_scores(results).items()
-            }
-            
+            with torch.no_grad():
+                # Get image and text features
+                image_features = self.model.encode_image(image_input)
+                text_features = self.model.encode_text(text_tokens)
+                
+                # Normalize features
+                image_features /= image_features.norm(dim=-1, keepdim=True)
+                text_features /= text_features.norm(dim=-1, keepdim=True)
+                
+                # Calculate similarity scores
+                similarity = (100.0 * image_features @ text_features.T).softmax(dim=-1)
+                
+                # Create results dictionary
+                results = {
+                    prompt: float(score)  # Convert tensor to float
+                    for prompt, score in zip(prompts, similarity[0])
+                }
+                
             return results
             
         except Exception as e:
             print(f"Error analyzing image {image_path}: {str(e)}")
             return None
 
-    def _detect_lifestyle(self, image) -> List[str]:
+    def batch_analyze_profile(self, image_paths: List[str], prompts: List[str]) -> Dict:
         """
-        Detect lifestyle indicators from the image
-        Returns list of detected lifestyle categories with confidence scores
-        """
-        # Implementation would use scene classification and activity recognition
-        pass
-
-    def _detect_activities(self, image) -> List[str]:
-        """
-        Detect specific activities in the image
-        """
-        # Implementation would use activity recognition model
-        pass
-
-    def _detect_social_context(self, image) -> Dict:
-        """
-        Analyze social context (group vs solo, presence of pets, etc.)
-        """
-        # Implementation would use object detection and person counting
-        pass
-
-    def _detect_style(self, image) -> List[str]:
-        """
-        Analyze fashion and style elements
-        """
-        # Implementation would use fashion/style classification model
-        pass
-
-    def _detect_location(self, image) -> str:
-        """
-        Classify the type of location/setting
-        """
-        # Implementation would use scene classification model
-        pass
-
-    def _calculate_confidence_scores(self, results: Dict) -> Dict:
-        """
-        Calculate confidence scores for each detected attribute
-        """
-        # Implementation would aggregate model confidence scores
-        pass
-
-    def batch_analyze_profile(self, image_paths: List[str]) -> Dict:
-        """
-        Analyze multiple images from a single profile to build a comprehensive profile
+        Analyze multiple images from a profile against given prompts
         """
         all_results = []
         for image_path in image_paths:
-            result = self.analyze_image(image_path)
+            result = self.analyze_image(image_path, prompts)
             if result:
                 all_results.append(result)
         
@@ -124,23 +66,37 @@ class ContextualImageAnalyzer:
 
     def _aggregate_profile_results(self, results: List[Dict]) -> Dict:
         """
-        Aggregate results from multiple images to create a profile summary
+        Aggregate results from multiple images
         """
-        # Implement logic to combine results from multiple images
-        # Consider frequency and confidence of detected attributes
-        aggregated = {
-            'primary_lifestyle': [],
-            'common_activities': [],
-            'social_indicators': {},
-            'style_profile': [],
-            'frequent_locations': [],
-            'confidence_scores': {}
-        }
+        if not results:
+            return {}
+            
+        # Calculate average scores across all images
+        aggregated = {}
+        for key in results[0].keys():
+            scores = [result[key] for result in results]
+            aggregated[key] = {
+                'average_score': sum(scores) / len(scores),
+                'max_score': max(scores),
+                'num_images': len(scores)
+            }
         
         return aggregated
 
 def main():
     analyzer = ContextualImageAnalyzer()
+    
+    # Example prompts - these can be dynamically generated from user preferences
+    example_prompts = [
+        "person who loves traveling",
+        "athletic person playing sports",
+        "someone at a social gathering with friends",
+        "professional photographer with camera",
+        "fashion enthusiast with stylish outfit",
+        "person with pets",
+        "someone who enjoys outdoor activities",
+        "person in a professional setting"
+    ]
     
     # Example usage
     profile_images = [
@@ -148,7 +104,7 @@ def main():
         "path/to/profile_image2.jpg"
     ]
     
-    profile_analysis = analyzer.batch_analyze_profile(profile_images)
+    profile_analysis = analyzer.batch_analyze_profile(profile_images, example_prompts)
     
     # Save results
     with open('profile_contextual_analysis.json', 'w') as f:
