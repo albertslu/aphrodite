@@ -1,3 +1,3 @@
 @echo off
-set FLICKR_API_KEY=your_api_key_here
-set FLICKR_API_SECRET=your_api_secret_here
+set FLICKR_API_KEY=93c73cb77a77eaaa1d53f121aaae07f7
+set FLICKR_API_SECRET=f29e176df48bd8c9

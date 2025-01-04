@@ -197,13 +197,10 @@ class FlickrDatasetCollector:
             print(f"{category}: {stats['photos_collected']} photos")
 
 def main():
-    # Load API credentials from environment variables
-    api_key = os.getenv('FLICKR_API_KEY')
-    api_secret = os.getenv('FLICKR_API_SECRET')
+    # Hardcode API credentials
+    api_key = '93c73cb77a77eaaa1d53f121aaae07f7'
+    api_secret = 'f29e176df48bd8c9'
     
-    if not api_key or not api_secret:
-        raise ValueError("Please set FLICKR_API_KEY and FLICKR_API_SECRET environment variables")
-
     collector = FlickrDatasetCollector(api_key, api_secret)
     
     # Set output directory
