@@ -20,7 +20,16 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setError(''); // Clear previous errors
+        
+        // Validate input
+        if (!formData.username || !formData.password) {
+            setError('Please enter both username and password');
+            return;
+        }
+
         try {
+            console.log('Attempting login with:', formData.username);
             const response = await fetch('http://localhost:5000/api/auth/login', {
                 method: 'POST',
                 headers: {
@@ -29,16 +38,18 @@ const Login = () => {
                 body: JSON.stringify(formData)
             });
 
+            const data = await response.json();
+            console.log('Login response:', data);
+
             if (!response.ok) {
-                const data = await response.json();
                 throw new Error(data.message || 'Invalid credentials');
             }
 
-            const data = await response.json();
             localStorage.setItem('token', data.token);
             navigate('/create-profile');
         } catch (error) {
-            setError('Please enter both username and password');
+            console.error('Login error:', error);
+            setError(error.message || 'Failed to login. Please try again.');
         }
     };
 
