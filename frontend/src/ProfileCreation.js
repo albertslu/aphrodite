@@ -1,71 +1,221 @@
 // src/ProfileCreation.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './App.css'; // Ensure you import the CSS file
+import './App.css';
 
 const ProfileCreation = () => {
-    const [name, setName] = useState('');
-    const [age, setAge] = useState('');
-    const [profilePicture, setProfilePicture] = useState(null);
-    const [preferences, setPreferences] = useState([]);
-    const [currentPreference, setCurrentPreference] = useState('');
+    const [formData, setFormData] = useState({
+        name: '',
+        age: '',
+        height: '',
+        ethnicity: '',
+        occupation: '',
+        location: '',
+        education: '',
+        photos: [],
+        aboutMe: '',
+        interests: '',
+        idealDate: ''
+    });
+    const [error, setError] = useState('');
     const navigate = useNavigate();
 
-    const handleNameChange = (e) => setName(e.target.value);
-    const handleAgeChange = (e) => setAge(e.target.value);
-    const handlePictureChange = (e) => setProfilePicture(URL.createObjectURL(e.target.files[0]));
-    const handleCurrentPreferenceChange = (e) => setCurrentPreference(e.target.value);
-    const handlePreferencesAdd = () => {
-        if (currentPreference && !preferences.includes(currentPreference)) {
-            setPreferences([...preferences, currentPreference]);
-            setCurrentPreference('');
-        }
-    };
-    const handlePreferencesKeyPress = (e) => {
-        if (e.key === 'Enter') {
-            e.preventDefault();
-            handlePreferencesAdd();
-        }
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [name]: value
+        }));
     };
 
-    const handleSubmit = (e) => {
+    const handlePhotoChange = (e) => {
+        const files = Array.from(e.target.files);
+        if (files.length > 3) {
+            setError('Maximum 3 photos allowed');
+            return;
+        }
+        setFormData(prev => ({
+            ...prev,
+            photos: files
+        }));
+    };
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle form submission logic here
-        console.log({ name, age, profilePicture, preferences });
-        // Navigate to preference input screen
-        navigate('/preferences');
+        try {
+            const formDataToSend = new FormData();
+            Object.keys(formData).forEach(key => {
+                if (key === 'photos') {
+                    formData[key].forEach(photo => {
+                        formDataToSend.append('photos', photo);
+                    });
+                } else {
+                    formDataToSend.append(key, formData[key]);
+                }
+            });
+
+            // TODO: Add API endpoint
+            const response = await fetch('http://localhost:5000/api/profiles', {
+                method: 'POST',
+                body: formDataToSend
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to create profile');
+            }
+
+            const data = await response.json();
+            const profile = data;
+            await profile.save();
+            
+            // Navigate to preferences page after profile creation
+            navigate('/preferences');
+        } catch (error) {
+            setError(error.message);
+            console.error('Error creating profile:', error);
+        }
     };
 
     return (
-        <div>
-            <h1>Create Your Profile</h1>
+        <div className="profile-creation">
+            <h2>Create Your Profile</h2>
+            {error && <div className="error">{error}</div>}
             <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Name: </label>
-                    <input type="text" value={name} onChange={handleNameChange} required />
-                </div>
-                <div>
-                    <label>Age: </label>
-                    <input type="number" value={age} onChange={handleAgeChange} required />
-                </div>
-                <div>
-                    <label>Profile Picture: </label>
-                    <input type="file" onChange={handlePictureChange} required />
-                    {profilePicture && <img src={profilePicture} alt="Profile Preview" width="100" />}
-                </div>
-                <div>
-                    <label>Preferences: </label>
-                    <input type="text" value={currentPreference} onChange={handleCurrentPreferenceChange} onKeyPress={handlePreferencesKeyPress} placeholder="Add a preference tag" />
-                    <button type="button" onClick={handlePreferencesAdd}>Add</button>
-                    <div>
-                        {preferences.map((preference, index) => (
-                            <span key={index}>
-                                {preference}
-                            </span>
-                        ))}
+                <div className="form-section">
+                    <h3>Basic Information</h3>
+                    <div className="form-group">
+                        <input
+                            type="text"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleInputChange}
+                            placeholder="Full Name"
+                            className="form-control"
+                            required
+                        />
+                    </div>
+                    <div className="form-row">
+                        <div className="form-group half">
+                            <input
+                                type="number"
+                                name="age"
+                                value={formData.age}
+                                onChange={handleInputChange}
+                                placeholder="Age"
+                                className="form-control"
+                                required
+                            />
+                        </div>
+                        <div className="form-group half">
+                            <input
+                                type="text"
+                                name="height"
+                                value={formData.height}
+                                onChange={handleInputChange}
+                                placeholder="Height"
+                                className="form-control"
+                                required
+                            />
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <input
+                            type="text"
+                            name="ethnicity"
+                            value={formData.ethnicity}
+                            onChange={handleInputChange}
+                            placeholder="Ethnicity"
+                            className="form-control"
+                        />
+                    </div>
+                    <div className="form-group">
+                        <input
+                            type="text"
+                            name="occupation"
+                            value={formData.occupation}
+                            onChange={handleInputChange}
+                            placeholder="Occupation"
+                            className="form-control"
+                            required
+                        />
+                    </div>
+                    <div className="form-group">
+                        <input
+                            type="text"
+                            name="location"
+                            value={formData.location}
+                            onChange={handleInputChange}
+                            placeholder="Location"
+                            className="form-control"
+                            required
+                        />
+                    </div>
+                    <div className="form-group">
+                        <input
+                            type="text"
+                            name="education"
+                            value={formData.education}
+                            onChange={handleInputChange}
+                            placeholder="Education"
+                            className="form-control"
+                        />
                     </div>
                 </div>
-                <button type="submit">Save Profile</button>
+
+                <div className="form-section">
+                    <h3>Photos</h3>
+                    <div className="form-group">
+                        <input
+                            type="file"
+                            onChange={handlePhotoChange}
+                            accept="image/*"
+                            multiple
+                            max="3"
+                            className="form-control"
+                            required
+                        />
+                        <small>Upload up to 3 photos</small>
+                    </div>
+                </div>
+
+                <div className="form-section">
+                    <h3>About You</h3>
+                    <div className="form-group">
+                        <textarea
+                            name="aboutMe"
+                            value={formData.aboutMe}
+                            onChange={handleInputChange}
+                            placeholder="Tell us about yourself..."
+                            className="form-control"
+                            rows="4"
+                            required
+                        />
+                    </div>
+                    <div className="form-group">
+                        <textarea
+                            name="interests"
+                            value={formData.interests}
+                            onChange={handleInputChange}
+                            placeholder="What are your interests and hobbies?"
+                            className="form-control"
+                            rows="4"
+                            required
+                        />
+                    </div>
+                    <div className="form-group">
+                        <textarea
+                            name="idealDate"
+                            value={formData.idealDate}
+                            onChange={handleInputChange}
+                            placeholder="Describe your ideal date..."
+                            className="form-control"
+                            rows="4"
+                            required
+                        />
+                    </div>
+                </div>
+
+                <button type="submit" className="btn btn-primary">Create Profile</button>
             </form>
         </div>
     );

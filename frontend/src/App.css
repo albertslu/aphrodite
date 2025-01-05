@@ -2,81 +2,246 @@
 
 .App {
   text-align: center;
-  font-family: Arial, sans-serif;
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #1a1a1a;
+  min-height: 100vh;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 20px;
 }
 
-form {
+.app-title {
+  font-size: 3rem;
+  color: #ff69b4;
+  margin-bottom: 2rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.app-title-login {
+  font-size: 3rem;
+  color: #ff69b4;
+  margin: 0.5rem 0;
+  font-family: 'Playfair Display', serif;
+}
+
+.login-container {
+  max-width: 400px;
+  width: 90%;
+  padding: 2rem;
+  background-color: #2a2a2a;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2 {
+  color: #ff69b4;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.login-container .subtitle {
+  font-size: 1.1rem;
+  color: #888;
+  margin: 0.5rem 0 2rem 0;
+}
+
+.login-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 1rem;
+}
+
+.profile-creation {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #2a2a2a;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-section {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: #333;
+  border-radius: 8px;
+}
+
+.form-section h3 {
+  color: #ff69b4;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
 }
 
 .form-group {
-  margin: 10px 0;
-  width: 100%;
-  max-width: 400px;
-  text-align: left;
+  margin-bottom: 1rem;
 }
 
-label {
-  margin-bottom: 5px;
-  font-size: 1.2em;
-}
-
-.input-group {
+.form-row {
   display: flex;
-  align-items: center;
+  gap: 1rem;
 }
 
-input[type="text"],
-input[type="number"],
-input[type="file"],
-textarea {
-  margin-bottom: 10px;
-  padding: 10px;
+.form-group.half {
+  flex: 1;
+}
+
+.form-control {
   width: 100%;
-  font-size: 1em;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  padding: 0.8rem;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background-color: #1a1a1a !important;
+  color: #666 !important;
+  font-size: 1rem;
+  height: 45px;
   box-sizing: border-box;
+  outline: none;
+  transition: all 0.2s ease;
 }
 
-textarea.full-width-input {
-  height: 100px;
+.form-control:focus {
+  border-color: #ff69b4;
+  box-shadow: 0 0 0 1px #ff69b4;
+  color: #fff !important;
 }
 
-button {
-  padding: 10px 20px;
-  margin: 10px;
-  font-size: 1em;
-  background-color: #61dafb;
+.form-control::placeholder {
+  color: #666;
+  opacity: 1;
+}
+
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+input, input:focus {
+  color: #666 !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #1a1a1a inset !important;
+  -webkit-text-fill-color: #666 !important;
+  border: 1px solid #333 !important;
+  transition: all 0.2s ease !important;
+}
+
+input:-webkit-autofill:focus {
+  border-color: #ff69b4 !important;
+  box-shadow: 0 0 0 1px #ff69b4 !important;
+  -webkit-text-fill-color: #fff !important;
+}
+
+textarea.form-control {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.btn {
+  padding: 0.8rem 1.5rem;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  height: 45px;
 }
 
-button:hover {
-  background-color: #21a1f1;
+.btn-primary {
+  background-color: #ff69b4;
+  color: white;
+  width: 100%;
 }
 
-span {
-  background: #eee;
-  padding: 5px;
-  border-radius: 5px;
-  margin-right: 5px;
+.btn-primary:hover {
+  background-color: #ff4da6;
+}
+
+.btn-secondary {
+  background-color: #444;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #555;
+}
+
+.error {
+  color: #ff4444;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ff4444;
+  border-radius: 4px;
+  background-color: rgba(255, 68, 68, 0.1);
+}
+
+.signup-link {
+  margin-top: 1rem;
+  color: #888;
+}
+
+.signup-link a {
+  color: #ff69b4;
+  text-decoration: none;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+small {
+  color: #888;
+  font-size: 0.8rem;
+}
+
+.preference-input {
+  display: flex;
+  gap: 10px;
+}
+
+.preference-input input {
+  flex: 1;
+}
+
+.preferences-list {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.preferences-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.preferences-list li {
   display: inline-block;
+  margin: 5px;
+  padding: 5px 10px;
+  background-color: #e9ecef;
+  border-radius: 15px;
+  font-size: 14px;
 }
 
 .profile-card {
@@ -114,4 +279,100 @@ span {
 
 .like-button:hover {
   background-color: #1aff1a;
+}
+
+label {
+  margin-bottom: 5px;
+  font-size: 1.2em;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 1em;
+  background-color: #61dafb;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #21a1f1;
+}
+
+span {
+  background: #eee;
+  padding: 5px;
+  border-radius: 5px;
+  margin-right: 5px;
+  display: inline-block;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="file"],
+textarea {
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 100%;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+textarea.full-width-input {
+  height: 100px;
+}
+
+.preferences-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #2a2a2a;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.preferences-container h2 {
+  color: #ff69b4;
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+}
+
+.preferences-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.preferences-form .form-section {
+  background-color: #333;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.preferences-form label {
+  display: block;
+  color: #ff69b4;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.preferences-form textarea.form-control {
+  height: auto;
+  min-height: 100px;
+  resize: vertical;
+}
+
+.preferences-form .btn-primary {
+  margin-top: 1rem;
+  height: 50px;
+  font-size: 1.2rem;
 }
