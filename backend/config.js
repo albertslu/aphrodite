@@ -1,12 +1,14 @@
+require('dotenv').config();
+
 const config = {
     mongodb: {
-        uri: 'mongodb+srv://albertlu:test@aphrodite.nr8sj.mongodb.net/profile_matching?retryWrites=true&w=majority&appName=Aphrodite'
+        uri: process.env.MONGODB_URI || 'mongodb+srv://albertlu:test@aphrodite.nr8sj.mongodb.net/profile_matching?tls=true&authSource=admin'
     },
     jwt: {
-        secret: 'aphrodite_secret_key_2025'
+        secret: process.env.JWT_SECRET || 'aphrodite_secret_key_2025'
     },
     server: {
-        port: 5000
+        port: process.env.PORT || 5000
     }
 };
 

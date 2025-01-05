@@ -10,10 +10,12 @@ const config = require('./config');
 // Uncaught error handling
 process.on('uncaughtException', (err) => {
     console.error('Uncaught Exception:', err);
+    process.exit(1);
 });
 
 process.on('unhandledRejection', (err) => {
     console.error('Unhandled Rejection:', err);
+    process.exit(1);
 });
 
 const app = express();
@@ -34,8 +36,8 @@ app.use((req, res, next) => {
 });
 
 // MongoDB connection with detailed logging
-console.log('MongoDB URI:', config.mongodb.uri.replace(/:[^:]*@/, ':****@')); // Hide password in logs
 console.log('Attempting to connect to MongoDB...');
+console.log('MongoDB URI:', config.mongodb.uri.replace(/:[^:]*@/, ':****@')); // Hide password in logs
 
 mongoose.set('debug', true); // Enable mongoose debug mode
 
@@ -55,20 +57,22 @@ mongoose.connection.on('disconnected', () => {
 const connectWithRetry = async () => {
     try {
         await mongoose.connect(config.mongodb.uri, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            serverSelectionTimeoutMS: 5000,
-            heartbeatFrequencyMS: 2000
+            tlsAllowInvalidCertificates: true,
+            tlsInsecure: true,
+            serverSelectionTimeoutMS: 5000
         });
         console.log('MongoDB connected successfully');
     } catch (err) {
-        console.error('MongoDB connection error:', err);
+        console.error('MongoDB connection error details:', {
+            name: err.name,
+            message: err.message,
+            code: err.code,
+            stack: err.stack
+        });
         console.log('Retrying in 5 seconds...');
         setTimeout(connectWithRetry, 5000);
     }
 };
-
-connectWithRetry();
 
 // Create uploads directory if it doesn't exist
 const fs = require('fs');
@@ -225,13 +229,17 @@ app.use((err, req, res, next) => {
     });
 });
 
-const server = app.listen(port, () => {
-    console.log(`Server is running on port: ${port}`);
-});
+// Start server only after MongoDB connects
+let server;
+connectWithRetry().then(() => {
+    server = app.listen(port, () => {
+        console.log(`Server is running on port: ${port}`);
+    });
 
-// Handle server errors
-server.on('error', (err) => {
-    console.error('Server error:', err);
+    // Handle server errors
+    server.on('error', (err) => {
+        console.error('Server error:', err);
+    });
 });
 
 // Graceful shutdown
