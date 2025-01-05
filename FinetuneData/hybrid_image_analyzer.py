@@ -264,47 +264,126 @@ class ProfileMatcher:
         # This is a placeholder that assumes locations are dictionaries with 'lat' and 'lon' keys
         return ((loc1['lat'] - loc2['lat'])**2 + (loc1['lon'] - loc2['lon'])**2)**0.5
 
+    def match_flickr_images(self, flickr_dir: str, prompts_file: str, output_file: str = "flickr_matches.json") -> None:
+        """
+        Match Flickr images with prompts using CLIP model
+        Args:
+            flickr_dir: Directory containing Flickr images
+            prompts_file: Path to JSONL file containing prompts
+            output_file: Path to save the matches
+        """
+        # Load prompts from JSONL
+        prompts = []
+        with open(prompts_file, 'r') as f:
+            for line in f:
+                data = json.loads(line)
+                prompts.append(data['prompt'])
+        
+        # Get all image paths
+        image_paths = []
+        for root, _, files in os.walk(flickr_dir):
+            for file in files:
+                if file.lower().endswith(('.png', '.jpg', '.jpeg')):
+                    image_paths.append(os.path.join(root, file))
+        
+        print(f"Found {len(image_paths)} images and {len(prompts)} prompts")
+        
+        # Process images in batches
+        batch_size = 32
+        all_matches = []
+        
+        for i in range(0, len(image_paths), batch_size):
+            batch_paths = image_paths[i:i + batch_size]
+            batch_images = []
+            valid_paths = []
+            
+            # Load and preprocess images
+            for img_path in batch_paths:
+                try:
+                    image = Image.open(img_path).convert('RGB')
+                    batch_images.append(self.preprocess(image))
+                    valid_paths.append(img_path)
+                except Exception as e:
+                    print(f"Error loading image {img_path}: {e}")
+                    continue
+            
+            if not batch_images:
+                continue
+                
+            # Stack images into a batch tensor
+            image_input = torch.stack(batch_images).to(self.device)
+            
+            # Process text prompts
+            text_tokens = clip.tokenize(prompts).to(self.device)
+            
+            # Calculate similarities
+            with torch.no_grad():
+                image_features = self.clip_model.encode_image(image_input)
+                text_features = self.clip_model.encode_text(text_tokens)
+                
+                # Normalize features
+                image_features /= image_features.norm(dim=-1, keepdim=True)
+                text_features /= text_features.norm(dim=-1, keepdim=True)
+                
+                # Calculate similarity scores
+                similarity = (100.0 * image_features @ text_features.T)
+                
+                # Find top matches for each image
+                for img_idx, img_path in enumerate(valid_paths):
+                    scores, indices = similarity[img_idx].topk(5)  # Get top 5 matches
+                    
+                    matches = {
+                        'image_path': img_path,
+                        'matches': [
+                            {
+                                'prompt': prompts[idx],
+                                'score': float(score)
+                            }
+                            for score, idx in zip(scores.cpu().numpy(), indices.cpu().numpy())
+                        ]
+                    }
+                    all_matches.append(matches)
+            
+            print(f"Processed {len(all_matches)} images so far...")
+        
+        # Save results
+        with open(output_file, 'w') as f:
+            json.dump(all_matches, f, indent=2)
+        
+        print(f"\nResults saved to {output_file}")
+        
+        # Print some example matches
+        print("\nExample matches:")
+        for match in all_matches[:3]:
+            print(f"\nImage: {os.path.basename(match['image_path'])}")
+            print("Top matching prompts:")
+            for prompt_match in match['matches']:
+                print(f"- Score: {prompt_match['score']:.3f}")
+                print(f"  Prompt: {prompt_match['prompt']}")
+
 def main():
-    # Example usage
-    api_key = os.getenv('OPENAI_API_KEY')
-    if not api_key:
-        raise ValueError("Please set OPENAI_API_KEY environment variable")
-
-    matcher = ProfileMatcher(api_key)
-
-    # Example profile and preference data
-    profile_data = {
-        "age": 28,
-        "gender": "Woman",
-        "location": {"lat": 40.7128, "lon": -74.0060},
-        "body_type": "athletic",
-        "height": "tall"
-    }
-
-    preference_data = {
-        "age_range": (25, 35),
-        "preferred_gender": "Woman",
-        "location": {"lat": 40.7580, "lon": -73.9855},
-        "max_distance": 50
-    }
-
-    profile_images = [
-        "path/to/profile_image1.jpg",
-        "path/to/profile_image2.jpg"
-    ]
-
-    match_results = matcher.calculate_profile_match(
-        profile_data,
-        preference_data,
-        profile_images
-    )
-
-    # Save results with timestamp
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    output_file = f'profile_match_results_{timestamp}.json'
+    import argparse
+    parser = argparse.ArgumentParser(description='Profile Matching System')
+    parser.add_argument('--openai_key', type=str, help='OpenAI API Key')
+    parser.add_argument('--mode', type=str, choices=['verify', 'analyze', 'match_flickr'], 
+                      default='verify', help='Operation mode')
+    parser.add_argument('--flickr_dir', type=str, help='Directory containing Flickr images')
+    parser.add_argument('--prompts_file', type=str, help='Path to prompts JSONL file')
+    parser.add_argument('--output_file', type=str, default='flickr_matches.json',
+                      help='Output file for Flickr matches')
     
-    with open(output_file, 'w') as f:
-        json.dump(match_results, f, indent=2)
+    args = parser.parse_args()
+    
+    matcher = ProfileMatcher(args.openai_key)
+    
+    if args.mode == 'match_flickr':
+        if not args.flickr_dir or not args.prompts_file:
+            print("Error: flickr_dir and prompts_file are required for match_flickr mode")
+            return
+        matcher.match_flickr_images(args.flickr_dir, args.prompts_file, args.output_file)
+    else:
+        # Original verification and analysis code here
+        pass
 
 if __name__ == "__main__":
     main()
