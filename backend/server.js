@@ -4,6 +4,7 @@ const cors = require('cors');
 const multer = require('multer');
 const path = require('path');
 const authRoutes = require('./routes/auth');
+const profileRoutes = require('./routes/profile');
 const jwt = require('jsonwebtoken');
 const config = require('./config');
 
@@ -35,40 +36,45 @@ app.use((req, res, next) => {
     next();
 });
 
-// MongoDB connection with detailed logging
-console.log('Attempting to connect to MongoDB...');
-console.log('MongoDB URI:', config.mongodb.uri.replace(/:[^:]*@/, ':****@')); // Hide password in logs
-
-mongoose.set('debug', true); // Enable mongoose debug mode
-
-mongoose.connection.on('connected', () => {
-    console.log('Mongoose connected to MongoDB');
-});
-
-mongoose.connection.on('error', (err) => {
-    console.error('Mongoose connection error:', err);
-});
-
-mongoose.connection.on('disconnected', () => {
-    console.log('Mongoose disconnected from MongoDB');
+// MongoDB connection status endpoint
+app.get('/api/status', (req, res) => {
+    const status = mongoose.connection.readyState;
+    const statusMap = {
+        0: 'disconnected',
+        1: 'connected',
+        2: 'connecting',
+        3: 'disconnecting'
+    };
+    res.json({
+        status: statusMap[status],
+        timestamp: new Date().toISOString()
+    });
 });
 
 // MongoDB connection with retry
 const connectWithRetry = async () => {
     try {
-        await mongoose.connect(config.mongodb.uri, {
-            tlsAllowInvalidCertificates: true,
-            tlsInsecure: true,
-            serverSelectionTimeoutMS: 5000
-        });
-        console.log('MongoDB connected successfully');
+        console.log('Attempting to connect to MongoDB...');
+        console.log('MongoDB URI:', config.mongodb.uri.replace(/:[^:]*@/, ':****@'));
+
+        const options = {
+            serverSelectionTimeoutMS: 10000,
+            socketTimeoutMS: 45000,
+            family: 4
+        };
+
+        await mongoose.connect(config.mongodb.uri, options);
+        
+        console.log('=================================');
+        console.log('✅ MongoDB connected successfully!');
+        console.log('Database:', mongoose.connection.name);
+        console.log('Host:', mongoose.connection.host);
+        console.log('=================================');
     } catch (err) {
-        console.error('MongoDB connection error details:', {
-            name: err.name,
-            message: err.message,
-            code: err.code,
-            stack: err.stack
-        });
+        console.error('❌ MongoDB connection error:', err.message);
+        if (err.cause) {
+            console.error('Cause:', err.cause.message);
+        }
         console.log('Retrying in 5 seconds...');
         setTimeout(connectWithRetry, 5000);
     }
@@ -104,12 +110,14 @@ const User = require('./models/User'); // Assuming User model is defined in anot
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/profile', profileRoutes);
 
 // Basic route for testing
 app.get('/api/test', (req, res) => {
     res.json({ 
         message: 'Backend server is running',
-        mongoStatus: mongoose.connection.readyState === 1 ? 'connected' : 'disconnected'
+        mongoStatus: mongoose.connection.readyState === 1 ? 'connected' : 'disconnected',
+        timestamp: new Date().toISOString()
     });
 });
 
@@ -229,17 +237,16 @@ app.use((err, req, res, next) => {
     });
 });
 
-// Start server only after MongoDB connects
-let server;
-connectWithRetry().then(() => {
-    server = app.listen(port, () => {
-        console.log(`Server is running on port: ${port}`);
-    });
+// Start server and connect to MongoDB
+const server = app.listen(port, () => {
+    console.log(`Server is running on port: ${port}`);
+    console.log('Connecting to MongoDB...');
+    connectWithRetry();
+});
 
-    // Handle server errors
-    server.on('error', (err) => {
-        console.error('Server error:', err);
-    });
+// Handle server errors
+server.on('error', (err) => {
+    console.error('Server error:', err);
 });
 
 // Graceful shutdown
