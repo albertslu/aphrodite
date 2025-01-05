@@ -10,6 +10,16 @@ const profileSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    gender: {
+        type: String,
+        required: true,
+        enum: ['male', 'female', 'non-binary', 'other']
+    },
+    sexualOrientation: {
+        type: String,
+        required: true,
+        enum: ['straight', 'gay', 'lesbian', 'bisexual', 'pansexual', 'other']
+    },
     age: {
         type: Number,
         required: true
@@ -30,7 +40,8 @@ const profileSchema = new mongoose.Schema({
     education: String,
     photos: [{
         url: String,
-        caption: String
+        caption: String,
+        order: Number
     }],
     aboutMe: {
         type: String,
@@ -44,10 +55,19 @@ const profileSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    partnerPreferences: {
+        type: String,
+        default: ''
+    },
     createdAt: {
         type: Date,
         default: Date.now
     }
 });
+
+// Validate photos array length
+profileSchema.path('photos').validate(function(photos) {
+    return photos.length <= 3;
+}, 'You can only upload up to 3 photos');
 
 module.exports = mongoose.model('Profile', profileSchema);
