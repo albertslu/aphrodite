@@ -2,10 +2,12 @@ const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
+const config = require('../config');
 
 // Signup
 router.post('/signup', async (req, res) => {
     try {
+        console.log('Received signup request:', req.body);
         const { username, password, phoneNumber } = req.body;
 
         // Check if user exists
@@ -22,16 +24,18 @@ router.post('/signup', async (req, res) => {
         });
 
         await user.save();
+        console.log('User saved successfully');
 
         // Generate token
         const token = jwt.sign(
             { userId: user._id },
-            process.env.JWT_SECRET || 'your-secret-key',
+            config.jwt.secret,
             { expiresIn: '24h' }
         );
 
         res.status(201).json({ token });
     } catch (error) {
+        console.error('Signup error:', error);
         res.status(500).json({ message: 'Error creating user', error: error.message });
     }
 });
@@ -56,12 +60,13 @@ router.post('/login', async (req, res) => {
         // Generate token
         const token = jwt.sign(
             { userId: user._id },
-            process.env.JWT_SECRET || 'your-secret-key',
+            config.jwt.secret,
             { expiresIn: '24h' }
         );
 
         res.json({ token });
     } catch (error) {
+        console.error('Login error:', error);
         res.status(500).json({ message: 'Error logging in', error: error.message });
     }
 });

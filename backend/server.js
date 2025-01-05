@@ -4,20 +4,60 @@ const cors = require('cors');
 const multer = require('multer');
 const path = require('path');
 const authRoutes = require('./routes/auth');
-const jwt = require('jsonwebtoken'); // Added jwt module
-require('dotenv').config();
+const jwt = require('jsonwebtoken');
+const config = require('./config');
+
+// Uncaught error handling
+process.on('uncaughtException', (err) => {
+    console.error('Uncaught Exception:', err);
+});
+
+process.on('unhandledRejection', (err) => {
+    console.error('Unhandled Rejection:', err);
+});
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = config.server.port;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:3000',
+    credentials: true
+}));
+
 app.use(express.json());
 
-// MongoDB connection
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/profile_matching')
-    .then(() => console.log('MongoDB connected'))
-    .catch(err => console.log('MongoDB connection error:', err));
+// Request logging middleware
+app.use((req, res, next) => {
+    console.log(`${new Date().toISOString()} - ${req.method} ${req.url}`);
+    next();
+});
+
+// MongoDB connection with error handling and retry
+const connectWithRetry = () => {
+    console.log('Attempting to connect to MongoDB...');
+    mongoose.connect(config.mongodb.uri, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        serverSelectionTimeoutMS: 5000
+    })
+    .then(() => {
+        console.log('MongoDB connected successfully');
+    })
+    .catch(err => {
+        console.error('MongoDB connection error:', err);
+        console.log('Retrying in 5 seconds...');
+        setTimeout(connectWithRetry, 5000);
+    });
+};
+
+connectWithRetry();
+
+// Create uploads directory if it doesn't exist
+const fs = require('fs');
+if (!fs.existsSync('./uploads')) {
+    fs.mkdirSync('./uploads');
+}
 
 // Profile Schema
 const profileSchema = new mongoose.Schema({
@@ -43,6 +83,11 @@ const User = require('./models/User'); // Assuming User model is defined in anot
 
 // Routes
 app.use('/api/auth', authRoutes);
+
+// Basic route for testing
+app.get('/api/test', (req, res) => {
+    res.json({ message: 'Backend server is running' });
+});
 
 // File upload configuration
 const storage = multer.diskStorage({
@@ -82,7 +127,7 @@ const authenticateToken = (req, res, next) => {
         return res.status(401).json({ message: 'Authentication required' });
     }
 
-    jwt.verify(token, process.env.JWT_SECRET || 'your-secret-key', (err, user) => {
+    jwt.verify(token, config.jwt.secret, (err, user) => {
         if (err) {
             return res.status(403).json({ message: 'Invalid or expired token' });
         }
@@ -150,6 +195,33 @@ app.get('/api/profile', authenticateToken, async (req, res) => {
 // Serve uploaded files
 app.use('/uploads', express.static('uploads'));
 
-app.listen(port, () => {
+// Error handling middleware
+app.use((err, req, res, next) => {
+    console.error('Error:', err);
+    res.status(500).json({ 
+        message: 'Something went wrong!', 
+        error: err.message,
+        stack: process.env.NODE_ENV === 'development' ? err.stack : undefined
+    });
+});
+
+const server = app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
+});
+
+// Handle server errors
+server.on('error', (err) => {
+    console.error('Server error:', err);
+});
+
+// Graceful shutdown
+process.on('SIGTERM', () => {
+    console.log('SIGTERM received. Shutting down gracefully...');
+    server.close(() => {
+        console.log('Server closed');
+        mongoose.connection.close(false, () => {
+            console.log('MongoDB connection closed');
+            process.exit(0);
+        });
+    });
 });

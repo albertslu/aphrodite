@@ -22,6 +22,7 @@ const Signup = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            console.log('Attempting to sign up...', formData);
             const response = await fetch('http://localhost:5000/api/auth/signup', {
                 method: 'POST',
                 headers: {
@@ -31,6 +32,7 @@ const Signup = () => {
             });
 
             const data = await response.json();
+            console.log('Signup response:', data);
             
             if (!response.ok) {
                 throw new Error(data.message || 'Failed to sign up');
@@ -39,8 +41,8 @@ const Signup = () => {
             localStorage.setItem('token', data.token);
             navigate('/create-profile');
         } catch (error) {
-            setError(error.message || 'Error creating account. Please try again.');
             console.error('Signup error:', error);
+            setError(error.message || 'Error creating account. Please try again.');
         }
     };
 
