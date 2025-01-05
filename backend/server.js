@@ -33,22 +33,39 @@ app.use((req, res, next) => {
     next();
 });
 
-// MongoDB connection with error handling and retry
-const connectWithRetry = () => {
-    console.log('Attempting to connect to MongoDB...');
-    mongoose.connect(config.mongodb.uri, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        serverSelectionTimeoutMS: 5000
-    })
-    .then(() => {
+// MongoDB connection with detailed logging
+console.log('MongoDB URI:', config.mongodb.uri.replace(/:[^:]*@/, ':****@')); // Hide password in logs
+console.log('Attempting to connect to MongoDB...');
+
+mongoose.set('debug', true); // Enable mongoose debug mode
+
+mongoose.connection.on('connected', () => {
+    console.log('Mongoose connected to MongoDB');
+});
+
+mongoose.connection.on('error', (err) => {
+    console.error('Mongoose connection error:', err);
+});
+
+mongoose.connection.on('disconnected', () => {
+    console.log('Mongoose disconnected from MongoDB');
+});
+
+// MongoDB connection with retry
+const connectWithRetry = async () => {
+    try {
+        await mongoose.connect(config.mongodb.uri, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            serverSelectionTimeoutMS: 5000,
+            heartbeatFrequencyMS: 2000
+        });
         console.log('MongoDB connected successfully');
-    })
-    .catch(err => {
+    } catch (err) {
         console.error('MongoDB connection error:', err);
         console.log('Retrying in 5 seconds...');
         setTimeout(connectWithRetry, 5000);
-    });
+    }
 };
 
 connectWithRetry();
@@ -86,7 +103,10 @@ app.use('/api/auth', authRoutes);
 
 // Basic route for testing
 app.get('/api/test', (req, res) => {
-    res.json({ message: 'Backend server is running' });
+    res.json({ 
+        message: 'Backend server is running',
+        mongoStatus: mongoose.connection.readyState === 1 ? 'connected' : 'disconnected'
+    });
 });
 
 // File upload configuration
