@@ -8,6 +8,7 @@ from typing import List, Dict, Union, Optional
 import io
 import os
 from datetime import datetime
+from tqdm import tqdm
 
 class ProfileMatcher:
     def __init__(self, openai_api_key: str):
@@ -361,6 +362,87 @@ class ProfileMatcher:
                 print(f"- Score: {prompt_match['score']:.3f}")
                 print(f"  Prompt: {prompt_match['prompt']}")
 
+def analyze_all_folders(base_path="dating_app_dataset", output_file="prompt_matches.txt"):
+    # List of prompts and their folders
+    folder_prompts = {
+        "coffee_shop": [
+            "person in a coffee shop",
+            "person drinking coffee",
+            "person working in cafe",
+            "cozy coffee shop scene with people"
+        ],
+        "group_photos": [
+            "group of friends hanging out",
+            "friends socializing together",
+            "group photo of people",
+            "friends gathering"
+        ],
+        "person_with_dog": [
+            "person with their dog",
+            "person walking dog",
+            "person playing with dog",
+            "person and dog together"
+        ],
+        "restaurant_dining": [
+            "person dining at restaurant",
+            "people eating at restaurant",
+            "restaurant scene with diners",
+            "person enjoying meal at restaurant"
+        ],
+        "travel_photography_people": [
+            "person traveling",
+            "tourist at landmark",
+            "person sightseeing",
+            "traveler exploring"
+        ]
+    }
+
+    # Initialize CLIP
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    model, preprocess = clip.load("ViT-B/32", device=device)
+
+    with open(output_file, "w") as f:
+        # Process each folder
+        for folder, prompts in folder_prompts.items():
+            folder_path = os.path.join(base_path, folder)
+            if not os.path.exists(folder_path):
+                continue
+
+            f.write(f"\n=== {folder} ===\n")
+            images = [img for img in os.listdir(folder_path) if img.endswith(('.jpg', '.jpeg', '.png'))]
+
+            for image_name in tqdm(images, desc=f"Processing {folder}"):
+                image_path = os.path.join(folder_path, image_name)
+                try:
+                    # Load and preprocess image
+                    image = preprocess(Image.open(image_path)).unsqueeze(0).to(device)
+                    
+                    # Process prompts
+                    text_inputs = clip.tokenize(prompts).to(device)
+                    
+                    # Calculate similarities
+                    with torch.no_grad():
+                        image_features = model.encode_image(image)
+                        text_features = model.encode_text(text_inputs)
+                        
+                        # Normalize features
+                        image_features /= image_features.norm(dim=-1, keepdim=True)
+                        text_features /= text_features.norm(dim=-1, keepdim=True)
+                        
+                        similarity = (100.0 * image_features @ text_features.T).softmax(dim=-1)
+                        
+                    # Get max similarity and corresponding prompt
+                    max_sim, max_idx = similarity[0].max(dim=0)
+                    
+                    # Only write if similarity is above threshold (e.g., 0.3)
+                    if max_sim > 0.3:
+                        f.write(f"\nImage: {image_name}\n")
+                        f.write(f"Best matching prompt: {prompts[max_idx]}\n")
+                        f.write(f"Confidence: {max_sim:.2%}\n")
+                        
+                except Exception as e:
+                    print(f"Error processing {image_name}: {str(e)}")
+
 def main():
     import argparse
     parser = argparse.ArgumentParser(description='Profile Matching System')
@@ -381,6 +463,8 @@ def main():
             print("Error: flickr_dir and prompts_file are required for match_flickr mode")
             return
         matcher.match_flickr_images(args.flickr_dir, args.prompts_file, args.output_file)
+    elif args.mode == 'analyze_all_folders':
+        analyze_all_folders()
     else:
         # Original verification and analysis code here
         pass
