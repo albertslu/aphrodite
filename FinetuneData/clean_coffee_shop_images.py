@@ -23,7 +23,7 @@ class ImageCleaner:
             base64_image = self.encode_image(image_path)
             
             response = self.client.chat.completions.create(
-                model="gpt-4-vision-omni",
+                model="gpt-4o-mini",
                 max_tokens=300,
                 messages=[
                     {
@@ -31,19 +31,7 @@ class ImageCleaner:
                         "content": [
                             {
                                 "type": "text",
-                                "text": """Analyze this image and provide the following information in JSON format:
-                                1. Estimated age range of the person (min and max)
-                                2. Whether the person appears to be the same as in previously analyzed photos
-                                3. Image quality and suitability for a dating app (good lighting, clear face, appropriate setting)
-                                4. Any red flags (inappropriate content, group photo, etc.)
-                                
-                                Format response as:
-                                {
-                                    "age_range": {"min": X, "max": Y},
-                                    "image_quality": "high/medium/low",
-                                    "suitable_for_dating_app": true/false,
-                                    "reasons": ["reason1", "reason2"]
-                                }"""
+                                "text": "Analyze this image and tell me:\n1. Estimated age range of any person in the image\n2. Is this a good quality photo suitable for a dating app?\n3. Is this taken in a coffee shop setting?"
                             },
                             {
                                 "type": "image_url",
