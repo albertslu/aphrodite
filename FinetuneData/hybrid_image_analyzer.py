@@ -362,7 +362,7 @@ class ProfileMatcher:
                 print(f"- Score: {prompt_match['score']:.3f}")
                 print(f"  Prompt: {prompt_match['prompt']}")
 
-def analyze_all_folders(base_path="dating_app_dataset", prompts_file="generated_200_prompts.jsonl", output_file="prompt_matches.txt"):
+def analyze_all_folders(base_path="dating_app_dataset", prompts_file="generated_200_prompts.jsonl", output_file="prompt_matches.txt", similarity_threshold=0.3):
     # Load prompts from jsonl file
     prompts = []
     with open(prompts_file, 'r') as f:
@@ -376,80 +376,70 @@ def analyze_all_folders(base_path="dating_app_dataset", prompts_file="generated_
     # Get all folders except removed_images
     folders = [f for f in os.listdir(base_path) if os.path.isdir(os.path.join(base_path, f)) and f != "removed_images"]
 
+    # Dictionary to store best matches for each prompt
+    prompt_matches = {prompt: [] for prompt in prompts}
+
+    # Process each folder
+    for folder in folders:
+        folder_path = os.path.join(base_path, folder)
+        images = [img for img in os.listdir(folder_path) if img.endswith(('.jpg', '.jpeg', '.png'))]
+        
+        print(f"Processing {folder} ({len(images)} images)")
+
+        # Process each image
+        for image_name in tqdm(images, desc=f"Processing {folder}"):
+            image_path = os.path.join(folder_path, image_name)
+            try:
+                # Load and preprocess image
+                image = preprocess(Image.open(image_path)).unsqueeze(0).to(device)
+                
+                # Process prompts in batches
+                batch_size = 50
+                for i in range(0, len(prompts), batch_size):
+                    batch_prompts = prompts[i:i + batch_size]
+                    text_inputs = clip.tokenize(batch_prompts).to(device)
+                    
+                    # Calculate similarities
+                    with torch.no_grad():
+                        image_features = model.encode_image(image)
+                        text_features = model.encode_text(text_inputs)
+                        
+                        # Normalize features
+                        image_features /= image_features.norm(dim=-1, keepdim=True)
+                        text_features /= text_features.norm(dim=-1, keepdim=True)
+                        
+                        similarity = (100.0 * image_features @ text_features.T).softmax(dim=-1)
+                        
+                        # Check each prompt in the batch
+                        for j, sim in enumerate(similarity[0]):
+                            if sim > similarity_threshold:
+                                prompt = batch_prompts[j]
+                                prompt_matches[prompt].append({
+                                    'image': image_name,
+                                    'folder': folder,
+                                    'similarity': float(sim)
+                                })
+                        
+            except Exception as e:
+                print(f"Error processing {image_name}: {str(e)}")
+
+    # Sort matches for each prompt by similarity and write to file
     with open(output_file, "w") as f:
-        # Process each folder
-        for folder in folders:
-            folder_path = os.path.join(base_path, folder)
-            f.write(f"\n=== {folder} ===\n")
-            images = [img for img in os.listdir(folder_path) if img.endswith(('.jpg', '.jpeg', '.png'))]
-
-            for image_name in tqdm(images, desc=f"Processing {folder}"):
-                image_path = os.path.join(folder_path, image_name)
-                try:
-                    # Load and preprocess image
-                    image = preprocess(Image.open(image_path)).unsqueeze(0).to(device)
-                    
-                    # Process prompts in batches to avoid memory issues
-                    batch_size = 50
-                    max_sim = 0
-                    best_prompt = ""
-                    
-                    for i in range(0, len(prompts), batch_size):
-                        batch_prompts = prompts[i:i + batch_size]
-                        text_inputs = clip.tokenize(batch_prompts).to(device)
-                        
-                        # Calculate similarities
-                        with torch.no_grad():
-                            image_features = model.encode_image(image)
-                            text_features = model.encode_text(text_inputs)
-                            
-                            # Normalize features
-                            image_features /= image_features.norm(dim=-1, keepdim=True)
-                            text_features /= text_features.norm(dim=-1, keepdim=True)
-                            
-                            similarity = (100.0 * image_features @ text_features.T).softmax(dim=-1)
-                            
-                            # Update best match if found
-                            batch_max_sim, batch_max_idx = similarity[0].max(dim=0)
-                            if batch_max_sim > max_sim:
-                                max_sim = batch_max_sim
-                                best_prompt = batch_prompts[batch_max_idx]
-                    
-                    # Only write if similarity is above threshold (e.g., 0.3)
-                    if max_sim > 0.3:
-                        f.write(f"\nImage: {image_name}\n")
-                        f.write(f"Folder: {folder}\n")
-                        f.write(f"Best matching prompt: {best_prompt}\n")
-                        f.write(f"Confidence: {max_sim:.2%}\n")
-                        
-                except Exception as e:
-                    print(f"Error processing {image_name}: {str(e)}")
-
-def main():
-    import argparse
-    parser = argparse.ArgumentParser(description='Profile Matching System')
-    parser.add_argument('--openai_key', type=str, help='OpenAI API Key')
-    parser.add_argument('--mode', type=str, choices=['verify', 'analyze', 'match_flickr'], 
-                      default='verify', help='Operation mode')
-    parser.add_argument('--flickr_dir', type=str, help='Directory containing Flickr images')
-    parser.add_argument('--prompts_file', type=str, help='Path to prompts JSONL file')
-    parser.add_argument('--output_file', type=str, default='flickr_matches.json',
-                      help='Output file for Flickr matches')
-    
-    args = parser.parse_args()
-    
-    matcher = ProfileMatcher(args.openai_key)
-    
-    if args.mode == 'match_flickr':
-        if not args.flickr_dir or not args.prompts_file:
-            print("Error: flickr_dir and prompts_file are required for match_flickr mode")
-            return
-        matcher.match_flickr_images(args.flickr_dir, args.prompts_file, args.output_file)
-    elif args.mode == 'analyze_all_folders':
-        analyze_all_folders()
-    else:
-        # Original verification and analysis code here
-        pass
+        for prompt in prompts:
+            matches = prompt_matches[prompt]
+            if matches:  # Only write prompts that have matches
+                # Sort matches by similarity score in descending order
+                matches.sort(key=lambda x: x['similarity'], reverse=True)
+                
+                # Take top 5 matches for each prompt
+                top_matches = matches[:5]
+                
+                f.write(f"\n=== Prompt: {prompt} ===\n")
+                for match in top_matches:
+                    f.write(f"\nImage: {match['image']}\n")
+                    f.write(f"Folder: {match['folder']}\n")
+                    f.write(f"Similarity: {match['similarity']:.2%}\n")
+                f.write("\n" + "-"*50 + "\n")
 
 if __name__ == "__main__":
     analyze_all_folders()
