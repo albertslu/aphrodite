@@ -379,40 +379,44 @@ def analyze_all_folders(base_path="dating_app_dataset", prompts_file="generated_
 
     # Collect all images first
     all_images = []
-    for folder in folders:
+    print("Collecting images from folders...")
+    for folder in tqdm(folders, desc="Scanning folders"):
         folder_path = os.path.join(base_path, folder)
         images = [img for img in os.listdir(folder_path) if img.endswith(('.jpg', '.jpeg', '.png'))]
         all_images.extend([(img, folder) for img in images])
 
-    print(f"Found {len(all_images)} total images across {len(folders)} folders")
+    print(f"\nFound {len(all_images)} total images across {len(folders)} folders")
+    print("Starting analysis...")
 
     # Dictionary to store best matches for each prompt
     prompt_matches = {prompt: [] for prompt in prompts}
 
-    # Process each prompt
-    for prompt_idx, prompt in enumerate(prompts, 1):
-        print(f"Processing prompt {prompt_idx}/200: {prompt[:50]}...")
-        
+    # Process each prompt with progress bar
+    for prompt_idx, prompt in enumerate(tqdm(prompts, desc="Processing prompts", position=0)):
         # Encode the prompt once
         text_input = clip.tokenize([prompt]).to(device)
         with torch.no_grad():
             text_features = model.encode_text(text_input)
             text_features /= text_features.norm(dim=-1, keepdim=True)
 
-        # Process images in batches
+        # Process images in batches with nested progress bar
         batch_size = 50
+        batch_matches = []
+        
         for i in range(0, len(all_images), batch_size):
             batch_images = all_images[i:i + batch_size]
             
             # Prepare batch of images
             image_batch = []
-            for img_name, folder in batch_images:
+            valid_indices = []  # Keep track of which images were successfully loaded
+            
+            for idx, (img_name, folder) in enumerate(batch_images):
                 try:
                     image_path = os.path.join(base_path, folder, img_name)
                     image = preprocess(Image.open(image_path)).unsqueeze(0)
                     image_batch.append(image)
+                    valid_indices.append(idx)
                 except Exception as e:
-                    print(f"Error loading {img_name}: {str(e)}")
                     continue
 
             if not image_batch:
@@ -430,14 +434,23 @@ def analyze_all_folders(base_path="dating_app_dataset", prompts_file="generated_
                 similarity = (100.0 * image_features @ text_features.T / temperature).softmax(dim=0)
                 
                 # Check each image in the batch
-                for idx, ((img_name, folder), sim) in enumerate(zip(batch_images, similarity)):
+                for idx, sim in zip(valid_indices, similarity):
                     if sim > similarity_threshold:
-                        prompt_matches[prompt].append({
+                        img_name, folder = batch_images[idx]
+                        batch_matches.append({
                             'image': img_name,
                             'folder': folder,
                             'similarity': float(sim)
                         })
+        
+        # Store all matches for this prompt
+        prompt_matches[prompt] = batch_matches
 
+        # Update progress description with match count
+        match_count = len(batch_matches)
+        tqdm.write(f"Prompt {prompt_idx + 1}/200 - Found {match_count} matches above {similarity_threshold:.1%} threshold")
+
+    print("\nWriting results to file...")
     # Sort matches for each prompt by similarity and write to file
     with open(output_file, "w") as f:
         for i, prompt in enumerate(prompts, 1):
@@ -459,6 +472,8 @@ def analyze_all_folders(base_path="dating_app_dataset", prompts_file="generated_
                 f.write("\nNo matches found for this prompt\n")
                 
             f.write("\n" + "-"*50 + "\n")
+    
+    print(f"Analysis complete! Results written to {output_file}")
 
 if __name__ == "__main__":
     analyze_all_folders()
