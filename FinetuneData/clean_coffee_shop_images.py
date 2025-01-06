@@ -1,68 +1,62 @@
 import os
 import base64
 import json
-import requests
 from PIL import Image
 import shutil
 from tqdm import tqdm
 import imagehash
 from typing import Dict, List, Tuple
 import numpy as np
+from openai import OpenAI
+import time
 
 class ImageCleaner:
     def __init__(self, api_key: str):
-        self.api_key = api_key
-        self.api_url = "https://api.openai.com/v2/chat/completions"
-        self.headers = {
-            "Content-Type": "application/json",
-            "Authorization": f"Bearer {api_key}",
-            "OpenAI-Beta": "gpt-4-vision-preview"
-        }
+        self.client = OpenAI(api_key=api_key)
 
     def encode_image(self, image_path: str) -> str:
         with open(image_path, "rb") as image_file:
             return base64.b64encode(image_file.read()).decode('utf-8')
 
     def analyze_image(self, image_path: str) -> Dict:
-        base64_image = self.encode_image(image_path)
-        
-        prompt = """Analyze this image and provide the following information in JSON format:
-        1. Estimated age range of the person (min and max)
-        2. Whether the person appears to be the same as in previously analyzed photos
-        3. Image quality and suitability for a dating app (good lighting, clear face, appropriate setting)
-        4. Any red flags (inappropriate content, group photo, etc.)
-        
-        Format response as:
-        {
-            "age_range": {"min": X, "max": Y},
-            "image_quality": "high/medium/low",
-            "suitable_for_dating_app": true/false,
-            "reasons": ["reason1", "reason2"]
-        }"""
-
-        payload = {
-            "model": "gpt-4-vision-preview",
-            "messages": [
-                {
-                    "role": "user",
-                    "content": [
-                        {"type": "text", "text": prompt},
-                        {
-                            "type": "image_url",
-                            "image_url": {
-                                "url": f"data:image/jpeg;base64,{base64_image}"
-                            }
-                        }
-                    ]
-                }
-            ],
-            "max_tokens": 500
-        }
-
         try:
-            response = requests.post(self.api_url, headers=self.headers, json=payload)
-            response.raise_for_status()
-            content = response.json()['choices'][0]['message']['content']
+            base64_image = self.encode_image(image_path)
+            
+            response = self.client.chat.completions.create(
+                model="gpt-4-vision-omni",
+                max_tokens=300,
+                messages=[
+                    {
+                        "role": "user",
+                        "content": [
+                            {
+                                "type": "text",
+                                "text": """Analyze this image and provide the following information in JSON format:
+                                1. Estimated age range of the person (min and max)
+                                2. Whether the person appears to be the same as in previously analyzed photos
+                                3. Image quality and suitability for a dating app (good lighting, clear face, appropriate setting)
+                                4. Any red flags (inappropriate content, group photo, etc.)
+                                
+                                Format response as:
+                                {
+                                    "age_range": {"min": X, "max": Y},
+                                    "image_quality": "high/medium/low",
+                                    "suitable_for_dating_app": true/false,
+                                    "reasons": ["reason1", "reason2"]
+                                }"""
+                            },
+                            {
+                                "type": "image_url",
+                                "image_url": {
+                                    "url": f"data:image/jpeg;base64,{base64_image}"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            )
+            
+            content = response.choices[0].message.content
             return json.loads(content)
         except Exception as e:
             print(f"Error analyzing {image_path}: {str(e)}")
@@ -151,6 +145,9 @@ class ImageCleaner:
                 print(f"Age range: {analysis['age_range']}")
                 print(f"Quality: {analysis['image_quality']}")
                 print(f"Reasons: {', '.join(analysis['reasons'])}")
+                
+            # Add a small delay to avoid rate limits
+            time.sleep(0.5)
 
         print(f"\nProcessing complete!")
         print(f"Kept {kept_count} images in {input_dir}")
@@ -161,7 +158,7 @@ def main():
     parser = argparse.ArgumentParser(description='Clean coffee shop person images')
     parser.add_argument('--openai_key', type=str, required=True, help='OpenAI API Key')
     parser.add_argument('--input_dir', type=str, default='dating_app_dataset/coffee_shop_person',
-                      help='Directory containing coffee shop images')
+                      help='Input directory containing images')
     parser.add_argument('--removed_dir', type=str, default='dating_app_dataset/removed_images',
                       help='Directory for removed images')
     
