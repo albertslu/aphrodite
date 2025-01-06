@@ -425,21 +425,25 @@ def analyze_all_folders(base_path="dating_app_dataset", prompts_file="generated_
 
     # Sort matches for each prompt by similarity and write to file
     with open(output_file, "w") as f:
-        for prompt in prompts:
+        for i, prompt in enumerate(prompts, 1):
+            f.write(f"\n=== Prompt {i}/200: {prompt} ===\n")
+            
             matches = prompt_matches[prompt]
-            if matches:  # Only write prompts that have matches
+            if matches:
                 # Sort matches by similarity score in descending order
                 matches.sort(key=lambda x: x['similarity'], reverse=True)
                 
-                # Take top 5 matches for each prompt
+                # Take top 5 matches
                 top_matches = matches[:5]
                 
-                f.write(f"\n=== Prompt: {prompt} ===\n")
                 for match in top_matches:
                     f.write(f"\nImage: {match['image']}\n")
                     f.write(f"Folder: {match['folder']}\n")
                     f.write(f"Similarity: {match['similarity']:.2%}\n")
-                f.write("\n" + "-"*50 + "\n")
+            else:
+                f.write("\nNo matches found for this prompt\n")
+                
+            f.write("\n" + "-"*50 + "\n")
 
 if __name__ == "__main__":
     analyze_all_folders()
