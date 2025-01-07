@@ -7,55 +7,37 @@ const config = require('../config');
 // Signup
 router.post('/signup', async (req, res) => {
     try {
-        console.log('Received signup request:', req.body);
-        const { username, password, phoneNumber } = req.body;
+        const { username, password, isAdmin } = req.body;
 
-        if (!username || !password) {
-            return res.status(400).json({ message: 'Username and password are required' });
+        // Check if username already exists
+        const existingUser = await User.findOne({ username });
+        if (existingUser) {
+            return res.status(400).json({ message: 'Username already exists' });
         }
 
-        try {
-            // Check if user exists
-            const existingUser = await User.findOne({ username });
-            console.log('Existing user check:', existingUser ? 'found' : 'not found');
-            
-            if (existingUser) {
-                return res.status(400).json({ message: 'Username already exists' });
-            }
+        // Create new user
+        const user = new User({
+            username,
+            password,
+            isAdmin: isAdmin || false // Only set to true if explicitly provided
+        });
 
-            // Create new user
-            const user = new User({
-                username,
-                password,
-                phoneNumber: phoneNumber || ''
-            });
+        await user.save();
 
-            console.log('Attempting to save user...');
-            await user.save();
-            console.log('User saved successfully:', username);
+        // Create and sign JWT token
+        const token = jwt.sign(
+            { userId: user._id, username: user.username, isAdmin: user.isAdmin },
+            config.jwt.secret,
+            { expiresIn: '24h' }
+        );
 
-            // Generate token
-            const token = jwt.sign(
-                { userId: user._id },
-                config.jwt.secret,
-                { expiresIn: '24h' }
-            );
-
-            res.status(201).json({ 
-                message: 'User created successfully',
-                token 
-            });
-        } catch (dbError) {
-            console.error('Database operation error:', dbError);
-            throw new Error(`Database error: ${dbError.message}`);
-        }
+        res.status(201).json({
+            message: 'User created successfully',
+            token
+        });
     } catch (error) {
         console.error('Signup error:', error);
-        res.status(500).json({ 
-            message: 'Error creating user', 
-            error: error.message,
-            stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
-        });
+        res.status(500).json({ message: 'Error creating user' });
     }
 });
 
