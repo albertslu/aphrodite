@@ -22,14 +22,7 @@ const Login = () => {
         e.preventDefault();
         setError(''); // Clear previous errors
         
-        // Validate input
-        if (!formData.username || !formData.password) {
-            setError('Please enter both username and password');
-            return;
-        }
-
         try {
-            console.log('Attempting login with:', formData.username);
             const response = await fetch('http://localhost:5000/api/auth/login', {
                 method: 'POST',
                 headers: {
@@ -39,7 +32,6 @@ const Login = () => {
             });
 
             const data = await response.json();
-            console.log('Login response:', data);
 
             if (!response.ok) {
                 throw new Error(data.message || 'Invalid credentials');
@@ -62,10 +54,8 @@ const Login = () => {
             });
 
             if (profileResponse.ok) {
-                // User has a profile, redirect to preferences
                 navigate('/preferences');
             } else if (profileResponse.status === 404) {
-                // User doesn't have a profile, redirect to profile creation
                 navigate('/create-profile');
             } else {
                 throw new Error('Error checking profile status');

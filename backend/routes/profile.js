@@ -26,44 +26,40 @@ const authenticateToken = (req, res, next) => {
 // Create profile
 router.post('/', authenticateToken, async (req, res) => {
     try {
-        console.log('Creating profile for user:', req.user.userId);
-        console.log('Profile data:', req.body);
+        const user = await User.findById(req.user.userId);
+        
+        // If admin user, create profile without linking
+        if (user.isAdmin) {
+            const profile = new Profile({
+                ...req.body,
+                // Don't set user field for admin-created profiles
+            });
+            await profile.save();
+            return res.status(201).json({ message: 'Profile created successfully', profile });
+        }
 
-        // Check if profile already exists
+        // For regular users, check if profile exists
         const existingProfile = await Profile.findOne({ user: req.user.userId });
         if (existingProfile) {
             return res.status(400).json({ message: 'Profile already exists for this user' });
         }
 
-        // Create new profile
-        const profileData = {
+        // Create new profile linked to user
+        const profile = new Profile({
             ...req.body,
             user: req.user.userId
-        };
+        });
 
-        const profile = new Profile(profileData);
         await profile.save();
 
         // Update user with profile reference
-        await User.findByIdAndUpdate(req.user.userId, { profile: profile._id });
+        user.profile = profile._id;
+        await user.save();
 
-        console.log('Profile created successfully');
-        res.status(201).json({ 
-            message: 'Profile created successfully',
-            profile 
-        });
+        res.status(201).json({ message: 'Profile created successfully', profile });
     } catch (error) {
-        console.error('Error creating profile:', error);
-        if (error.name === 'ValidationError') {
-            return res.status(400).json({ 
-                message: 'Invalid profile data', 
-                errors: Object.values(error.errors).map(err => err.message)
-            });
-        }
-        res.status(500).json({ 
-            message: 'Error creating profile',
-            error: error.message
-        });
+        console.error('Profile creation error:', error);
+        res.status(500).json({ message: 'Error creating profile' });
     }
 });
 
