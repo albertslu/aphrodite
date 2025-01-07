@@ -9,6 +9,7 @@ import io
 import os
 from datetime import datetime
 from tqdm import tqdm
+import time
 
 class ProfileMatcher:
     def __init__(self, openai_api_key: str):
@@ -364,91 +365,109 @@ class ProfileMatcher:
 
 def analyze_all_folders(base_path="dating_app_dataset", prompts_file="generated_200_prompts.jsonl", 
                        output_file="prompt_matches.txt", similarity_threshold=0.5, temperature=0.5):
+    print("Starting analysis...")
+    start_time = time.time()
+
     # Load prompts from jsonl file
+    print("Loading prompts...")
     prompts = []
     with open(prompts_file, 'r') as f:
         for line in f:
             prompts.append(json.loads(line)['prompt'])
+    print(f"Loaded {len(prompts)} prompts")
 
     # Initialize CLIP
+    print("Initializing CLIP model...")
     device = "cuda" if torch.cuda.is_available() else "cpu"
+    print(f"Using device: {device}")
     model, preprocess = clip.load("ViT-B/32", device=device)
 
     # Get all folders except removed_images
-    folders = [f for f in os.listdir(base_path) if os.path.isdir(os.path.join(base_path, f)) and f != "removed_images"]
-
-    # Collect all images first
-    all_images = []
-    print("Collecting images from folders...")
-    for folder in tqdm(folders, desc="Scanning folders"):
+    all_folders = [f for f in os.listdir(base_path) if os.path.isdir(os.path.join(base_path, f))]
+    folders = [f for f in all_folders if f != "removed_images"]
+    print("\nFolders to process:")
+    
+    # Count images in each folder
+    folder_counts = {}
+    total_images = 0
+    for folder in folders:
         folder_path = os.path.join(base_path, folder)
         images = [img for img in os.listdir(folder_path) if img.endswith(('.jpg', '.jpeg', '.png'))]
-        all_images.extend([(img, folder) for img in images])
+        count = len(images)
+        folder_counts[folder] = count
+        total_images += count
+        print(f"- {folder}: {count} images")
+    
+    print(f"\nTotal folders: {len(folders)}")
+    print(f"Total images to process: {total_images}")
+    
+    if "removed_images" in all_folders:
+        removed_path = os.path.join(base_path, "removed_images")
+        removed_count = len([f for f in os.listdir(removed_path) if f.endswith(('.jpg', '.jpeg', '.png'))])
+        print(f"Skipping 'removed_images' folder ({removed_count} images)")
 
-    print(f"\nFound {len(all_images)} total images across {len(folders)} folders")
-    print("Starting analysis...")
+    # Collect and preprocess all images
+    all_images = []
+    all_image_features = []
+    
+    print("\nPreprocessing images...")
+    with tqdm(total=total_images, desc="Loading images") as pbar:
+        for folder in folders:
+            folder_path = os.path.join(base_path, folder)
+            images = [img for img in os.listdir(folder_path) if img.endswith(('.jpg', '.jpeg', '.png'))]
+            
+            for img_name in images:
+                try:
+                    image_path = os.path.join(base_path, folder, img_name)
+                    image = preprocess(Image.open(image_path)).unsqueeze(0).to(device)
+                    
+                    with torch.no_grad():
+                        image_features = model.encode_image(image)
+                        image_features /= image_features.norm(dim=-1, keepdim=True)
+                        all_image_features.append(image_features)
+                        all_images.append((img_name, folder))
+                    
+                    pbar.update(1)
+                except Exception as e:
+                    print(f"\nError processing {img_name}: {str(e)}")
+                    continue
 
+    print(f"\nSuccessfully loaded {len(all_images)} images")
+    
+    # Stack all image features
+    all_image_features = torch.cat(all_image_features)
+    
     # Dictionary to store best matches for each prompt
     prompt_matches = {prompt: [] for prompt in prompts}
 
-    # Process each prompt with progress bar
-    for prompt_idx, prompt in enumerate(tqdm(prompts, desc="Processing prompts", position=0)):
-        # Encode the prompt once
+    # Process each prompt
+    print("\nMatching prompts with images...")
+    for prompt_idx, prompt in enumerate(tqdm(prompts, desc="Processing prompts")):
+        # Encode the prompt
         text_input = clip.tokenize([prompt]).to(device)
         with torch.no_grad():
             text_features = model.encode_text(text_input)
             text_features /= text_features.norm(dim=-1, keepdim=True)
-
-        # Process images in batches with nested progress bar
-        batch_size = 50
-        batch_matches = []
-        
-        for i in range(0, len(all_images), batch_size):
-            batch_images = all_images[i:i + batch_size]
             
-            # Prepare batch of images
-            image_batch = []
-            valid_indices = []  # Keep track of which images were successfully loaded
+            # Calculate similarities for all images at once
+            similarity = (100.0 * all_image_features @ text_features.T / temperature).softmax(dim=0)
             
-            for idx, (img_name, folder) in enumerate(batch_images):
-                try:
-                    image_path = os.path.join(base_path, folder, img_name)
-                    image = preprocess(Image.open(image_path)).unsqueeze(0)
-                    image_batch.append(image)
-                    valid_indices.append(idx)
-                except Exception as e:
-                    continue
-
-            if not image_batch:
-                continue
-
-            # Stack all images in batch
-            image_batch = torch.cat(image_batch).to(device)
+            # Find matches above threshold
+            matches = []
+            for idx, sim in enumerate(similarity):
+                if sim > similarity_threshold:
+                    img_name, folder = all_images[idx]
+                    matches.append({
+                        'image': img_name,
+                        'folder': folder,
+                        'similarity': float(sim)
+                    })
             
-            # Calculate similarities
-            with torch.no_grad():
-                image_features = model.encode_image(image_batch)
-                image_features /= image_features.norm(dim=-1, keepdim=True)
-                
-                # Calculate similarity with temperature scaling
-                similarity = (100.0 * image_features @ text_features.T / temperature).softmax(dim=0)
-                
-                # Check each image in the batch
-                for idx, sim in zip(valid_indices, similarity):
-                    if sim > similarity_threshold:
-                        img_name, folder = batch_images[idx]
-                        batch_matches.append({
-                            'image': img_name,
-                            'folder': folder,
-                            'similarity': float(sim)
-                        })
-        
-        # Store all matches for this prompt
-        prompt_matches[prompt] = batch_matches
-
-        # Update progress description with match count
-        match_count = len(batch_matches)
-        tqdm.write(f"Prompt {prompt_idx + 1}/200 - Found {match_count} matches above {similarity_threshold:.1%} threshold")
+            prompt_matches[prompt] = matches
+            
+            # Update progress
+            if matches:
+                tqdm.write(f"Prompt {prompt_idx + 1}/200 - Found {len(matches)} matches above {similarity_threshold:.1%} threshold")
 
     print("\nWriting results to file...")
     # Sort matches for each prompt by similarity and write to file
@@ -473,7 +492,9 @@ def analyze_all_folders(base_path="dating_app_dataset", prompts_file="generated_
                 
             f.write("\n" + "-"*50 + "\n")
     
-    print(f"Analysis complete! Results written to {output_file}")
+    end_time = time.time()
+    print(f"\nAnalysis complete! Results written to {output_file}")
+    print(f"Total time: {(end_time - start_time) / 60:.1f} minutes")
 
 if __name__ == "__main__":
     analyze_all_folders()
