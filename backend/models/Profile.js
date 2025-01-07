@@ -51,7 +51,7 @@ const profileSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    idealDate: {
+    relationshipGoals: {
         type: String,
         required: true
     },

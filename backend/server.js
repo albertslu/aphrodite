@@ -10,6 +10,7 @@ const config = require('./config');
 const authRoutes = require('./routes/auth');
 const profileRoutes = require('./routes/profile');
 const adminRoutes = require('./routes/admin');
+const uploadRoutes = require('./routes/upload');
 
 // Uncaught error handling
 process.on('uncaughtException', (err) => {
@@ -32,6 +33,7 @@ app.use(cors({
 }));
 
 app.use(express.json());
+app.use('/uploads', express.static('uploads')); // Serve uploaded files
 
 // Request logging middleware
 app.use((req, res, next) => {
@@ -87,6 +89,7 @@ const connectWithRetry = async () => {
 app.use('/api/auth', authRoutes);
 app.use('/api/profile', profileRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/upload', uploadRoutes);
 
 // Basic route for testing
 app.get('/api/test', (req, res) => {
