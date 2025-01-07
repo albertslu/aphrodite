@@ -46,7 +46,23 @@ const Login = () => {
             }
 
             localStorage.setItem('token', data.token);
-            navigate('/create-profile');
+
+            // Check if user has a profile
+            const profileResponse = await fetch('http://localhost:5000/api/profile', {
+                headers: {
+                    'Authorization': `Bearer ${data.token}`
+                }
+            });
+
+            if (profileResponse.ok) {
+                // User has a profile, redirect to preferences
+                navigate('/preferences');
+            } else if (profileResponse.status === 404) {
+                // User doesn't have a profile, redirect to profile creation
+                navigate('/create-profile');
+            } else {
+                throw new Error('Error checking profile status');
+            }
         } catch (error) {
             console.error('Login error:', error);
             setError(error.message || 'Failed to login. Please try again.');

@@ -6,9 +6,7 @@ const Preferences = () => {
     const [preferences, setPreferences] = useState({
         ageRange: '',
         location: '',
-        lookingFor: '',
-        dealBreakers: '',
-        interests: '',
+        preferredGender: '',
         idealMatch: ''
     });
     const navigate = useNavigate();
@@ -38,7 +36,6 @@ const Preferences = () => {
                 throw new Error('Failed to save preferences');
             }
 
-            // Navigate to matches page (to be created)
             navigate('/matches');
         } catch (error) {
             console.error('Error saving preferences:', error);
@@ -53,6 +50,23 @@ const Preferences = () => {
             <form onSubmit={handleSubmit} className="preferences-form">
                 <div className="form-section">
                     <div className="form-group">
+                        <label>Preferred Gender</label>
+                        <select
+                            name="preferredGender"
+                            value={preferences.preferredGender}
+                            onChange={handleInputChange}
+                            className="form-control"
+                            required
+                        >
+                            <option value="">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="non-binary">Non-binary</option>
+                            <option value="any">Any</option>
+                        </select>
+                    </div>
+
+                    <div className="form-group">
                         <label>Desired Age Range</label>
                         <input
                             type="text"
@@ -61,6 +75,7 @@ const Preferences = () => {
                             value={preferences.ageRange}
                             onChange={handleInputChange}
                             className="form-control"
+                            required
                         />
                     </div>
                     
@@ -73,48 +88,7 @@ const Preferences = () => {
                             value={preferences.location}
                             onChange={handleInputChange}
                             className="form-control"
-                        />
-                    </div>
-                </div>
-
-                <div className="form-section">
-                    <div className="form-group">
-                        <label>What are you looking for?</label>
-                        <textarea
-                            name="lookingFor"
-                            placeholder="Describe what you're looking for in a relationship..."
-                            value={preferences.lookingFor}
-                            onChange={handleInputChange}
-                            className="form-control"
-                            rows="4"
-                        />
-                    </div>
-                </div>
-
-                <div className="form-section">
-                    <div className="form-group">
-                        <label>Deal Breakers</label>
-                        <textarea
-                            name="dealBreakers"
-                            placeholder="What are your absolute deal breakers?"
-                            value={preferences.dealBreakers}
-                            onChange={handleInputChange}
-                            className="form-control"
-                            rows="3"
-                        />
-                    </div>
-                </div>
-
-                <div className="form-section">
-                    <div className="form-group">
-                        <label>Interests You Want to Share</label>
-                        <textarea
-                            name="interests"
-                            placeholder="What interests or hobbies would you like your match to share?"
-                            value={preferences.interests}
-                            onChange={handleInputChange}
-                            className="form-control"
-                            rows="3"
+                            required
                         />
                     </div>
                 </div>
@@ -124,11 +98,12 @@ const Preferences = () => {
                         <label>Describe Your Ideal Match</label>
                         <textarea
                             name="idealMatch"
-                            placeholder="Tell us about your ideal match in detail..."
+                            placeholder="Describe your ideal match in detail. What qualities, values, and characteristics are you looking for in a partner? Feel free to be specific about personality traits, lifestyle, ambitions, and anything else that matters to you."
                             value={preferences.idealMatch}
                             onChange={handleInputChange}
                             className="form-control"
-                            rows="4"
+                            rows="6"
+                            required
                         />
                     </div>
                 </div>
