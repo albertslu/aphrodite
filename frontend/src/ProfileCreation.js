@@ -18,6 +18,7 @@ const ProfileCreation = () => {
         photos: [],
         aboutMe: '',
         interests: '',
+        relationshipGoals: '',
         idealDate: '',
         partnerPreferences: ''
     });
@@ -236,9 +237,9 @@ const ProfileCreation = () => {
                     />
                     
                     <textarea
-                        name="idealDate"
-                        placeholder="Describe your ideal date..."
-                        value={formData.idealDate}
+                        name="relationshipGoals"
+                        placeholder="What are you looking for in a relationship? (Long-term, casual, friendship, etc.)"
+                        value={formData.relationshipGoals}
                         onChange={handleInputChange}
                         required
                     />
