@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './App.css';
 
 const ProfileCreation = () => {
     const navigate = useNavigate();
-    const [formData, setFormData] = useState({
+    const [formFields, setFormFields] = useState({
         name: '',
         gender: '',
         sexualOrientation: '',
@@ -25,10 +24,12 @@ const ProfileCreation = () => {
 
     const [photos, setPhotos] = useState([]);
     const [photoErrors, setPhotoErrors] = useState('');
+    const [submitting, setSubmitting] = useState(false);
+    const [error, setError] = useState('');
 
     const handleInputChange = (e) => {
-        setFormData({
-            ...formData,
+        setFormFields({
+            ...formFields,
             [e.target.name]: e.target.value
         });
     };
@@ -59,50 +60,57 @@ const ProfileCreation = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+        setSubmitting(true);
+        setError('');
+
         try {
             const token = localStorage.getItem('token');
-            if (!token) {
-                navigate('/login');
-                return;
-            }
+            const isAdmin = localStorage.getItem('isAdmin') === 'true';
 
-            // Upload photos first
-            const photoUrls = [];
-            for (let i = 0; i < photos.length; i++) {
-                const formData = new FormData();
-                formData.append('photo', photos[i]);
-                
-                const photoRes = await axios.post('http://localhost:5000/api/upload', formData, {
-                    headers: {
-                        'Authorization': `Bearer ${token}`,
-                        'Content-Type': 'multipart/form-data'
-                    }
-                });
-                
-                photoUrls.push({
-                    url: photoRes.data.url,
-                    order: i + 1
-                });
-            }
-
-            // Create profile with photo URLs
-            const profileData = {
-                ...formData,
-                photos: photoUrls
-            };
-
-            const response = await axios.post('http://localhost:5000/api/profile', profileData, {
-                headers: {
-                    'Authorization': `Bearer ${token}`
+            // Create FormData and append all fields
+            const formData = new FormData();
+            
+            // Append all form fields
+            Object.keys(formFields).forEach(key => {
+                if (formFields[key] !== undefined && formFields[key] !== null) {
+                    formData.append(key, formFields[key]);
                 }
             });
 
-            console.log('Profile created:', response.data);
-            navigate('/preferences'); // Navigate to preferences page after profile creation
+            // Append photos
+            photos.forEach(photo => {
+                formData.append('photos', photo);
+            });
+
+            console.log('Sending profile data:', formFields);
+
+            const response = await fetch('http://localhost:5000/api/profile', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                },
+                body: formData
+            });
+
+            const data = await response.json();
+            console.log('Profile creation response:', data);
+            
+            if (!response.ok) {
+                throw new Error(data.message || data.error || 'Failed to create profile');
+            }
+
+            // For admin users, redirect to preferences with a success message
+            // For regular users, just redirect to preferences
+            navigate('/preferences', { 
+                state: { 
+                    message: isAdmin ? 'Profile created successfully. You can create another profile or set preferences.' : undefined 
+                } 
+            });
         } catch (error) {
-            console.error('Error creating profile:', error.response?.data || error.message);
-            alert(error.response?.data?.message || 'Error creating profile');
+            console.error('Profile creation error:', error);
+            setError(error.message || 'Failed to create profile');
+        } finally {
+            setSubmitting(false);
         }
     };
 
@@ -116,14 +124,14 @@ const ProfileCreation = () => {
                         type="text"
                         name="name"
                         placeholder="Name"
-                        value={formData.name}
+                        value={formFields.name}
                         onChange={handleInputChange}
                         required
                     />
                     
                     <select
                         name="gender"
-                        value={formData.gender}
+                        value={formFields.gender}
                         onChange={handleInputChange}
                         required
                     >
@@ -136,7 +144,7 @@ const ProfileCreation = () => {
 
                     <select
                         name="sexualOrientation"
-                        value={formData.sexualOrientation}
+                        value={formFields.sexualOrientation}
                         onChange={handleInputChange}
                         required
                     >
@@ -153,7 +161,7 @@ const ProfileCreation = () => {
                         type="number"
                         name="age"
                         placeholder="Age"
-                        value={formData.age}
+                        value={formFields.age}
                         onChange={handleInputChange}
                         required
                     />
@@ -162,7 +170,7 @@ const ProfileCreation = () => {
                         type="text"
                         name="height"
                         placeholder="Height"
-                        value={formData.height}
+                        value={formFields.height}
                         onChange={handleInputChange}
                         required
                     />
@@ -171,7 +179,7 @@ const ProfileCreation = () => {
                         type="text"
                         name="ethnicity"
                         placeholder="Ethnicity"
-                        value={formData.ethnicity}
+                        value={formFields.ethnicity}
                         onChange={handleInputChange}
                     />
                     
@@ -179,7 +187,7 @@ const ProfileCreation = () => {
                         type="text"
                         name="occupation"
                         placeholder="Occupation"
-                        value={formData.occupation}
+                        value={formFields.occupation}
                         onChange={handleInputChange}
                         required
                     />
@@ -188,7 +196,7 @@ const ProfileCreation = () => {
                         type="text"
                         name="location"
                         placeholder="Location"
-                        value={formData.location}
+                        value={formFields.location}
                         onChange={handleInputChange}
                         required
                     />
@@ -197,7 +205,7 @@ const ProfileCreation = () => {
                         type="text"
                         name="education"
                         placeholder="Education"
-                        value={formData.education}
+                        value={formFields.education}
                         onChange={handleInputChange}
                     />
                 </div>
@@ -237,7 +245,7 @@ const ProfileCreation = () => {
                     <textarea
                         name="aboutMe"
                         placeholder="Tell us about yourself..."
-                        value={formData.aboutMe}
+                        value={formFields.aboutMe}
                         onChange={handleInputChange}
                         required
                     />
@@ -245,7 +253,7 @@ const ProfileCreation = () => {
                     <textarea
                         name="interests"
                         placeholder="What are your interests and hobbies?"
-                        value={formData.interests}
+                        value={formFields.interests}
                         onChange={handleInputChange}
                         required
                     />
@@ -253,15 +261,16 @@ const ProfileCreation = () => {
                     <textarea
                         name="relationshipGoals"
                         placeholder="What are you looking for in a relationship? (Long-term, casual, friendship, etc.)"
-                        value={formData.relationshipGoals}
+                        value={formFields.relationshipGoals}
                         onChange={handleInputChange}
                         required
                     />
                 </div>
 
-                <button type="submit" className="create-profile-btn">
-                    Create Profile
+                <button type="submit" className="create-profile-btn" disabled={submitting}>
+                    {submitting ? 'Creating Profile...' : 'Create Profile'}
                 </button>
+                {error && <p className="error">{error}</p>}
             </form>
         </div>
     );

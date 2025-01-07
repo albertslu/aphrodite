@@ -3,13 +3,15 @@ import { useNavigate } from 'react-router-dom';
 import './App.css';
 
 const Preferences = () => {
+    const navigate = useNavigate();
     const [preferences, setPreferences] = useState({
-        ageRange: '',
+        ageRange: { min: 18, max: 50 },
         location: '',
         preferredGender: '',
         idealMatch: ''
     });
-    const navigate = useNavigate();
+    const [error, setError] = useState('');
+    const isAdmin = localStorage.getItem('isAdmin') === 'true';
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -40,6 +42,10 @@ const Preferences = () => {
         } catch (error) {
             console.error('Error saving preferences:', error);
         }
+    };
+
+    const handleCreateNewProfile = () => {
+        navigate('/create-profile');
     };
 
     return (
@@ -112,6 +118,28 @@ const Preferences = () => {
                     Find My Matches
                 </button>
             </form>
+            
+            {isAdmin && (
+                <button 
+                    onClick={handleCreateNewProfile}
+                    className="create-profile-btn"
+                    style={{ 
+                        marginTop: '20px',
+                        backgroundColor: '#4CAF50', // Green color to differentiate
+                        color: 'white',
+                        padding: '12px',
+                        border: 'none',
+                        borderRadius: '4px',
+                        cursor: 'pointer',
+                        width: '100%',
+                        fontSize: '16px'
+                    }}
+                >
+                    Create New Profile
+                </button>
+            )}
+            
+            {error && <div className="error">{error}</div>}
         </div>
     );
 };
