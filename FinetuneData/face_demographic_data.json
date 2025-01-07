@@ -1,0 +1,5761 @@
+{
+  "Aaron_Eckhart_0001.jpg": {
+    "age": 29.0,
+    "gender": "Man",
+    "race": {
+      "asian": 4.688426088250708e-06,
+      "indian": 2.7758828764490318e-06,
+      "black": 8.412308183380901e-09,
+      "white": 99.88121795654297,
+      "middle eastern": 0.0670592188835144,
+      "latino hispanic": 0.05171695351600647
+    },
+    "dominant_race": "white"
+  },
+  "Abbas_Kiarostami_0001.jpg": {
+    "age": 42.0,
+    "gender": "Man",
+    "race": {
+      "asian": 8.075729370117188,
+      "indian": 5.952662467956543,
+      "black": 1.449072003364563,
+      "white": 42.755577087402344,
+      "middle eastern": 23.1449031829834,
+      "latino hispanic": 18.622053146362305
+    },
+    "dominant_race": "white"
+  },
+  "Abba_Eban_0001.jpg": {
+    "age": 38.0,
+    "gender": "Man",
+    "race": {
+      "asian": 1.1806424856185913,
+      "indian": 1.6589939594268799,
+      "black": 0.18660949170589447,
+      "white": 56.01575469970703,
+      "middle eastern": 19.59939193725586,
+      "latino hispanic": 21.358613967895508
+    },
+    "dominant_race": "white"
+  },
+  "Abdel_Aziz_Al-Hakim_0001.jpg": {
+    "age": 31.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.35115039348602295,
+      "indian": 20.975234985351562,
+      "black": 2.0932281017303467,
+      "white": 10.207005500793457,
+      "middle eastern": 53.8162956237793,
+      "latino hispanic": 12.557082176208496
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Abdoulaye_Wade_0001.jpg": {
+    "age": 43.0,
+    "gender": "Man",
+    "race": {
+      "asian": 2.3098953860767324e-09,
+      "indian": 5.747688192059286e-07,
+      "black": 100.0,
+      "white": 1.3951895567402683e-14,
+      "middle eastern": 1.421941525368343e-15,
+      "latino hispanic": 1.4054815089536987e-09
+    },
+    "dominant_race": "black"
+  },
+  "Abdulaziz_Kamilov_0001.jpg": {
+    "age": 40.0,
+    "gender": "Man",
+    "race": {
+      "asian": 4.739032745361328,
+      "indian": 12.996027946472168,
+      "black": 7.270444869995117,
+      "white": 22.745750427246094,
+      "middle eastern": 33.49550247192383,
+      "latino hispanic": 18.753238677978516
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Abdullah_0001.jpg": {
+    "age": 32.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.041896477341651917,
+      "indian": 1.4276741743087769,
+      "black": 0.041360042989254,
+      "white": 44.91545486450195,
+      "middle eastern": 38.43828582763672,
+      "latino hispanic": 15.135334014892578
+    },
+    "dominant_race": "white"
+  },
+  "Abdullatif_Sener_0001.jpg": {
+    "age": 43.0,
+    "gender": "Man",
+    "race": {
+      "asian": 50.191856384277344,
+      "indian": 5.539156436920166,
+      "black": 1.4492273330688477,
+      "white": 17.65536880493164,
+      "middle eastern": 7.847073554992676,
+      "latino hispanic": 17.317317962646484
+    },
+    "dominant_race": "asian"
+  },
+  "Abdul_Majeed_Shobokshi_0001.jpg": {
+    "age": 43.0,
+    "gender": "Man",
+    "race": {
+      "asian": 1.3590576648712158,
+      "indian": 5.661018371582031,
+      "black": 0.3380730450153351,
+      "white": 36.62824630737305,
+      "middle eastern": 38.8171272277832,
+      "latino hispanic": 17.196481704711914
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Abel_Aguilar_0001.jpg": {
+    "age": 24.0,
+    "gender": "Man",
+    "race": {
+      "asian": 12.634682655334473,
+      "indian": 9.207974433898926,
+      "black": 2.7248549461364746,
+      "white": 29.758800506591797,
+      "middle eastern": 24.144729614257812,
+      "latino hispanic": 21.528953552246094
+    },
+    "dominant_race": "white"
+  },
+  "Abid_Hamid_Mahmud_Al-Tikriti_0001.jpg": {
+    "age": 33.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.13005690276622772,
+      "indian": 7.773508548736572,
+      "black": 8.10707950592041,
+      "white": 8.88862133026123,
+      "middle eastern": 62.479339599609375,
+      "latino hispanic": 12.621397972106934
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Abner_Martinez_0001.jpg": {
+    "age": 22.0,
+    "gender": "Man",
+    "race": {
+      "asian": 1.1349421739578247,
+      "indian": 9.755995750427246,
+      "black": 0.817951500415802,
+      "white": 17.933332443237305,
+      "middle eastern": 45.478092193603516,
+      "latino hispanic": 24.879690170288086
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Abraham_Foxman_0001.jpg": {
+    "age": 39.0,
+    "gender": "Man",
+    "race": {
+      "asian": 3.0233447551727295,
+      "indian": 4.771990776062012,
+      "black": 0.6815606951713562,
+      "white": 47.20261001586914,
+      "middle eastern": 25.448095321655273,
+      "latino hispanic": 18.872400283813477
+    },
+    "dominant_race": "white"
+  },
+  "Aby_Har-Even_0001.jpg": {
+    "age": 44.0,
+    "gender": "Man",
+    "race": {
+      "asian": 29.052587509155273,
+      "indian": 11.664775848388672,
+      "black": 11.497567176818848,
+      "white": 14.653803825378418,
+      "middle eastern": 10.958026885986328,
+      "latino hispanic": 22.173234939575195
+    },
+    "dominant_race": "asian"
+  },
+  "Adam_Ant_0001.jpg": {
+    "age": 29.0,
+    "gender": "Man",
+    "race": {
+      "asian": 1.372485973613266e-13,
+      "indian": 1.6620325992214302e-13,
+      "black": 2.6914900378562696e-17,
+      "white": 99.99998474121094,
+      "middle eastern": 8.561780305171851e-06,
+      "latino hispanic": 3.74596174879116e-06
+    },
+    "dominant_race": "white"
+  },
+  "Adelina_Avila_0001.jpg": {
+    "age": 54.0,
+    "gender": "Man",
+    "race": {
+      "asian": 4.974630832672119,
+      "indian": 13.04626178741455,
+      "black": 2.445803165435791,
+      "white": 11.48730754852295,
+      "middle eastern": 6.875918865203857,
+      "latino hispanic": 61.170082092285156
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Adel_Al-Jubeir_0001.jpg": {
+    "age": 29.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.004703756887465715,
+      "indian": 0.14934857189655304,
+      "black": 0.0010483375517651439,
+      "white": 56.34010314941406,
+      "middle eastern": 40.545413970947266,
+      "latino hispanic": 2.959381103515625
+    },
+    "dominant_race": "white"
+  },
+  "Adisai_Bodharamik_0001.jpg": {
+    "age": 34.0,
+    "gender": "Man",
+    "race": {
+      "asian": 99.99256134033203,
+      "indian": 0.0013133916072547436,
+      "black": 1.0013734197400481e-07,
+      "white": 0.0010841750772669911,
+      "middle eastern": 2.2767020269043314e-08,
+      "latino hispanic": 0.005045347847044468
+    },
+    "dominant_race": "asian"
+  },
+  "Adolfo_Aguilar_Zinser_0001.jpg": {
+    "age": 36.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.00025850272504612803,
+      "indian": 0.0009050760418176651,
+      "black": 1.90915943676373e-06,
+      "white": 98.34262084960938,
+      "middle eastern": 1.1699990034103394,
+      "latino hispanic": 0.4862118065357208
+    },
+    "dominant_race": "white"
+  },
+  "Adoor_Gopalakarishnan_0001.jpg": {
+    "age": 38.0,
+    "gender": "Man",
+    "race": {
+      "asian": 49.05183792114258,
+      "indian": 19.250375747680664,
+      "black": 7.484322547912598,
+      "white": 4.707507133483887,
+      "middle eastern": 2.269347906112671,
+      "latino hispanic": 17.236608505249023
+    },
+    "dominant_race": "asian"
+  },
+  "Adriana_Lima_0001.jpg": {
+    "age": 31.0,
+    "gender": "Man",
+    "race": {
+      "asian": 7.441309452056885,
+      "indian": 38.974090576171875,
+      "black": 28.71017074584961,
+      "white": 3.1628305912017822,
+      "middle eastern": 3.3310415744781494,
+      "latino hispanic": 18.380556106567383
+    },
+    "dominant_race": "indian"
+  },
+  "Adrianna_Zuzic_0001.jpg": {
+    "age": 22.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.34375062584877014,
+      "indian": 0.8093685507774353,
+      "black": 0.06723076850175858,
+      "white": 63.70428466796875,
+      "middle eastern": 18.22123146057129,
+      "latino hispanic": 16.854124069213867
+    },
+    "dominant_race": "white"
+  },
+  "Adrian_Annus_0001.jpg": {
+    "age": 31.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.0013638351811096072,
+      "indian": 0.015549271367490292,
+      "black": 0.00010662005661288276,
+      "white": 95.85102081298828,
+      "middle eastern": 2.9224820137023926,
+      "latino hispanic": 1.2094820737838745
+    },
+    "dominant_race": "white"
+  },
+  "Adrien_Brody_0001.jpg": {
+    "age": 29.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.06569124013185501,
+      "indian": 1.8338295221328735,
+      "black": 0.050255902111530304,
+      "white": 31.102853775024414,
+      "middle eastern": 52.67494201660156,
+      "latino hispanic": 14.272425651550293
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Afton_Smith_0001.jpg": {
+    "age": 32.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.020310286432504654,
+      "indian": 0.28394198417663574,
+      "black": 0.004573605488985777,
+      "white": 52.253143310546875,
+      "middle eastern": 44.726783752441406,
+      "latino hispanic": 2.7112553119659424
+    },
+    "dominant_race": "white"
+  },
+  "Agbani_Darego_0001.jpg": {
+    "age": 31.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.08543048799037933,
+      "indian": 2.700174331665039,
+      "black": 96.8934097290039,
+      "white": 0.0009228468406945467,
+      "middle eastern": 0.00028726804885081947,
+      "latino hispanic": 0.31977230310440063
+    },
+    "dominant_race": "black"
+  },
+  "Agnelo_Queiroz_0001.jpg": {
+    "age": 44.0,
+    "gender": "Man",
+    "race": {
+      "asian": 2.887310743331909,
+      "indian": 8.638562202453613,
+      "black": 3.9580740928649902,
+      "white": 29.501617431640625,
+      "middle eastern": 28.919282913208008,
+      "latino hispanic": 26.09515953063965
+    },
+    "dominant_race": "white"
+  },
+  "Agnes_Bruckner_0001.jpg": {
+    "age": 22.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.16568322479724884,
+      "indian": 0.10262709856033325,
+      "black": 0.010522195138037205,
+      "white": 80.84954833984375,
+      "middle eastern": 7.392740726470947,
+      "latino hispanic": 11.478883743286133
+    },
+    "dominant_race": "white"
+  },
+  "Ahmad_Jbarah_0001.jpg": {
+    "age": 40.0,
+    "gender": "Man",
+    "race": {
+      "asian": 7.175482749938965,
+      "indian": 14.535665512084961,
+      "black": 8.677764892578125,
+      "white": 13.623743057250977,
+      "middle eastern": 15.238182067871094,
+      "latino hispanic": 40.74916076660156
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Ahmed_Ahmed_0001.jpg": {
+    "age": 33.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.20592720806598663,
+      "indian": 6.5432047843933105,
+      "black": 0.7219134569168091,
+      "white": 19.61431884765625,
+      "middle eastern": 55.82424545288086,
+      "latino hispanic": 17.09039306640625
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Ahmet_Demir_0001.jpg": {
+    "age": 25.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.9877131581306458,
+      "indian": 4.801184177398682,
+      "black": 0.336109459400177,
+      "white": 33.5526008605957,
+      "middle eastern": 44.576324462890625,
+      "latino hispanic": 15.746068954467773
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Aicha_El_Ouafi_0001.jpg": {
+    "age": 39.0,
+    "gender": "Man",
+    "race": {
+      "asian": 10.146393775939941,
+      "indian": 8.452570915222168,
+      "black": 3.795602321624756,
+      "white": 11.746220588684082,
+      "middle eastern": 6.735782623291016,
+      "latino hispanic": 59.123435974121094
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Aidan_Quinn_0001.jpg": {
+    "age": 33.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.0001660118723521009,
+      "indian": 0.0029169870540499687,
+      "black": 4.445554077392444e-05,
+      "white": 96.14384460449219,
+      "middle eastern": 3.1304373741149902,
+      "latino hispanic": 0.7225956916809082
+    },
+    "dominant_race": "white"
+  },
+  "Aileen_Riggin_Soule_0001.jpg": {
+    "age": 68.0,
+    "gender": "Man",
+    "race": {
+      "asian": 34.870513916015625,
+      "indian": 0.2070084661245346,
+      "black": 0.03520270064473152,
+      "white": 58.9489631652832,
+      "middle eastern": 2.041083574295044,
+      "latino hispanic": 3.897228240966797
+    },
+    "dominant_race": "white"
+  },
+  "Ainsworth_Dyer_0001.jpg": {
+    "age": 25.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.27608904242515564,
+      "indian": 1.5343222618103027,
+      "black": 94.74830627441406,
+      "white": 0.14589788019657135,
+      "middle eastern": 0.117610402405262,
+      "latino hispanic": 3.177772283554077
+    },
+    "dominant_race": "black"
+  },
+  "Ain_Seppik_0001.jpg": {
+    "age": 47.0,
+    "gender": "Man",
+    "race": {
+      "asian": 6.143073551356792e-05,
+      "indian": 0.05131901055574417,
+      "black": 6.538842717418447e-05,
+      "white": 81.24665069580078,
+      "middle eastern": 17.63326072692871,
+      "latino hispanic": 1.0686429738998413
+    },
+    "dominant_race": "white"
+  },
+  "Aishwarya_Rai_0001.jpg": {
+    "age": 31.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 3.5407907962799072,
+      "indian": 5.1772332191467285,
+      "black": 0.6071567535400391,
+      "white": 46.6385383605957,
+      "middle eastern": 20.92220115661621,
+      "latino hispanic": 23.11408042907715
+    },
+    "dominant_race": "white"
+  },
+  "Aitor_Gonzalez_0001.jpg": {
+    "age": 23.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.01432932447642088,
+      "indian": 0.04442528635263443,
+      "black": 0.004758202936500311,
+      "white": 85.01689910888672,
+      "middle eastern": 7.933490753173828,
+      "latino hispanic": 6.9860944747924805
+    },
+    "dominant_race": "white"
+  },
+  "Aiysha_Smith_0001.jpg": {
+    "age": 26.0,
+    "gender": "Man",
+    "race": {
+      "asian": 12.569769859313965,
+      "indian": 10.970924377441406,
+      "black": 18.354034423828125,
+      "white": 17.79866600036621,
+      "middle eastern": 15.006075859069824,
+      "latino hispanic": 25.30052375793457
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Ai_Sugiyama_0001.jpg": {
+    "age": 29.0,
+    "gender": "Man",
+    "race": {
+      "asian": 97.31880950927734,
+      "indian": 0.7583497762680054,
+      "black": 0.02159208618104458,
+      "white": 0.26337355375289917,
+      "middle eastern": 0.008316135965287685,
+      "latino hispanic": 1.6295514106750488
+    },
+    "dominant_race": "asian"
+  },
+  "Ajit_Agarkar_0001.jpg": {
+    "age": 38.0,
+    "gender": "Man",
+    "race": {
+      "asian": 1.3592994213104248,
+      "indian": 14.313080787658691,
+      "black": 1.7083919048309326,
+      "white": 15.371378898620605,
+      "middle eastern": 48.874488830566406,
+      "latino hispanic": 18.373355865478516
+    },
+    "dominant_race": "middle eastern"
+  },
+  "AJ_Cook_0001.jpg": {
+    "age": 32.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.01428444404155016,
+      "indian": 0.027163315564393997,
+      "black": 0.0032915715128183365,
+      "white": 89.82268524169922,
+      "middle eastern": 2.2081663608551025,
+      "latino hispanic": 7.924408435821533
+    },
+    "dominant_race": "white"
+  },
+  "Akbar_Al_Baker_0001.jpg": {
+    "age": 27.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.023462660610675812,
+      "indian": 3.005728244781494,
+      "black": 0.04486679658293724,
+      "white": 9.046884536743164,
+      "middle eastern": 82.23784637451172,
+      "latino hispanic": 5.641212463378906
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Akhmed_Zakayev_0001.jpg": {
+    "age": 46.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.0016740834107622504,
+      "indian": 0.22993187606334686,
+      "black": 0.0009207172552123666,
+      "white": 55.605167388916016,
+      "middle eastern": 40.037689208984375,
+      "latino hispanic": 4.124618053436279
+    },
+    "dominant_race": "white"
+  },
+  "Akiko_Morigami_0001.jpg": {
+    "age": 39.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 94.71651458740234,
+      "indian": 0.23996026813983917,
+      "black": 0.034078340977430344,
+      "white": 3.3152706623077393,
+      "middle eastern": 0.08269272744655609,
+      "latino hispanic": 1.6114808320999146
+    },
+    "dominant_race": "asian"
+  },
+  "Akmal_Taher_0001.jpg": {
+    "age": 24.0,
+    "gender": "Man",
+    "race": {
+      "asian": 98.56287384033203,
+      "indian": 0.2807057499885559,
+      "black": 0.030469754710793495,
+      "white": 0.061306536197662354,
+      "middle eastern": 0.0020147489849478006,
+      "latino hispanic": 1.0626214742660522
+    },
+    "dominant_race": "asian"
+  },
+  "Alain_Cervantes_0001.jpg": {
+    "age": 23.0,
+    "gender": "Man",
+    "race": {
+      "asian": 18.751602172851562,
+      "indian": 14.380712509155273,
+      "black": 13.314083099365234,
+      "white": 12.763270378112793,
+      "middle eastern": 14.192615509033203,
+      "latino hispanic": 26.59770965576172
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Alanis_Morissette_0001.jpg": {
+    "age": 39.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 2.59559965133667,
+      "indian": 2.2789671421051025,
+      "black": 0.7039041519165039,
+      "white": 45.96162033081055,
+      "middle eastern": 15.38369083404541,
+      "latino hispanic": 33.07622146606445
+    },
+    "dominant_race": "white"
+  },
+  "Alanna_Ubach_0001.jpg": {
+    "age": 32.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.3241545259952545,
+      "indian": 0.8140493035316467,
+      "black": 0.061371300369501114,
+      "white": 59.601844787597656,
+      "middle eastern": 17.570833206176758,
+      "latino hispanic": 21.62774658203125
+    },
+    "dominant_race": "white"
+  },
+  "Alan_Ball_0001.jpg": {
+    "age": 41.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.05259447172284126,
+      "indian": 0.13468652963638306,
+      "black": 0.0036727995611727238,
+      "white": 76.36151123046875,
+      "middle eastern": 5.059243202209473,
+      "latino hispanic": 18.388296127319336
+    },
+    "dominant_race": "white"
+  },
+  "Alastair_Campbell_0001.jpg": {
+    "age": 24.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.04327723756432533,
+      "indian": 0.30027344822883606,
+      "black": 0.00348453177139163,
+      "white": 74.8039779663086,
+      "middle eastern": 16.278608322143555,
+      "latino hispanic": 8.570377349853516
+    },
+    "dominant_race": "white"
+  },
+  "Albaro_Recoba_0001.jpg": {
+    "age": 24.0,
+    "gender": "Man",
+    "race": {
+      "asian": 60.98675537109375,
+      "indian": 4.356295585632324,
+      "black": 1.1837356090545654,
+      "white": 10.340664863586426,
+      "middle eastern": 1.886489987373352,
+      "latino hispanic": 21.24605369567871
+    },
+    "dominant_race": "asian"
+  },
+  "Alberta_Lee_0001.jpg": {
+    "age": 41.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 60.08159637451172,
+      "indian": 9.526240348815918,
+      "black": 6.918485641479492,
+      "white": 4.72726583480835,
+      "middle eastern": 1.6219451427459717,
+      "latino hispanic": 17.124465942382812
+    },
+    "dominant_race": "asian"
+  },
+  "Alberto_Acosta_0001.jpg": {
+    "age": 25.0,
+    "gender": "Man",
+    "race": {
+      "asian": 4.375329971313477,
+      "indian": 9.257264137268066,
+      "black": 1.6575286388397217,
+      "white": 29.769607543945312,
+      "middle eastern": 26.32555389404297,
+      "latino hispanic": 28.61471176147461
+    },
+    "dominant_race": "white"
+  },
+  "Albert_Brooks_0001.jpg": {
+    "age": 43.0,
+    "gender": "Man",
+    "race": {
+      "asian": 23.363981246948242,
+      "indian": 9.758426666259766,
+      "black": 7.06018590927124,
+      "white": 21.34307098388672,
+      "middle eastern": 15.722833633422852,
+      "latino hispanic": 22.751495361328125
+    },
+    "dominant_race": "asian"
+  },
+  "Albrecht_Mentz_0001.jpg": {
+    "age": 48.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.2691228985786438,
+      "indian": 1.9116783142089844,
+      "black": 0.12204352766275406,
+      "white": 47.10955047607422,
+      "middle eastern": 32.833988189697266,
+      "latino hispanic": 17.753623962402344
+    },
+    "dominant_race": "white"
+  },
+  "Aldo_Paredes_0001.jpg": {
+    "age": 34.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.4409521520137787,
+      "indian": 0.3787756562232971,
+      "black": 0.027622399851679802,
+      "white": 75.85887145996094,
+      "middle eastern": 8.102584838867188,
+      "latino hispanic": 15.191193580627441
+    },
+    "dominant_race": "white"
+  },
+  "Alecos_Markides_0001.jpg": {
+    "age": 47.0,
+    "gender": "Man",
+    "race": {
+      "asian": 3.4681081771850586,
+      "indian": 13.191245079040527,
+      "black": 2.9262309074401855,
+      "white": 23.230205535888672,
+      "middle eastern": 26.011371612548828,
+      "latino hispanic": 31.17283821105957
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Alec_Baldwin_0001.jpg": {
+    "age": 27.0,
+    "gender": "Man",
+    "race": {
+      "asian": 4.32358980178833,
+      "indian": 5.227309226989746,
+      "black": 1.7071750164031982,
+      "white": 31.750988006591797,
+      "middle eastern": 17.972387313842773,
+      "latino hispanic": 39.0185546875
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Alejandro_Atchugarry_0001.jpg": {
+    "age": 24.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.7037521600723267,
+      "indian": 2.9928572177886963,
+      "black": 0.5679436326026917,
+      "white": 51.16753387451172,
+      "middle eastern": 27.97734832763672,
+      "latino hispanic": 16.59056854248047
+    },
+    "dominant_race": "white"
+  },
+  "Aleksander_Kwasniewski_0001.jpg": {
+    "age": 48.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.2507007122039795,
+      "indian": 0.40881460905075073,
+      "black": 0.08452675491571426,
+      "white": 87.72991180419922,
+      "middle eastern": 4.627331733703613,
+      "latino hispanic": 6.898710250854492
+    },
+    "dominant_race": "white"
+  },
+  "Alek_Wek_0001.jpg": {
+    "age": 34.0,
+    "gender": "Man",
+    "race": {
+      "asian": 4.59675575257279e-05,
+      "indian": 0.0043185860849916935,
+      "black": 99.99561309814453,
+      "white": 1.6271607705675706e-07,
+      "middle eastern": 2.836339092482376e-07,
+      "latino hispanic": 2.614899494801648e-05
+    },
+    "dominant_race": "black"
+  },
+  "Alessandra_Cerna_0001.jpg": {
+    "age": 31.0,
+    "gender": "Man",
+    "race": {
+      "asian": 10.468045234680176,
+      "indian": 28.321395874023438,
+      "black": 6.0625457763671875,
+      "white": 9.005348205566406,
+      "middle eastern": 9.21911907196045,
+      "latino hispanic": 36.923553466796875
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Alessandro_Nesta_0001.jpg": {
+    "age": 23.0,
+    "gender": "Man",
+    "race": {
+      "asian": 4.662174701690674,
+      "indian": 11.714111328125,
+      "black": 2.979309320449829,
+      "white": 19.711252212524414,
+      "middle eastern": 37.15924835205078,
+      "latino hispanic": 23.773902893066406
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Alexander_Downer_0001.jpg": {
+    "age": 35.0,
+    "gender": "Man",
+    "race": {
+      "asian": 28.167831420898438,
+      "indian": 1.2993627786636353,
+      "black": 0.6983290314674377,
+      "white": 52.18189239501953,
+      "middle eastern": 7.464695453643799,
+      "latino hispanic": 10.187896728515625
+    },
+    "dominant_race": "white"
+  },
+  "Alexandra_Jackson_0001.jpg": {
+    "age": 32.0,
+    "gender": "Man",
+    "race": {
+      "asian": 23.602224349975586,
+      "indian": 14.08074951171875,
+      "black": 6.459999084472656,
+      "white": 13.733466148376465,
+      "middle eastern": 8.974000930786133,
+      "latino hispanic": 33.149566650390625
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Alexandre_Daigle_0001.jpg": {
+    "age": 22.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.25288763642311096,
+      "indian": 0.7705406546592712,
+      "black": 0.05939779430627823,
+      "white": 66.39470672607422,
+      "middle eastern": 14.919490814208984,
+      "latino hispanic": 17.60297966003418
+    },
+    "dominant_race": "white"
+  },
+  "Alexa_Loren_0001.jpg": {
+    "age": 35.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 11.410365104675293,
+      "indian": 1.165783166885376,
+      "black": 0.09426452219486237,
+      "white": 65.28640747070312,
+      "middle eastern": 9.509682655334473,
+      "latino hispanic": 12.533500671386719
+    },
+    "dominant_race": "white"
+  },
+  "Alexis_Bledel_0001.jpg": {
+    "age": 31.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.006479960400611162,
+      "indian": 0.017624763771891594,
+      "black": 0.0003861695295199752,
+      "white": 93.5838851928711,
+      "middle eastern": 3.5126163959503174,
+      "latino hispanic": 2.879007577896118
+    },
+    "dominant_race": "white"
+  },
+  "Alex_Barros_0001.jpg": {
+    "age": 26.0,
+    "gender": "Man",
+    "race": {
+      "asian": 2.7163593769073486,
+      "indian": 9.339639663696289,
+      "black": 1.1812362670898438,
+      "white": 31.240951538085938,
+      "middle eastern": 19.830856323242188,
+      "latino hispanic": 35.69095993041992
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Alfonso_Cuaron_0001.jpg": {
+    "age": 30.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.0002908851602114737,
+      "indian": 0.010783927515149117,
+      "black": 3.8378919271053746e-05,
+      "white": 92.01412200927734,
+      "middle eastern": 6.994191646575928,
+      "latino hispanic": 0.9805731773376465
+    },
+    "dominant_race": "white"
+  },
+  "Alfredo_di_Stefano_0001.jpg": {
+    "age": 47.0,
+    "gender": "Man",
+    "race": {
+      "asian": 4.712944507598877,
+      "indian": 16.251895904541016,
+      "black": 2.7739155292510986,
+      "white": 20.489044189453125,
+      "middle eastern": 36.42177200317383,
+      "latino hispanic": 19.350427627563477
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Alfred_Ford_0001.jpg": {
+    "age": 33.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.02202174998819828,
+      "indian": 0.8010377883911133,
+      "black": 0.04681433364748955,
+      "white": 60.80025863647461,
+      "middle eastern": 30.19325065612793,
+      "latino hispanic": 8.136616706848145
+    },
+    "dominant_race": "white"
+  },
+  "Alice_Fisher_0001.jpg": {
+    "age": 35.0,
+    "gender": "Man",
+    "race": {
+      "asian": 7.868710041046143,
+      "indian": 8.434697151184082,
+      "black": 3.0568623542785645,
+      "white": 32.38408279418945,
+      "middle eastern": 25.872913360595703,
+      "latino hispanic": 22.38273811340332
+    },
+    "dominant_race": "white"
+  },
+  "Alicia_Hollowell_0001.jpg": {
+    "age": 23.0,
+    "gender": "Man",
+    "race": {
+      "asian": 6.718382835388184,
+      "indian": 28.132701873779297,
+      "black": 7.352854251861572,
+      "white": 20.688180923461914,
+      "middle eastern": 17.692289352416992,
+      "latino hispanic": 19.41558837890625
+    },
+    "dominant_race": "indian"
+  },
+  "Alimzhan_Tokhtakhounov_0001.jpg": {
+    "age": 43.0,
+    "gender": "Man",
+    "race": {
+      "asian": 32.15492248535156,
+      "indian": 10.53697395324707,
+      "black": 4.1393866539001465,
+      "white": 12.759635925292969,
+      "middle eastern": 9.23222827911377,
+      "latino hispanic": 31.17685317993164
+    },
+    "dominant_race": "asian"
+  },
+  "Alina_Kabaeva_0001.jpg": {
+    "age": 26.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 7.8417582511901855,
+      "indian": 6.48891544342041,
+      "black": 1.2624104022979736,
+      "white": 47.153099060058594,
+      "middle eastern": 15.677020072937012,
+      "latino hispanic": 21.576799392700195
+    },
+    "dominant_race": "white"
+  },
+  "Aline_Chretien_0001.jpg": {
+    "age": 29.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.38963934779167175,
+      "indian": 1.440619707107544,
+      "black": 0.10342809557914734,
+      "white": 54.76065444946289,
+      "middle eastern": 21.31267547607422,
+      "latino hispanic": 21.992984771728516
+    },
+    "dominant_race": "white"
+  },
+  "Alisha_Richman_0001.jpg": {
+    "age": 24.0,
+    "gender": "Man",
+    "race": {
+      "asian": 69.15093231201172,
+      "indian": 4.484312057495117,
+      "black": 3.530085563659668,
+      "white": 5.23281192779541,
+      "middle eastern": 1.4796806573867798,
+      "latino hispanic": 16.12218475341797
+    },
+    "dominant_race": "asian"
+  },
+  "Alison_Krauss_0001.jpg": {
+    "age": 34.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.13260987401008606,
+      "indian": 0.2947857677936554,
+      "black": 0.01336114201694727,
+      "white": 81.36778259277344,
+      "middle eastern": 8.148110389709473,
+      "latino hispanic": 10.043350219726562
+    },
+    "dominant_race": "white"
+  },
+  "Alistair_MacDonald_0001.jpg": {
+    "age": 22.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.049763068556785583,
+      "indian": 0.18452176451683044,
+      "black": 0.01032719574868679,
+      "white": 75.26693725585938,
+      "middle eastern": 14.961722373962402,
+      "latino hispanic": 9.526729583740234
+    },
+    "dominant_race": "white"
+  },
+  "Ali_Abbas_0001.jpg": {
+    "age": 30.0,
+    "gender": "Man",
+    "race": {
+      "asian": 10.444196701049805,
+      "indian": 10.663537979125977,
+      "black": 5.302395820617676,
+      "white": 20.21080780029297,
+      "middle eastern": 20.654176712036133,
+      "latino hispanic": 32.724891662597656
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Allan_Houston_0001.jpg": {
+    "age": 29.0,
+    "gender": "Man",
+    "race": {
+      "asian": 33.500404357910156,
+      "indian": 2.42598557472229,
+      "black": 26.522005081176758,
+      "white": 18.653728485107422,
+      "middle eastern": 2.7343146800994873,
+      "latino hispanic": 16.1635684967041
+    },
+    "dominant_race": "asian"
+  },
+  "Allen_Iverson_0001.jpg": {
+    "age": 25.0,
+    "gender": "Man",
+    "race": {
+      "asian": 9.546450019115582e-05,
+      "indian": 0.010899186134338379,
+      "black": 99.98757934570312,
+      "white": 3.741833779713488e-06,
+      "middle eastern": 1.9936742319259793e-06,
+      "latino hispanic": 0.0014215672854334116
+    },
+    "dominant_race": "black"
+  },
+  "Allison_Janney_0001.jpg": {
+    "age": 34.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.04720555618405342,
+      "indian": 0.04680608958005905,
+      "black": 0.0013394658453762531,
+      "white": 92.8811264038086,
+      "middle eastern": 4.5111541748046875,
+      "latino hispanic": 2.512369394302368
+    },
+    "dominant_race": "white"
+  },
+  "Allyson_Felix_0001.jpg": {
+    "age": 31.0,
+    "gender": "Man",
+    "race": {
+      "asian": 35.388946533203125,
+      "indian": 17.880598068237305,
+      "black": 29.717975616455078,
+      "white": 2.568779706954956,
+      "middle eastern": 1.4395860433578491,
+      "latino hispanic": 13.004118919372559
+    },
+    "dominant_race": "asian"
+  },
+  "Ally_Sheedy_0001.jpg": {
+    "age": 37.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 5.0144230101523135e-08,
+      "indian": 1.6031586724807312e-08,
+      "black": 2.4523947109167388e-11,
+      "white": 99.99329376220703,
+      "middle eastern": 0.003708933014422655,
+      "latino hispanic": 0.0029998815152794123
+    },
+    "dominant_race": "white"
+  },
+  "Alma_Powell_0001.jpg": {
+    "age": 52.0,
+    "gender": "Man",
+    "race": {
+      "asian": 25.781200408935547,
+      "indian": 37.82277297973633,
+      "black": 24.86088752746582,
+      "white": 0.2484453022480011,
+      "middle eastern": 0.1842585951089859,
+      "latino hispanic": 11.10244083404541
+    },
+    "dominant_race": "indian"
+  },
+  "Almeida_Baptista_0001.jpg": {
+    "age": 44.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.20323437452316284,
+      "indian": 2.8770906925201416,
+      "black": 0.18506546318531036,
+      "white": 27.194936752319336,
+      "middle eastern": 47.373756408691406,
+      "latino hispanic": 22.16592025756836
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Alonzo_Mourning_0001.jpg": {
+    "age": 29.0,
+    "gender": "Man",
+    "race": {
+      "asian": 7.359410147955714e-08,
+      "indian": 1.3032638889853843e-05,
+      "black": 99.99998474121094,
+      "white": 1.94020868815592e-10,
+      "middle eastern": 4.380506027357178e-11,
+      "latino hispanic": 1.89700028840889e-06
+    },
+    "dominant_race": "black"
+  },
+  "Alvaro_Noboa_0001.jpg": {
+    "age": 44.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.0035608019679784775,
+      "indian": 0.0018733605975285172,
+      "black": 2.813467654050328e-05,
+      "white": 97.20411682128906,
+      "middle eastern": 1.3546018600463867,
+      "latino hispanic": 1.4358261823654175
+    },
+    "dominant_race": "white"
+  },
+  "Alyse_Beaupre_0001.jpg": {
+    "age": 31.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.19148072600364685,
+      "indian": 0.14767682552337646,
+      "black": 0.006703556515276432,
+      "white": 83.20289611816406,
+      "middle eastern": 7.520485877990723,
+      "latino hispanic": 8.93075942993164
+    },
+    "dominant_race": "white"
+  },
+  "Alyson_Hannigan_0001.jpg": {
+    "age": 28.0,
+    "gender": "Man",
+    "race": {
+      "asian": 28.16985511779785,
+      "indian": 7.400290489196777,
+      "black": 4.155869960784912,
+      "white": 18.293567657470703,
+      "middle eastern": 9.844658851623535,
+      "latino hispanic": 32.13575744628906
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Aly_Wagner_0001.jpg": {
+    "age": 29.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.026639841496944427,
+      "indian": 0.01765308901667595,
+      "black": 0.0009813366923481226,
+      "white": 90.86261749267578,
+      "middle eastern": 2.2942497730255127,
+      "latino hispanic": 6.797854423522949
+    },
+    "dominant_race": "white"
+  },
+  "Al_Cardenas_0001.jpg": {
+    "age": 34.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.024618886411190033,
+      "indian": 0.192240372300148,
+      "black": 0.003814235096797347,
+      "white": 72.03365325927734,
+      "middle eastern": 17.480403900146484,
+      "latino hispanic": 10.265264511108398
+    },
+    "dominant_race": "white"
+  },
+  "Amanda_Beard_0001.jpg": {
+    "age": 32.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 1.3869538307189941,
+      "indian": 8.948731422424316,
+      "black": 4.534196853637695,
+      "white": 39.89357376098633,
+      "middle eastern": 21.54457664489746,
+      "latino hispanic": 23.691972732543945
+    },
+    "dominant_race": "white"
+  },
+  "Amber_Frey_0001.jpg": {
+    "age": 34.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 3.784903025436326e-21,
+      "indian": 5.1866815657376305e-23,
+      "black": 2.0357216253199134e-27,
+      "white": 100.0,
+      "middle eastern": 1.7588029990744936e-11,
+      "latino hispanic": 2.729057865108464e-12
+    },
+    "dominant_race": "white"
+  },
+  "Ambrose_Lee_0001.jpg": {
+    "age": 41.0,
+    "gender": "Man",
+    "race": {
+      "asian": 50.731292724609375,
+      "indian": 28.529800415039062,
+      "black": 8.04485034942627,
+      "white": 1.1151267290115356,
+      "middle eastern": 0.6657031774520874,
+      "latino hispanic": 10.913237571716309
+    },
+    "dominant_race": "asian"
+  },
+  "Amelia_Vega_0001.jpg": {
+    "age": 32.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.653567910194397,
+      "indian": 1.3133254051208496,
+      "black": 0.12359722703695297,
+      "white": 56.59347152709961,
+      "middle eastern": 22.90338134765625,
+      "latino hispanic": 18.41265869140625
+    },
+    "dominant_race": "white"
+  },
+  "Amelie_Mauresmo_0001.jpg": {
+    "age": 25.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.28484907746315,
+      "indian": 0.3337734341621399,
+      "black": 0.037431225180625916,
+      "white": 73.09452056884766,
+      "middle eastern": 9.028443336486816,
+      "latino hispanic": 17.22097396850586
+    },
+    "dominant_race": "white"
+  },
+  "Amer_al-Saadi_0001.jpg": {
+    "age": 52.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.1104097068309784,
+      "indian": 5.948379993438721,
+      "black": 0.08536334335803986,
+      "white": 5.633779048919678,
+      "middle eastern": 79.27507019042969,
+      "latino hispanic": 8.947004318237305
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Amporn_Falise_0001.jpg": {
+    "age": 43.0,
+    "gender": "Man",
+    "race": {
+      "asian": 43.77680206298828,
+      "indian": 8.630730628967285,
+      "black": 31.604291915893555,
+      "white": 1.799796462059021,
+      "middle eastern": 1.3177434206008911,
+      "latino hispanic": 12.870627403259277
+    },
+    "dominant_race": "asian"
+  },
+  "Amram_Mitzna_0001.jpg": {
+    "age": 46.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.010801217518746853,
+      "indian": 0.045459210872650146,
+      "black": 0.0002985720639117062,
+      "white": 88.6700439453125,
+      "middle eastern": 7.544859409332275,
+      "latino hispanic": 3.7285401821136475
+    },
+    "dominant_race": "white"
+  },
+  "Amr_Moussa_0001.jpg": {
+    "age": 53.0,
+    "gender": "Man",
+    "race": {
+      "asian": 22.560047149658203,
+      "indian": 6.175903797149658,
+      "black": 2.747742176055908,
+      "white": 31.357255935668945,
+      "middle eastern": 16.646780014038086,
+      "latino hispanic": 20.512271881103516
+    },
+    "dominant_race": "white"
+  },
+  "Amy_Brenneman_0001.jpg": {
+    "age": 30.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.3017137348651886,
+      "indian": 1.2376340627670288,
+      "black": 0.07496713846921921,
+      "white": 55.113494873046875,
+      "middle eastern": 25.528547286987305,
+      "latino hispanic": 17.7436466217041
+    },
+    "dominant_race": "white"
+  },
+  "Anastasia_Kelesidou_0001.jpg": {
+    "age": 26.0,
+    "gender": "Man",
+    "race": {
+      "asian": 1.1878219083882868e-05,
+      "indian": 2.261639201606158e-05,
+      "black": 1.3821419031501136e-07,
+      "white": 99.77214050292969,
+      "middle eastern": 0.1444612592458725,
+      "latino hispanic": 0.08336681872606277
+    },
+    "dominant_race": "white"
+  },
+  "Anatoliy_Kinakh_0001.jpg": {
+    "age": 31.0,
+    "gender": "Man",
+    "race": {
+      "asian": 2.4164764881134033,
+      "indian": 1.850658893585205,
+      "black": 0.20495714247226715,
+      "white": 45.186702728271484,
+      "middle eastern": 18.20893669128418,
+      "latino hispanic": 32.13227081298828
+    },
+    "dominant_race": "white"
+  },
+  "Ana_Claudia_Talancon_0001.jpg": {
+    "age": 29.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 1.0546722412109375,
+      "indian": 3.1961331367492676,
+      "black": 0.3030034601688385,
+      "white": 43.4302864074707,
+      "middle eastern": 26.5609073638916,
+      "latino hispanic": 25.454994201660156
+    },
+    "dominant_race": "white"
+  },
+  "Anderson_Varejao_0001.jpg": {
+    "age": 33.0,
+    "gender": "Man",
+    "race": {
+      "asian": 44.16206741333008,
+      "indian": 3.779998302459717,
+      "black": 2.9319324493408203,
+      "white": 23.468637466430664,
+      "middle eastern": 6.14869499206543,
+      "latino hispanic": 19.508663177490234
+    },
+    "dominant_race": "asian"
+  },
+  "Anders_Ebbeson_0001.jpg": {
+    "age": 24.0,
+    "gender": "Man",
+    "race": {
+      "asian": 100.0,
+      "indian": 1.6553351121213793e-32,
+      "black": 0.0,
+      "white": 1.4673862022114764e-23,
+      "middle eastern": 1.8485285784618617e-31,
+      "latino hispanic": 1.6979363237886536e-24
+    },
+    "dominant_race": "asian"
+  },
+  "Andreas_Vinciguerra_0001.jpg": {
+    "age": 33.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.06503014266490936,
+      "indian": 0.0682753175497055,
+      "black": 0.0029679550789296627,
+      "white": 86.66969299316406,
+      "middle eastern": 5.218262195587158,
+      "latino hispanic": 7.975768089294434
+    },
+    "dominant_race": "white"
+  },
+  "Andrea_Bocelli_0001.jpg": {
+    "age": 24.0,
+    "gender": "Man",
+    "race": {
+      "asian": 3.651350736618042,
+      "indian": 7.141384601593018,
+      "black": 2.006500005722046,
+      "white": 32.899810791015625,
+      "middle eastern": 28.179615020751953,
+      "latino hispanic": 26.121339797973633
+    },
+    "dominant_race": "white"
+  },
+  "Andrei_Konchalovsky_0001.jpg": {
+    "age": 44.0,
+    "gender": "Man",
+    "race": {
+      "asian": 58.42083740234375,
+      "indian": 11.57157039642334,
+      "black": 13.792271614074707,
+      "white": 2.221639633178711,
+      "middle eastern": 0.9623202681541443,
+      "latino hispanic": 13.031363487243652
+    },
+    "dominant_race": "asian"
+  },
+  "Andres_DAlessandro_0001.jpg": {
+    "age": 21.0,
+    "gender": "Man",
+    "race": {
+      "asian": 11.371840476989746,
+      "indian": 4.719662666320801,
+      "black": 2.3945655822753906,
+      "white": 38.91545486450195,
+      "middle eastern": 9.999524116516113,
+      "latino hispanic": 32.59894943237305
+    },
+    "dominant_race": "white"
+  },
+  "Andrew_Bernard_0001.jpg": {
+    "age": 27.0,
+    "gender": "Man",
+    "race": {
+      "asian": 32.48262023925781,
+      "indian": 6.447442531585693,
+      "black": 2.926748514175415,
+      "white": 19.58223533630371,
+      "middle eastern": 8.255953788757324,
+      "latino hispanic": 30.304994583129883
+    },
+    "dominant_race": "asian"
+  },
+  "Andre_Agassi_0001.jpg": {
+    "age": 25.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.38467833399772644,
+      "indian": 1.5161080360412598,
+      "black": 0.1373296082019806,
+      "white": 57.97441101074219,
+      "middle eastern": 25.726062774658203,
+      "latino hispanic": 14.2614107131958
+    },
+    "dominant_race": "white"
+  },
+  "Andrzej_Tyszkiewicz_0001.jpg": {
+    "age": 42.0,
+    "gender": "Man",
+    "race": {
+      "asian": 4.290931701660156,
+      "indian": 3.226555824279785,
+      "black": 0.3386770784854889,
+      "white": 54.695640563964844,
+      "middle eastern": 20.17622184753418,
+      "latino hispanic": 17.271976470947266
+    },
+    "dominant_race": "white"
+  },
+  "Andy_Benes_0001.jpg": {
+    "age": 26.0,
+    "gender": "Man",
+    "race": {
+      "asian": 2.1809490135638043e-05,
+      "indian": 0.00023803531075827777,
+      "black": 6.595030754397158e-06,
+      "white": 98.4863052368164,
+      "middle eastern": 0.5926837921142578,
+      "latino hispanic": 0.9207361936569214
+    },
+    "dominant_race": "white"
+  },
+  "Anette_Hosoi_0001.jpg": {
+    "age": 29.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 1.9299867153167725,
+      "indian": 3.295682430267334,
+      "black": 0.5951479077339172,
+      "white": 43.99433898925781,
+      "middle eastern": 28.788726806640625,
+      "latino hispanic": 21.396116256713867
+    },
+    "dominant_race": "white"
+  },
+  "AnFernce_Negron_0001.jpg": {
+    "age": 29.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 7.026632308959961,
+      "indian": 3.1687915325164795,
+      "black": 0.861132800579071,
+      "white": 56.314788818359375,
+      "middle eastern": 17.84734535217285,
+      "latino hispanic": 14.7813081741333
+    },
+    "dominant_race": "white"
+  },
+  "Angela_Alvarado_Rosa_0001.jpg": {
+    "age": 42.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 8.668747901916504,
+      "indian": 3.0444393157958984,
+      "black": 1.006823182106018,
+      "white": 37.803009033203125,
+      "middle eastern": 12.626108169555664,
+      "latino hispanic": 36.850868225097656
+    },
+    "dominant_race": "white"
+  },
+  "Angelica_Romero_0001.jpg": {
+    "age": 33.0,
+    "gender": "Man",
+    "race": {
+      "asian": 12.574442863464355,
+      "indian": 8.155159950256348,
+      "black": 3.9302916526794434,
+      "white": 18.219058990478516,
+      "middle eastern": 12.60843563079834,
+      "latino hispanic": 44.512611389160156
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Angelina_Jolie_0001.jpg": {
+    "age": 30.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 11.211104393005371,
+      "indian": 15.819515228271484,
+      "black": 7.532369136810303,
+      "white": 20.705963134765625,
+      "middle eastern": 20.532865524291992,
+      "latino hispanic": 24.198183059692383
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Angelo_Genova_0001.jpg": {
+    "age": 28.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.5656827092170715,
+      "indian": 1.260099172592163,
+      "black": 0.15001149475574493,
+      "white": 57.96768569946289,
+      "middle eastern": 20.529605865478516,
+      "latino hispanic": 19.526914596557617
+    },
+    "dominant_race": "white"
+  },
+  "Angel_Lockward_0001.jpg": {
+    "age": 31.0,
+    "gender": "Man",
+    "race": {
+      "asian": 3.536925792694092,
+      "indian": 7.914417266845703,
+      "black": 1.2786310911178589,
+      "white": 24.673439025878906,
+      "middle eastern": 29.13535499572754,
+      "latino hispanic": 33.46123123168945
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Angie_Arzola_0001.jpg": {
+    "age": 33.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.027675632387399673,
+      "indian": 0.07667636126279831,
+      "black": 0.001084627234376967,
+      "white": 80.85923767089844,
+      "middle eastern": 10.634817123413086,
+      "latino hispanic": 8.40050983428955
+    },
+    "dominant_race": "white"
+  },
+  "Anibal_Ibarra_0001.jpg": {
+    "age": 28.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.10608287155628204,
+      "indian": 0.47029316425323486,
+      "black": 0.016601353883743286,
+      "white": 67.81063842773438,
+      "middle eastern": 21.682676315307617,
+      "latino hispanic": 9.913703918457031
+    },
+    "dominant_race": "white"
+  },
+  "Anil_Ramsook_0001.jpg": {
+    "age": 38.0,
+    "gender": "Man",
+    "race": {
+      "asian": 22.227249145507812,
+      "indian": 19.178905487060547,
+      "black": 29.993837356567383,
+      "white": 4.517158508300781,
+      "middle eastern": 3.9148521423339844,
+      "latino hispanic": 20.168004989624023
+    },
+    "dominant_race": "black"
+  },
+  "Anita_DeFrantz_0001.jpg": {
+    "age": 49.0,
+    "gender": "Man",
+    "race": {
+      "asian": 83.95935821533203,
+      "indian": 5.974379539489746,
+      "black": 0.6254497170448303,
+      "white": 0.6574966311454773,
+      "middle eastern": 0.04218941926956177,
+      "latino hispanic": 8.741127967834473
+    },
+    "dominant_race": "asian"
+  },
+  "Anja_Paerson_0001.jpg": {
+    "age": 35.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.0006861790316179395,
+      "indian": 0.0016247177263721824,
+      "black": 2.1413206923170947e-05,
+      "white": 98.60321044921875,
+      "middle eastern": 1.0126529932022095,
+      "latino hispanic": 0.3818056285381317
+    },
+    "dominant_race": "white"
+  },
+  "Anjum_Hussain_0001.jpg": {
+    "age": 30.0,
+    "gender": "Man",
+    "race": {
+      "asian": 4.863124370574951,
+      "indian": 8.521894454956055,
+      "black": 1.0378007888793945,
+      "white": 4.513068675994873,
+      "middle eastern": 2.2038846015930176,
+      "latino hispanic": 78.8602294921875
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Anna_Chicherova_0001.jpg": {
+    "age": 28.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.9260839819908142,
+      "indian": 2.016463041305542,
+      "black": 0.16967305541038513,
+      "white": 51.214874267578125,
+      "middle eastern": 23.23401641845703,
+      "latino hispanic": 22.43889617919922
+    },
+    "dominant_race": "white"
+  },
+  "Anneli_Jaatteenmaki_0001.jpg": {
+    "age": 42.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.3960302174091339,
+      "indian": 2.630788803100586,
+      "black": 0.09244593977928162,
+      "white": 57.56317901611328,
+      "middle eastern": 17.538829803466797,
+      "latino hispanic": 21.77872657775879
+    },
+    "dominant_race": "white"
+  },
+  "Annette_Bening_0001.jpg": {
+    "age": 33.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 52.964839935302734,
+      "indian": 9.117374420166016,
+      "black": 1.804605484008789,
+      "white": 17.094741821289062,
+      "middle eastern": 5.339102745056152,
+      "latino hispanic": 13.679340362548828
+    },
+    "dominant_race": "asian"
+  },
+  "Anne_Cavers_0001.jpg": {
+    "age": 38.0,
+    "gender": "Man",
+    "race": {
+      "asian": 3.264723062515259,
+      "indian": 0.6112130284309387,
+      "black": 0.3719154894351959,
+      "white": 66.10374450683594,
+      "middle eastern": 6.796439170837402,
+      "latino hispanic": 22.85196876525879
+    },
+    "dominant_race": "white"
+  },
+  "Annie-Jeanne_Reynaud_0001.jpg": {
+    "age": 44.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.001447231275960803,
+      "indian": 0.013700167648494244,
+      "black": 0.00017113896319642663,
+      "white": 92.91055297851562,
+      "middle eastern": 5.247339725494385,
+      "latino hispanic": 1.8267912864685059
+    },
+    "dominant_race": "white"
+  },
+  "Annie_Chaplin_0001.jpg": {
+    "age": 29.0,
+    "gender": "Man",
+    "race": {
+      "asian": 4.879840850830078,
+      "indian": 9.610130310058594,
+      "black": 5.9151434898376465,
+      "white": 32.35451126098633,
+      "middle eastern": 25.173551559448242,
+      "latino hispanic": 22.066822052001953
+    },
+    "dominant_race": "white"
+  },
+  "Annika_Sorenstam_0001.jpg": {
+    "age": 32.0,
+    "gender": "Man",
+    "race": {
+      "asian": 6.736417770385742,
+      "indian": 4.36032772064209,
+      "black": 1.1278239488601685,
+      "white": 40.50857162475586,
+      "middle eastern": 22.129796981811523,
+      "latino hispanic": 25.13705825805664
+    },
+    "dominant_race": "white"
+  },
+  "Ann_Godbehere_0001.jpg": {
+    "age": 32.0,
+    "gender": "Man",
+    "race": {
+      "asian": 7.11967658996582,
+      "indian": 1.5400030612945557,
+      "black": 0.5373786091804504,
+      "white": 69.66313934326172,
+      "middle eastern": 10.944397926330566,
+      "latino hispanic": 10.195406913757324
+    },
+    "dominant_race": "white"
+  },
+  "Antanas_Valionis_0001.jpg": {
+    "age": 29.0,
+    "gender": "Man",
+    "race": {
+      "asian": 2.141860008239746,
+      "indian": 8.68502140045166,
+      "black": 1.3350920677185059,
+      "white": 20.26712989807129,
+      "middle eastern": 42.72079849243164,
+      "latino hispanic": 24.850099563598633
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Anthony_Carter_0001.jpg": {
+    "age": 27.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.014367450028657913,
+      "indian": 0.0635911375284195,
+      "black": 99.79119873046875,
+      "white": 0.0008432871545664966,
+      "middle eastern": 0.0003931726678274572,
+      "latino hispanic": 0.12960857152938843
+    },
+    "dominant_race": "black"
+  },
+  "Antje_Buschschulte_0001.jpg": {
+    "age": 35.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.14153827726840973,
+      "indian": 0.09450166672468185,
+      "black": 0.008128166198730469,
+      "white": 87.6424560546875,
+      "middle eastern": 6.180344104766846,
+      "latino hispanic": 5.9330267906188965
+    },
+    "dominant_race": "white"
+  },
+  "Antonio_Banderas_0001.jpg": {
+    "age": 25.0,
+    "gender": "Man",
+    "race": {
+      "asian": 1.477988600730896,
+      "indian": 49.89114761352539,
+      "black": 15.913816452026367,
+      "white": 9.487135887145996,
+      "middle eastern": 12.959280014038086,
+      "latino hispanic": 10.270639419555664
+    },
+    "dominant_race": "indian"
+  },
+  "Antony_Leung_0001.jpg": {
+    "age": 39.0,
+    "gender": "Man",
+    "race": {
+      "asian": 88.1273193359375,
+      "indian": 3.123673915863037,
+      "black": 0.8425241112709045,
+      "white": 1.8167363405227661,
+      "middle eastern": 0.10709112882614136,
+      "latino hispanic": 5.982649803161621
+    },
+    "dominant_race": "asian"
+  },
+  "Anton_Balasingham_0001.jpg": {
+    "age": 40.0,
+    "gender": "Man",
+    "race": {
+      "asian": 47.33726119995117,
+      "indian": 9.596036911010742,
+      "black": 34.350093841552734,
+      "white": 0.5147563219070435,
+      "middle eastern": 0.24731479585170746,
+      "latino hispanic": 7.954540729522705
+    },
+    "dominant_race": "asian"
+  },
+  "Antwun_Echols_0001.jpg": {
+    "age": 29.0,
+    "gender": "Man",
+    "race": {
+      "asian": 7.032331314493767e-12,
+      "indian": 7.250415734461058e-08,
+      "black": 100.0,
+      "white": 4.621795572023687e-16,
+      "middle eastern": 1.3846957926116768e-15,
+      "latino hispanic": 5.0910223953204436e-11
+    },
+    "dominant_race": "black"
+  },
+  "Anwar_Ibrahim_0001.jpg": {
+    "age": 43.0,
+    "gender": "Man",
+    "race": {
+      "asian": 55.529212951660156,
+      "indian": 12.795027732849121,
+      "black": 11.625387191772461,
+      "white": 2.4617507457733154,
+      "middle eastern": 1.4037081003189087,
+      "latino hispanic": 16.184919357299805
+    },
+    "dominant_race": "asian"
+  },
+  "Anzori_Kikalishvili_0001.jpg": {
+    "age": 28.0,
+    "gender": "Man",
+    "race": {
+      "asian": 12.472790718078613,
+      "indian": 9.811598777770996,
+      "black": 2.1575446128845215,
+      "white": 27.701961517333984,
+      "middle eastern": 16.726871490478516,
+      "latino hispanic": 31.129241943359375
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Aparna_Pillai_0001.jpg": {
+    "age": 32.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 9.663881301879883,
+      "indian": 25.80967903137207,
+      "black": 5.279077529907227,
+      "white": 7.924117088317871,
+      "middle eastern": 4.519140720367432,
+      "latino hispanic": 46.804107666015625
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Aram_Adler_0001.jpg": {
+    "age": 33.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.22177784144878387,
+      "indian": 2.6183440685272217,
+      "black": 0.13666120171546936,
+      "white": 26.205305099487305,
+      "middle eastern": 52.30739212036133,
+      "latino hispanic": 18.51051902770996
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Arantxa_Sanchez-Vicario_0001.jpg": {
+    "age": 32.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.050383683294057846,
+      "indian": 1.1490954160690308,
+      "black": 0.036218855530023575,
+      "white": 40.50468826293945,
+      "middle eastern": 48.55512619018555,
+      "latino hispanic": 9.704489707946777
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Aretha_Franklin_0001.jpg": {
+    "age": 40.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 36.66188049316406,
+      "indian": 20.047216415405273,
+      "black": 17.899282455444336,
+      "white": 3.858168601989746,
+      "middle eastern": 3.9041707515716553,
+      "latino hispanic": 17.62929344177246
+    },
+    "dominant_race": "asian"
+  },
+  "Arianna_Huffington_0001.jpg": {
+    "age": 42.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 3.752883195877075,
+      "indian": 2.2260024547576904,
+      "black": 0.628007709980011,
+      "white": 47.721580505371094,
+      "middle eastern": 17.750246047973633,
+      "latino hispanic": 27.921279907226562
+    },
+    "dominant_race": "white"
+  },
+  "Ariel_Sharon_0001.jpg": {
+    "age": 42.0,
+    "gender": "Man",
+    "race": {
+      "asian": 2.523000955581665,
+      "indian": 9.018991470336914,
+      "black": 0.9587749242782593,
+      "white": 19.87213134765625,
+      "middle eastern": 51.06736755371094,
+      "latino hispanic": 16.55974006652832
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Arie_Haan_0001.jpg": {
+    "age": 44.0,
+    "gender": "Man",
+    "race": {
+      "asian": 8.798622247452315e-11,
+      "indian": 3.510761473202173e-11,
+      "black": 1.1815541255089882e-14,
+      "white": 99.99991607666016,
+      "middle eastern": 3.6738405469805e-05,
+      "latino hispanic": 5.589519059867598e-05
+    },
+    "dominant_race": "white"
+  },
+  "Arif_Mardin_0001.jpg": {
+    "age": 44.0,
+    "gender": "Man",
+    "race": {
+      "asian": 3.2875914573669434,
+      "indian": 1.745296835899353,
+      "black": 0.5563743114471436,
+      "white": 51.27696990966797,
+      "middle eastern": 17.26073455810547,
+      "latino hispanic": 25.873031616210938
+    },
+    "dominant_race": "white"
+  },
+  "Ari_Bousbib_0001.jpg": {
+    "age": 32.0,
+    "gender": "Man",
+    "race": {
+      "asian": 1.7759757041931152,
+      "indian": 4.676154613494873,
+      "black": 0.3218289613723755,
+      "white": 30.66292953491211,
+      "middle eastern": 25.649314880371094,
+      "latino hispanic": 36.91379928588867
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Arlen_Specter_0001.jpg": {
+    "age": 53.0,
+    "gender": "Man",
+    "race": {
+      "asian": 3.096231698989868,
+      "indian": 3.681903600692749,
+      "black": 0.758674144744873,
+      "white": 42.03340530395508,
+      "middle eastern": 28.120786666870117,
+      "latino hispanic": 22.309001922607422
+    },
+    "dominant_race": "white"
+  },
+  "Armando_Avila_Panchame_0001.jpg": {
+    "age": 36.0,
+    "gender": "Man",
+    "race": {
+      "asian": 1.0644092559814453,
+      "indian": 11.463215827941895,
+      "black": 1.686218500137329,
+      "white": 23.94175148010254,
+      "middle eastern": 43.9814453125,
+      "latino hispanic": 17.862960815429688
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Armand_Sargen_0001.jpg": {
+    "age": 28.0,
+    "gender": "Man",
+    "race": {
+      "asian": 4.881671905517578,
+      "indian": 18.42952537536621,
+      "black": 0.4370984733104706,
+      "white": 17.959552764892578,
+      "middle eastern": 27.89391326904297,
+      "latino hispanic": 30.39824104309082
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Arminio_Fraga_0001.jpg": {
+    "age": 34.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.5082305073738098,
+      "indian": 6.482384204864502,
+      "black": 0.31234458088874817,
+      "white": 21.339344024658203,
+      "middle eastern": 57.69927978515625,
+      "latino hispanic": 13.658424377441406
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Arnaud_Clement_0001.jpg": {
+    "age": 36.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.006350999232381582,
+      "indian": 0.5074158906936646,
+      "black": 0.007021794561296701,
+      "white": 62.631065368652344,
+      "middle eastern": 29.44965934753418,
+      "latino hispanic": 7.398487091064453
+    },
+    "dominant_race": "white"
+  },
+  "Arnie_Boehm_0001.jpg": {
+    "age": 43.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.0003489069058559835,
+      "indian": 0.5463413000106812,
+      "black": 0.0002874242782127112,
+      "white": 15.887977600097656,
+      "middle eastern": 81.92069244384766,
+      "latino hispanic": 1.6443527936935425
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Arnoldo_Aleman_0001.jpg": {
+    "age": 36.0,
+    "gender": "Man",
+    "race": {
+      "asian": 5.565183639526367,
+      "indian": 9.944900512695312,
+      "black": 2.0819294452667236,
+      "white": 25.362333297729492,
+      "middle eastern": 33.22456741333008,
+      "latino hispanic": 23.821083068847656
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Arnold_Palmer_0001.jpg": {
+    "age": 47.0,
+    "gender": "Man",
+    "race": {
+      "asian": 25.485136032104492,
+      "indian": 6.741677761077881,
+      "black": 3.0089879035949707,
+      "white": 31.690250396728516,
+      "middle eastern": 11.695143699645996,
+      "latino hispanic": 21.37880516052246
+    },
+    "dominant_race": "white"
+  },
+  "Aron_Ralston_0001.jpg": {
+    "age": 28.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.0070299068465828896,
+      "indian": 0.0011364994570612907,
+      "black": 2.3606937247677706e-05,
+      "white": 98.30524444580078,
+      "middle eastern": 0.6855334639549255,
+      "latino hispanic": 1.0010348558425903
+    },
+    "dominant_race": "white"
+  },
+  "Arsinee_Khanjian_0001.jpg": {
+    "age": 26.0,
+    "gender": "Man",
+    "race": {
+      "asian": 29.95102310180664,
+      "indian": 7.435329914093018,
+      "black": 2.464024066925049,
+      "white": 14.492127418518066,
+      "middle eastern": 8.662393569946289,
+      "latino hispanic": 36.99510192871094
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Arthur_Johnson_0001.jpg": {
+    "age": 34.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.6556869149208069,
+      "indian": 0.186619833111763,
+      "black": 99.0313720703125,
+      "white": 0.014104862697422504,
+      "middle eastern": 0.009297574870288372,
+      "latino hispanic": 0.10291765630245209
+    },
+    "dominant_race": "black"
+  },
+  "Artieas_Shanks_0001.jpg": {
+    "age": 23.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.0010636512888595462,
+      "indian": 0.004209583625197411,
+      "black": 99.99425506591797,
+      "white": 4.11636818853367e-07,
+      "middle eastern": 1.3544007515520207e-07,
+      "latino hispanic": 0.0004757160786539316
+    },
+    "dominant_race": "black"
+  },
+  "Arturo_Gatti_0001.jpg": {
+    "age": 26.0,
+    "gender": "Man",
+    "race": {
+      "asian": 33.527923583984375,
+      "indian": 6.721728324890137,
+      "black": 5.428562164306641,
+      "white": 20.282413482666016,
+      "middle eastern": 9.807077407836914,
+      "latino hispanic": 24.232290267944336
+    },
+    "dominant_race": "asian"
+  },
+  "Art_Cooper_0001.jpg": {
+    "age": 42.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.20056653022766113,
+      "indian": 0.13843867182731628,
+      "black": 0.014496473595499992,
+      "white": 85.05580139160156,
+      "middle eastern": 8.596149444580078,
+      "latino hispanic": 5.994544506072998
+    },
+    "dominant_race": "white"
+  },
+  "Arye_Mekel_0001.jpg": {
+    "age": 50.0,
+    "gender": "Man",
+    "race": {
+      "asian": 2.6321399211883545,
+      "indian": 2.300463914871216,
+      "black": 0.5485007762908936,
+      "white": 64.56690979003906,
+      "middle eastern": 13.036494255065918,
+      "latino hispanic": 16.915489196777344
+    },
+    "dominant_race": "white"
+  },
+  "Asa_Hutchinson_0001.jpg": {
+    "age": 31.0,
+    "gender": "Man",
+    "race": {
+      "asian": 10.102543830871582,
+      "indian": 4.383670330047607,
+      "black": 3.7105531692504883,
+      "white": 40.847476959228516,
+      "middle eastern": 15.108097076416016,
+      "latino hispanic": 25.847658157348633
+    },
+    "dominant_race": "white"
+  },
+  "Ascencion_Barajas_0001.jpg": {
+    "age": 48.0,
+    "gender": "Man",
+    "race": {
+      "asian": 4.074611663818359,
+      "indian": 6.470711708068848,
+      "black": 0.9720011353492737,
+      "white": 21.31055450439453,
+      "middle eastern": 30.47381591796875,
+      "latino hispanic": 36.698307037353516
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Ashanti_0001.jpg": {
+    "age": 29.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.10733549296855927,
+      "indian": 0.4054805636405945,
+      "black": 99.11100769042969,
+      "white": 0.001832655631005764,
+      "middle eastern": 0.0005538811674341559,
+      "latino hispanic": 0.37379762530326843
+    },
+    "dominant_race": "black"
+  },
+  "Ashlea_Talbot_0001.jpg": {
+    "age": 28.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 1.9533410522853956e-05,
+      "indian": 1.5947603969834745e-05,
+      "black": 1.9357497649252764e-07,
+      "white": 99.70628356933594,
+      "middle eastern": 0.06910675019025803,
+      "latino hispanic": 0.22457340359687805
+    },
+    "dominant_race": "white"
+  },
+  "Ashley_Judd_0001.jpg": {
+    "age": 37.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 17.169767379760742,
+      "indian": 5.650126934051514,
+      "black": 2.3077287673950195,
+      "white": 36.902679443359375,
+      "middle eastern": 18.748138427734375,
+      "latino hispanic": 19.22157096862793
+    },
+    "dominant_race": "white"
+  },
+  "Ashraf_Alasmar_0001.jpg": {
+    "age": 23.0,
+    "gender": "Man",
+    "race": {
+      "asian": 2.208303213119507,
+      "indian": 3.0603890419006348,
+      "black": 0.7577007412910461,
+      "white": 36.27077102661133,
+      "middle eastern": 26.454853057861328,
+      "latino hispanic": 31.24798583984375
+    },
+    "dominant_race": "white"
+  },
+  "Ashton_Kutcher_0001.jpg": {
+    "age": 28.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.0013564410619437695,
+      "indian": 0.0016707914182916284,
+      "black": 3.345820005051792e-05,
+      "white": 97.15006256103516,
+      "middle eastern": 1.2423642873764038,
+      "latino hispanic": 1.6045175790786743
+    },
+    "dominant_race": "white"
+  },
+  "Asif_Ali_Zardari_0001.jpg": {
+    "age": 40.0,
+    "gender": "Man",
+    "race": {
+      "asian": 8.425619125366211,
+      "indian": 21.509305953979492,
+      "black": 9.521782875061035,
+      "white": 10.35200309753418,
+      "middle eastern": 7.67288875579834,
+      "latino hispanic": 42.51840591430664
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Askar_Akayev_0001.jpg": {
+    "age": 41.0,
+    "gender": "Man",
+    "race": {
+      "asian": 53.23162841796875,
+      "indian": 6.61586856842041,
+      "black": 3.8994219303131104,
+      "white": 10.42294692993164,
+      "middle eastern": 6.500007629394531,
+      "latino hispanic": 19.330137252807617
+    },
+    "dominant_race": "asian"
+  },
+  "Asmaa_Assad_0001.jpg": {
+    "age": 30.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 9.68180415839015e-07,
+      "indian": 2.4647815735079348e-05,
+      "black": 3.10441450324106e-08,
+      "white": 98.90798950195312,
+      "middle eastern": 0.86662358045578,
+      "latino hispanic": 0.2253628820180893
+    },
+    "dominant_race": "white"
+  },
+  "Assad_Ahmadi_0001.jpg": {
+    "age": 32.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.025684349238872528,
+      "indian": 1.8941988945007324,
+      "black": 0.023806780576705933,
+      "white": 41.7822265625,
+      "middle eastern": 45.09361267089844,
+      "latino hispanic": 11.18047046661377
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Astou_Ndiaye-Diatta_0001.jpg": {
+    "age": 28.0,
+    "gender": "Man",
+    "race": {
+      "asian": 2.874117826192834e-25,
+      "indian": 1.7088039265788228e-20,
+      "black": 100.0,
+      "white": 1.3010717005955373e-34,
+      "middle eastern": 3.1417267618759386e-34,
+      "latino hispanic": 9.093356440587516e-25
+    },
+    "dominant_race": "black"
+  },
+  "Astrid_Betancourt_0001.jpg": {
+    "age": 30.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 7.7560505867004395,
+      "indian": 9.468729972839355,
+      "black": 4.065117359161377,
+      "white": 13.791638374328613,
+      "middle eastern": 6.394078254699707,
+      "latino hispanic": 58.52437973022461
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Atal_Bihari_Vajpayee_0001.jpg": {
+    "age": 50.0,
+    "gender": "Man",
+    "race": {
+      "asian": 8.72218132019043,
+      "indian": 21.919950485229492,
+      "black": 5.344862461090088,
+      "white": 16.437427520751953,
+      "middle eastern": 26.854549407958984,
+      "latino hispanic": 20.721038818359375
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Ataollah_Mohajerani_0001.jpg": {
+    "age": 28.0,
+    "gender": "Man",
+    "race": {
+      "asian": 2.219526529312134,
+      "indian": 14.861289024353027,
+      "black": 2.2040908336639404,
+      "white": 13.175291061401367,
+      "middle eastern": 38.96664810180664,
+      "latino hispanic": 28.573152542114258
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Atiabet_Ijan_Amabel_0001.jpg": {
+    "age": 30.0,
+    "gender": "Man",
+    "race": {
+      "asian": 2.772422931229812e-06,
+      "indian": 7.05455840943614e-06,
+      "black": 99.99998474121094,
+      "white": 5.042864389959156e-11,
+      "middle eastern": 1.1682272987520448e-12,
+      "latino hispanic": 2.4013090182961605e-07
+    },
+    "dominant_race": "black"
+  },
+  "Atom_Egoyan_0001.jpg": {
+    "age": 25.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.6925287842750549,
+      "indian": 0.8688790798187256,
+      "black": 0.08820921182632446,
+      "white": 67.75367736816406,
+      "middle eastern": 16.059410095214844,
+      "latino hispanic": 14.53729248046875
+    },
+    "dominant_race": "white"
+  },
+  "Atsushi_Sato_0001.jpg": {
+    "age": 36.0,
+    "gender": "Man",
+    "race": {
+      "asian": 99.33377075195312,
+      "indian": 0.051727354526519775,
+      "black": 0.0003042872704099864,
+      "white": 0.023944655433297157,
+      "middle eastern": 2.2502705178339966e-05,
+      "latino hispanic": 0.5902323126792908
+    },
+    "dominant_race": "asian"
+  },
+  "Audrey_Lacroix_0001.jpg": {
+    "age": 23.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.03600946068763733,
+      "indian": 0.08652307093143463,
+      "black": 0.0013954595196992159,
+      "white": 86.56294250488281,
+      "middle eastern": 5.4690470695495605,
+      "latino hispanic": 7.844079971313477
+    },
+    "dominant_race": "white"
+  },
+  "Augustin_Calleri_0001.jpg": {
+    "age": 27.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.3109354078769684,
+      "indian": 30.737051010131836,
+      "black": 1.5849363803863525,
+      "white": 22.343555450439453,
+      "middle eastern": 38.639862060546875,
+      "latino hispanic": 6.383652210235596
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Augusto_Pinochet_0001.jpg": {
+    "age": 57.0,
+    "gender": "Man",
+    "race": {
+      "asian": 3.4218592643737793,
+      "indian": 0.17374877631664276,
+      "black": 0.014991749078035355,
+      "white": 92.19297790527344,
+      "middle eastern": 2.3169021606445312,
+      "latino hispanic": 1.8795195817947388
+    },
+    "dominant_race": "white"
+  },
+  "Aung_San_Suu_Kyi_0001.jpg": {
+    "age": 43.0,
+    "gender": "Man",
+    "race": {
+      "asian": 20.149160385131836,
+      "indian": 4.753107070922852,
+      "black": 1.402335286140442,
+      "white": 35.182167053222656,
+      "middle eastern": 14.609631538391113,
+      "latino hispanic": 23.903596878051758
+    },
+    "dominant_race": "white"
+  },
+  "Austin_Kearns_0001.jpg": {
+    "age": 27.0,
+    "gender": "Man",
+    "race": {
+      "asian": 3.177164842327329e-07,
+      "indian": 2.3361619128081657e-07,
+      "black": 4.301652811733447e-09,
+      "white": 99.95150756835938,
+      "middle eastern": 0.006385095417499542,
+      "latino hispanic": 0.042109791189432144
+    },
+    "dominant_race": "white"
+  },
+  "Avril_Lavigne_0001.jpg": {
+    "age": 31.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 1.431917553418316e-06,
+      "indian": 1.2660245829465566e-06,
+      "black": 2.632223772280895e-09,
+      "white": 99.96168518066406,
+      "middle eastern": 0.022476647049188614,
+      "latino hispanic": 0.01584012433886528
+    },
+    "dominant_race": "white"
+  },
+  "Azmi_Bishara_0001.jpg": {
+    "age": 48.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.02553863637149334,
+      "indian": 0.188532292842865,
+      "black": 0.002642275532707572,
+      "white": 72.19142150878906,
+      "middle eastern": 19.3986873626709,
+      "latino hispanic": 8.1931791305542
+    },
+    "dominant_race": "white"
+  },
+  "Azra_Akin_0001.jpg": {
+    "age": 30.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 22.089982986450195,
+      "indian": 8.255544662475586,
+      "black": 4.752852439880371,
+      "white": 23.940095901489258,
+      "middle eastern": 13.468287467956543,
+      "latino hispanic": 27.493234634399414
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Babe_Ruth_0001.jpg": {
+    "age": 33.0,
+    "gender": "Man",
+    "race": {
+      "asian": 22.150278091430664,
+      "indian": 11.88062858581543,
+      "black": 11.322242736816406,
+      "white": 8.233854293823242,
+      "middle eastern": 4.422133445739746,
+      "latino hispanic": 41.99086380004883
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Baburam_Bhattari_0001.jpg": {
+    "age": 27.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.7135977745056152,
+      "indian": 83.51099395751953,
+      "black": 1.5968505144119263,
+      "white": 0.7580670714378357,
+      "middle eastern": 1.0875837802886963,
+      "latino hispanic": 12.33290958404541
+    },
+    "dominant_race": "indian"
+  },
+  "Bak_Chang-Ryun_0001.jpg": {
+    "age": 46.0,
+    "gender": "Man",
+    "race": {
+      "asian": 40.76974105834961,
+      "indian": 7.289573669433594,
+      "black": 37.670555114746094,
+      "white": 2.104539155960083,
+      "middle eastern": 2.06179141998291,
+      "latino hispanic": 10.103800773620605
+    },
+    "dominant_race": "asian"
+  },
+  "Barbara_Bach_0001.jpg": {
+    "age": 41.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.009729979559779167,
+      "indian": 0.12721896171569824,
+      "black": 0.004196081776171923,
+      "white": 87.7200698852539,
+      "middle eastern": 5.813711166381836,
+      "latino hispanic": 6.325077056884766
+    },
+    "dominant_race": "white"
+  },
+  "Barbora_Strycova_0001.jpg": {
+    "age": 30.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 18.041446685791016,
+      "indian": 15.430071830749512,
+      "black": 10.422975540161133,
+      "white": 17.814895629882812,
+      "middle eastern": 10.285506248474121,
+      "latino hispanic": 28.00510597229004
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Barbra_Streisand_0001.jpg": {
+    "age": 41.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.18403425812721252,
+      "indian": 0.07167569547891617,
+      "black": 0.007436167448759079,
+      "white": 89.39823913574219,
+      "middle eastern": 4.80644416809082,
+      "latino hispanic": 5.532171726226807
+    },
+    "dominant_race": "white"
+  },
+  "Barrett_Jackman_0001.jpg": {
+    "age": 29.0,
+    "gender": "Man",
+    "race": {
+      "asian": 2.7083926852355944e-06,
+      "indian": 3.803031859206385e-06,
+      "black": 3.0273923812274006e-08,
+      "white": 99.92721557617188,
+      "middle eastern": 0.04231762886047363,
+      "latino hispanic": 0.030457351356744766
+    },
+    "dominant_race": "white"
+  },
+  "Barry_Alvarez_0001.jpg": {
+    "age": 47.0,
+    "gender": "Man",
+    "race": {
+      "asian": 1.9145411252975464,
+      "indian": 2.2329933643341064,
+      "black": 1.8322131633758545,
+      "white": 49.975948333740234,
+      "middle eastern": 20.67258644104004,
+      "latino hispanic": 23.371723175048828
+    },
+    "dominant_race": "white"
+  },
+  "Bartosz_Kizierowski_0001.jpg": {
+    "age": 24.0,
+    "gender": "Man",
+    "race": {
+      "asian": 5.583940029144287,
+      "indian": 9.985140800476074,
+      "black": 1.2503271102905273,
+      "white": 33.68705368041992,
+      "middle eastern": 28.484142303466797,
+      "latino hispanic": 21.009395599365234
+    },
+    "dominant_race": "white"
+  },
+  "Bart_Freundlich_0001.jpg": {
+    "age": 33.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.023685386404395103,
+      "indian": 0.09721589833498001,
+      "black": 0.004286895971745253,
+      "white": 81.4970703125,
+      "middle eastern": 10.733244895935059,
+      "latino hispanic": 7.644494533538818
+    },
+    "dominant_race": "white"
+  },
+  "Barzan_al-Tikriti_0001.jpg": {
+    "age": 31.0,
+    "gender": "Man",
+    "race": {
+      "asian": 2.309861421585083,
+      "indian": 7.829346179962158,
+      "black": 0.5295807123184204,
+      "white": 18.2783203125,
+      "middle eastern": 48.18559265136719,
+      "latino hispanic": 22.867294311523438
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Basdeo_Panday_0001.jpg": {
+    "age": 38.0,
+    "gender": "Man",
+    "race": {
+      "asian": 12.849145889282227,
+      "indian": 8.906050682067871,
+      "black": 2.7837936878204346,
+      "white": 24.80607032775879,
+      "middle eastern": 31.2723388671875,
+      "latino hispanic": 19.382593154907227
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Bashar_Assad_0001.jpg": {
+    "age": 29.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.07441547513008118,
+      "indian": 1.8305431604385376,
+      "black": 0.03929567709565163,
+      "white": 37.67290496826172,
+      "middle eastern": 50.022666931152344,
+      "latino hispanic": 10.36016845703125
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Baz_Luhrmann_0001.jpg": {
+    "age": 23.0,
+    "gender": "Man",
+    "race": {
+      "asian": 1.0305657386779785,
+      "indian": 0.23072782158851624,
+      "black": 0.016108395531773567,
+      "white": 86.20214080810547,
+      "middle eastern": 5.36439323425293,
+      "latino hispanic": 7.156062126159668
+    },
+    "dominant_race": "white"
+  },
+  "BB_King_0001.jpg": {
+    "age": 42.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.21837276220321655,
+      "indian": 3.8231887817382812,
+      "black": 95.47187042236328,
+      "white": 0.0024726686533540487,
+      "middle eastern": 0.001975137973204255,
+      "latino hispanic": 0.4821236729621887
+    },
+    "dominant_race": "black"
+  },
+  "Beatrice_Dalle_0001.jpg": {
+    "age": 27.0,
+    "gender": "Man",
+    "race": {
+      "asian": 3.7841689586639404,
+      "indian": 9.464290618896484,
+      "black": 0.8968709707260132,
+      "white": 26.98164939880371,
+      "middle eastern": 43.299591064453125,
+      "latino hispanic": 15.573432922363281
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Beatriz_Merino_0001.jpg": {
+    "age": 32.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 1.9818835258483887,
+      "indian": 1.0769596099853516,
+      "black": 0.16310064494609833,
+      "white": 49.98484802246094,
+      "middle eastern": 12.060208320617676,
+      "latino hispanic": 34.733001708984375
+    },
+    "dominant_race": "white"
+  },
+  "Beecher_Ray_Kirby_0001.jpg": {
+    "age": 49.0,
+    "gender": "Man",
+    "race": {
+      "asian": 8.982339932117611e-05,
+      "indian": 8.415063348365948e-07,
+      "black": 9.19328879689374e-09,
+      "white": 99.97712707519531,
+      "middle eastern": 0.00768019026145339,
+      "latino hispanic": 0.015098972246050835
+    },
+    "dominant_race": "white"
+  },
+  "Begum_Khaleda_Zia_0001.jpg": {
+    "age": 35.0,
+    "gender": "Man",
+    "race": {
+      "asian": 5.0877299308776855,
+      "indian": 3.9691507816314697,
+      "black": 0.6642999053001404,
+      "white": 44.61528015136719,
+      "middle eastern": 25.19654083251953,
+      "latino hispanic": 20.466997146606445
+    },
+    "dominant_race": "white"
+  },
+  "Bela_Karolyi_0001.jpg": {
+    "age": 31.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.7237666845321655,
+      "indian": 0.5785002112388611,
+      "black": 0.07148546725511551,
+      "white": 73.89361572265625,
+      "middle eastern": 13.453420639038086,
+      "latino hispanic": 11.279217720031738
+    },
+    "dominant_race": "white"
+  },
+  "Benazir_Bhutto_0001.jpg": {
+    "age": 33.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 5.418977737426758,
+      "indian": 8.786322593688965,
+      "black": 1.7944109439849854,
+      "white": 25.25082778930664,
+      "middle eastern": 22.060096740722656,
+      "latino hispanic": 36.689369201660156
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Benedita_da_Silva_0001.jpg": {
+    "age": 29.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.02034170739352703,
+      "indian": 0.3577006161212921,
+      "black": 99.57411193847656,
+      "white": 6.424029561458156e-05,
+      "middle eastern": 4.4931541197001934e-05,
+      "latino hispanic": 0.04772726446390152
+    },
+    "dominant_race": "black"
+  },
+  "Benicio_Del_Toro_0001.jpg": {
+    "age": 32.0,
+    "gender": "Man",
+    "race": {
+      "asian": 23.1697940826416,
+      "indian": 11.784780502319336,
+      "black": 9.215608596801758,
+      "white": 15.393671035766602,
+      "middle eastern": 12.177928924560547,
+      "latino hispanic": 28.258216857910156
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Benito_Santiago_0001.jpg": {
+    "age": 32.0,
+    "gender": "Man",
+    "race": {
+      "asian": 3.589229106903076,
+      "indian": 32.503726959228516,
+      "black": 12.640970230102539,
+      "white": 6.564269542694092,
+      "middle eastern": 13.841906547546387,
+      "latino hispanic": 30.859907150268555
+    },
+    "dominant_race": "indian"
+  },
+  "Benjamin_Bratt_0001.jpg": {
+    "age": 27.0,
+    "gender": "Man",
+    "race": {
+      "asian": 9.180192947387695,
+      "indian": 12.60983943939209,
+      "black": 8.330270767211914,
+      "white": 16.809560775756836,
+      "middle eastern": 12.884909629821777,
+      "latino hispanic": 40.185218811035156
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Ben_Affleck_0001.jpg": {
+    "age": 26.0,
+    "gender": "Man",
+    "race": {
+      "asian": 7.285671017598361e-05,
+      "indian": 0.0008393913158215582,
+      "black": 1.7932854461832903e-05,
+      "white": 97.81352233886719,
+      "middle eastern": 1.468812108039856,
+      "latino hispanic": 0.7167397737503052
+    },
+    "dominant_race": "white"
+  },
+  "Bernadette_Peters_0001.jpg": {
+    "age": 36.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.06051728129386902,
+      "indian": 0.08275876939296722,
+      "black": 0.003148155752569437,
+      "white": 83.24956512451172,
+      "middle eastern": 7.136364936828613,
+      "latino hispanic": 9.467643737792969
+    },
+    "dominant_race": "white"
+  },
+  "Bernardo_Segura_0001.jpg": {
+    "age": 31.0,
+    "gender": "Man",
+    "race": {
+      "asian": 1.311252474784851,
+      "indian": 3.9659039974212646,
+      "black": 0.7108373641967773,
+      "white": 34.99249267578125,
+      "middle eastern": 33.27837371826172,
+      "latino hispanic": 25.74112892150879
+    },
+    "dominant_race": "white"
+  },
+  "Bernard_Ebbers_0001.jpg": {
+    "age": 43.0,
+    "gender": "Man",
+    "race": {
+      "asian": 1.283078908920288,
+      "indian": 0.3626888394355774,
+      "black": 0.03410957753658295,
+      "white": 83.6836166381836,
+      "middle eastern": 6.808526992797852,
+      "latino hispanic": 7.827982425689697
+    },
+    "dominant_race": "white"
+  },
+  "Bernice_Wong_0001.jpg": {
+    "age": 32.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 98.68305969238281,
+      "indian": 0.6963474750518799,
+      "black": 0.004464900586754084,
+      "white": 0.014573105610907078,
+      "middle eastern": 8.00424168119207e-05,
+      "latino hispanic": 0.6014747619628906
+    },
+    "dominant_race": "asian"
+  },
+  "Bertie_Ahern_0001.jpg": {
+    "age": 27.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.00045035037328489125,
+      "indian": 0.0028628185391426086,
+      "black": 1.70879065990448e-05,
+      "white": 97.05418395996094,
+      "middle eastern": 2.0458805561065674,
+      "latino hispanic": 0.8965910077095032
+    },
+    "dominant_race": "white"
+  },
+  "Bertrand_Bonello_0001.jpg": {
+    "age": 34.0,
+    "gender": "Man",
+    "race": {
+      "asian": 3.080728530883789,
+      "indian": 0.13334742188453674,
+      "black": 0.027315229177474976,
+      "white": 86.1178207397461,
+      "middle eastern": 3.7371442317962646,
+      "latino hispanic": 6.9036455154418945
+    },
+    "dominant_race": "white"
+  },
+  "Beth_Blough_0001.jpg": {
+    "age": 39.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 20.586318969726562,
+      "indian": 13.413668632507324,
+      "black": 2.1770918369293213,
+      "white": 28.10270881652832,
+      "middle eastern": 16.634429931640625,
+      "latino hispanic": 19.085784912109375
+    },
+    "dominant_race": "white"
+  },
+  "Betsy_Coffin_0001.jpg": {
+    "age": 33.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 97.58152770996094,
+      "indian": 0.013422565534710884,
+      "black": 0.0002058339596260339,
+      "white": 2.133671522140503,
+      "middle eastern": 0.006987683475017548,
+      "latino hispanic": 0.2641790211200714
+    },
+    "dominant_race": "asian"
+  },
+  "Bettina_Rheims_0001.jpg": {
+    "age": 35.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 7.906150858616456e-05,
+      "indian": 0.00045482005225494504,
+      "black": 4.623489360255917e-07,
+      "white": 98.17957305908203,
+      "middle eastern": 1.2706385850906372,
+      "latino hispanic": 0.5492452383041382
+    },
+    "dominant_race": "white"
+  },
+  "Betty_Garrison_0001.jpg": {
+    "age": 49.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.0003919113951269537,
+      "indian": 0.0006615305901505053,
+      "black": 1.8699603288041544e-06,
+      "white": 99.25,
+      "middle eastern": 0.4725120961666107,
+      "latino hispanic": 0.2764359414577484
+    },
+    "dominant_race": "white"
+  },
+  "Beyonce_Knowles_0001.jpg": {
+    "age": 33.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 17.488229751586914,
+      "indian": 14.573936462402344,
+      "black": 51.975990295410156,
+      "white": 2.1624834537506104,
+      "middle eastern": 2.041234254837036,
+      "latino hispanic": 11.75812816619873
+    },
+    "dominant_race": "black"
+  },
+  "Bianca_Jagger_0001.jpg": {
+    "age": 35.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 3.4193999767303467,
+      "indian": 6.181877136230469,
+      "black": 1.7669538259506226,
+      "white": 24.280967712402344,
+      "middle eastern": 9.61849308013916,
+      "latino hispanic": 54.732303619384766
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Bijan_Darvish_0001.jpg": {
+    "age": 30.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.10636045783758163,
+      "indian": 7.312755584716797,
+      "black": 0.11880996823310852,
+      "white": 9.924800872802734,
+      "middle eastern": 71.17173767089844,
+      "latino hispanic": 11.3655366897583
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Bilal_Erdogan_0001.jpg": {
+    "age": 28.0,
+    "gender": "Man",
+    "race": {
+      "asian": 29.269758224487305,
+      "indian": 11.853560447692871,
+      "black": 7.251059055328369,
+      "white": 17.007606506347656,
+      "middle eastern": 16.45308494567871,
+      "latino hispanic": 18.16493034362793
+    },
+    "dominant_race": "asian"
+  },
+  "Biljana_Plavsic_0001.jpg": {
+    "age": 38.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.002486381446942687,
+      "indian": 0.0012175366282463074,
+      "black": 1.02662661447539e-05,
+      "white": 97.79167938232422,
+      "middle eastern": 0.8366554975509644,
+      "latino hispanic": 1.3679494857788086
+    },
+    "dominant_race": "white"
+  },
+  "Billy_Andrade_0001.jpg": {
+    "age": 38.0,
+    "gender": "Man",
+    "race": {
+      "asian": 33.82244873046875,
+      "indian": 0.06111108139157295,
+      "black": 0.04259687662124634,
+      "white": 63.01167678833008,
+      "middle eastern": 1.2974920272827148,
+      "latino hispanic": 1.764678955078125
+    },
+    "dominant_race": "white"
+  },
+  "Bill_Belichick_0001.jpg": {
+    "age": 48.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.019266828894615173,
+      "indian": 0.3355579972267151,
+      "black": 0.002242443384602666,
+      "white": 72.74010467529297,
+      "middle eastern": 17.46660041809082,
+      "latino hispanic": 9.436220169067383
+    },
+    "dominant_race": "white"
+  },
+  "Bing_Crosby_0001.jpg": {
+    "age": 28.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.0011033826740458608,
+      "indian": 0.005511391442269087,
+      "black": 4.732218440040015e-05,
+      "white": 95.7384262084961,
+      "middle eastern": 2.7283248901367188,
+      "latino hispanic": 1.5265858173370361
+    },
+    "dominant_race": "white"
+  },
+  "Binyamin_Ben-Eliezer_0001.jpg": {
+    "age": 39.0,
+    "gender": "Man",
+    "race": {
+      "asian": 15.555734634399414,
+      "indian": 31.910476684570312,
+      "black": 16.49715805053711,
+      "white": 7.778465747833252,
+      "middle eastern": 5.826772212982178,
+      "latino hispanic": 22.4313907623291
+    },
+    "dominant_race": "indian"
+  },
+  "Bison_Dele_0001.jpg": {
+    "age": 28.0,
+    "gender": "Man",
+    "race": {
+      "asian": 5.332706928253174,
+      "indian": 12.824448585510254,
+      "black": 3.819528579711914,
+      "white": 18.368858337402344,
+      "middle eastern": 28.755435943603516,
+      "latino hispanic": 30.899024963378906
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Bixente_LIzarazu_0001.jpg": {
+    "age": 30.0,
+    "gender": "Man",
+    "race": {
+      "asian": 1.1444065570831299,
+      "indian": 62.800537109375,
+      "black": 1.0412997007369995,
+      "white": 2.885659694671631,
+      "middle eastern": 12.165102005004883,
+      "latino hispanic": 19.962995529174805
+    },
+    "dominant_race": "indian"
+  },
+  "BJ_Habibie_0001.jpg": {
+    "age": 41.0,
+    "gender": "Man",
+    "race": {
+      "asian": 53.7127685546875,
+      "indian": 9.519220352172852,
+      "black": 6.78879976272583,
+      "white": 4.355999946594238,
+      "middle eastern": 2.0471935272216797,
+      "latino hispanic": 23.576019287109375
+    },
+    "dominant_race": "asian"
+  },
+  "Blas_Ople_0001.jpg": {
+    "age": 38.0,
+    "gender": "Man",
+    "race": {
+      "asian": 99.83493041992188,
+      "indian": 0.07968887686729431,
+      "black": 0.00011103822907898575,
+      "white": 0.01028854213654995,
+      "middle eastern": 1.6288254300889093e-06,
+      "latino hispanic": 0.07497530430555344
+    },
+    "dominant_race": "asian"
+  },
+  "Blythe_Danner_0001.jpg": {
+    "age": 33.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.0007621084223501384,
+      "indian": 0.0003562269266694784,
+      "black": 6.009228854964022e-06,
+      "white": 99.28594970703125,
+      "middle eastern": 0.41312095522880554,
+      "latino hispanic": 0.2998083233833313
+    },
+    "dominant_race": "white"
+  },
+  "Bobby_Bowden_0001.jpg": {
+    "age": 44.0,
+    "gender": "Man",
+    "race": {
+      "asian": 7.378717422485352,
+      "indian": 9.89871883392334,
+      "black": 2.3946423530578613,
+      "white": 21.813920974731445,
+      "middle eastern": 21.05816078186035,
+      "latino hispanic": 37.45583724975586
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Bobo_Balde_0001.jpg": {
+    "age": 36.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.2515028119087219,
+      "indian": 0.13108251988887787,
+      "black": 99.51449584960938,
+      "white": 0.004499128088355064,
+      "middle eastern": 0.0014327182434499264,
+      "latino hispanic": 0.09698833525180817
+    },
+    "dominant_race": "black"
+  },
+  "Bob_Alper_0001.jpg": {
+    "age": 39.0,
+    "gender": "Man",
+    "race": {
+      "asian": 1.4821712568391376e-07,
+      "indian": 2.0722455928989802e-07,
+      "black": 2.490940231858474e-10,
+      "white": 99.99292755126953,
+      "middle eastern": 0.005262953229248524,
+      "latino hispanic": 0.0018114813137799501
+    },
+    "dominant_race": "white"
+  },
+  "Bode_Miller_0001.jpg": {
+    "age": 27.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.011779542081058025,
+      "indian": 0.020892813801765442,
+      "black": 0.0006978152669034898,
+      "white": 90.8366470336914,
+      "middle eastern": 5.7452311515808105,
+      "latino hispanic": 3.384748935699463
+    },
+    "dominant_race": "white"
+  },
+  "Bonnie_Fuller_0001.jpg": {
+    "age": 23.0,
+    "gender": "Man",
+    "race": {
+      "asian": 13.047056198120117,
+      "indian": 3.961958408355713,
+      "black": 2.217172145843506,
+      "white": 48.21702575683594,
+      "middle eastern": 17.239723205566406,
+      "latino hispanic": 15.31706714630127
+    },
+    "dominant_race": "white"
+  },
+  "Bono_0001.jpg": {
+    "age": 43.0,
+    "gender": "Man",
+    "race": {
+      "asian": 9.38699074026772e-09,
+      "indian": 6.99251870628359e-07,
+      "black": 6.83337997298139e-10,
+      "white": 99.90678405761719,
+      "middle eastern": 0.08433159440755844,
+      "latino hispanic": 0.008886579424142838
+    },
+    "dominant_race": "white"
+  },
+  "Boris_Becker_0001.jpg": {
+    "age": 36.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.8753843307495117,
+      "indian": 1.231158971786499,
+      "black": 0.21522606909275055,
+      "white": 71.36446380615234,
+      "middle eastern": 14.246003150939941,
+      "latino hispanic": 12.06776237487793
+    },
+    "dominant_race": "white"
+  },
+  "Boutros_Boutros_Ghali_0001.jpg": {
+    "age": 45.0,
+    "gender": "Man",
+    "race": {
+      "asian": 7.777461528778076,
+      "indian": 14.449941635131836,
+      "black": 58.86659622192383,
+      "white": 2.1587324142456055,
+      "middle eastern": 2.265158176422119,
+      "latino hispanic": 14.482101440429688
+    },
+    "dominant_race": "black"
+  },
+  "Bo_Pelini_0001.jpg": {
+    "age": 27.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.8294355273246765,
+      "indian": 7.458227157592773,
+      "black": 1.495097279548645,
+      "white": 25.94895362854004,
+      "middle eastern": 38.02622985839844,
+      "latino hispanic": 26.242055892944336
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Brady_Rodgers_0001.jpg": {
+    "age": 38.0,
+    "gender": "Man",
+    "race": {
+      "asian": 55.976783752441406,
+      "indian": 7.940178871154785,
+      "black": 7.6564621925354,
+      "white": 6.224441051483154,
+      "middle eastern": 2.857130527496338,
+      "latino hispanic": 19.345006942749023
+    },
+    "dominant_race": "asian"
+  },
+  "Brad_Alexander_Smith_0001.jpg": {
+    "age": 22.0,
+    "gender": "Man",
+    "race": {
+      "asian": 5.153502513621788e-09,
+      "indian": 5.461060209199786e-05,
+      "black": 99.99994659423828,
+      "white": 3.0830852194158043e-12,
+      "middle eastern": 4.423127662744886e-12,
+      "latino hispanic": 4.3783327896562696e-07
+    },
+    "dominant_race": "black"
+  },
+  "Brajesh_Mishra_0001.jpg": {
+    "age": 46.0,
+    "gender": "Man",
+    "race": {
+      "asian": 7.197567939758301,
+      "indian": 16.758146286010742,
+      "black": 3.829694986343384,
+      "white": 15.922032356262207,
+      "middle eastern": 24.339092254638672,
+      "latino hispanic": 31.953472137451172
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Brandon_Boyd_0001.jpg": {
+    "age": 25.0,
+    "gender": "Man",
+    "race": {
+      "asian": 6.789661884307861,
+      "indian": 16.835800170898438,
+      "black": 5.892444610595703,
+      "white": 22.050220489501953,
+      "middle eastern": 21.911306381225586,
+      "latino hispanic": 26.52057456970215
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Branko_Crvenkovski_0001.jpg": {
+    "age": 46.0,
+    "gender": "Man",
+    "race": {
+      "asian": 1.5990102291107178,
+      "indian": 5.224920272827148,
+      "black": 1.2197304964065552,
+      "white": 35.39934158325195,
+      "middle eastern": 26.83527374267578,
+      "latino hispanic": 29.72172737121582
+    },
+    "dominant_race": "white"
+  },
+  "Brawley_King_0001.jpg": {
+    "age": 28.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.0019305904861539602,
+      "indian": 9.60698671406135e-05,
+      "black": 6.115929409133969e-06,
+      "white": 99.35540771484375,
+      "middle eastern": 0.16184541583061218,
+      "latino hispanic": 0.4807075262069702
+    },
+    "dominant_race": "white"
+  },
+  "Brendan_Fraser_0001.jpg": {
+    "age": 31.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.03421353921294212,
+      "indian": 0.39472734928131104,
+      "black": 0.012140718288719654,
+      "white": 72.31332397460938,
+      "middle eastern": 18.97844696044922,
+      "latino hispanic": 8.267151832580566
+    },
+    "dominant_race": "white"
+  },
+  "Brenda_Magana_0001.jpg": {
+    "age": 23.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 2.6296193599700928,
+      "indian": 4.705239772796631,
+      "black": 0.6470590233802795,
+      "white": 41.507423400878906,
+      "middle eastern": 30.03425407409668,
+      "latino hispanic": 20.476409912109375
+    },
+    "dominant_race": "white"
+  },
+  "Brennon_Leighton_0001.jpg": {
+    "age": 35.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.0016993138706311584,
+      "indian": 0.002850699471309781,
+      "black": 0.0002338406047783792,
+      "white": 96.21598052978516,
+      "middle eastern": 1.2226336002349854,
+      "latino hispanic": 2.556586503982544
+    },
+    "dominant_race": "white"
+  },
+  "Brent_Coles_0001.jpg": {
+    "age": 53.0,
+    "gender": "Man",
+    "race": {
+      "asian": 12.742039680480957,
+      "indian": 11.16903018951416,
+      "black": 3.0351617336273193,
+      "white": 28.459400177001953,
+      "middle eastern": 24.894895553588867,
+      "latino hispanic": 19.699474334716797
+    },
+    "dominant_race": "white"
+  },
+  "Brett_Boone_0001.jpg": {
+    "age": 34.0,
+    "gender": "Man",
+    "race": {
+      "asian": 1.4128990173339844,
+      "indian": 4.207643032073975,
+      "black": 0.5811996459960938,
+      "white": 44.6572380065918,
+      "middle eastern": 27.86378288269043,
+      "latino hispanic": 21.277240753173828
+    },
+    "dominant_race": "white"
+  },
+  "Brian_Billick_0001.jpg": {
+    "age": 48.0,
+    "gender": "Man",
+    "race": {
+      "asian": 2.3125667572021484,
+      "indian": 3.4162728786468506,
+      "black": 0.6160359978675842,
+      "white": 47.521026611328125,
+      "middle eastern": 22.957517623901367,
+      "latino hispanic": 23.17657470703125
+    },
+    "dominant_race": "white"
+  },
+  "Bridgette_Wilson-Sampras_0001.jpg": {
+    "age": 30.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 5.987034910504008e-06,
+      "indian": 4.213635838823393e-05,
+      "black": 7.688688015150547e-07,
+      "white": 99.78907012939453,
+      "middle eastern": 0.06403487920761108,
+      "latino hispanic": 0.14685335755348206
+    },
+    "dominant_race": "white"
+  },
+  "Bridget_Fonda_0001.jpg": {
+    "age": 31.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.0015483510214835405,
+      "indian": 0.002548965159803629,
+      "black": 4.8998670536093414e-05,
+      "white": 97.47785186767578,
+      "middle eastern": 1.562466025352478,
+      "latino hispanic": 0.955533504486084
+    },
+    "dominant_race": "white"
+  },
+  "Brigitte_Boisselier_0001.jpg": {
+    "age": 32.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 2.189560651779175,
+      "indian": 10.539910316467285,
+      "black": 0.8107438683509827,
+      "white": 37.959712982177734,
+      "middle eastern": 21.515615463256836,
+      "latino hispanic": 26.984455108642578
+    },
+    "dominant_race": "white"
+  },
+  "Britney_Spears_0001.jpg": {
+    "age": 34.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.32899582386016846,
+      "indian": 1.3111522197723389,
+      "black": 0.14368797838687897,
+      "white": 74.80278015136719,
+      "middle eastern": 11.087515830993652,
+      "latino hispanic": 12.325872421264648
+    },
+    "dominant_race": "white"
+  },
+  "Brittany_Snow_0001.jpg": {
+    "age": 36.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 3.233464163088229e-09,
+      "indian": 1.7191937873306529e-09,
+      "black": 1.4742794658684222e-12,
+      "white": 99.9979476928711,
+      "middle eastern": 0.0006964340573176742,
+      "latino hispanic": 0.0013502540532499552
+    },
+    "dominant_race": "white"
+  },
+  "Brock_Berlin_0001.jpg": {
+    "age": 23.0,
+    "gender": "Man",
+    "race": {
+      "asian": 1.6872978210449219,
+      "indian": 0.1477142572402954,
+      "black": 0.02521052025258541,
+      "white": 82.24822998046875,
+      "middle eastern": 6.218016147613525,
+      "latino hispanic": 9.673526763916016
+    },
+    "dominant_race": "white"
+  },
+  "Bronson_Arroyo_0001.jpg": {
+    "age": 31.0,
+    "gender": "Man",
+    "race": {
+      "asian": 1.8277087211608887,
+      "indian": 1.557464838027954,
+      "black": 0.2908937633037567,
+      "white": 60.411380767822266,
+      "middle eastern": 16.73630714416504,
+      "latino hispanic": 19.176239013671875
+    },
+    "dominant_race": "white"
+  },
+  "Brooke_Adams_0001.jpg": {
+    "age": 32.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.059681329876184464,
+      "indian": 0.06318501383066177,
+      "black": 0.00109245500061661,
+      "white": 92.01917266845703,
+      "middle eastern": 4.581081867218018,
+      "latino hispanic": 3.275789260864258
+    },
+    "dominant_race": "white"
+  },
+  "Brook_Robinson_0001.jpg": {
+    "age": 41.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.7194277048110962,
+      "indian": 0.26255112886428833,
+      "black": 0.017219949513673782,
+      "white": 89.5625,
+      "middle eastern": 5.800122261047363,
+      "latino hispanic": 3.6381802558898926
+    },
+    "dominant_race": "white"
+  },
+  "Bruce_Arena_0001.jpg": {
+    "age": 45.0,
+    "gender": "Man",
+    "race": {
+      "asian": 14.406852722167969,
+      "indian": 6.038558006286621,
+      "black": 1.902769923210144,
+      "white": 26.91291046142578,
+      "middle eastern": 11.034278869628906,
+      "latino hispanic": 39.70463180541992
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Bruna_Colosio_0001.jpg": {
+    "age": 35.0,
+    "gender": "Man",
+    "race": {
+      "asian": 1.8347843885421753,
+      "indian": 4.545293807983398,
+      "black": 0.46856656670570374,
+      "white": 32.174644470214844,
+      "middle eastern": 31.825050354003906,
+      "latino hispanic": 29.151662826538086
+    },
+    "dominant_race": "white"
+  },
+  "Bruno_Junquiera_0001.jpg": {
+    "age": 29.0,
+    "gender": "Man",
+    "race": {
+      "asian": 3.001232147216797,
+      "indian": 8.034212112426758,
+      "black": 1.1448614597320557,
+      "white": 32.182090759277344,
+      "middle eastern": 32.852237701416016,
+      "latino hispanic": 22.785364151000977
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Bryant_Young_0001.jpg": {
+    "age": 25.0,
+    "gender": "Man",
+    "race": {
+      "asian": 2.550845056248363e-05,
+      "indian": 0.0016033193096518517,
+      "black": 99.99830627441406,
+      "white": 1.4773589462890868e-08,
+      "middle eastern": 7.542704238971965e-09,
+      "latino hispanic": 6.663800741080195e-05
+    },
+    "dominant_race": "black"
+  },
+  "Bryan_Adams_0001.jpg": {
+    "age": 33.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.010243493132293224,
+      "indian": 0.007224236149340868,
+      "black": 0.00028526803362183273,
+      "white": 95.90331268310547,
+      "middle eastern": 1.09754478931427,
+      "latino hispanic": 2.981397867202759
+    },
+    "dominant_race": "white"
+  },
+  "Bryce_Carmine_0001.jpg": {
+    "age": 29.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.006433770060539246,
+      "indian": 0.00943747814744711,
+      "black": 0.0003912811225745827,
+      "white": 97.82105255126953,
+      "middle eastern": 1.2491875886917114,
+      "latino hispanic": 0.9135009050369263
+    },
+    "dominant_race": "white"
+  },
+  "Buck_Rodgers_0001.jpg": {
+    "age": 25.0,
+    "gender": "Man",
+    "race": {
+      "asian": 47.61935806274414,
+      "indian": 6.8892998695373535,
+      "black": 1.7370734214782715,
+      "white": 18.838293075561523,
+      "middle eastern": 12.283790588378906,
+      "latino hispanic": 12.632184028625488
+    },
+    "dominant_race": "asian"
+  },
+  "Buddy_Ryan_0001.jpg": {
+    "age": 67.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.08712713420391083,
+      "indian": 0.14313124120235443,
+      "black": 0.0023746085353195667,
+      "white": 88.40109252929688,
+      "middle eastern": 8.165982246398926,
+      "latino hispanic": 3.2002975940704346
+    },
+    "dominant_race": "white"
+  },
+  "Budd_Schulberg_0001.jpg": {
+    "age": 42.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.16214874386787415,
+      "indian": 0.06192081421613693,
+      "black": 0.009584738872945309,
+      "white": 95.43122100830078,
+      "middle eastern": 2.8547422885894775,
+      "latino hispanic": 1.4803838729858398
+    },
+    "dominant_race": "white"
+  },
+  "Bud_Selig_0001.jpg": {
+    "age": 46.0,
+    "gender": "Man",
+    "race": {
+      "asian": 1.116452693939209,
+      "indian": 2.611250638961792,
+      "black": 0.36829060316085815,
+      "white": 54.44314193725586,
+      "middle eastern": 21.981643676757812,
+      "latino hispanic": 19.479215621948242
+    },
+    "dominant_race": "white"
+  },
+  "Buford_Blount_0001.jpg": {
+    "age": 34.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.43328166007995605,
+      "indian": 0.1640000343322754,
+      "black": 0.018102072179317474,
+      "white": 89.54214477539062,
+      "middle eastern": 4.618526935577393,
+      "latino hispanic": 5.223945617675781
+    },
+    "dominant_race": "white"
+  },
+  "Bulent_Ecevit_0001.jpg": {
+    "age": 52.0,
+    "gender": "Man",
+    "race": {
+      "asian": 1.2862180471420288,
+      "indian": 24.81159019470215,
+      "black": 1.0119487047195435,
+      "white": 11.130783081054688,
+      "middle eastern": 36.432708740234375,
+      "latino hispanic": 25.326751708984375
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Bustam_A_Zedan_Aljanabi_0001.jpg": {
+    "age": 37.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.10324758291244507,
+      "indian": 0.31901660561561584,
+      "black": 0.016779771074652672,
+      "white": 87.14641571044922,
+      "middle eastern": 9.130660057067871,
+      "latino hispanic": 3.283886194229126
+    },
+    "dominant_race": "white"
+  },
+  "Butch_Davis_0001.jpg": {
+    "age": 38.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.6539722084999084,
+      "indian": 1.8411860466003418,
+      "black": 0.19536031782627106,
+      "white": 55.39682388305664,
+      "middle eastern": 24.243255615234375,
+      "latino hispanic": 17.669408798217773
+    },
+    "dominant_race": "white"
+  },
+  "Buzz_Hargrove_0001.jpg": {
+    "age": 47.0,
+    "gender": "Man",
+    "race": {
+      "asian": 58.83338165283203,
+      "indian": 5.171586036682129,
+      "black": 3.5878686904907227,
+      "white": 9.37802505493164,
+      "middle eastern": 3.4018795490264893,
+      "latino hispanic": 19.627256393432617
+    },
+    "dominant_race": "asian"
+  },
+  "Byron_Scott_0001.jpg": {
+    "age": 26.0,
+    "gender": "Man",
+    "race": {
+      "asian": 1.3351428407304411e-08,
+      "indian": 7.604978868869239e-09,
+      "black": 100.0,
+      "white": 1.0181062942574495e-13,
+      "middle eastern": 1.5031433129447658e-13,
+      "latino hispanic": 8.125555783777827e-10
+    },
+    "dominant_race": "black"
+  },
+  "Cabas_0001.jpg": {
+    "age": 22.0,
+    "gender": "Man",
+    "race": {
+      "asian": 22.021345138549805,
+      "indian": 9.048421859741211,
+      "black": 9.328990936279297,
+      "white": 20.802963256835938,
+      "middle eastern": 13.689580917358398,
+      "latino hispanic": 25.10869598388672
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Caio_Blat_0001.jpg": {
+    "age": 23.0,
+    "gender": "Man",
+    "race": {
+      "asian": 2.051251173019409,
+      "indian": 4.585716724395752,
+      "black": 0.45586737990379333,
+      "white": 38.0836067199707,
+      "middle eastern": 25.278100967407227,
+      "latino hispanic": 29.545459747314453
+    },
+    "dominant_race": "white"
+  },
+  "Calbert_Cheaney_0001.jpg": {
+    "age": 26.0,
+    "gender": "Man",
+    "race": {
+      "asian": 6.877239963863364e-16,
+      "indian": 2.6871217924384627e-12,
+      "black": 100.0,
+      "white": 2.5339090751202953e-22,
+      "middle eastern": 8.293096692501287e-24,
+      "latino hispanic": 1.591721338711587e-15
+    },
+    "dominant_race": "black"
+  },
+  "Calista_Flockhart_0001.jpg": {
+    "age": 33.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.8092883229255676,
+      "indian": 2.0710036754608154,
+      "black": 0.18249571323394775,
+      "white": 52.68566131591797,
+      "middle eastern": 33.46941375732422,
+      "latino hispanic": 10.782135009765625
+    },
+    "dominant_race": "white"
+  },
+  "Calvin_Harrison_0001.jpg": {
+    "age": 24.0,
+    "gender": "Man",
+    "race": {
+      "asian": 1.4773257817068952e-07,
+      "indian": 0.0003107168304268271,
+      "black": 99.99964141845703,
+      "white": 4.41546710305829e-09,
+      "middle eastern": 2.5358792843377387e-09,
+      "latino hispanic": 5.385758413467556e-05
+    },
+    "dominant_race": "black"
+  },
+  "Cameron_Diaz_0001.jpg": {
+    "age": 33.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.0008605095208622515,
+      "indian": 0.00017172054504044354,
+      "black": 1.685670667939121e-06,
+      "white": 99.74592590332031,
+      "middle eastern": 0.12240225821733475,
+      "latino hispanic": 0.13064105808734894
+    },
+    "dominant_race": "white"
+  },
+  "Camilla_Parker_Bowles_0001.jpg": {
+    "age": 39.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.0009651117725297809,
+      "indian": 8.829402759147342e-06,
+      "black": 3.542459126038011e-08,
+      "white": 99.9527359008789,
+      "middle eastern": 0.0207047201693058,
+      "latino hispanic": 0.025587331503629684
+    },
+    "dominant_race": "white"
+  },
+  "Camille_Colvin_0001.jpg": {
+    "age": 36.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 9.621064186096191,
+      "indian": 0.5399653315544128,
+      "black": 0.11388621479272842,
+      "white": 69.97347259521484,
+      "middle eastern": 6.266876697540283,
+      "latino hispanic": 13.484743118286133
+    },
+    "dominant_race": "white"
+  },
+  "Camryn_Manheim_0001.jpg": {
+    "age": 37.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 30.455020904541016,
+      "indian": 11.84875202178955,
+      "black": 6.382279396057129,
+      "white": 7.109797954559326,
+      "middle eastern": 3.9908909797668457,
+      "latino hispanic": 40.21326446533203
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Candace_Sutton_0001.jpg": {
+    "age": 25.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 31.436248779296875,
+      "indian": 7.259525299072266,
+      "black": 2.275583505630493,
+      "white": 20.75524139404297,
+      "middle eastern": 10.721229553222656,
+      "latino hispanic": 27.55217170715332
+    },
+    "dominant_race": "asian"
+  },
+  "Candice_Beatty_0001.jpg": {
+    "age": 33.0,
+    "gender": "Man",
+    "race": {
+      "asian": 17.2947940826416,
+      "indian": 12.959820747375488,
+      "black": 8.114089012145996,
+      "white": 22.002178192138672,
+      "middle eastern": 20.4155330657959,
+      "latino hispanic": 19.213586807250977
+    },
+    "dominant_race": "white"
+  },
+  "Candie_Kung_0001.jpg": {
+    "age": 29.0,
+    "gender": "Man",
+    "race": {
+      "asian": 94.48836517333984,
+      "indian": 0.8621389269828796,
+      "black": 1.4233626127243042,
+      "white": 0.08872398734092712,
+      "middle eastern": 0.02008545771241188,
+      "latino hispanic": 3.117323637008667
+    },
+    "dominant_race": "asian"
+  },
+  "Carey_Lowell_0001.jpg": {
+    "age": 34.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.01969188079237938,
+      "indian": 0.4033769965171814,
+      "black": 0.00211575860157609,
+      "white": 95.7655029296875,
+      "middle eastern": 3.2173407077789307,
+      "latino hispanic": 0.5919765830039978
+    },
+    "dominant_race": "white"
+  },
+  "Carina_Lau_Ka-ling_0001.jpg": {
+    "age": 30.0,
+    "gender": "Man",
+    "race": {
+      "asian": 99.32908630371094,
+      "indian": 0.03445969149470329,
+      "black": 0.0001681419089436531,
+      "white": 0.40142813324928284,
+      "middle eastern": 0.00160928291734308,
+      "latino hispanic": 0.23325520753860474
+    },
+    "dominant_race": "asian"
+  },
+  "Carin_Koch_0001.jpg": {
+    "age": 29.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 4.367313385009766,
+      "indian": 14.356439590454102,
+      "black": 12.096840858459473,
+      "white": 14.939599990844727,
+      "middle eastern": 28.45482063293457,
+      "latino hispanic": 25.784975051879883
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Cari_Davis_0001.jpg": {
+    "age": 30.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 13.693634986877441,
+      "indian": 5.533308506011963,
+      "black": 1.5882346630096436,
+      "white": 32.731571197509766,
+      "middle eastern": 23.333175659179688,
+      "latino hispanic": 23.120073318481445
+    },
+    "dominant_race": "white"
+  },
+  "Carla_Del_Ponte_0001.jpg": {
+    "age": 48.0,
+    "gender": "Man",
+    "race": {
+      "asian": 2.8496739864349365,
+      "indian": 0.10006415843963623,
+      "black": 0.014525114558637142,
+      "white": 90.62639617919922,
+      "middle eastern": 2.5461509227752686,
+      "latino hispanic": 3.8631913661956787
+    },
+    "dominant_race": "white"
+  },
+  "Carlos_Alberto_0001.jpg": {
+    "age": 28.0,
+    "gender": "Man",
+    "race": {
+      "asian": 1.2837323204450968e-08,
+      "indian": 1.1973755135841202e-05,
+      "black": 99.99998474121094,
+      "white": 1.3460943514356782e-12,
+      "middle eastern": 2.6796937607244387e-13,
+      "latino hispanic": 3.2838009644819977e-08
+    },
+    "dominant_race": "black"
+  },
+  "Carlo_Ancelotti_0001.jpg": {
+    "age": 39.0,
+    "gender": "Man",
+    "race": {
+      "asian": 17.48685073852539,
+      "indian": 8.10357666015625,
+      "black": 1.6650665998458862,
+      "white": 38.15134811401367,
+      "middle eastern": 14.830493927001953,
+      "latino hispanic": 19.76266098022461
+    },
+    "dominant_race": "white"
+  },
+  "Carlton_Baugh_0001.jpg": {
+    "age": 28.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.3483039140701294,
+      "indian": 0.16620159149169922,
+      "black": 99.36384582519531,
+      "white": 0.0029845561366528273,
+      "middle eastern": 0.000585070694796741,
+      "latino hispanic": 0.11807835847139359
+    },
+    "dominant_race": "black"
+  },
+  "Carly_Fiorina_0001.jpg": {
+    "age": 39.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 7.545699065580891e-10,
+      "indian": 7.868908649677486e-12,
+      "black": 4.324120559908622e-15,
+      "white": 99.99991607666016,
+      "middle eastern": 1.726460686768405e-05,
+      "latino hispanic": 6.101455801399425e-05
+    },
+    "dominant_race": "white"
+  },
+  "Carl_Levin_0001.jpg": {
+    "age": 47.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.28354793787002563,
+      "indian": 0.20153158903121948,
+      "black": 0.014517396688461304,
+      "white": 94.4788589477539,
+      "middle eastern": 3.0398812294006348,
+      "latino hispanic": 1.981663703918457
+    },
+    "dominant_race": "white"
+  },
+  "Carmen_Electra_0001.jpg": {
+    "age": 30.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.341001033782959,
+      "indian": 0.5054433345794678,
+      "black": 0.05050865560770035,
+      "white": 69.80481719970703,
+      "middle eastern": 10.978972434997559,
+      "latino hispanic": 18.319257736206055
+    },
+    "dominant_race": "white"
+  },
+  "Carolina_Barco_0001.jpg": {
+    "age": 24.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.7194476127624512,
+      "indian": 0.2524352967739105,
+      "black": 0.022961212322115898,
+      "white": 83.51990509033203,
+      "middle eastern": 11.439118385314941,
+      "latino hispanic": 4.046139240264893
+    },
+    "dominant_race": "white"
+  },
+  "Caroline_Dhavernas_0001.jpg": {
+    "age": 27.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.5423858761787415,
+      "indian": 0.5106192827224731,
+      "black": 0.032918184995651245,
+      "white": 71.59596252441406,
+      "middle eastern": 15.017566680908203,
+      "latino hispanic": 12.300543785095215
+    },
+    "dominant_race": "white"
+  },
+  "Carolyn_Dawn_Johnson_0001.jpg": {
+    "age": 32.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 1.0456015220317028e-10,
+      "indian": 2.0025774441490007e-11,
+      "black": 8.517856152400263e-14,
+      "white": 99.99989318847656,
+      "middle eastern": 4.819054447580129e-05,
+      "latino hispanic": 5.777869955636561e-05
+    },
+    "dominant_race": "white"
+  },
+  "Carol_Burnett_0001.jpg": {
+    "age": 24.0,
+    "gender": "Man",
+    "race": {
+      "asian": 1.4452842473983765,
+      "indian": 0.024780472740530968,
+      "black": 0.004113400354981422,
+      "white": 95.15562438964844,
+      "middle eastern": 2.190913200378418,
+      "latino hispanic": 1.1792888641357422
+    },
+    "dominant_race": "white"
+  },
+  "Carrie-Anne_Moss_0001.jpg": {
+    "age": 34.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.5908036828041077,
+      "indian": 1.828545331954956,
+      "black": 0.18816938996315002,
+      "white": 50.26023483276367,
+      "middle eastern": 28.310823440551758,
+      "latino hispanic": 18.821430206298828
+    },
+    "dominant_race": "white"
+  },
+  "Carroll_Weimer_0001.jpg": {
+    "age": 35.0,
+    "gender": "Man",
+    "race": {
+      "asian": 7.374752521514893,
+      "indian": 5.641113758087158,
+      "black": 5.506633758544922,
+      "white": 33.94319152832031,
+      "middle eastern": 20.649715423583984,
+      "latino hispanic": 26.884597778320312
+    },
+    "dominant_race": "white"
+  },
+  "Carson_Daly_0001.jpg": {
+    "age": 35.0,
+    "gender": "Man",
+    "race": {
+      "asian": 1.2248632907867432,
+      "indian": 4.304283618927002,
+      "black": 0.22684913873672485,
+      "white": 41.42977523803711,
+      "middle eastern": 35.96519470214844,
+      "latino hispanic": 16.849031448364258
+    },
+    "dominant_race": "white"
+  },
+  "Casey_Crowder_0001.jpg": {
+    "age": 26.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 2.821333169937134,
+      "indian": 0.8359654545783997,
+      "black": 0.20634469389915466,
+      "white": 63.98033905029297,
+      "middle eastern": 9.219768524169922,
+      "latino hispanic": 22.936248779296875
+    },
+    "dominant_race": "white"
+  },
+  "Cassandra_Heise_0001.jpg": {
+    "age": 21.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 1.4154010246017032e-19,
+      "indian": 5.708229216076744e-21,
+      "black": 7.106725868214819e-26,
+      "white": 100.0,
+      "middle eastern": 1.1561422930128629e-08,
+      "latino hispanic": 1.542471483872987e-09
+    },
+    "dominant_race": "white"
+  },
+  "Cass_Ballenger_0001.jpg": {
+    "age": 36.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.3656984865665436,
+      "indian": 0.14730322360992432,
+      "black": 0.014641381800174713,
+      "white": 91.80982208251953,
+      "middle eastern": 4.756749629974365,
+      "latino hispanic": 2.905787467956543
+    },
+    "dominant_race": "white"
+  },
+  "Casy_Preslar_0001.jpg": {
+    "age": 31.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 5.235933780670166,
+      "indian": 3.3030455112457275,
+      "black": 1.2374433279037476,
+      "white": 46.405494689941406,
+      "middle eastern": 17.909072875976562,
+      "latino hispanic": 25.90900421142578
+    },
+    "dominant_race": "white"
+  },
+  "Cate_Blanchett_0001.jpg": {
+    "age": 32.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.00573568744584918,
+      "indian": 0.0006075117271393538,
+      "black": 7.324782473006053e-06,
+      "white": 99.07743835449219,
+      "middle eastern": 0.35883209109306335,
+      "latino hispanic": 0.5573834776878357
+    },
+    "dominant_race": "white"
+  },
+  "Catherine_Bell_0001.jpg": {
+    "age": 31.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 5.750975608825684,
+      "indian": 5.41751766204834,
+      "black": 1.8641998767852783,
+      "white": 34.57465362548828,
+      "middle eastern": 23.676422119140625,
+      "latino hispanic": 28.716230392456055
+    },
+    "dominant_race": "white"
+  },
+  "Cathryn_Crawford_0001.jpg": {
+    "age": 31.0,
+    "gender": "Man",
+    "race": {
+      "asian": 2.0926297850110132e-07,
+      "indian": 2.9552872149452014e-08,
+      "black": 6.096689819656831e-11,
+      "white": 99.99464416503906,
+      "middle eastern": 0.0019194574560970068,
+      "latino hispanic": 0.003430592129006982
+    },
+    "dominant_race": "white"
+  },
+  "Cathy_Chisholm_0001.jpg": {
+    "age": 34.0,
+    "gender": "Man",
+    "race": {
+      "asian": 65.45945739746094,
+      "indian": 0.5617452263832092,
+      "black": 0.21734623610973358,
+      "white": 20.569238662719727,
+      "middle eastern": 2.1067309379577637,
+      "latino hispanic": 11.085481643676758
+    },
+    "dominant_race": "asian"
+  },
+  "Catriona_Le_May_Doan_0001.jpg": {
+    "age": 31.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 22.612567901611328,
+      "indian": 12.98072338104248,
+      "black": 3.935553789138794,
+      "white": 20.802330017089844,
+      "middle eastern": 12.654139518737793,
+      "latino hispanic": 27.01468849182129
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Cecile_de_France_0001.jpg": {
+    "age": 30.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.0096285380423069,
+      "indian": 0.03559783101081848,
+      "black": 0.0005372790619730949,
+      "white": 90.20323944091797,
+      "middle eastern": 5.851395606994629,
+      "latino hispanic": 3.8996033668518066
+    },
+    "dominant_race": "white"
+  },
+  "Cecilia_Bolocco_0001.jpg": {
+    "age": 33.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.989591121673584,
+      "indian": 0.7225085496902466,
+      "black": 0.20705527067184448,
+      "white": 74.13789367675781,
+      "middle eastern": 11.081563949584961,
+      "latino hispanic": 12.86138916015625
+    },
+    "dominant_race": "white"
+  },
+  "Cedric_Benson_0001.jpg": {
+    "age": 35.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.036806631833314896,
+      "indian": 0.26604798436164856,
+      "black": 99.6729507446289,
+      "white": 0.00012753774353768677,
+      "middle eastern": 4.439157055458054e-05,
+      "latino hispanic": 0.02402586303651333
+    },
+    "dominant_race": "black"
+  },
+  "Celia_Cruz_0001.jpg": {
+    "age": 29.0,
+    "gender": "Man",
+    "race": {
+      "asian": 28.871795654296875,
+      "indian": 14.76880168914795,
+      "black": 38.077049255371094,
+      "white": 2.521975040435791,
+      "middle eastern": 2.014442205429077,
+      "latino hispanic": 13.745944023132324
+    },
+    "dominant_race": "black"
+  },
+  "Celine_Dion_0001.jpg": {
+    "age": 38.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.10368259251117706,
+      "indian": 0.2553991377353668,
+      "black": 0.007696002256125212,
+      "white": 79.11471557617188,
+      "middle eastern": 11.655206680297852,
+      "latino hispanic": 8.863298416137695
+    },
+    "dominant_race": "white"
+  },
+  "Celso_Amorim_0001.jpg": {
+    "age": 51.0,
+    "gender": "Man",
+    "race": {
+      "asian": 7.994440966285765e-05,
+      "indian": 5.556456380872987e-05,
+      "black": 7.589833472820828e-08,
+      "white": 99.28533172607422,
+      "middle eastern": 0.30641046166419983,
+      "latino hispanic": 0.40811407566070557
+    },
+    "dominant_race": "white"
+  },
+  "Cemil_Cicek_0001.jpg": {
+    "age": 32.0,
+    "gender": "Man",
+    "race": {
+      "asian": 12.303271293640137,
+      "indian": 10.542550086975098,
+      "black": 9.616897583007812,
+      "white": 23.664236068725586,
+      "middle eastern": 20.6639461517334,
+      "latino hispanic": 23.209104537963867
+    },
+    "dominant_race": "white"
+  },
+  "Cesar_Gaviria_0001.jpg": {
+    "age": 39.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.043975744396448135,
+      "indian": 0.08593347668647766,
+      "black": 0.0037540628109127283,
+      "white": 92.194580078125,
+      "middle eastern": 3.409653663635254,
+      "latino hispanic": 4.26210355758667
+    },
+    "dominant_race": "white"
+  },
+  "Chadha_Gurinder_0001.jpg": {
+    "age": 27.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 16.42597198486328,
+      "indian": 16.611465454101562,
+      "black": 27.548097610473633,
+      "white": 9.836906433105469,
+      "middle eastern": 10.460297584533691,
+      "latino hispanic": 19.117263793945312
+    },
+    "dominant_race": "black"
+  },
+  "Chakib_Khelil_0001.jpg": {
+    "age": 34.0,
+    "gender": "Man",
+    "race": {
+      "asian": 52.74100875854492,
+      "indian": 4.323419094085693,
+      "black": 3.313969135284424,
+      "white": 15.78654956817627,
+      "middle eastern": 5.682738304138184,
+      "latino hispanic": 18.152311325073242
+    },
+    "dominant_race": "asian"
+  },
+  "Chance_Mock_0001.jpg": {
+    "age": 29.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.00025412175455130637,
+      "indian": 0.0013614401686936617,
+      "black": 2.227224649686832e-05,
+      "white": 96.81297302246094,
+      "middle eastern": 1.7244930267333984,
+      "latino hispanic": 1.460888147354126
+    },
+    "dominant_race": "white"
+  },
+  "Chanda_Rubin_0001.jpg": {
+    "age": 27.0,
+    "gender": "Man",
+    "race": {
+      "asian": 19.47209358215332,
+      "indian": 8.311346054077148,
+      "black": 62.63943099975586,
+      "white": 1.113051414489746,
+      "middle eastern": 0.3680077791213989,
+      "latino hispanic": 8.096077919006348
+    },
+    "dominant_race": "black"
+  },
+  "Chandrika_Kumaratunga_0001.jpg": {
+    "age": 50.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 6.274741172790527,
+      "indian": 14.514904975891113,
+      "black": 2.1852216720581055,
+      "white": 19.998241424560547,
+      "middle eastern": 19.40850830078125,
+      "latino hispanic": 37.618377685546875
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Chang_Dae-whan_0001.jpg": {
+    "age": 45.0,
+    "gender": "Man",
+    "race": {
+      "asian": 99.99998474121094,
+      "indian": 5.069401964874487e-08,
+      "black": 7.151176623521743e-14,
+      "white": 1.4191277841746341e-05,
+      "middle eastern": 1.0396655324845794e-12,
+      "latino hispanic": 2.8064735033694888e-06
+    },
+    "dominant_race": "asian"
+  },
+  "Chante_Jawan_Mallard_0001.jpg": {
+    "age": 35.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 22.880550384521484,
+      "indian": 15.480645179748535,
+      "black": 3.7732415199279785,
+      "white": 20.643325805664062,
+      "middle eastern": 10.793770790100098,
+      "latino hispanic": 26.428464889526367
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Chan_Choi_0001.jpg": {
+    "age": 47.0,
+    "gender": "Man",
+    "race": {
+      "asian": 99.8503646850586,
+      "indian": 0.03736858069896698,
+      "black": 0.0008394120959565043,
+      "white": 0.011420812457799911,
+      "middle eastern": 1.0129153451998718e-05,
+      "latino hispanic": 0.10000058263540268
+    },
+    "dominant_race": "asian"
+  },
+  "Charla_Moye_0001.jpg": {
+    "age": 39.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.043322909623384476,
+      "indian": 0.14354124665260315,
+      "black": 0.0059469351544976234,
+      "white": 82.44873809814453,
+      "middle eastern": 10.606986045837402,
+      "latino hispanic": 6.751467704772949
+    },
+    "dominant_race": "white"
+  },
+  "Charlene_Barshefsky_0001.jpg": {
+    "age": 26.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.002058148616924882,
+      "indian": 0.01704254187643528,
+      "black": 8.043619163800031e-05,
+      "white": 88.90460205078125,
+      "middle eastern": 7.792507171630859,
+      "latino hispanic": 3.2837066650390625
+    },
+    "dominant_race": "white"
+  },
+  "Charles_Bell_0001.jpg": {
+    "age": 37.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.13475336134433746,
+      "indian": 0.14521750807762146,
+      "black": 0.007247520610690117,
+      "white": 86.43659210205078,
+      "middle eastern": 5.6339287757873535,
+      "latino hispanic": 7.642264366149902
+    },
+    "dominant_race": "white"
+  },
+  "Charley_Armey_0001.jpg": {
+    "age": 58.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.433788925409317,
+      "indian": 0.5681039690971375,
+      "black": 0.028141416609287262,
+      "white": 77.99014282226562,
+      "middle eastern": 13.556511878967285,
+      "latino hispanic": 7.423314571380615
+    },
+    "dominant_race": "white"
+  },
+  "Charlie_Coles_0001.jpg": {
+    "age": 47.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.6825124621391296,
+      "indian": 1.2512048482894897,
+      "black": 0.10192108899354935,
+      "white": 61.11208724975586,
+      "middle eastern": 21.984729766845703,
+      "latino hispanic": 14.867542266845703
+    },
+    "dominant_race": "white"
+  },
+  "Charlize_Theron_0001.jpg": {
+    "age": 28.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 1.0747380256652832,
+      "indian": 0.0026871704030781984,
+      "black": 0.0004292315279599279,
+      "white": 98.3514175415039,
+      "middle eastern": 0.21684376895427704,
+      "latino hispanic": 0.35388901829719543
+    },
+    "dominant_race": "white"
+  },
+  "Charlotte_Casiraghi_0001.jpg": {
+    "age": 27.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 4.082047939300537,
+      "indian": 25.871936798095703,
+      "black": 5.512106418609619,
+      "white": 23.435651779174805,
+      "middle eastern": 10.8317289352417,
+      "latino hispanic": 30.266530990600586
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Charlton_Heston_0001.jpg": {
+    "age": 46.0,
+    "gender": "Man",
+    "race": {
+      "asian": 30.280719757080078,
+      "indian": 3.223604917526245,
+      "black": 1.1347547769546509,
+      "white": 34.090858459472656,
+      "middle eastern": 7.35267448425293,
+      "latino hispanic": 23.917390823364258
+    },
+    "dominant_race": "white"
+  },
+  "Charmaine_Crooks_0001.jpg": {
+    "age": 34.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.010907725431025028,
+      "indian": 0.44110679626464844,
+      "black": 99.49478149414062,
+      "white": 0.00026888216962106526,
+      "middle eastern": 0.0005681372713297606,
+      "latino hispanic": 0.052377309650182724
+    },
+    "dominant_race": "black"
+  },
+  "Chawki_Armali_0001.jpg": {
+    "age": 43.0,
+    "gender": "Man",
+    "race": {
+      "asian": 3.787466526031494,
+      "indian": 6.8201212882995605,
+      "black": 1.2519290447235107,
+      "white": 18.409948348999023,
+      "middle eastern": 23.410306930541992,
+      "latino hispanic": 46.320228576660156
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Cha_Yung-gu_0001.jpg": {
+    "age": 39.0,
+    "gender": "Man",
+    "race": {
+      "asian": 99.05657958984375,
+      "indian": 0.16046857833862305,
+      "black": 0.0002761647920124233,
+      "white": 0.3013773262500763,
+      "middle eastern": 0.0004460150084923953,
+      "latino hispanic": 0.4808567762374878
+    },
+    "dominant_race": "asian"
+  },
+  "Chea_Sophara_0001.jpg": {
+    "age": 31.0,
+    "gender": "Man",
+    "race": {
+      "asian": 99.09098052978516,
+      "indian": 0.38142070174217224,
+      "black": 0.0030990331433713436,
+      "white": 0.023887086659669876,
+      "middle eastern": 2.5307925170636736e-05,
+      "latino hispanic": 0.5005722045898438
+    },
+    "dominant_race": "asian"
+  },
+  "Chelsea_Clinton_0001.jpg": {
+    "age": 33.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.0002322172949789092,
+      "indian": 9.182773646898568e-05,
+      "black": 1.243791302840691e-06,
+      "white": 98.98438262939453,
+      "middle eastern": 0.39982184767723083,
+      "latino hispanic": 0.615460216999054
+    },
+    "dominant_race": "white"
+  },
+  "Chen_Kaige_0001.jpg": {
+    "age": 34.0,
+    "gender": "Man",
+    "race": {
+      "asian": 88.5050277709961,
+      "indian": 5.843111991882324,
+      "black": 0.2247859388589859,
+      "white": 1.2864503860473633,
+      "middle eastern": 0.10157010704278946,
+      "latino hispanic": 4.039046764373779
+    },
+    "dominant_race": "asian"
+  },
+  "Cherie_Blair_0001.jpg": {
+    "age": 42.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.004233194515109062,
+      "indian": 0.00044232848449610174,
+      "black": 2.1049871065770276e-05,
+      "white": 99.153564453125,
+      "middle eastern": 0.3241327702999115,
+      "latino hispanic": 0.5176084637641907
+    },
+    "dominant_race": "white"
+  },
+  "Cherry_Jones_0001.jpg": {
+    "age": 39.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.8206107020378113,
+      "indian": 9.134859085083008,
+      "black": 89.35570526123047,
+      "white": 0.023130645975470543,
+      "middle eastern": 0.006493019871413708,
+      "latino hispanic": 0.659200131893158
+    },
+    "dominant_race": "black"
+  },
+  "Cheryl_Ford_0001.jpg": {
+    "age": 38.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.00017267189105041325,
+      "indian": 0.03616693243384361,
+      "black": 99.96353149414062,
+      "white": 2.6666059582680646e-08,
+      "middle eastern": 5.8775211364547886e-09,
+      "latino hispanic": 0.00012040688307024539
+    },
+    "dominant_race": "black"
+  },
+  "Chhouk_Rin_0001.jpg": {
+    "age": 42.0,
+    "gender": "Man",
+    "race": {
+      "asian": 93.97096252441406,
+      "indian": 2.1418778896331787,
+      "black": 0.2823866009712219,
+      "white": 0.2308582216501236,
+      "middle eastern": 0.002901364117860794,
+      "latino hispanic": 3.3710169792175293
+    },
+    "dominant_race": "asian"
+  },
+  "Chick_Hearn_0001.jpg": {
+    "age": 42.0,
+    "gender": "Man",
+    "race": {
+      "asian": 4.860279560089111,
+      "indian": 13.62363052368164,
+      "black": 4.7197489738464355,
+      "white": 24.927637100219727,
+      "middle eastern": 20.107908248901367,
+      "latino hispanic": 31.76079750061035
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Chin-Feng_Chen_0001.jpg": {
+    "age": 28.0,
+    "gender": "Man",
+    "race": {
+      "asian": 96.127685546875,
+      "indian": 0.5850116610527039,
+      "black": 0.09258400648832321,
+      "white": 0.16414199769496918,
+      "middle eastern": 0.0044802711345255375,
+      "latino hispanic": 3.0260872840881348
+    },
+    "dominant_race": "asian"
+  },
+  "Chin-Hui_Tsao_0001.jpg": {
+    "age": 28.0,
+    "gender": "Man",
+    "race": {
+      "asian": 99.98312377929688,
+      "indian": 0.0004399520985316485,
+      "black": 7.242257993311796e-07,
+      "white": 0.00010800878226291388,
+      "middle eastern": 1.4068914033771307e-08,
+      "latino hispanic": 0.016332002356648445
+    },
+    "dominant_race": "asian"
+  },
+  "Chip_Burrus_0001.jpg": {
+    "age": 24.0,
+    "gender": "Man",
+    "race": {
+      "asian": 32.402042388916016,
+      "indian": 1.2522969245910645,
+      "black": 1.545766830444336,
+      "white": 49.78265380859375,
+      "middle eastern": 6.074367046356201,
+      "latino hispanic": 8.942875862121582
+    },
+    "dominant_race": "white"
+  },
+  "Chistian_Stahl_0001.jpg": {
+    "age": 29.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.0013903016224503517,
+      "indian": 0.0015194218140095472,
+      "black": 4.224831718602218e-05,
+      "white": 97.84370422363281,
+      "middle eastern": 1.1144590377807617,
+      "latino hispanic": 1.0388940572738647
+    },
+    "dominant_race": "white"
+  },
+  "Chita_Rivera_0001.jpg": {
+    "age": 24.0,
+    "gender": "Man",
+    "race": {
+      "asian": 22.385194778442383,
+      "indian": 0.19454683363437653,
+      "black": 0.017679894343018532,
+      "white": 66.65603637695312,
+      "middle eastern": 6.616058826446533,
+      "latino hispanic": 4.130488872528076
+    },
+    "dominant_race": "white"
+  },
+  "Chloe_Sevigny_0001.jpg": {
+    "age": 27.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.0042599341832101345,
+      "indian": 0.0008124026353470981,
+      "black": 1.0224396646663081e-05,
+      "white": 98.51288604736328,
+      "middle eastern": 0.9994679093360901,
+      "latino hispanic": 0.4825628697872162
+    },
+    "dominant_race": "white"
+  },
+  "Choi_Sung-hong_0001.jpg": {
+    "age": 40.0,
+    "gender": "Man",
+    "race": {
+      "asian": 67.80551147460938,
+      "indian": 10.596964836120605,
+      "black": 5.722273349761963,
+      "white": 3.4966039657592773,
+      "middle eastern": 0.6728656888008118,
+      "latino hispanic": 11.705780029296875
+    },
+    "dominant_race": "asian"
+  },
+  "Chok_Tong_Goh_0001.jpg": {
+    "age": 47.0,
+    "gender": "Man",
+    "race": {
+      "asian": 19.97829818725586,
+      "indian": 6.1057915687561035,
+      "black": 2.8585574626922607,
+      "white": 28.971805572509766,
+      "middle eastern": 13.755501747131348,
+      "latino hispanic": 28.330049514770508
+    },
+    "dominant_race": "white"
+  },
+  "Cho_Myung-kyun_0001.jpg": {
+    "age": 38.0,
+    "gender": "Man",
+    "race": {
+      "asian": 90.93924713134766,
+      "indian": 3.2760143280029297,
+      "black": 0.2278764545917511,
+      "white": 2.516244649887085,
+      "middle eastern": 0.07714575529098511,
+      "latino hispanic": 2.963475227355957
+    },
+    "dominant_race": "asian"
+  },
+  "Christiane_Wulff_0001.jpg": {
+    "age": 44.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.008082235231995583,
+      "indian": 0.029571764171123505,
+      "black": 0.00031738640973344445,
+      "white": 89.27349853515625,
+      "middle eastern": 5.635191440582275,
+      "latino hispanic": 5.0533366203308105
+    },
+    "dominant_race": "white"
+  },
+  "Christian_Bale_0001.jpg": {
+    "age": 38.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.0006096910801716149,
+      "indian": 0.005876921117305756,
+      "black": 9.873708040686324e-05,
+      "white": 94.81031036376953,
+      "middle eastern": 3.4659903049468994,
+      "latino hispanic": 1.7171168327331543
+    },
+    "dominant_race": "white"
+  },
+  "Christina_Aguilera_0001.jpg": {
+    "age": 35.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 98.96790313720703,
+      "indian": 9.89066029433161e-06,
+      "black": 1.3285587385780673e-07,
+      "white": 1.0112533569335938,
+      "middle eastern": 0.011766522191464901,
+      "latino hispanic": 0.009054814465343952
+    },
+    "dominant_race": "asian"
+  },
+  "Christine_Arron_0001.jpg": {
+    "age": 31.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 17.28252410888672,
+      "indian": 21.667869567871094,
+      "black": 4.868863105773926,
+      "white": 14.51671314239502,
+      "middle eastern": 15.46904468536377,
+      "latino hispanic": 26.19498634338379
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Christopher_Amolsch_0001.jpg": {
+    "age": 33.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.36702224612236023,
+      "indian": 14.428481101989746,
+      "black": 0.2049199342727661,
+      "white": 18.87711524963379,
+      "middle eastern": 42.95289993286133,
+      "latino hispanic": 23.1695613861084
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Christoph_Daum_0001.jpg": {
+    "age": 31.0,
+    "gender": "Man",
+    "race": {
+      "asian": 5.390131950378418,
+      "indian": 2.306621789932251,
+      "black": 0.6595701575279236,
+      "white": 52.56383514404297,
+      "middle eastern": 13.370540618896484,
+      "latino hispanic": 25.709304809570312
+    },
+    "dominant_race": "white"
+  },
+  "Christy_Ferer_0001.jpg": {
+    "age": 28.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.006417472381144762,
+      "indian": 0.012694579549133778,
+      "black": 0.0002494482905603945,
+      "white": 94.66175842285156,
+      "middle eastern": 2.613450288772583,
+      "latino hispanic": 2.7054383754730225
+    },
+    "dominant_race": "white"
+  },
+  "Chris_Andrews_0001.jpg": {
+    "age": 33.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.18024998903274536,
+      "indian": 0.1336035430431366,
+      "black": 0.0057428497821092606,
+      "white": 90.38735961914062,
+      "middle eastern": 5.1149396896362305,
+      "latino hispanic": 4.178110122680664
+    },
+    "dominant_race": "white"
+  },
+  "Chuanyun_Li_0001.jpg": {
+    "age": 31.0,
+    "gender": "Man",
+    "race": {
+      "asian": 99.96356201171875,
+      "indian": 0.00741997268050909,
+      "black": 4.3618223344310536e-07,
+      "white": 0.016811462119221687,
+      "middle eastern": 4.85037048747472e-07,
+      "latino hispanic": 0.012208618223667145
+    },
+    "dominant_race": "asian"
+  },
+  "Chuck_Amato_0001.jpg": {
+    "age": 40.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.07153303176164627,
+      "indian": 0.4972609877586365,
+      "black": 0.004111983813345432,
+      "white": 79.24901580810547,
+      "middle eastern": 10.582246780395508,
+      "latino hispanic": 9.595827102661133
+    },
+    "dominant_race": "white"
+  },
+  "Chung_Mong-hun_0001.jpg": {
+    "age": 31.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.7460103034973145,
+      "indian": 0.10909765958786011,
+      "black": 0.009938027709722519,
+      "white": 96.0071029663086,
+      "middle eastern": 1.7044299840927124,
+      "latino hispanic": 1.4234169721603394
+    },
+    "dominant_race": "white"
+  },
+  "Chyung_Dai-chul_0001.jpg": {
+    "age": 34.0,
+    "gender": "Man",
+    "race": {
+      "asian": 23.746984481811523,
+      "indian": 2.318988084793091,
+      "black": 0.45840638875961304,
+      "white": 53.09790802001953,
+      "middle eastern": 8.895798683166504,
+      "latino hispanic": 11.481913566589355
+    },
+    "dominant_race": "white"
+  },
+  "Ciaran_Hinds_0001.jpg": {
+    "age": 30.0,
+    "gender": "Man",
+    "race": {
+      "asian": 3.7326886653900146,
+      "indian": 21.334135055541992,
+      "black": 5.059077739715576,
+      "white": 22.972763061523438,
+      "middle eastern": 29.39397430419922,
+      "latino hispanic": 17.507366180419922
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Cindy_Crawford_0001.jpg": {
+    "age": 28.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.11648024618625641,
+      "indian": 0.8693281412124634,
+      "black": 0.1069812998175621,
+      "white": 71.06037139892578,
+      "middle eastern": 12.941859245300293,
+      "latino hispanic": 14.904975891113281
+    },
+    "dominant_race": "white"
+  },
+  "Ciro_Gomes_0001.jpg": {
+    "age": 34.0,
+    "gender": "Man",
+    "race": {
+      "asian": 35.98973846435547,
+      "indian": 13.020665168762207,
+      "black": 6.991987228393555,
+      "white": 11.68326187133789,
+      "middle eastern": 10.681619644165039,
+      "latino hispanic": 21.632732391357422
+    },
+    "dominant_race": "asian"
+  },
+  "Claire_Danes_0001.jpg": {
+    "age": 31.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.008500335738062859,
+      "indian": 0.0034526586532592773,
+      "black": 8.683817577548325e-05,
+      "white": 96.96308135986328,
+      "middle eastern": 1.0244165658950806,
+      "latino hispanic": 2.000458240509033
+    },
+    "dominant_race": "white"
+  },
+  "Clara_Harris_0001.jpg": {
+    "age": 32.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 8.159043312072754,
+      "indian": 6.314785003662109,
+      "black": 1.8254873752593994,
+      "white": 31.468284606933594,
+      "middle eastern": 20.50335121154785,
+      "latino hispanic": 31.729047775268555
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Clare_Latimer_0001.jpg": {
+    "age": 33.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.0026210963260382414,
+      "indian": 0.00012066062481608242,
+      "black": 5.292932314659993e-07,
+      "white": 99.65202331542969,
+      "middle eastern": 0.08040861785411835,
+      "latino hispanic": 0.2648197412490845
+    },
+    "dominant_race": "white"
+  },
+  "Clark_Randt_0001.jpg": {
+    "age": 42.0,
+    "gender": "Man",
+    "race": {
+      "asian": 2.131601095199585,
+      "indian": 11.327786445617676,
+      "black": 0.8568458557128906,
+      "white": 33.59111785888672,
+      "middle eastern": 33.3612174987793,
+      "latino hispanic": 18.73143196105957
+    },
+    "dominant_race": "white"
+  },
+  "Claudette_Robinson_0001.jpg": {
+    "age": 46.0,
+    "gender": "Man",
+    "race": {
+      "asian": 6.5895562171936035,
+      "indian": 2.777062177658081,
+      "black": 0.6800805330276489,
+      "white": 52.02358627319336,
+      "middle eastern": 13.97259521484375,
+      "latino hispanic": 23.957109451293945
+    },
+    "dominant_race": "white"
+  },
+  "Claude_Jorda_0001.jpg": {
+    "age": 45.0,
+    "gender": "Man",
+    "race": {
+      "asian": 8.422440528869629,
+      "indian": 15.726295471191406,
+      "black": 2.1869046688079834,
+      "white": 7.352382659912109,
+      "middle eastern": 7.461174011230469,
+      "latino hispanic": 58.850807189941406
+    },
+    "dominant_race": "latino hispanic"
+  },
+  "Claudia_Cardinale_0001.jpg": {
+    "age": 24.0,
+    "gender": "Man",
+    "race": {
+      "asian": 44.29287338256836,
+      "indian": 0.5434035062789917,
+      "black": 0.9238693118095398,
+      "white": 45.30155563354492,
+      "middle eastern": 4.275675296783447,
+      "latino hispanic": 4.662625789642334
+    },
+    "dominant_race": "white"
+  },
+  "Claudine_Farrell_0001.jpg": {
+    "age": 33.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.037419576197862625,
+      "indian": 0.15248118340969086,
+      "black": 0.0043436745181679726,
+      "white": 79.69927215576172,
+      "middle eastern": 8.986349105834961,
+      "latino hispanic": 11.120138168334961
+    },
+    "dominant_race": "white"
+  },
+  "Claudio_Abbado_0001.jpg": {
+    "age": 49.0,
+    "gender": "Man",
+    "race": {
+      "asian": 1.2770485877990723,
+      "indian": 0.7424781322479248,
+      "black": 0.10353899747133255,
+      "white": 75.57810974121094,
+      "middle eastern": 11.060675621032715,
+      "latino hispanic": 11.238153457641602
+    },
+    "dominant_race": "white"
+  },
+  "Clay_Aiken_0001.jpg": {
+    "age": 27.0,
+    "gender": "Man",
+    "race": {
+      "asian": 2.3889811038970947,
+      "indian": 2.5172765254974365,
+      "black": 0.33793777227401733,
+      "white": 49.0677490234375,
+      "middle eastern": 22.842445373535156,
+      "latino hispanic": 22.84560203552246
+    },
+    "dominant_race": "white"
+  },
+  "Clemente_de_la_Vega_0001.jpg": {
+    "age": 36.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.46121999621391296,
+      "indian": 1.3682031631469727,
+      "black": 0.1053365096449852,
+      "white": 78.12257385253906,
+      "middle eastern": 12.546931266784668,
+      "latino hispanic": 7.395735263824463
+    },
+    "dominant_race": "white"
+  },
+  "Clifford_Etienne_0001.jpg": {
+    "age": 29.0,
+    "gender": "Man",
+    "race": {
+      "asian": 1.660300910089063e-07,
+      "indian": 3.377157190698199e-05,
+      "black": 99.99996185302734,
+      "white": 2.2162056911856354e-10,
+      "middle eastern": 8.0370134158958e-11,
+      "latino hispanic": 3.578273037874169e-07
+    },
+    "dominant_race": "black"
+  },
+  "Cliff_Ellis_0001.jpg": {
+    "age": 42.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.5173864364624023,
+      "indian": 0.10446811467409134,
+      "black": 0.009356771595776081,
+      "white": 89.26703643798828,
+      "middle eastern": 5.305038928985596,
+      "latino hispanic": 4.796713352203369
+    },
+    "dominant_race": "white"
+  },
+  "Clint_Eastwood_0001.jpg": {
+    "age": 28.0,
+    "gender": "Man",
+    "race": {
+      "asian": 9.894283614642063e-09,
+      "indian": 1.675370397968834e-09,
+      "black": 3.623675144670546e-12,
+      "white": 99.9995346069336,
+      "middle eastern": 0.0002592778764665127,
+      "latino hispanic": 0.00020798738114535809
+    },
+    "dominant_race": "white"
+  },
+  "Clive_Lloyd_0001.jpg": {
+    "age": 39.0,
+    "gender": "Man",
+    "race": {
+      "asian": 1.403887152671814,
+      "indian": 2.1357192993164062,
+      "black": 0.9683635830879211,
+      "white": 62.40695571899414,
+      "middle eastern": 18.921480178833008,
+      "latino hispanic": 14.163591384887695
+    },
+    "dominant_race": "white"
+  },
+  "Coco_dEste_0001.jpg": {
+    "age": 33.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 5.6064372062683105,
+      "indian": 7.7779860496521,
+      "black": 2.109341859817505,
+      "white": 35.41353225708008,
+      "middle eastern": 24.280746459960938,
+      "latino hispanic": 24.811962127685547
+    },
+    "dominant_race": "white"
+  },
+  "Coleen_Rowley_0001.jpg": {
+    "age": 37.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.3576142489910126,
+      "indian": 0.28638893365859985,
+      "black": 0.014844631776213646,
+      "white": 86.13426208496094,
+      "middle eastern": 5.307892799377441,
+      "latino hispanic": 7.898996829986572
+    },
+    "dominant_race": "white"
+  },
+  "Cole_Chapman_0001.jpg": {
+    "age": 26.0,
+    "gender": "Man",
+    "race": {
+      "asian": 25.510583877563477,
+      "indian": 1.4249099493026733,
+      "black": 0.45393916964530945,
+      "white": 45.06162643432617,
+      "middle eastern": 7.629140853881836,
+      "latino hispanic": 19.9197940826416
+    },
+    "dominant_race": "white"
+  },
+  "Colin_Campbell_0001.jpg": {
+    "age": 37.0,
+    "gender": "Man",
+    "race": {
+      "asian": 9.70354175567627,
+      "indian": 13.188329696655273,
+      "black": 35.73247528076172,
+      "white": 7.574397087097168,
+      "middle eastern": 7.0640058517456055,
+      "latino hispanic": 26.73724937438965
+    },
+    "dominant_race": "black"
+  },
+  "Colleen_Atwood_0001.jpg": {
+    "age": 45.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 8.3689603805542,
+      "indian": 3.991966962814331,
+      "black": 1.7853220701217651,
+      "white": 40.877296447753906,
+      "middle eastern": 19.059438705444336,
+      "latino hispanic": 25.917016983032227
+    },
+    "dominant_race": "white"
+  },
+  "Collis_Temple_III_0001.jpg": {
+    "age": 26.0,
+    "gender": "Man",
+    "race": {
+      "asian": 6.293432235717773,
+      "indian": 16.755842208862305,
+      "black": 53.61570739746094,
+      "white": 3.450347423553467,
+      "middle eastern": 3.994169235229492,
+      "latino hispanic": 15.890499114990234
+    },
+    "dominant_race": "black"
+  },
+  "Columba_Bush_0001.jpg": {
+    "age": 38.0,
+    "gender": "Man",
+    "race": {
+      "asian": 1.812882661819458,
+      "indian": 0.5509294271469116,
+      "black": 0.06856442987918854,
+      "white": 79.23880004882812,
+      "middle eastern": 10.226003646850586,
+      "latino hispanic": 8.102825164794922
+    },
+    "dominant_race": "white"
+  },
+  "Compay_Segundo_0001.jpg": {
+    "age": 45.0,
+    "gender": "Man",
+    "race": {
+      "asian": 33.460208892822266,
+      "indian": 19.792102813720703,
+      "black": 30.373188018798828,
+      "white": 1.044170618057251,
+      "middle eastern": 0.9571874737739563,
+      "latino hispanic": 14.373144149780273
+    },
+    "dominant_race": "asian"
+  },
+  "Conan_OBrien_0001.jpg": {
+    "age": 35.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.00012123015039833263,
+      "indian": 1.9342007817613194e-06,
+      "black": 1.092800339108635e-08,
+      "white": 99.99309539794922,
+      "middle eastern": 0.004322532098740339,
+      "latino hispanic": 0.002461451105773449
+    },
+    "dominant_race": "white"
+  },
+  "Conchita_Martinez_0001.jpg": {
+    "age": 23.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.0013046738458797336,
+      "indian": 0.00032979960087686777,
+      "black": 1.7198266277773655e-06,
+      "white": 98.96331024169922,
+      "middle eastern": 0.5469271540641785,
+      "latino hispanic": 0.4881298243999481
+    },
+    "dominant_race": "white"
+  },
+  "Condoleezza_Rice_0001.jpg": {
+    "age": 32.0,
+    "gender": "Man",
+    "race": {
+      "asian": 49.48115921020508,
+      "indian": 15.264779090881348,
+      "black": 16.541933059692383,
+      "white": 1.7395614385604858,
+      "middle eastern": 0.6836857199668884,
+      "latino hispanic": 16.288890838623047
+    },
+    "dominant_race": "asian"
+  },
+  "Connie_Chung_0001.jpg": {
+    "age": 34.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 65.856689453125,
+      "indian": 0.897100567817688,
+      "black": 0.2416992485523224,
+      "white": 23.474973678588867,
+      "middle eastern": 2.601545810699463,
+      "latino hispanic": 6.9279937744140625
+    },
+    "dominant_race": "asian"
+  },
+  "Conrad_Black_0001.jpg": {
+    "age": 30.0,
+    "gender": "Man",
+    "race": {
+      "asian": 21.81458282470703,
+      "indian": 2.9267497062683105,
+      "black": 1.0124046802520752,
+      "white": 45.087955474853516,
+      "middle eastern": 10.681289672851562,
+      "latino hispanic": 18.47701644897461
+    },
+    "dominant_race": "white"
+  },
+  "Constance_Marie_0001.jpg": {
+    "age": 31.0,
+    "gender": "Man",
+    "race": {
+      "asian": 6.424930095672607,
+      "indian": 4.379086017608643,
+      "black": 3.5927929878234863,
+      "white": 47.79228973388672,
+      "middle eastern": 20.403701782226562,
+      "latino hispanic": 17.407197952270508
+    },
+    "dominant_race": "white"
+  },
+  "Cora_Cambell_0001.jpg": {
+    "age": 29.0,
+    "gender": "Man",
+    "race": {
+      "asian": 1.935408353805542,
+      "indian": 0.9690899848937988,
+      "black": 0.14689168334007263,
+      "white": 65.79670715332031,
+      "middle eastern": 16.140119552612305,
+      "latino hispanic": 15.01179313659668
+    },
+    "dominant_race": "white"
+  },
+  "Coretta_Scott_King_0001.jpg": {
+    "age": 35.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 46.91324234008789,
+      "indian": 8.096837997436523,
+      "black": 6.8080058097839355,
+      "white": 6.071976184844971,
+      "middle eastern": 2.398059368133545,
+      "latino hispanic": 29.711872100830078
+    },
+    "dominant_race": "asian"
+  },
+  "Corey_Maggette_0001.jpg": {
+    "age": 23.0,
+    "gender": "Man",
+    "race": {
+      "asian": 1.0098930597305298,
+      "indian": 0.4666292071342468,
+      "black": 98.3047103881836,
+      "white": 0.00585707975551486,
+      "middle eastern": 0.0012298432411625981,
+      "latino hispanic": 0.21168556809425354
+    },
+    "dominant_race": "black"
+  },
+  "Corinna_Harfouch_0001.jpg": {
+    "age": 27.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 4.590191906572727e-07,
+      "indian": 2.081133931852719e-09,
+      "black": 1.5253025622066763e-12,
+      "white": 99.99929809570312,
+      "middle eastern": 0.0003442289598751813,
+      "latino hispanic": 0.00036071031354367733
+    },
+    "dominant_race": "white"
+  },
+  "Corinne_Coman_0001.jpg": {
+    "age": 35.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 49.07691955566406,
+      "indian": 8.710027694702148,
+      "black": 27.614089965820312,
+      "white": 1.053136944770813,
+      "middle eastern": 0.43299198150634766,
+      "latino hispanic": 13.112832069396973
+    },
+    "dominant_race": "asian"
+  },
+  "Cori_Enghusen_0001.jpg": {
+    "age": 30.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.0015792222693562508,
+      "indian": 0.0009000676800496876,
+      "black": 1.888200313260313e-05,
+      "white": 98.52432250976562,
+      "middle eastern": 1.0472217798233032,
+      "latino hispanic": 0.4259624481201172
+    },
+    "dominant_race": "white"
+  },
+  "Corliss_Williamson_0001.jpg": {
+    "age": 28.0,
+    "gender": "Man",
+    "race": {
+      "asian": 5.4727654457092285,
+      "indian": 6.0139079093933105,
+      "black": 81.32659912109375,
+      "white": 0.30714529752731323,
+      "middle eastern": 0.17422345280647278,
+      "latino hispanic": 6.705360412597656
+    },
+    "dominant_race": "black"
+  },
+  "Cosmo_Iacavazzi_0001.jpg": {
+    "age": 49.0,
+    "gender": "Man",
+    "race": {
+      "asian": 1.3147448301315308,
+      "indian": 11.173514366149902,
+      "black": 1.8356293439865112,
+      "white": 22.20177459716797,
+      "middle eastern": 40.931671142578125,
+      "latino hispanic": 22.542661666870117
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Costas_Simitis_0001.jpg": {
+    "age": 30.0,
+    "gender": "Man",
+    "race": {
+      "asian": 1.6605379581451416,
+      "indian": 12.604960441589355,
+      "black": 1.5471889972686768,
+      "white": 16.57188606262207,
+      "middle eastern": 45.831298828125,
+      "latino hispanic": 21.784128189086914
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Courtney_Cox_0001.jpg": {
+    "age": 32.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 1.103575687011471e-05,
+      "indian": 5.126636824570596e-05,
+      "black": 1.0492588842225814e-07,
+      "white": 99.71189880371094,
+      "middle eastern": 0.11828669905662537,
+      "latino hispanic": 0.1697612702846527
+    },
+    "dominant_race": "white"
+  },
+  "Craig_Burley_0001.jpg": {
+    "age": 33.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.360941082239151,
+      "indian": 5.149419784545898,
+      "black": 0.17141734063625336,
+      "white": 58.59305953979492,
+      "middle eastern": 22.211759567260742,
+      "latino hispanic": 13.513410568237305
+    },
+    "dominant_race": "white"
+  },
+  "Crandall_Bowles_0001.jpg": {
+    "age": 43.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.17272460460662842,
+      "indian": 0.2548399269580841,
+      "black": 0.0018052614759653807,
+      "white": 86.56648254394531,
+      "middle eastern": 7.908438205718994,
+      "latino hispanic": 5.095711708068848
+    },
+    "dominant_race": "white"
+  },
+  "Crispin_Glover_0001.jpg": {
+    "age": 48.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.014126244932413101,
+      "indian": 0.1595897227525711,
+      "black": 0.0044214967638254166,
+      "white": 73.56736755371094,
+      "middle eastern": 18.542699813842773,
+      "latino hispanic": 7.711798191070557
+    },
+    "dominant_race": "white"
+  },
+  "Cristiano_da_Matta_0001.jpg": {
+    "age": 34.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.6389247179031372,
+      "indian": 4.104145050048828,
+      "black": 0.35228052735328674,
+      "white": 36.53712844848633,
+      "middle eastern": 41.265621185302734,
+      "latino hispanic": 17.10190200805664
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Cristian_Barros_0001.jpg": {
+    "age": 36.0,
+    "gender": "Man",
+    "race": {
+      "asian": 1.2334774732589722,
+      "indian": 5.891487121582031,
+      "black": 0.44451704621315,
+      "white": 39.427215576171875,
+      "middle eastern": 34.099510192871094,
+      "latino hispanic": 18.903785705566406
+    },
+    "dominant_race": "white"
+  },
+  "Cristina_Fernandez_0001.jpg": {
+    "age": 24.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.031072037294507027,
+      "indian": 0.5360215306282043,
+      "black": 0.028794094920158386,
+      "white": 64.55535125732422,
+      "middle eastern": 25.502185821533203,
+      "latino hispanic": 9.346587181091309
+    },
+    "dominant_race": "white"
+  },
+  "Cruz_Bustamante_0001.jpg": {
+    "age": 38.0,
+    "gender": "Man",
+    "race": {
+      "asian": 1.2870597839355469,
+      "indian": 10.210212707519531,
+      "black": 1.1844583749771118,
+      "white": 20.807510375976562,
+      "middle eastern": 34.55057907104492,
+      "latino hispanic": 31.960174560546875
+    },
+    "dominant_race": "middle eastern"
+  },
+  "Cuba_Gooding_Jr_0001.jpg": {
+    "age": 30.0,
+    "gender": "Man",
+    "race": {
+      "asian": 6.24548306404904e-08,
+      "indian": 6.522123385366285e-06,
+      "black": 99.99999237060547,
+      "white": 3.6728266261665254e-11,
+      "middle eastern": 1.2354615941401192e-10,
+      "latino hispanic": 1.5345273141065263e-06
+    },
+    "dominant_race": "black"
+  },
+  "Curtis_Joseph_0001.jpg": {
+    "age": 25.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.03774794191122055,
+      "indian": 0.7536970376968384,
+      "black": 0.04824618250131607,
+      "white": 46.38089370727539,
+      "middle eastern": 44.083656311035156,
+      "latino hispanic": 8.695762634277344
+    },
+    "dominant_race": "white"
+  },
+  "Curt_Weldon_0001.jpg": {
+    "age": 49.0,
+    "gender": "Man",
+    "race": {
+      "asian": 0.2855339050292969,
+      "indian": 0.08218209445476532,
+      "black": 0.006521707400679588,
+      "white": 93.30804443359375,
+      "middle eastern": 3.104881525039673,
+      "latino hispanic": 3.212827444076538
+    },
+    "dominant_race": "white"
+  },
+  "Cyndi_Thompson_0001.jpg": {
+    "age": 33.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 9.483427047729492,
+      "indian": 3.616547107696533,
+      "black": 2.1203620433807373,
+      "white": 36.11210632324219,
+      "middle eastern": 14.858489990234375,
+      "latino hispanic": 33.8090705871582
+    },
+    "dominant_race": "white"
+  },
+  "Cynthia_Nixon_0001.jpg": {
+    "age": 33.0,
+    "gender": "Woman",
+    "race": {
+      "asian": 0.00020708776719402522,
+      "indian": 0.00015909741341602057,
+      "black": 2.8242932330613257e-06,
+      "white": 99.07965087890625,
+      "middle eastern": 0.24094809591770172,
+      "latino hispanic": 0.6790318489074707
+    },
+    "dominant_race": "white"
+  }
+}

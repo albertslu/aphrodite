@@ -1,13 +1,15 @@
 import pandas as pd
 import json
+import random
 
 # Load the spreadsheet
 file_path = "venusdataset.xlsx"  # Replace with your local file path
 df = pd.read_excel(file_path, engine="openpyxl")
 
 # Process profiles
-def extract_profiles_with_conversion(df, num_profiles=10):
-    profiles = []
+def extract_profiles_with_conversion(df, num_profiles=250):
+    # Get all valid profiles first
+    all_profiles = []
     for i, row in df.iterrows():
         profile = {}
         for key, value in row.items():
@@ -17,17 +19,22 @@ def extract_profiles_with_conversion(df, num_profiles=10):
                     profile[key] = value.strftime("%Y-%m-%d %H:%M:%S")
                 else:
                     profile[key] = value
-        profiles.append(profile)
-        if len(profiles) >= num_profiles:
-            break  # Stop after extracting the specified number of profiles
-    return profiles
+        if profile:  # Only add non-empty profiles
+            all_profiles.append(profile)
+    
+    # Randomly sample num_profiles from all valid profiles
+    if len(all_profiles) > num_profiles:
+        return random.sample(all_profiles, num_profiles)
+    return all_profiles
 
-# Extract the first 100 profiles
-profiles_converted = extract_profiles_with_conversion(df, num_profiles=10)
+print(f"Total rows in Excel: {len(df)}")
+
+# Extract 500 random profiles
+profiles_converted = extract_profiles_with_conversion(df, num_profiles=500)
 
 # Save profiles to a JSON file
-output_file = "extracted_10_profiles.json"
-with open(output_file, "w") as f:
-    json.dump(profiles_converted, f, indent=4)
+output_file = "extracted_500_random_profiles.json"
+with open(output_file, "w", encoding="utf-8") as f:
+    json.dump(profiles_converted, f, indent=2, ensure_ascii=False)
 
-print(f"Profiles successfully saved to {output_file}")
+print(f"\nSuccessfully extracted {len(profiles_converted)} profiles to {output_file}")

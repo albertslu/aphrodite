@@ -1,0 +1,3 @@
+@echo off
+set FLICKR_API_KEY=93c73cb77a77eaaa1d53f121aaae07f7
+set FLICKR_API_SECRET=f29e176df48bd8c9

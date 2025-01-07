@@ -2,22 +2,22 @@
 import React from 'react';
 import './App.css';
 import ProfileCreation from './ProfileCreation';
-import PreferenceInput from './PreferenceInput';
-import ProfileBrowsing from './ProfileBrowsing';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Login from './Login';
+import Signup from './Signup';
+import Preferences from './Preferences';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 
 function App() {
     return (
         <Router>
             <div className="App">
-                <header className="App-header">
-                    <h1>Profile Matching App</h1>
-                    <Routes>
-                        <Route path="/" element={<ProfileCreation />} />
-                        <Route path="/preferences" element={<PreferenceInput />} />
-                        <Route path="/browse" element={<ProfileBrowsing />} />
-                    </Routes>
-                </header>
+                <Routes>
+                    <Route path="/" element={<Login />} />
+                    <Route path="/signup" element={<Signup />} />
+                    <Route path="/create-profile" element={<ProfileCreation />} />
+                    <Route path="/preferences" element={<Preferences />} />
+                    <Route path="/matches" element={<div>Matches Page (Coming Soon)</div>} />
+                </Routes>
             </div>
         </Router>
     );
