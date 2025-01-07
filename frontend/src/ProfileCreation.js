@@ -36,18 +36,25 @@ const ProfileCreation = () => {
     const handlePhotoChange = (e) => {
         const files = Array.from(e.target.files);
         
-        if (files.length > 3) {
+        // Check if adding new files would exceed the 3 photo limit
+        if (photos.length + files.length > 3) {
             setPhotoErrors('You can only upload up to 3 photos');
             return;
         }
 
+        // Check file sizes
         if (files.some(file => file.size > 5 * 1024 * 1024)) {
             setPhotoErrors('Each photo must be less than 5MB');
             return;
         }
 
         setPhotoErrors('');
-        setPhotos(files);
+        // Append new photos to existing ones
+        setPhotos(prevPhotos => [...prevPhotos, ...files].slice(0, 3));
+    };
+
+    const removePhoto = (index) => {
+        setPhotos(prevPhotos => prevPhotos.filter((_, i) => i !== index));
     };
 
     const handleSubmit = async (e) => {
@@ -202,7 +209,7 @@ const ProfileCreation = () => {
                         accept="image/*"
                         multiple
                         onChange={handlePhotoChange}
-                        required
+                        required={photos.length === 0}
                     />
                     <small>Upload up to 3 photos (max 5MB each)</small>
                     {photoErrors && <p className="error">{photoErrors}</p>}
@@ -213,6 +220,13 @@ const ProfileCreation = () => {
                                     src={URL.createObjectURL(photo)}
                                     alt={`Preview ${index + 1}`}
                                 />
+                                <button 
+                                    type="button" 
+                                    className="remove-photo"
+                                    onClick={() => removePhoto(index)}
+                                >
+                                    ✕
+                                </button>
                             </div>
                         ))}
                     </div>
