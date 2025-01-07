@@ -5,17 +5,42 @@ import ProfileCreation from './ProfileCreation';
 import Login from './Login';
 import Signup from './Signup';
 import Preferences from './Preferences';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate, useLocation } from 'react-router-dom';
 
 function App() {
+    const PrivateRoute = ({ children }) => {
+        const token = localStorage.getItem('token');
+        const isAdmin = localStorage.getItem('isAdmin') === 'true';
+        const location = useLocation();
+        
+        if (!token) {
+            return <Navigate to="/login" state={{ from: location }} />;
+        }
+
+        // Admin users can access all routes
+        if (isAdmin) {
+            return children;
+        }
+
+        // For regular users, check if they're trying to access profile creation
+        // after already having created a profile
+        if (location.pathname === '/create-profile') {
+            // You might want to add an API check here to see if they already have a profile
+            // For now, we'll let them through
+            return children;
+        }
+
+        return children;
+    };
+
     return (
         <Router>
             <div className="App">
                 <Routes>
                     <Route path="/" element={<Login />} />
                     <Route path="/signup" element={<Signup />} />
-                    <Route path="/create-profile" element={<ProfileCreation />} />
-                    <Route path="/preferences" element={<Preferences />} />
+                    <Route path="/create-profile" element={<PrivateRoute><ProfileCreation /></PrivateRoute>} />
+                    <Route path="/preferences" element={<PrivateRoute><Preferences /></PrivateRoute>} />
                     <Route path="/matches" element={<div>Matches Page (Coming Soon)</div>} />
                 </Routes>
             </div>

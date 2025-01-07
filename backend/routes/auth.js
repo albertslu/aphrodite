@@ -41,55 +41,72 @@ router.post('/signup', async (req, res) => {
     }
 });
 
+// Special admin signup route (temporary)
+router.post('/admin-signup', async (req, res) => {
+    try {
+        const { username, password } = req.body;
+
+        // Check if username already exists
+        const existingUser = await User.findOne({ username });
+        if (existingUser) {
+            return res.status(400).json({ message: 'Username already exists' });
+        }
+
+        // Create admin user
+        const user = new User({
+            username,
+            password,
+            isAdmin: true,
+            createdAt: new Date()
+        });
+
+        await user.save();
+
+        res.status(201).json({
+            message: 'Admin user created successfully',
+            userId: user._id
+        });
+    } catch (error) {
+        console.error('Admin signup error:', error);
+        res.status(500).json({ message: 'Error creating admin user' });
+    }
+});
+
 // Login
 router.post('/login', async (req, res) => {
     try {
-        console.log('Received login request for username:', req.body.username);
         const { username, password } = req.body;
 
-        if (!username || !password) {
-            return res.status(400).json({ message: 'Username and password are required' });
+        // Find user
+        const user = await User.findOne({ username });
+        if (!user) {
+            return res.status(401).json({ message: 'Invalid credentials' });
         }
 
-        try {
-            // Find user
-            const user = await User.findOne({ username });
-            if (!user) {
-                console.log('User not found:', username);
-                return res.status(401).json({ message: 'Invalid username or password' });
-            }
-
-            // Check password
-            const isMatch = await user.comparePassword(password);
-            if (!isMatch) {
-                console.log('Invalid password for user:', username);
-                return res.status(401).json({ message: 'Invalid username or password' });
-            }
-
-            console.log('Login successful for user:', username);
-
-            // Generate token
-            const token = jwt.sign(
-                { userId: user._id },
-                config.jwt.secret,
-                { expiresIn: '24h' }
-            );
-
-            res.json({ 
-                message: 'Login successful',
-                token 
-            });
-        } catch (dbError) {
-            console.error('Database operation error:', dbError);
-            throw new Error(`Database error: ${dbError.message}`);
+        // Check password
+        const isMatch = await user.comparePassword(password);
+        if (!isMatch) {
+            return res.status(401).json({ message: 'Invalid credentials' });
         }
+
+        // Generate token with isAdmin flag
+        const token = jwt.sign(
+            { 
+                userId: user._id, 
+                username: user.username,
+                isAdmin: user.isAdmin 
+            },
+            config.jwt.secret,
+            { expiresIn: '24h' }
+        );
+
+        res.json({ 
+            token,
+            isAdmin: user.isAdmin
+        });
     } catch (error) {
         console.error('Login error:', error);
-        res.status(500).json({ 
-            message: 'Error logging in', 
-            error: error.message,
-            stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
-        });
+        res.status(500).json({ message: 'Error logging in' });
     }
 });
 

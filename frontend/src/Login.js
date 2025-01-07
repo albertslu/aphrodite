@@ -46,8 +46,15 @@ const Login = () => {
             }
 
             localStorage.setItem('token', data.token);
+            localStorage.setItem('isAdmin', data.isAdmin);
 
-            // Check if user has a profile
+            // If admin user, always go to profile creation
+            if (data.isAdmin) {
+                navigate('/create-profile');
+                return;
+            }
+
+            // For regular users, check if they have a profile
             const profileResponse = await fetch('http://localhost:5000/api/profile', {
                 headers: {
                     'Authorization': `Bearer ${data.token}`
