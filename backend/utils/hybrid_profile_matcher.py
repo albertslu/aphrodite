@@ -275,6 +275,29 @@ class HybridProfileMatcher:
         
         return weight_multiplier
 
+    def height_to_inches(self, height_str: str) -> Optional[int]:
+        """Convert height string (e.g. "5'10"") to inches"""
+        try:
+            if not height_str:
+                return None
+                
+            # Remove any whitespace and double quotes
+            height_str = height_str.strip().replace('"', '')
+            
+            # Try to parse X'Y" format
+            match = re.match(r"(\d+)'(\d+)", height_str)
+            if match:
+                feet, inches = map(int, match.groups())
+                return feet * 12 + inches
+                
+            # If it's already in inches (just a number), return it
+            if height_str.isdigit():
+                return int(height_str)
+                
+            return None
+        except Exception:
+            return None
+
     def filter_profiles_by_preferences(self, preferences: Dict) -> List[Dict]:
         """Filter profiles based on extracted preferences"""
         try:
@@ -312,18 +335,20 @@ class HybridProfileMatcher:
                 
                 # Height requirements
                 if "tall" in preferences.get('prompt', '').lower():
-                    height = profile.get('height')
-                    if height is not None:  # Only check if height is specified
-                        if profile['gender'] == 'male' and height < 70:  # 5'10" (allowing 2 inches below 6'0")
+                    height_str = profile.get('height')
+                    height_inches = self.height_to_inches(height_str)
+                    if height_inches is not None:  # Only check if height is specified and valid
+                        if profile['gender'] == 'male' and height_inches < 70:  # 5'10" (allowing 2 inches below 6'0")
                             continue
-                        elif profile['gender'] == 'female' and height < 66:  # 5'6" (allowing 2 inches below 5'8")
+                        elif profile['gender'] == 'female' and height_inches < 66:  # 5'6" (allowing 2 inches below 5'8")
                             continue
                 elif "short" in preferences.get('prompt', '').lower():
-                    height = profile.get('height')
-                    if height is not None:  # Only check if height is specified
-                        if profile['gender'] == 'male' and height > 67:  # 5'7"
+                    height_str = profile.get('height')
+                    height_inches = self.height_to_inches(height_str)
+                    if height_inches is not None:  # Only check if height is specified and valid
+                        if profile['gender'] == 'male' and height_inches > 67:  # 5'7"
                             continue
-                        elif profile['gender'] == 'female' and height > 63:  # 5'3"
+                        elif profile['gender'] == 'female' and height_inches > 63:  # 5'3"
                             continue
                 
                 # Education requirements
