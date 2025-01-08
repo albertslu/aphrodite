@@ -63,10 +63,15 @@ const authenticateToken = (req, res, next) => {
 // Create profile
 router.post('/', authenticateToken, upload.none(), async (req, res) => {
     try {
-        console.log('Creating profile with data:', req.body);
+        console.log('Profile creation request received');
+        console.log('Headers:', req.headers);
+        console.log('Body:', req.body);
+        console.log('Files:', req.files);
+        
         const user = await User.findById(req.user.userId);
         
         if (!user) {
+            console.log('User not found:', req.user.userId);
             return res.status(404).json({ message: 'User not found' });
         }
 
