@@ -2,26 +2,33 @@ const mongoose = require('mongoose');
 const fs = require('fs');
 const path = require('path');
 const Profile = require('../models/Profile');
-require('dotenv').config({ path: path.join(__dirname, '../../.env') });
+const config = require('../config');
 
-// Get the MongoDB URI and ensure it has the right format
-const MONGODB_URI = process.env.MONGODB_URI.replace('?tls=true', '?retryWrites=true&w=majority');
+console.log('Attempting to connect to MongoDB...');
+console.log('MongoDB URI:', config.mongodb.uri.replace(/:[^:]*@/, ':****@'));
 
-// Log the MongoDB URI (with password hidden)
-const uriWithHiddenPassword = MONGODB_URI.replace(/\/\/[^:]+:[^@]+@/, '//***:***@');
-console.log('Connecting to MongoDB:', uriWithHiddenPassword);
-
-// MongoDB Atlas connection with better error handling
-mongoose.connect(MONGODB_URI)
-    .then(() => {
-        console.log('Successfully connected to MongoDB.');
-        // Only start seeding after connection is established
-        seedProfiles();
-    })
-    .catch(err => {
-        console.error('MongoDB connection error:', err);
-        process.exit(1);
-    });
+// MongoDB Atlas connection with proper options
+mongoose.connect(config.mongodb.uri, {
+    serverSelectionTimeoutMS: 10000,
+    socketTimeoutMS: 45000,
+    family: 4  // Force IPv4
+})
+.then(() => {
+    console.log('=================================');
+    console.log('✅ MongoDB connected successfully!');
+    console.log('Database:', mongoose.connection.name);
+    console.log('Host:', mongoose.connection.host);
+    console.log('=================================');
+    // Only start seeding after connection is established
+    seedProfiles();
+})
+.catch(err => {
+    console.error('❌ MongoDB connection error:', err);
+    if (err.cause) {
+        console.error('Cause:', err.cause.message);
+    }
+    process.exit(1);
+});
 
 // Convert height from inches to readable format
 const formatHeight = (inches) => {
@@ -193,25 +200,33 @@ const copyImages = async () => {
 // Function to seed profiles
 const seedProfiles = async () => {
     try {
-        // Clear existing profiles
-        console.log('Clearing existing profiles...');
-        await Profile.deleteMany({});
-        console.log('Cleared existing profiles');
+        // Instead of clearing profiles, check which ones already exist
+        console.log('Checking existing profiles...');
+        const existingProfiles = await Profile.find({});
+        console.log(`Found ${existingProfiles.length} existing profiles`);
 
         // Copy images
         console.log('Copying images...');
         await copyImages();
         console.log('Copied images to uploads directory');
 
-        // Create new profiles
-        console.log('Creating new profiles...');
-        const createdProfiles = await Profile.insertMany(allProfiles);
-        console.log(`Created ${createdProfiles.length} profiles`);
+        // Filter out profiles that already exist (by name)
+        const existingNames = new Set(existingProfiles.map(p => p.name));
+        const profilesToAdd = allProfiles.filter(p => !existingNames.has(p.name));
 
-        // Log created profiles for verification
-        createdProfiles.forEach(profile => {
-            console.log(`Created profile: ${profile.name} (${profile.gender}, ${profile.age}, ${profile.ethnicity})`);
-        });
+        if (profilesToAdd.length === 0) {
+            console.log('All profiles already exist in the database');
+        } else {
+            // Create new profiles
+            console.log(`Adding ${profilesToAdd.length} new profiles...`);
+            const createdProfiles = await Profile.insertMany(profilesToAdd);
+            console.log(`Created ${createdProfiles.length} new profiles`);
+
+            // Log created profiles for verification
+            createdProfiles.forEach(profile => {
+                console.log(`Created profile: ${profile.name} (${profile.gender}, ${profile.age}, ${profile.ethnicity})`);
+            });
+        }
 
         console.log('Seeding completed successfully');
         mongoose.disconnect();
