@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { spawn } = require('child_process');
 const path = require('path');
+const os = require('os');
 
 // POST endpoint for profile matching
 router.post('/match-profiles', async (req, res) => {
@@ -13,23 +14,38 @@ router.post('/match-profiles', async (req, res) => {
 
     try {
         const pythonScript = path.join(__dirname, '..', 'utils', 'hybrid_profile_matcher.py');
-        const pythonProcess = spawn('python', [pythonScript, '--prompt', prompt]);
+        // Use python on Windows, and python3 on other platforms, and add debug flag
+        const pythonExecutable = os.platform() === 'win32' ? 'python' : 'python3';
+        const pythonProcess = spawn(pythonExecutable, [
+            pythonScript,
+            '--prompt', prompt,
+            '--debug'  // Add debug flag
+        ]);
 
         let matchData = '';
         let errorData = '';
 
         pythonProcess.stdout.on('data', (data) => {
+            console.log('Python output:', data.toString());
             matchData += data.toString();
         });
 
         pythonProcess.stderr.on('data', (data) => {
+            console.error('Python error:', data.toString());
             errorData += data.toString();
-            console.error(`Python Error: ${data}`);
+        });
+
+        pythonProcess.on('error', (error) => {
+            console.error('Failed to start Python process:', error);
+            return res.status(500).json({ 
+                error: 'Failed to start matcher process',
+                details: error.message
+            });
         });
 
         pythonProcess.on('close', (code) => {
+            console.log('Python process exited with code:', code);
             if (code !== 0) {
-                console.error('Python process exited with code:', code);
                 console.error('Error output:', errorData);
                 return res.status(500).json({ 
                     error: 'Profile matching failed',
@@ -38,7 +54,17 @@ router.post('/match-profiles', async (req, res) => {
             }
 
             try {
+                // Try to parse the output as JSON
                 const matches = JSON.parse(matchData);
+                
+                // If we got an empty array, return a more specific message
+                if (!matches || matches.length === 0) {
+                    return res.status(404).json({
+                        error: 'No matches found',
+                        message: 'No profiles matched your preferences. Try broadening your search criteria.'
+                    });
+                }
+
                 res.json({ 
                     matches,
                     metadata: {
@@ -48,15 +74,16 @@ router.post('/match-profiles', async (req, res) => {
                 });
             } catch (parseError) {
                 console.error('Error parsing Python output:', parseError);
+                console.error('Raw output:', matchData);
                 res.status(500).json({ 
-                    error: 'Error parsing matching results',
-                    details: parseError.message
+                    error: 'Invalid matcher output',
+                    details: parseError.message,
+                    rawOutput: matchData
                 });
             }
         });
-
     } catch (error) {
-        console.error('Server error:', error);
+        console.error('Route error:', error);
         res.status(500).json({ 
             error: 'Internal server error',
             details: error.message
@@ -68,7 +95,8 @@ router.post('/match-profiles', async (req, res) => {
 router.get('/status', (req, res) => {
     try {
         const pythonScript = path.join(__dirname, '..', 'utils', 'hybrid_profile_matcher.py');
-        const pythonProcess = spawn('python', [pythonScript, '--check']);
+        const pythonExecutable = os.platform() === 'win32' ? 'python' : 'python3';
+        const pythonProcess = spawn(pythonExecutable, [pythonScript, '--check']);
 
         pythonProcess.on('close', (code) => {
             res.json({

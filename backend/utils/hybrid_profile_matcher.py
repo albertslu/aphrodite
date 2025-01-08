@@ -235,14 +235,20 @@ class HybridProfileMatcher:
         Returns:
             List of matching profiles with scores
         """
+        import logging
+        logger = logging.getLogger(__name__)
+        
         try:
             # Extract preferences for filtering
             preferences = self.extract_preferences(prompt)
+            logger.debug(f"Extracted preferences: {preferences}")
             
             # Filter profiles based on preferences
             filtered_profiles = self.filter_profiles_by_preferences(preferences)
+            logger.debug(f"Found {len(filtered_profiles)} profiles after initial filtering")
             
             if not filtered_profiles:
+                logger.info("No profiles matched the basic criteria")
                 return []
             
             # Generate embedding for the prompt
@@ -254,77 +260,111 @@ class HybridProfileMatcher:
                 for attr in attributes:
                     if attr in prompt.lower():
                         detected_attributes.append(attr)
+            logger.debug(f"Detected physical attributes: {detected_attributes}")
             
             # Determine base image weight based on physical attributes in prompt
             image_weight_multiplier = self.detect_physical_attributes(prompt)
             base_image_weight = 0.4
             max_image_weight = min(0.8, base_image_weight * image_weight_multiplier)
+            logger.debug(f"Image weight multiplier: {image_weight_multiplier}, max weight: {max_image_weight}")
             
             # Calculate similarities for each profile
             results = []
             for profile in filtered_profiles:
-                # Calculate text similarity
-                profile_text = f"{profile.get('aboutMe', '')} {profile.get('interests', '')} {profile.get('relationshipGoals', '')}"
-                profile_embedding = self.generate_text_embedding(profile_text)
-                text_similarity = np.dot(prompt_embedding, profile_embedding)
-                
-                # Calculate image similarity for each photo
-                image_results = []
-                for photo in profile.get('photos', []):
-                    image_path = Path(os.getcwd()) / 'backend' / photo['url'].lstrip('/')
-                    if image_path.exists():
-                        image_result = self.calculate_image_similarity(
-                            str(image_path), 
-                            prompt,
-                            detected_attributes
-                        )
-                        image_results.append(image_result)
-                
-                if image_results:
-                    # Calculate average similarities and confidences
-                    avg_general_similarity = np.mean([r['general_similarity'] for r in image_results])
-                    avg_attribute_confidence = np.mean([r['attribute_confidence'] for r in image_results])
-                    avg_clarity = np.mean([r['clarity_score'] for r in image_results])
+                try:
+                    profile_id = profile.get('_id', 'unknown')
+                    logger.debug(f"Processing profile {profile_id}")
                     
-                    # Adjust image weight based on detection confidence
-                    # If we can't clearly see the attributes, reduce the image weight
-                    confidence_factor = avg_attribute_confidence * avg_clarity
-                    adjusted_image_weight = max_image_weight * confidence_factor
-                else:
-                    avg_general_similarity = 0
-                    avg_attribute_confidence = 0
-                    avg_clarity = 0
-                    adjusted_image_weight = base_image_weight
-                
-                # Ensure text weight + image weight = 1
-                text_weight = 1 - adjusted_image_weight
-                
-                # Calculate combined score with adjusted weights
-                combined_score = (text_weight * text_similarity + 
+                    # Calculate text similarity
+                    profile_text = f"{profile.get('aboutMe', '')} {profile.get('interests', '')} {profile.get('relationshipGoals', '')}"
+                    profile_embedding = self.generate_text_embedding(profile_text)
+                    text_similarity = float(np.dot(prompt_embedding, profile_embedding))
+                    logger.debug(f"Text similarity for profile {profile_id}: {text_similarity}")
+                    
+                    # Calculate image similarity for each photo
+                    image_results = []
+                    for photo in profile.get('photos', []):
+                        try:
+                            image_path = Path(os.getcwd()) / 'backend' / photo['url'].lstrip('/')
+                            logger.debug(f"Processing image: {image_path}")
+                            
+                            if image_path.exists():
+                                image_result = self.calculate_image_similarity(
+                                    str(image_path), 
+                                    prompt,
+                                    detected_attributes
+                                )
+                                image_results.append(image_result)
+                            else:
+                                logger.warning(f"Image not found: {image_path}")
+                        except Exception as e:
+                            logger.error(f"Error processing photo for profile {profile_id}: {str(e)}")
+                            continue
+                    
+                    if image_results:
+                        # Calculate average similarities and confidences
+                        avg_general_similarity = float(np.mean([r['general_similarity'] for r in image_results]))
+                        avg_attribute_confidence = float(np.mean([r['attribute_confidence'] for r in image_results]))
+                        avg_clarity = float(np.mean([r['clarity_score'] for r in image_results]))
+                        
+                        logger.debug(f"Image scores for profile {profile_id}:")
+                        logger.debug(f"- General similarity: {avg_general_similarity}")
+                        logger.debug(f"- Attribute confidence: {avg_attribute_confidence}")
+                        logger.debug(f"- Clarity: {avg_clarity}")
+                        
+                        # Adjust image weight based on detection confidence
+                        confidence_factor = avg_attribute_confidence * avg_clarity
+                        adjusted_image_weight = max_image_weight * confidence_factor
+                    else:
+                        avg_general_similarity = 0.0
+                        avg_attribute_confidence = 0.0
+                        avg_clarity = 0.0
+                        adjusted_image_weight = base_image_weight
+                        logger.debug(f"No valid images found for profile {profile_id}")
+                    
+                    # Ensure text weight + image weight = 1
+                    text_weight = 1 - adjusted_image_weight
+                    
+                    # Calculate final score
+                    final_score = (text_weight * text_similarity + 
                                 adjusted_image_weight * avg_general_similarity)
-                
-                results.append({
-                    'profile': profile,
-                    'score': combined_score,
-                    'text_similarity': text_similarity,
-                    'image_analysis': {
-                        'similarity': avg_general_similarity,
-                        'attribute_confidence': avg_attribute_confidence,
-                        'clarity': avg_clarity
-                    },
-                    'weights': {
-                        'text': float(text_weight),
-                        'image': float(adjusted_image_weight)
+                    
+                    logger.debug(f"Final score for profile {profile_id}: {final_score}")
+                    logger.debug(f"Weights - Text: {text_weight}, Image: {adjusted_image_weight}")
+                    
+                    # Create result object with all relevant information
+                    result = {
+                        "profile": {
+                            "name": profile.get('name'),
+                            "age": profile.get('age'),
+                            "gender": profile.get('gender'),
+                            "ethnicity": profile.get('ethnicity'),
+                            "location": profile.get('location'),
+                            "aboutMe": profile.get('aboutMe'),
+                            "interests": profile.get('interests', []),
+                            "occupation": profile.get('occupation'),
+                            "education": profile.get('education'),
+                            "relationshipGoals": profile.get('relationshipGoals'),
+                            "photos": profile.get('photos', [])
+                        },
+                        "matchScore": float(final_score)
                     }
-                })
+                    
+                    results.append(result)
+                except Exception as e:
+                    logger.error(f"Error processing profile {profile.get('_id', 'unknown')}: {str(e)}")
+                    continue
             
-            # Sort by combined score and return top_k
-            results.sort(key=lambda x: x['score'], reverse=True)
-            return results[:top_k]
+            # Sort by score and return top matches
+            results.sort(key=lambda x: x['matchScore'], reverse=True)
+            top_matches = results[:top_k]
+            
+            logger.info(f"Found {len(top_matches)} matches out of {len(filtered_profiles)} filtered profiles")
+            return top_matches
             
         except Exception as e:
-            print(f"Error in find_matching_profiles: {str(e)}")
-            return []
+            logger.error(f"Error in find_matching_profiles: {str(e)}", exc_info=True)
+            raise
 
     def close(self):
         """Close MongoDB connection"""
@@ -334,67 +374,47 @@ if __name__ == "__main__":
     import argparse
     import json
     import sys
+    import logging
 
-    parser = argparse.ArgumentParser(description='Hybrid Profile Matcher')
-    parser.add_argument('--prompt', type=str, help='Search prompt for matching profiles')
-    parser.add_argument('--check', action='store_true', help='Check if the matcher is working')
-    parser.add_argument('--top-k', type=int, default=5, help='Number of top matches to return')
+    # Set up logging
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(levelname)s - %(message)s'
+    )
+    logger = logging.getLogger(__name__)
+
+    # Parse command line arguments
+    parser = argparse.ArgumentParser(description='Profile Matcher')
+    parser.add_argument('--prompt', type=str, required=True, help='Search prompt')
+    parser.add_argument('--debug', action='store_true', help='Enable debug output')
     args = parser.parse_args()
+
+    if args.debug:
+        logger.setLevel(logging.DEBUG)
 
     try:
         matcher = HybridProfileMatcher()
-
-        if args.check:
-            # Just check if everything is initialized properly
-            print(json.dumps({
-                "status": "ok",
-                "message": "Profile matcher is ready"
-            }))
-            sys.exit(0)
-
-        if not args.prompt:
-            print(json.dumps({
-                "error": "No prompt provided"
-            }))
-            sys.exit(1)
-
+        logger.debug(f"Initialized matcher with prompt: {args.prompt}")
+        
+        # Extract preferences and log them
+        preferences = matcher.extract_preferences(args.prompt)
+        logger.debug(f"Extracted preferences: {preferences}")
+        
+        # Get filtered profiles
+        filtered_profiles = matcher.filter_profiles_by_preferences(preferences)
+        logger.debug(f"Found {len(filtered_profiles)} profiles after filtering")
+        
         # Find matches
-        matches = matcher.find_matching_profiles(args.prompt, args.top_k)
+        matches = matcher.find_matching_profiles(args.prompt)
+        logger.debug(f"Found {len(matches)} matches after similarity calculation")
         
-        # Convert matches to JSON-serializable format
-        results = []
-        for match in matches:
-            profile = match['profile']
-            results.append({
-                "profile": {
-                    "name": profile.get('name'),
-                    "age": profile.get('age'),
-                    "gender": profile.get('gender'),
-                    "ethnicity": profile.get('ethnicity'),
-                    "location": profile.get('location'),
-                    "aboutMe": profile.get('aboutMe'),
-                    "interests": profile.get('interests'),
-                    "photos": profile.get('photos', [])
-                },
-                "scores": {
-                    "total": float(match['score']),
-                    "text": float(match['text_similarity']),
-                    "image": {
-                        "similarity": float(match['image_analysis']['similarity']),
-                        "attribute_confidence": float(match['image_analysis']['attribute_confidence']),
-                        "clarity": float(match['image_analysis']['clarity'])
-                    }
-                }
-            })
+        # Convert matches to JSON and print to stdout
+        print(json.dumps(matches))
+        sys.stdout.flush()
         
-        # Print results as JSON
-        print(json.dumps(results))
-        
+        matcher.close()
+        sys.exit(0)
     except Exception as e:
-        print(json.dumps({
-            "error": str(e)
-        }))
+        logger.error(f"Error in profile matching: {str(e)}", exc_info=True)
+        sys.stderr.write(f"Error: {str(e)}\n")
         sys.exit(1)
-    finally:
-        if 'matcher' in locals():
-            matcher.close()
