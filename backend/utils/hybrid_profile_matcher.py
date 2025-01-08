@@ -222,7 +222,17 @@ class HybridProfileMatcher:
                 '$in': preferences['ethnicities']
             }
         
-        return list(self.profiles_collection.find(query))
+        profiles = list(self.profiles_collection.find(query))
+
+        # Fix image paths
+        for profile in profiles:
+            if 'photos' in profile:
+                profile['photos'] = [
+                    os.path.normpath(os.path.join(os.path.dirname(os.path.dirname(__file__)), 'uploads', os.path.basename(photo)))
+                    for photo in profile['photos']
+                ]
+
+        return profiles
 
     def find_matching_profiles(self, prompt: str, top_k: int = 5) -> List[Dict]:
         """
@@ -285,12 +295,12 @@ class HybridProfileMatcher:
                     image_results = []
                     for photo in profile.get('photos', []):
                         try:
-                            image_path = Path(os.getcwd()) / 'backend' / photo['url'].lstrip('/')
+                            image_path = os.path.normpath(os.path.join(os.path.dirname(os.path.dirname(__file__)), 'uploads', os.path.basename(photo)))
                             logger.debug(f"Processing image: {image_path}")
                             
-                            if image_path.exists():
+                            if os.path.exists(image_path):
                                 image_result = self.calculate_image_similarity(
-                                    str(image_path), 
+                                    image_path, 
                                     prompt,
                                     detected_attributes
                                 )
@@ -350,6 +360,9 @@ class HybridProfileMatcher:
                         "matchScore": float(final_score)
                     }
                     
+                    # Convert ObjectId to string
+                    result["profile"]["_id"] = str(profile["_id"])
+                    
                     results.append(result)
                 except Exception as e:
                     logger.error(f"Error processing profile {profile.get('_id', 'unknown')}: {str(e)}")
@@ -384,13 +397,17 @@ if __name__ == "__main__":
     logger = logging.getLogger(__name__)
 
     # Parse command line arguments
-    parser = argparse.ArgumentParser(description='Profile Matcher')
+    parser = argparse.ArgumentParser(description='Profile Matching Script')
     parser.add_argument('--prompt', type=str, required=True, help='Search prompt')
-    parser.add_argument('--debug', action='store_true', help='Enable debug output')
+    parser.add_argument('--debug', action='store_true', help='Enable debug logging')
     args = parser.parse_args()
 
     if args.debug:
-        logger.setLevel(logging.DEBUG)
+        logging.basicConfig(level=logging.DEBUG, 
+                          format='%(asctime)s - %(levelname)s - %(message)s')
+    else:
+        logging.basicConfig(level=logging.INFO, 
+                          format='%(asctime)s - %(levelname)s - %(message)s')
 
     try:
         matcher = HybridProfileMatcher()
@@ -408,8 +425,22 @@ if __name__ == "__main__":
         matches = matcher.find_matching_profiles(args.prompt)
         logger.debug(f"Found {len(matches)} matches after similarity calculation")
         
-        # Convert matches to JSON and print to stdout
-        print(json.dumps(matches))
+        # Convert matches to JSON-serializable format
+        json_matches = []
+        for match in matches:
+            json_match = {
+                'profile': {
+                    '_id': str(match['profile']['_id']),  
+                    'name': match['profile']['name'],
+                    'bio': match['profile']['aboutMe'],
+                    'interests': match['profile']['interests'],
+                    'occupation': match['profile']['occupation'],
+                    'photos': match['profile']['photos']
+                },
+                'matchScore': float(match['matchScore'])
+            }
+            json_matches.append(json_match)
+        print(json.dumps(json_matches))
         sys.stdout.flush()
         
         matcher.close()
