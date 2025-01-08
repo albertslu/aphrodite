@@ -28,6 +28,25 @@ class HybridProfileMatcher:
         self.db = self.mongo_client['profile_matching']
         self.profiles_collection = self.db['profiles']
 
+        # Physical attributes that CLIP is good at detecting
+        self.physical_attributes = {
+            'body_type': [
+                'athletic', 'muscular', 'fit', 'slim', 'thin', 'curvy', 
+                'plus-size', 'heavy', 'toned', 'built', 'stocky', 'lean'
+            ],
+            'height': [
+                'tall', 'short', 'average height'
+            ],
+            'style': [
+                'well-dressed', 'casual', 'formal', 'professional',
+                'trendy', 'fashionable', 'sporty'
+            ],
+            'features': [
+                'bearded', 'clean-shaven', 'long hair', 'short hair',
+                'tattoos', 'glasses'
+            ]
+        }
+
     def extract_preferences(self, prompt: str) -> Dict:
         """Extract age range, gender, and ethnicity preferences from prompt"""
         preferences = {}
@@ -93,6 +112,33 @@ class HybridProfileMatcher:
             print(f"Error calculating image similarity: {str(e)}")
             return 0.0
 
+    def detect_physical_attributes(self, prompt: str) -> float:
+        """
+        Detect mentions of physical attributes in prompt and return
+        a weight multiplier for image similarity
+        
+        Returns:
+            float: Weight multiplier between 1.0 and 2.0
+        """
+        prompt_lower = prompt.lower()
+        attribute_count = 0
+        total_attributes = 0
+        
+        # Check each category of physical attributes
+        for category, attributes in self.physical_attributes.items():
+            for attr in attributes:
+                total_attributes += 1
+                if attr in prompt_lower:
+                    attribute_count += 1
+        
+        # Calculate weight multiplier:
+        # - Base weight: 1.0
+        # - Each physical attribute mention adds up to 1.0 extra weight
+        # - Maximum multiplier is 2.0 (when many physical attributes are mentioned)
+        weight_multiplier = 1.0 + min(1.0, attribute_count / (total_attributes / 4))
+        
+        return weight_multiplier
+
     def filter_profiles_by_preferences(self, preferences: Dict) -> List[Dict]:
         """Filter profiles based on extracted preferences"""
         query = {}
@@ -140,6 +186,12 @@ class HybridProfileMatcher:
             # Generate embedding for the prompt
             prompt_embedding = self.generate_text_embedding(prompt)
             
+            # Determine image weight based on physical attributes in prompt
+            image_weight_multiplier = self.detect_physical_attributes(prompt)
+            base_image_weight = 0.4
+            adjusted_image_weight = min(0.8, base_image_weight * image_weight_multiplier)
+            text_weight = 1 - adjusted_image_weight
+            
             # Calculate similarities for each profile
             results = []
             for profile in filtered_profiles:
@@ -159,14 +211,19 @@ class HybridProfileMatcher:
                 # Calculate average image similarity
                 avg_image_similarity = np.mean(image_similarities) if image_similarities else 0
                 
-                # Calculate combined score (60% text, 40% image)
-                combined_score = 0.6 * text_similarity + 0.4 * avg_image_similarity
+                # Calculate combined score with dynamic weights
+                combined_score = (text_weight * text_similarity + 
+                                adjusted_image_weight * avg_image_similarity)
                 
                 results.append({
                     'profile': profile,
                     'score': combined_score,
                     'text_similarity': text_similarity,
-                    'image_similarity': avg_image_similarity
+                    'image_similarity': avg_image_similarity,
+                    'weights': {
+                        'text': float(text_weight),
+                        'image': float(adjusted_image_weight)
+                    }
                 })
             
             # Sort by combined score and return top_k
