@@ -85,17 +85,26 @@ class HybridProfileMatcher:
         )
         return np.array(response.data[0].embedding)
 
-    def calculate_image_similarity(self, image_path: str, prompt: str) -> float:
-        """Calculate similarity between image and prompt using CLIP"""
+    def calculate_image_similarity(self, image_path: str, prompt: str, physical_attributes: List[str] = None) -> Dict[str, float]:
+        """
+        Calculate similarity between image and prompt using CLIP, including physical attribute detection
+        
+        Args:
+            image_path: Path to the image
+            prompt: User's search prompt
+            physical_attributes: List of physical attributes to specifically check for
+            
+        Returns:
+            Dict containing general similarity and attribute detection confidences
+        """
         try:
             # Load and preprocess image
             image = Image.open(image_path)
             image_input = self.preprocess(image).unsqueeze(0).to(self.device)
             
-            # Tokenize text
+            # Calculate general prompt similarity
             text = clip.tokenize([prompt]).to(self.device)
             
-            # Calculate similarities
             with torch.no_grad():
                 image_features = self.clip_model.encode_image(image_input)
                 text_features = self.clip_model.encode_text(text)
@@ -104,13 +113,63 @@ class HybridProfileMatcher:
                 image_features /= image_features.norm(dim=-1, keepdim=True)
                 text_features /= text_features.norm(dim=-1, keepdim=True)
                 
-                # Calculate similarity
-                similarity = (100.0 * image_features @ text_features.T).softmax(dim=-1)
+                general_similarity = float((100.0 * image_features @ text_features.T).softmax(dim=-1)[0][0])
+            
+            # If no physical attributes to check, return general similarity
+            if not physical_attributes:
+                return {
+                    'general_similarity': general_similarity,
+                    'attribute_confidence': 0.0,
+                    'clarity_score': 0.0,
+                    'attribute_scores': {}
+                }
+            
+            # Check for specific physical attributes
+            attribute_prompts = [
+                f"a photo clearly showing a person with {attr}" for attr in physical_attributes
+            ]
+            attribute_prompts += [
+                f"a clear full-body photo of a person",
+                f"a clear photo showing someone's physical appearance"
+            ]
+            
+            text_tokens = clip.tokenize(attribute_prompts).to(self.device)
+            
+            with torch.no_grad():
+                text_features = self.clip_model.encode_text(text_tokens)
+                text_features /= text_features.norm(dim=-1, keepdim=True)
                 
-            return float(similarity[0][0])
+                # Calculate similarity for each attribute prompt
+                attribute_similarities = (100.0 * image_features @ text_features.T).softmax(dim=-1)
+                
+                # Get individual attribute confidences
+                attribute_confidences = [float(s) for s in attribute_similarities[0][:len(physical_attributes)]]
+                
+                # Get photo clarity confidence (how well it shows the person)
+                clarity_confidence = float(attribute_similarities[0][-2:].mean())
+            
+            # Calculate weighted attribute confidence
+            avg_attribute_confidence = np.mean(attribute_confidences) if attribute_confidences else 0
+            
+            # Final attribute confidence is affected by both specific attribute detection
+            # and how clearly the photo shows the person
+            final_attribute_confidence = avg_attribute_confidence * clarity_confidence
+            
+            return {
+                'general_similarity': general_similarity,
+                'attribute_confidence': final_attribute_confidence,
+                'clarity_score': clarity_confidence,
+                'attribute_scores': dict(zip(physical_attributes, attribute_confidences))
+            }
+            
         except Exception as e:
             print(f"Error calculating image similarity: {str(e)}")
-            return 0.0
+            return {
+                'general_similarity': 0.0,
+                'attribute_confidence': 0.0,
+                'clarity_score': 0.0,
+                'attribute_scores': {}
+            }
 
     def detect_physical_attributes(self, prompt: str) -> float:
         """
@@ -186,11 +245,17 @@ class HybridProfileMatcher:
             # Generate embedding for the prompt
             prompt_embedding = self.generate_text_embedding(prompt)
             
-            # Determine image weight based on physical attributes in prompt
+            # Get physical attributes mentioned in prompt
+            detected_attributes = []
+            for category, attributes in self.physical_attributes.items():
+                for attr in attributes:
+                    if attr in prompt.lower():
+                        detected_attributes.append(attr)
+            
+            # Determine base image weight based on physical attributes in prompt
             image_weight_multiplier = self.detect_physical_attributes(prompt)
             base_image_weight = 0.4
-            adjusted_image_weight = min(0.8, base_image_weight * image_weight_multiplier)
-            text_weight = 1 - adjusted_image_weight
+            max_image_weight = min(0.8, base_image_weight * image_weight_multiplier)
             
             # Calculate similarities for each profile
             results = []
@@ -201,25 +266,49 @@ class HybridProfileMatcher:
                 text_similarity = np.dot(prompt_embedding, profile_embedding)
                 
                 # Calculate image similarity for each photo
-                image_similarities = []
+                image_results = []
                 for photo in profile.get('photos', []):
                     image_path = Path(os.getcwd()) / 'backend' / photo['url'].lstrip('/')
                     if image_path.exists():
-                        similarity = self.calculate_image_similarity(str(image_path), prompt)
-                        image_similarities.append(similarity)
+                        image_result = self.calculate_image_similarity(
+                            str(image_path), 
+                            prompt,
+                            detected_attributes
+                        )
+                        image_results.append(image_result)
                 
-                # Calculate average image similarity
-                avg_image_similarity = np.mean(image_similarities) if image_similarities else 0
+                if image_results:
+                    # Calculate average similarities and confidences
+                    avg_general_similarity = np.mean([r['general_similarity'] for r in image_results])
+                    avg_attribute_confidence = np.mean([r['attribute_confidence'] for r in image_results])
+                    avg_clarity = np.mean([r['clarity_score'] for r in image_results])
+                    
+                    # Adjust image weight based on detection confidence
+                    # If we can't clearly see the attributes, reduce the image weight
+                    confidence_factor = avg_attribute_confidence * avg_clarity
+                    adjusted_image_weight = max_image_weight * confidence_factor
+                else:
+                    avg_general_similarity = 0
+                    avg_attribute_confidence = 0
+                    avg_clarity = 0
+                    adjusted_image_weight = base_image_weight
                 
-                # Calculate combined score with dynamic weights
+                # Ensure text weight + image weight = 1
+                text_weight = 1 - adjusted_image_weight
+                
+                # Calculate combined score with adjusted weights
                 combined_score = (text_weight * text_similarity + 
-                                adjusted_image_weight * avg_image_similarity)
+                                adjusted_image_weight * avg_general_similarity)
                 
                 results.append({
                     'profile': profile,
                     'score': combined_score,
                     'text_similarity': text_similarity,
-                    'image_similarity': avg_image_similarity,
+                    'image_analysis': {
+                        'similarity': avg_general_similarity,
+                        'attribute_confidence': avg_attribute_confidence,
+                        'clarity': avg_clarity
+                    },
                     'weights': {
                         'text': float(text_weight),
                         'image': float(adjusted_image_weight)
@@ -287,7 +376,11 @@ if __name__ == "__main__":
                 "scores": {
                     "total": float(match['score']),
                     "text": float(match['text_similarity']),
-                    "image": float(match['image_similarity'])
+                    "image": {
+                        "similarity": float(match['image_analysis']['similarity']),
+                        "attribute_confidence": float(match['image_analysis']['attribute_confidence']),
+                        "clarity": float(match['image_analysis']['clarity'])
+                    }
                 }
             })
         
