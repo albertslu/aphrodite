@@ -4,43 +4,6 @@ const Profile = require('../models/Profile');
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const config = require('../config');
-const multer = require('multer');
-const path = require('path');
-const fs = require('fs');
-
-// Configure multer for file uploads
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, 'uploads/');
-    },
-    filename: function (req, file, cb) {
-        cb(null, Date.now() + '-' + file.originalname);
-    }
-});
-
-const upload = multer({ 
-    storage: storage,
-    limits: {
-        fileSize: 5 * 1024 * 1024 // 5MB limit
-    },
-    fileFilter: (req, file, cb) => {
-        const allowedTypes = /jpeg|jpg|png/;
-        const extname = allowedTypes.test(path.extname(file.originalname).toLowerCase());
-        const mimetype = allowedTypes.test(file.mimetype);
-
-        if (extname && mimetype) {
-            return cb(null, true);
-        } else {
-            cb('Error: Images only!');
-        }
-    }
-});
-
-// Create uploads directory if it doesn't exist
-const uploadsDir = path.join(__dirname, '../uploads');
-if (!fs.existsSync(uploadsDir)) {
-    fs.mkdirSync(uploadsDir, { recursive: true });
-}
 
 // Middleware to authenticate token
 const authenticateToken = (req, res, next) => {
@@ -53,7 +16,7 @@ const authenticateToken = (req, res, next) => {
 
     jwt.verify(token, config.jwt.secret, (err, user) => {
         if (err) {
-            return res.status(403).json({ message: 'Invalid or expired token' });
+            return res.status(403).json({ message: 'Invalid token' });
         }
         req.user = user;
         next();
@@ -61,17 +24,12 @@ const authenticateToken = (req, res, next) => {
 };
 
 // Create profile
-router.post('/', authenticateToken, upload.none(), async (req, res) => {
+router.post('/', authenticateToken, express.json(), async (req, res) => {
     try {
-        console.log('Profile creation request received');
-        console.log('Headers:', req.headers);
-        console.log('Body:', req.body);
-        console.log('Files:', req.files);
-        
+        console.log('Creating profile with data:', req.body);
         const user = await User.findById(req.user.userId);
         
         if (!user) {
-            console.log('User not found:', req.user.userId);
             return res.status(404).json({ message: 'User not found' });
         }
 
@@ -114,22 +72,11 @@ router.post('/', authenticateToken, upload.none(), async (req, res) => {
         console.log('Profile created successfully');
         res.status(201).json({ 
             message: 'Profile created successfully',
-            profile,
-            isAdmin: false
+            profile 
         });
     } catch (error) {
         console.error('Error creating profile:', error);
-        if (error.name === 'ValidationError') {
-            return res.status(400).json({ 
-                message: 'Invalid profile data', 
-                errors: error.errors
-            });
-        }
-        res.status(500).json({ 
-            message: 'Error creating profile',
-            error: error.message,
-            stack: error.stack
-        });
+        res.status(500).json({ message: 'Error creating profile', error: error.message });
     }
 });
 
