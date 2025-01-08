@@ -281,33 +281,60 @@ class HybridProfileMatcher:
             # Build query based on preferences
             query = {}
             
-            # Only add strict filters that were explicitly mentioned in the prompt
+            # Always apply gender filter if specified
             if preferences.get('gender'):
                 query['gender'] = preferences['gender']
+            
+            # Apply age filter if both min and max are specified
             if preferences.get('min_age') and preferences.get('max_age'):
                 query['age'] = {
                     '$gte': preferences['min_age'],
                     '$lte': preferences['max_age']
                 }
+            
+            # Apply ethnicity filter if specified
             if preferences.get('ethnicities'):
                 query['ethnicity'] = {
                     '$in': preferences['ethnicities']
                 }
             
-            # Get all profiles if no filters
-            if not query:
-                return list(self.profiles_collection.find())
-            
+            # Get filtered profiles
             profiles = list(self.profiles_collection.find(query))
             
-            # Fix image paths and handle empty photos
+            # Post-query filters for more complex criteria
+            filtered_profiles = []
             for profile in profiles:
+                # Fix photo paths
                 if 'photos' not in profile or not profile['photos']:
                     profile['photos'] = []
                 else:
                     profile['photos'] = [photo for photo in profile['photos'] if photo]
+                
+                # Height requirements
+                if "tall" in preferences.get('prompt', '').lower():
+                    height = profile.get('height')
+                    if height is not None:  # Only check if height is specified
+                        if profile['gender'] == 'male' and height < 70:  # 5'10" (allowing 2 inches below 6'0")
+                            continue
+                        elif profile['gender'] == 'female' and height < 66:  # 5'6" (allowing 2 inches below 5'8")
+                            continue
+                elif "short" in preferences.get('prompt', '').lower():
+                    height = profile.get('height')
+                    if height is not None:  # Only check if height is specified
+                        if profile['gender'] == 'male' and height > 67:  # 5'7"
+                            continue
+                        elif profile['gender'] == 'female' and height > 63:  # 5'3"
+                            continue
+                
+                # Education requirements
+                if any(term in preferences.get('prompt', '').lower() for term in ['college', 'university', 'degree']):
+                    education = profile.get('education', '').lower()
+                    if not any(term in education for term in ['college', 'university', 'degree', 'masters', 'phd']):
+                        continue
+                
+                filtered_profiles.append(profile)
             
-            return profiles
+            return filtered_profiles
 
         except Exception as e:
             logger.error(f"Error filtering profiles: {str(e)}")
@@ -327,6 +354,7 @@ class HybridProfileMatcher:
         try:
             # Extract preferences from prompt
             preferences = self.extract_preferences(prompt)
+            preferences['prompt'] = prompt  # Store original prompt for complex filters
             logger.debug(f"Extracted preferences: {preferences}")
             
             # Get filtered profiles
@@ -337,7 +365,7 @@ class HybridProfileMatcher:
                 logger.warning("No profiles found after filtering")
                 return []
             
-            # Calculate text similarity for each profile
+            # Calculate similarity for each profile
             profile_scores = []
             for profile in filtered_profiles:
                 try:
@@ -360,7 +388,13 @@ class HybridProfileMatcher:
                                 if os.path.exists(image_path):
                                     result = self.calculate_image_similarity(image_path, prompt, physical_attrs)
                                     if result['general_similarity'] > 0:
-                                        image_results.append(result['general_similarity'])
+                                        # Weight image scores by both general similarity and specific attribute detection
+                                        weighted_score = (
+                                            result['general_similarity'] * 0.4 +  # General visual match
+                                            result['attribute_confidence'] * 0.4 +  # Specific attribute detection
+                                            result['clarity_score'] * 0.2  # Photo quality/clarity
+                                        )
+                                        image_results.append(weighted_score)
                                         photo_count += 1
                             except Exception as e:
                                 logger.error(f"Error processing image {photo}: {str(e)}")
@@ -371,12 +405,12 @@ class HybridProfileMatcher:
                     
                     # Weight scores based on whether physical attributes were mentioned
                     physical_weight = self.detect_physical_attributes(prompt)
-                    text_weight = 1.0 if physical_weight == 1.0 else 0.3
-                    image_weight = 1.0 - text_weight if photo_count > 0 else 0
                     
-                    final_score = (text_score * text_weight)
-                    if photo_count > 0:
-                        final_score += (image_score * image_weight)
+                    # If physical attributes mentioned heavily, prioritize image matching
+                    if physical_weight > 1.5:
+                        final_score = (text_score * 0.3) + (image_score * 0.7 if photo_count > 0 else 0)
+                    else:
+                        final_score = (text_score * 0.7) + (image_score * 0.3 if photo_count > 0 else 0)
                     
                     profile_scores.append({
                         'profile': profile,
