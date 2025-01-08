@@ -6,12 +6,13 @@ const Preferences = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const [preferences, setPreferences] = useState({
-        ageRange: { min: 18, max: 50 },
-        location: '',
         preferredGender: '',
+        ageRange: '',
+        location: '',
         idealMatch: ''
     });
     const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
     const [successMessage, setSuccessMessage] = useState(location.state?.message || '');
     const isAdmin = localStorage.getItem('isAdmin') === 'true';
 
@@ -25,32 +26,44 @@ const Preferences = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
+        setError('');
+        
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch('http://localhost:5000/api/preferences', {
+            
+            // Call the matching endpoint
+            const response = await fetch('http://localhost:5000/api/match/match-profiles', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`
                 },
-                body: JSON.stringify(preferences)
+                body: JSON.stringify({
+                    prompt: `Looking for a ${preferences.preferredGender} aged ${preferences.ageRange} from ${preferences.location}. ${preferences.idealMatch}`
+                })
             });
 
             if (!response.ok) {
-                throw new Error('Failed to save preferences');
+                const errorData = await response.json();
+                throw new Error(errorData.message || 'Failed to find matches');
             }
 
-            navigate('/matches');
+            const data = await response.json();
+            // Store the matches in localStorage to display them on the next page
+            localStorage.setItem('matches', JSON.stringify(data.matches));
+            navigate('/matches', { state: { matches: data.matches } });
         } catch (error) {
-            console.error('Error saving preferences:', error);
+            console.error('Error finding matches:', error);
+            setError(error.message || 'Failed to find matches. Please try again.');
+        } finally {
+            setLoading(false);
         }
     };
 
     const handleLogout = () => {
-        // Clear all auth-related data from localStorage
         localStorage.removeItem('token');
         localStorage.removeItem('isAdmin');
-        // Navigate back to login page
         navigate('/');
     };
 
@@ -79,8 +92,6 @@ const Preferences = () => {
                             <option value="">Select Gender</option>
                             <option value="male">Male</option>
                             <option value="female">Female</option>
-                            <option value="non-binary">Non-binary</option>
-                            <option value="any">Any</option>
                         </select>
                     </div>
 
@@ -102,11 +113,10 @@ const Preferences = () => {
                         <input
                             type="text"
                             name="location"
-                            placeholder="e.g., New York City or within 50 miles"
+                            placeholder="Anywhere"
                             value={preferences.location}
                             onChange={handleInputChange}
                             className="form-control"
-                            required
                         />
                     </div>
                 </div>
@@ -116,7 +126,7 @@ const Preferences = () => {
                         <label>Describe Your Ideal Match</label>
                         <textarea
                             name="idealMatch"
-                            placeholder="Describe your ideal match in detail. What qualities, values, and characteristics are you looking for in a partner? Feel free to be specific about personality traits, lifestyle, ambitions, and anything else that matters to you."
+                            placeholder="Describe your ideal match in detail. What qualities, values, and characteristics are you looking for in a partner?"
                             value={preferences.idealMatch}
                             onChange={handleInputChange}
                             className="form-control"
@@ -126,8 +136,12 @@ const Preferences = () => {
                     </div>
                 </div>
 
-                <button type="submit" className="btn btn-primary">
-                    Find My Matches
+                <button 
+                    type="submit" 
+                    className="btn btn-primary"
+                    disabled={loading}
+                >
+                    {loading ? 'Finding Matches...' : 'Find My Matches'}
                 </button>
             </form>
             

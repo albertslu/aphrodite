@@ -11,7 +11,7 @@ from typing import List, Dict, Union, Optional
 from pathlib import Path
 
 # Load environment variables
-load_dotenv()
+load_dotenv(dotenv_path=Path(__file__).parent.parent.parent / '.env')
 
 class HybridProfileMatcher:
     def __init__(self):
@@ -24,7 +24,10 @@ class HybridProfileMatcher:
         self.clip_model, self.preprocess = clip.load("ViT-B/32", device=self.device)
         
         # MongoDB setup
-        self.mongo_client = MongoClient('mongodb://localhost:27017/')
+        mongodb_uri = os.getenv('MONGODB_URI')
+        if not mongodb_uri:
+            raise ValueError("MONGODB_URI environment variable not set")
+        self.mongo_client = MongoClient(mongodb_uri)
         self.db = self.mongo_client['profile_matching']
         self.profiles_collection = self.db['profiles']
 
