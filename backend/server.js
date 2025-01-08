@@ -11,6 +11,7 @@ const authRoutes = require('./routes/auth');
 const profileRoutes = require('./routes/profile');
 const adminRoutes = require('./routes/admin');
 const uploadRoutes = require('./routes/upload');
+const matchRoutes = require('./routes/match');
 
 // Uncaught error handling
 process.on('uncaughtException', (err) => {
@@ -88,9 +89,10 @@ const connectWithRetry = async () => {
 
 // Routes
 app.use('/api/auth', authRoutes);
-app.use('/api/profile', profileRoutes);
+app.use('/api/profiles', profileRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/upload', uploadRoutes);
+app.use('/api/match', matchRoutes);
 
 // Basic route for testing
 app.get('/api/test', (req, res) => {
