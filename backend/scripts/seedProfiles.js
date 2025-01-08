@@ -3,8 +3,8 @@ const fs = require('fs');
 const path = require('path');
 const Profile = require('../models/Profile');
 
-// MongoDB connection
-mongoose.connect('mongodb://localhost:27017/profile_matching', {
+// MongoDB Atlas connection
+mongoose.connect('mongodb+srv://albertzhu2001:Zhu123456@aphrodite.gvlzpnm.mongodb.net/profile_matching?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
@@ -34,12 +34,10 @@ const syntheticProfiles = [
         photos: [
             {
                 url: "/uploads/athletic_male_1.jpg",
-                caption: "Working out at the gym",
                 order: 1
             },
             {
                 url: "/uploads/athletic_male_2.jpg",
-                caption: "Full body shot showing athletic build",
                 order: 2
             }
         ]
@@ -60,12 +58,10 @@ const syntheticProfiles = [
         photos: [
             {
                 url: "/uploads/professional_female_1.jpg",
-                caption: "Professional headshot",
                 order: 1
             },
             {
                 url: "/uploads/professional_female_2.jpg",
-                caption: "Full body photo in business casual",
                 order: 2
             }
         ]
@@ -86,12 +82,10 @@ const syntheticProfiles = [
         photos: [
             {
                 url: "/uploads/artistic_male_1.jpg",
-                caption: "Showing tattoos and artistic style",
                 order: 1
             },
             {
                 url: "/uploads/artistic_male_2.jpg",
-                caption: "Working in design studio",
                 order: 2
             }
         ]
@@ -107,12 +101,10 @@ const generatePhotoUrls = (profile) => {
     return [
         {
             url: `/uploads/${gender}_${ageGroup}_${ethnicity}_1.jpg`,
-            caption: "Main profile photo",
             order: 1
         },
         {
             url: `/uploads/${gender}_${ageGroup}_${ethnicity}_2.jpg`,
-            caption: "Full body photo",
             order: 2
         }
     ];
