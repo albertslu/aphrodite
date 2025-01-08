@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const fs = require('fs');
 const path = require('path');
 const Profile = require('../models/Profile');
-require('dotenv').config(); // Add this to use environment variables
+require('dotenv').config({ path: path.join(__dirname, '../../.env') }); // Look for .env in root directory
 
 // MongoDB Atlas connection
 mongoose.connect(process.env.MONGODB_URI, {
