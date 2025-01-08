@@ -218,6 +218,36 @@ class HybridProfileMatcher:
                 'attribute_scores': {}
             }
 
+    def calculate_text_similarity(self, profile: Dict, prompt: str) -> float:
+        """Calculate text similarity between profile and prompt"""
+        try:
+            # Combine relevant profile text fields
+            profile_text = " ".join(filter(None, [
+                profile.get('name', ''),
+                profile.get('aboutMe', ''),
+                profile.get('interests', ''),
+                profile.get('occupation', ''),
+                profile.get('height', ''),
+                profile.get('ethnicity', '')
+            ]))
+            
+            if not profile_text.strip():
+                return 0.0
+            
+            # Generate embeddings
+            profile_embedding = self.generate_text_embedding(profile_text)
+            prompt_embedding = self.generate_text_embedding(prompt)
+            
+            # Calculate cosine similarity
+            similarity = float(np.dot(profile_embedding, prompt_embedding) / 
+                            (np.linalg.norm(profile_embedding) * np.linalg.norm(prompt_embedding)))
+            
+            return similarity
+            
+        except Exception as e:
+            logger.error(f"Error calculating text similarity: {str(e)}")
+            return 0.0
+
     def detect_physical_attributes(self, prompt: str) -> float:
         """
         Detect mentions of physical attributes in prompt and return
@@ -250,31 +280,38 @@ class HybridProfileMatcher:
         try:
             # Build query based on preferences
             query = {}
+            
+            # Only add strict filters that were explicitly mentioned in the prompt
             if preferences.get('gender'):
                 query['gender'] = preferences['gender']
-            if preferences.get('age_min'):
-                query['age'] = {'$gte': preferences['age_min']}
-            if preferences.get('age_max'):
-                query.setdefault('age', {})['$lte'] = preferences['age_max']
-            if preferences.get('location'):
-                query['location'] = preferences['location']
+            if preferences.get('min_age') and preferences.get('max_age'):
+                query['age'] = {
+                    '$gte': preferences['min_age'],
+                    '$lte': preferences['max_age']
+                }
             if preferences.get('ethnicities'):
                 query['ethnicity'] = {
                     '$in': preferences['ethnicities']
                 }
             
+            # Get all profiles if no filters
+            if not query:
+                return list(self.profiles_collection.find())
+            
             profiles = list(self.profiles_collection.find(query))
-
-            # Fix image paths
+            
+            # Fix image paths and handle empty photos
             for profile in profiles:
-                if 'photos' in profile:
-                    profile['photos'] = [self.get_photo_path(photo) for photo in profile['photos']]
-
+                if 'photos' not in profile or not profile['photos']:
+                    profile['photos'] = []
+                else:
+                    profile['photos'] = [photo for photo in profile['photos'] if photo]
+            
             return profiles
 
         except Exception as e:
             logger.error(f"Error filtering profiles: {str(e)}")
-            raise
+            return []
 
     def find_matching_profiles(self, prompt: str, top_k: int = 5) -> List[Dict]:
         """
@@ -311,35 +348,39 @@ class HybridProfileMatcher:
                     image_score = 0.0
                     photo_count = 0
                     
-                    if 'photos' in profile and profile['photos']:
+                    if profile.get('photos'):
                         image_results = []
+                        physical_attrs = [attr for attrs in self.physical_attributes.values() for attr in attrs]
+                        
                         for photo in profile['photos']:
                             try:
                                 image_path = self.get_photo_path(photo)
                                 logger.debug(f"Processing image: {image_path}")
                                 
                                 if os.path.exists(image_path):
-                                    image_result = self.calculate_image_similarity(image_path, prompt)
-                                    if image_result > 0:
-                                        image_results.append(image_result)
+                                    result = self.calculate_image_similarity(image_path, prompt, physical_attrs)
+                                    if result['general_similarity'] > 0:
+                                        image_results.append(result['general_similarity'])
                                         photo_count += 1
-                                else:
-                                    logger.warning(f"Image not found: {image_path}")
                             except Exception as e:
                                 logger.error(f"Error processing image {photo}: {str(e)}")
                                 continue
                         
                         if image_results:
-                            image_score = sum(image_results) / len(image_results)
+                            image_score = max(image_results)  # Use best matching photo
                     
-                    # Combine scores (70% text, 30% image if available)
-                    final_score = text_score * 0.7
+                    # Weight scores based on whether physical attributes were mentioned
+                    physical_weight = self.detect_physical_attributes(prompt)
+                    text_weight = 1.0 if physical_weight == 1.0 else 0.3
+                    image_weight = 1.0 - text_weight if photo_count > 0 else 0
+                    
+                    final_score = (text_score * text_weight)
                     if photo_count > 0:
-                        final_score += image_score * 0.3
+                        final_score += (image_score * image_weight)
                     
                     profile_scores.append({
                         'profile': profile,
-                        'matchScore': final_score
+                        'matchScore': float(final_score)
                     })
                     
                 except Exception as e:
@@ -354,7 +395,7 @@ class HybridProfileMatcher:
             
         except Exception as e:
             logger.error(f"Error in find_matching_profiles: {str(e)}")
-            raise
+            return []
 
     def close(self):
         """Close MongoDB connection"""
