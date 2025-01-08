@@ -63,35 +63,19 @@ const authenticateToken = (req, res, next) => {
 // Create profile
 router.post('/', authenticateToken, async (req, res) => {
     try {
-        console.log('Request body:', req.body);
+        console.log('Creating profile for user:', req.user.userId);
+        console.log('Profile data:', req.body);
+
         const user = await User.findById(req.user.userId);
-        
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         }
 
         // If admin user, create profile without linking
         if (user.isAdmin) {
-            const profileData = {
-                name: req.body.name,
-                gender: req.body.gender,
-                sexualOrientation: req.body.sexualOrientation,
-                age: req.body.age,
-                height: req.body.height,
-                ethnicity: req.body.ethnicity,
-                occupation: req.body.occupation,
-                location: req.body.location,
-                education: req.body.education,
-                aboutMe: req.body.aboutMe,
-                interests: req.body.interests,
-                relationshipGoals: req.body.relationshipGoals
-            };
-            
-            console.log('Creating unlinked profile with data:', profileData);
-            const profile = new Profile(profileData);
+            console.log('Creating unlinked profile as admin');
+            const profile = new Profile(req.body);
             await profile.save();
-            
-            console.log('Profile created successfully:', profile);
             return res.status(201).json({ 
                 message: 'Profile created successfully', 
                 profile,
@@ -118,17 +102,24 @@ router.post('/', authenticateToken, async (req, res) => {
         user.profile = profile._id;
         await user.save();
 
+        console.log('Profile created successfully');
         res.status(201).json({ 
-            message: 'Profile created successfully', 
+            message: 'Profile created successfully',
             profile,
             isAdmin: false
         });
     } catch (error) {
-        console.error('Profile creation error:', error);
+        console.error('Error creating profile:', error);
+        if (error.name === 'ValidationError') {
+            return res.status(400).json({ 
+                message: 'Invalid profile data', 
+                errors: Object.values(error.errors).map(err => err.message)
+            });
+        }
         res.status(500).json({ 
-            message: 'Error creating profile', 
+            message: 'Error creating profile',
             error: error.message,
-            stack: error.stack 
+            stack: error.stack
         });
     }
 });
