@@ -89,7 +89,7 @@ const connectWithRetry = async () => {
 
 // Routes
 app.use('/api/auth', authRoutes);
-app.use('/api/profiles', profileRoutes);
+app.use('/api/profile', profileRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/upload', uploadRoutes);
 app.use('/api/match', matchRoutes);
