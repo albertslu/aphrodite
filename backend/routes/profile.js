@@ -61,7 +61,7 @@ const authenticateToken = (req, res, next) => {
 };
 
 // Create profile
-router.post('/', authenticateToken, async (req, res) => {
+router.post('/', authenticateToken, upload.none(), async (req, res) => {
     try {
         console.log('Creating profile with data:', req.body);
         const user = await User.findById(req.user.userId);
@@ -73,7 +73,10 @@ router.post('/', authenticateToken, async (req, res) => {
         // If admin user, create profile without linking
         if (user.isAdmin) {
             console.log('Creating unlinked profile as admin');
-            const profile = new Profile(req.body);
+            const profile = new Profile({
+                ...req.body,
+                age: Number(req.body.age) // Ensure age is a number
+            });
             await profile.save();
             return res.status(201).json({ 
                 message: 'Profile created successfully', 
@@ -91,7 +94,8 @@ router.post('/', authenticateToken, async (req, res) => {
         // Create new profile linked to user
         const profileData = {
             ...req.body,
-            user: req.user.userId
+            user: req.user.userId,
+            age: Number(req.body.age) // Ensure age is a number
         };
 
         console.log('Creating profile with data:', profileData);

@@ -67,37 +67,21 @@ const ProfileCreation = () => {
             const token = localStorage.getItem('token');
             const isAdmin = localStorage.getItem('isAdmin') === 'true';
 
-            // Create FormData and append all fields
-            const formData = new FormData();
-            
-            // Append all form fields
-            Object.keys(formFields).forEach(key => {
-                if (formFields[key] !== undefined && formFields[key] !== null) {
-                    // Convert age to number
-                    if (key === 'age') {
-                        formData.append(key, Number(formFields[key]));
-                    } else {
-                        formData.append(key, formFields[key]);
-                    }
-                }
-            });
+            // Convert age to number and prepare profile data
+            const profileData = {
+                ...formFields,
+                age: Number(formFields.age)
+            };
 
-            // Log the form data for debugging
-            for (let [key, value] of formData.entries()) {
-                console.log(`${key}: ${value}`);
-            }
-
-            // Append photos
-            photos.forEach(photo => {
-                formData.append('photos', photo);
-            });
+            console.log('Sending profile data:', profileData);
 
             const response = await fetch('http://localhost:5000/api/profile', {
                 method: 'POST',
                 headers: {
-                    'Authorization': `Bearer ${token}`
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
                 },
-                body: formData
+                body: JSON.stringify(profileData)
             });
 
             const data = await response.json();
