@@ -67,10 +67,36 @@ const ProfileCreation = () => {
             const token = localStorage.getItem('token');
             const isAdmin = localStorage.getItem('isAdmin') === 'true';
 
+            // First, upload all photos
+            const uploadedPhotos = [];
+            for (let i = 0; i < photos.length; i++) {
+                const formData = new FormData();
+                formData.append('photo', photos[i]);
+
+                const uploadResponse = await fetch('http://localhost:5000/api/upload', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: formData
+                });
+
+                if (!uploadResponse.ok) {
+                    throw new Error(`Failed to upload photo ${i + 1}`);
+                }
+
+                const uploadData = await uploadResponse.json();
+                uploadedPhotos.push({
+                    url: uploadData.url,
+                    order: i + 1
+                });
+            }
+
             // Convert age to number and prepare profile data
             const profileData = {
                 ...formFields,
-                age: Number(formFields.age)
+                age: Number(formFields.age),
+                photos: uploadedPhotos  // Add the uploaded photos to profile data
             };
 
             console.log('Sending profile data:', profileData);
