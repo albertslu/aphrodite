@@ -73,16 +73,24 @@ const ProfileCreation = () => {
             // Append all form fields
             Object.keys(formFields).forEach(key => {
                 if (formFields[key] !== undefined && formFields[key] !== null) {
-                    formData.append(key, formFields[key]);
+                    // Convert age to number
+                    if (key === 'age') {
+                        formData.append(key, Number(formFields[key]));
+                    } else {
+                        formData.append(key, formFields[key]);
+                    }
                 }
             });
+
+            // Log the form data for debugging
+            for (let [key, value] of formData.entries()) {
+                console.log(`${key}: ${value}`);
+            }
 
             // Append photos
             photos.forEach(photo => {
                 formData.append('photos', photo);
             });
-
-            console.log('Sending profile data:', formFields);
 
             const response = await fetch('http://localhost:5000/api/profile', {
                 method: 'POST',
@@ -96,6 +104,13 @@ const ProfileCreation = () => {
             console.log('Profile creation response:', data);
             
             if (!response.ok) {
+                if (data.errors) {
+                    // Format validation errors nicely
+                    const errorMessages = Object.entries(data.errors)
+                        .map(([field, error]) => `${field}: ${error.message}`)
+                        .join('\n');
+                    throw new Error(errorMessages);
+                }
                 throw new Error(data.message || data.error || 'Failed to create profile');
             }
 

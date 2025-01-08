@@ -63,10 +63,9 @@ const authenticateToken = (req, res, next) => {
 // Create profile
 router.post('/', authenticateToken, async (req, res) => {
     try {
-        console.log('Creating profile for user:', req.user.userId);
-        console.log('Profile data:', req.body);
-
+        console.log('Creating profile with data:', req.body);
         const user = await User.findById(req.user.userId);
+        
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         }
@@ -95,6 +94,7 @@ router.post('/', authenticateToken, async (req, res) => {
             user: req.user.userId
         };
 
+        console.log('Creating profile with data:', profileData);
         const profile = new Profile(profileData);
         await profile.save();
 
@@ -113,7 +113,7 @@ router.post('/', authenticateToken, async (req, res) => {
         if (error.name === 'ValidationError') {
             return res.status(400).json({ 
                 message: 'Invalid profile data', 
-                errors: Object.values(error.errors).map(err => err.message)
+                errors: error.errors
             });
         }
         res.status(500).json({ 
