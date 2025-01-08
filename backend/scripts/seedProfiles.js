@@ -2,9 +2,10 @@ const mongoose = require('mongoose');
 const fs = require('fs');
 const path = require('path');
 const Profile = require('../models/Profile');
+require('dotenv').config(); // Add this to use environment variables
 
 // MongoDB Atlas connection
-mongoose.connect('mongodb+srv://albertzhu2001:Zhu123456@aphrodite.gvlzpnm.mongodb.net/profile_matching?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://albertlu:' + process.env.MONGODB_PASSWORD + '@aphrodite.nr8sj.mongodb.net/profile_matching?retryWrites=true&w=majority&appName=Aphrodite', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
