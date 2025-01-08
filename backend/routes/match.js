@@ -13,21 +13,33 @@ router.post('/match-profiles', async (req, res) => {
     }
 
     try {
+        // First, check Python version and path
+        const pythonVersionProcess = spawn('python', ['-c', 'import sys; print(sys.executable); print(sys.version)']);
+        
+        pythonVersionProcess.stdout.on('data', (data) => {
+            console.log('Python info:', data.toString());
+        });
+
+        pythonVersionProcess.stderr.on('data', (data) => {
+            console.error('Python version check error:', data.toString());
+        });
+
+        await new Promise((resolve) => pythonVersionProcess.on('close', resolve));
+
         const pythonScript = path.join(__dirname, '..', 'utils', 'hybrid_profile_matcher.py');
-        // Use python on Windows, and python3 on other platforms, and add debug flag
-        const pythonExecutable = os.platform() === 'win32' ? 'python' : 'python3';
-        const pythonProcess = spawn(pythonExecutable, [
-            pythonScript,
-            '--prompt', prompt,
-            '--debug'  // Add debug flag
+        console.log('Python script path:', pythonScript);
+        
+        // Use python on Windows, and add debug flag
+        const pythonProcess = spawn('python', [
+            '-c',
+            'import sys; print(sys.path); import torch; print("Torch version:", torch.__version__)',
         ]);
 
         let matchData = '';
         let errorData = '';
 
         pythonProcess.stdout.on('data', (data) => {
-            console.log('Python output:', data.toString());
-            matchData += data.toString();
+            console.log('Python path and torch check:', data.toString());
         });
 
         pythonProcess.stderr.on('data', (data) => {
@@ -44,42 +56,64 @@ router.post('/match-profiles', async (req, res) => {
         });
 
         pythonProcess.on('close', (code) => {
-            console.log('Python process exited with code:', code);
             if (code !== 0) {
-                console.error('Error output:', errorData);
-                return res.status(500).json({ 
-                    error: 'Profile matching failed',
-                    details: errorData
+                console.error('Python path check failed');
+                // Now try running the actual matcher
+                const matcherProcess = spawn('python', [
+                    pythonScript,
+                    '--prompt', prompt,
+                    '--debug'
+                ]);
+
+                let matcherData = '';
+                let matcherError = '';
+
+                matcherProcess.stdout.on('data', (data) => {
+                    console.log('Matcher output:', data.toString());
+                    matcherData += data.toString();
                 });
-            }
 
-            try {
-                // Try to parse the output as JSON
-                const matches = JSON.parse(matchData);
-                
-                // If we got an empty array, return a more specific message
-                if (!matches || matches.length === 0) {
-                    return res.status(404).json({
-                        error: 'No matches found',
-                        message: 'No profiles matched your preferences. Try broadening your search criteria.'
-                    });
-                }
+                matcherProcess.stderr.on('data', (data) => {
+                    console.error('Matcher error:', data.toString());
+                    matcherError += data.toString();
+                });
 
-                res.json({ 
-                    matches,
-                    metadata: {
-                        totalMatches: matches.length,
-                        timestamp: new Date().toISOString()
+                matcherProcess.on('close', (matcherCode) => {
+                    if (matcherCode !== 0) {
+                        return res.status(500).json({ 
+                            error: 'Profile matching failed',
+                            details: matcherError
+                        });
+                    }
+
+                    try {
+                        const matches = JSON.parse(matcherData);
+                        if (!matches || matches.length === 0) {
+                            return res.status(404).json({
+                                error: 'No matches found',
+                                message: 'No profiles matched your preferences. Try broadening your search criteria.'
+                            });
+                        }
+
+                        res.json({ 
+                            matches,
+                            metadata: {
+                                totalMatches: matches.length,
+                                timestamp: new Date().toISOString()
+                            }
+                        });
+                    } catch (parseError) {
+                        console.error('Error parsing matcher output:', parseError);
+                        console.error('Raw output:', matcherData);
+                        res.status(500).json({ 
+                            error: 'Invalid matcher output',
+                            details: parseError.message,
+                            rawOutput: matcherData
+                        });
                     }
                 });
-            } catch (parseError) {
-                console.error('Error parsing Python output:', parseError);
-                console.error('Raw output:', matchData);
-                res.status(500).json({ 
-                    error: 'Invalid matcher output',
-                    details: parseError.message,
-                    rawOutput: matchData
-                });
+            } else {
+                console.log('Python path check successful');
             }
         });
     } catch (error) {
