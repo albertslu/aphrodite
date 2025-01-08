@@ -16,15 +16,100 @@ const formatHeight = (inches) => {
     return `${feet}'${remainingInches}"`;
 };
 
-// Convert profile data to our schema format
+// Synthetic profile templates for testing different matching scenarios
+const syntheticProfiles = [
+    {
+        name: "Athletic_Test_Male",
+        gender: "male",
+        sexualOrientation: "straight",
+        age: 28,
+        height: "6'1\"",
+        ethnicity: "white",
+        occupation: "Personal Trainer",
+        location: "Los Angeles, California",
+        education: "Bachelor's in Exercise Science",
+        aboutMe: "Dedicated fitness enthusiast and personal trainer. I spend most of my time at the gym, helping others achieve their fitness goals. My athletic build comes from years of dedication to weightlifting and proper nutrition.",
+        interests: "Weightlifting, CrossFit, nutrition, outdoor sports, hiking",
+        relationshipGoals: "Looking for someone who shares my passion for fitness and healthy living",
+        partnerPreferences: "Athletic and health-conscious individual who enjoys an active lifestyle",
+        photos: [
+            {
+                url: "/uploads/athletic_male_1.jpg",
+                caption: "Working out at the gym",
+                order: 1
+            },
+            {
+                url: "/uploads/athletic_male_2.jpg",
+                caption: "Full body shot showing athletic build",
+                order: 2
+            }
+        ]
+    },
+    {
+        name: "Professional_Test_Female",
+        gender: "female",
+        sexualOrientation: "straight",
+        age: 32,
+        height: "5'6\"",
+        ethnicity: "asian",
+        occupation: "Software Engineer",
+        location: "San Francisco, California",
+        education: "Master's in Computer Science",
+        aboutMe: "Tech professional by day, foodie by night. I have a slim build and maintain an active lifestyle despite long hours coding. Love exploring new restaurants and traveling.",
+        interests: "Coding, traveling, fine dining, yoga, photography",
+        relationshipGoals: "Seeking a meaningful connection with someone ambitious and curious about life",
+        partnerPreferences: "Well-educated professional who values both career and personal growth",
+        photos: [
+            {
+                url: "/uploads/professional_female_1.jpg",
+                caption: "Professional headshot",
+                order: 1
+            },
+            {
+                url: "/uploads/professional_female_2.jpg",
+                caption: "Full body photo in business casual",
+                order: 2
+            }
+        ]
+    },
+    {
+        name: "Artistic_Test_Male",
+        gender: "male",
+        sexualOrientation: "straight",
+        age: 25,
+        height: "5'10\"",
+        ethnicity: "hispanic",
+        occupation: "Graphic Designer",
+        location: "Brooklyn, New York",
+        education: "BFA in Design",
+        aboutMe: "Creative soul with a lean build. Covered in tattoos that tell my life story. When I'm not designing, you'll find me at art galleries or working on my photography portfolio.",
+        interests: "Art, photography, tattoos, indie music, vintage fashion",
+        relationshipGoals: "Looking for someone who appreciates creativity and alternative lifestyle",
+        partnerPreferences: "Creative and open-minded person who loves art and self-expression",
+        photos: [
+            {
+                url: "/uploads/artistic_male_1.jpg",
+                caption: "Showing tattoos and artistic style",
+                order: 1
+            },
+            {
+                url: "/uploads/artistic_male_2.jpg",
+                caption: "Working in design studio",
+                order: 2
+            }
+        ]
+    }
+];
+
+// Convert profile data from extracted dataset to our schema format
 const formatProfileData = (rawProfile) => {
     return {
-        name: `User${Math.floor(Math.random() * 10000)}`, // Generate random username since original data doesn't have names
+        name: `User${Math.floor(Math.random() * 10000)}`,
         gender: rawProfile.sex === 'm' ? 'male' : 'female',
         sexualOrientation: rawProfile.orientation,
         age: rawProfile.age,
         height: formatHeight(rawProfile.height),
-        ethnicity: rawProfile.ethnicity.split(',')[0].trim(), // Take first ethnicity if multiple
+        ethnicity: rawProfile.ethnicity.split(',')[0].trim(),
         occupation: rawProfile.job,
         location: rawProfile.location,
         education: rawProfile.education,
@@ -47,11 +132,12 @@ const formatProfileData = (rawProfile) => {
     };
 };
 
-// Read the original profile data
+// Read and format profiles from the extracted dataset
 const rawProfiles = JSON.parse(fs.readFileSync(path.join(__dirname, '../../Model/extracted_10_profiles.json')));
+const extractedProfiles = rawProfiles.slice(0, 3).map(formatProfileData);
 
-// Convert profiles to our format
-const profiles = rawProfiles.slice(0, 3).map(formatProfileData); // Only use first 3 profiles for now
+// Combine synthetic and extracted profiles
+const allProfiles = [...syntheticProfiles, ...extractedProfiles];
 
 // Function to copy images
 const copyImages = async () => {
@@ -85,7 +171,7 @@ const seedProfiles = async () => {
         console.log('Copied images to uploads directory');
 
         // Create new profiles
-        const createdProfiles = await Profile.insertMany(profiles);
+        const createdProfiles = await Profile.insertMany(allProfiles);
         console.log(`Created ${createdProfiles.length} profiles`);
 
         // Log created profiles for verification
