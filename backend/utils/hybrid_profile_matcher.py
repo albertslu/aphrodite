@@ -50,6 +50,19 @@ class HybridProfileMatcher:
             ]
         }
 
+    def get_photo_path(self, photo):
+        """Convert photo object or string to a full path."""
+        if isinstance(photo, dict):
+            photo_url = photo.get('url', '').lstrip('/')
+        else:
+            photo_url = str(photo).lstrip('/')
+        
+        return os.path.normpath(os.path.join(
+            os.path.dirname(os.path.dirname(__file__)), 
+            'uploads',
+            os.path.basename(photo_url)
+        ))
+
     def extract_preferences(self, prompt: str) -> Dict:
         """Extract age range, gender, and ethnicity preferences from prompt"""
         preferences = {}
@@ -101,6 +114,19 @@ class HybridProfileMatcher:
             Dict containing general similarity and attribute detection confidences
         """
         try:
+            # Ensure image_path is a proper path
+            if isinstance(image_path, dict):
+                image_path = self.get_photo_path(image_path)
+            
+            if not os.path.exists(image_path):
+                logger.warning(f"Image not found: {image_path}")
+                return {
+                    'general_similarity': 0.0,
+                    'attribute_confidence': 0.0,
+                    'clarity_score': 0.0,
+                    'attribute_scores': {}
+                }
+            
             # Load and preprocess image
             image = Image.open(image_path)
             image_input = self.preprocess(image).unsqueeze(0).to(self.device)
@@ -203,36 +229,34 @@ class HybridProfileMatcher:
 
     def filter_profiles_by_preferences(self, preferences: Dict) -> List[Dict]:
         """Filter profiles based on extracted preferences"""
-        query = {}
-        
-        # Add age filter
-        if 'min_age' in preferences and 'max_age' in preferences:
-            query['age'] = {
-                '$gte': preferences['min_age'],
-                '$lte': preferences['max_age']
-            }
-        
-        # Add gender filter
-        if 'gender' in preferences:
-            query['gender'] = preferences['gender']
-        
-        # Add ethnicity filter
-        if 'ethnicities' in preferences:
-            query['ethnicity'] = {
-                '$in': preferences['ethnicities']
-            }
-        
-        profiles = list(self.profiles_collection.find(query))
+        try:
+            # Build query based on preferences
+            query = {}
+            if preferences.get('gender'):
+                query['gender'] = preferences['gender']
+            if preferences.get('age_min'):
+                query['age'] = {'$gte': preferences['age_min']}
+            if preferences.get('age_max'):
+                query.setdefault('age', {})['$lte'] = preferences['age_max']
+            if preferences.get('location'):
+                query['location'] = preferences['location']
+            if preferences.get('ethnicities'):
+                query['ethnicity'] = {
+                    '$in': preferences['ethnicities']
+                }
+            
+            profiles = list(self.profiles_collection.find(query))
 
-        # Fix image paths
-        for profile in profiles:
-            if 'photos' in profile:
-                profile['photos'] = [
-                    os.path.normpath(os.path.join(os.path.dirname(os.path.dirname(__file__)), 'uploads', os.path.basename(photo)))
-                    for photo in profile['photos']
-                ]
+            # Fix image paths
+            for profile in profiles:
+                if 'photos' in profile:
+                    profile['photos'] = [self.get_photo_path(photo) for photo in profile['photos']]
 
-        return profiles
+            return profiles
+
+        except Exception as e:
+            logger.error(f"Error filtering profiles: {str(e)}")
+            raise
 
     def find_matching_profiles(self, prompt: str, top_k: int = 5) -> List[Dict]:
         """
@@ -295,7 +319,7 @@ class HybridProfileMatcher:
                     image_results = []
                     for photo in profile.get('photos', []):
                         try:
-                            image_path = os.path.normpath(os.path.join(os.path.dirname(os.path.dirname(__file__)), 'uploads', os.path.basename(photo)))
+                            image_path = self.get_photo_path(photo)
                             logger.debug(f"Processing image: {image_path}")
                             
                             if os.path.exists(image_path):
@@ -411,41 +435,51 @@ if __name__ == "__main__":
 
     try:
         matcher = HybridProfileMatcher()
-        logger.debug(f"Initialized matcher with prompt: {args.prompt}")
-        
-        # Extract preferences and log them
         preferences = matcher.extract_preferences(args.prompt)
-        logger.debug(f"Extracted preferences: {preferences}")
         
-        # Get filtered profiles
+        if args.debug:
+            logging.debug(f"Extracted preferences: {preferences}")
+        
         filtered_profiles = matcher.filter_profiles_by_preferences(preferences)
-        logger.debug(f"Found {len(filtered_profiles)} profiles after filtering")
         
-        # Find matches
+        if args.debug:
+            logging.debug(f"Found {len(filtered_profiles)} profiles after filtering")
+        
         matches = matcher.find_matching_profiles(args.prompt)
-        logger.debug(f"Found {len(matches)} matches after similarity calculation")
+        
+        if args.debug:
+            logging.debug(f"Found {len(matches)} matches after similarity calculation")
         
         # Convert matches to JSON-serializable format
         json_matches = []
         for match in matches:
+            # Convert photo paths to URLs
+            photos = []
+            for photo in match['profile'].get('photos', []):
+                if isinstance(photo, dict):
+                    photos.append(photo['url'])
+                else:
+                    photos.append(str(photo))
+
             json_match = {
                 'profile': {
-                    '_id': str(match['profile']['_id']),  
-                    'name': match['profile']['name'],
-                    'bio': match['profile']['aboutMe'],
-                    'interests': match['profile']['interests'],
-                    'occupation': match['profile']['occupation'],
-                    'photos': match['profile']['photos']
+                    '_id': str(match['profile']['_id']),
+                    'name': match['profile'].get('name', ''),
+                    'bio': match['profile'].get('aboutMe', ''),
+                    'interests': match['profile'].get('interests', []),
+                    'occupation': match['profile'].get('occupation', ''),
+                    'photos': photos
                 },
                 'matchScore': float(match['matchScore'])
             }
             json_matches.append(json_match)
+            
         print(json.dumps(json_matches))
         sys.stdout.flush()
         
         matcher.close()
-        sys.exit(0)
+        
     except Exception as e:
-        logger.error(f"Error in profile matching: {str(e)}", exc_info=True)
-        sys.stderr.write(f"Error: {str(e)}\n")
+        logging.error(f"Error in profile matching: {str(e)}")
+        logging.error(traceback.format_exc())
         sys.exit(1)
