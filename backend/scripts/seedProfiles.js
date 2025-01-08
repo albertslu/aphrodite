@@ -101,40 +101,83 @@ const syntheticProfiles = [
     }
 ];
 
+// Read and format profiles from the extracted dataset
+const rawProfiles = JSON.parse(fs.readFileSync(path.join(__dirname, '../../Model/extracted_10_profiles.json')));
+
+// Helper function to generate profile photo URLs based on characteristics
+const generatePhotoUrls = (profile) => {
+    const gender = profile.sex === 'm' ? 'male' : 'female';
+    const ageGroup = profile.age < 25 ? 'young' : profile.age < 35 ? 'mid' : 'mature';
+    const ethnicity = profile.ethnicity.split(',')[0].trim().toLowerCase();
+    
+    return [
+        {
+            url: `/uploads/${gender}_${ageGroup}_${ethnicity}_1.jpg`,
+            caption: "Main profile photo",
+            order: 1
+        },
+        {
+            url: `/uploads/${gender}_${ageGroup}_${ethnicity}_2.jpg`,
+            caption: "Full body photo",
+            order: 2
+        }
+    ];
+};
+
 // Convert profile data from extracted dataset to our schema format
 const formatProfileData = (rawProfile) => {
+    // Clean and format the text fields
+    const cleanText = (text) => {
+        if (!text) return '';
+        return text.replace(/[^\w\s.,!?-]/g, ' ')  // Remove special characters
+                  .replace(/\s+/g, ' ')            // Remove extra spaces
+                  .trim();
+    };
+
+    // Extract meaningful parts from essays
+    const aboutMe = cleanText(rawProfile.essay0) || 'No description provided';
+    const interests = cleanText(rawProfile.essay2) || 'No interests provided';
+    const relationshipGoals = cleanText(rawProfile.essay9) || 'Looking for meaningful connections';
+    
+    // Extract partner preferences from essay0 if available
+    let partnerPreferences = 'Open to meeting new people';
+    if (rawProfile.essay0) {
+        const prefIndex = rawProfile.essay0.toLowerCase().indexOf('looking for');
+        if (prefIndex !== -1) {
+            partnerPreferences = cleanText(rawProfile.essay0.slice(prefIndex));
+        }
+    }
+
     return {
         name: `User${Math.floor(Math.random() * 10000)}`,
         gender: rawProfile.sex === 'm' ? 'male' : 'female',
-        sexualOrientation: rawProfile.orientation,
+        sexualOrientation: rawProfile.orientation || 'straight',
         age: rawProfile.age,
         height: formatHeight(rawProfile.height),
         ethnicity: rawProfile.ethnicity.split(',')[0].trim(),
-        occupation: rawProfile.job,
-        location: rawProfile.location,
-        education: rawProfile.education,
-        aboutMe: rawProfile.essay0 || 'No description provided',
-        interests: rawProfile.essay2 || 'No interests provided',
-        relationshipGoals: rawProfile.essay9 || 'Looking for meaningful connections',
-        partnerPreferences: rawProfile.essay0?.split('about you:')[1] || 'Open to meeting new people',
-        photos: [
-            {
-                url: `/uploads/${rawProfile.sex === 'm' ? 'male' : 'female'}_${rawProfile.age}_${rawProfile.ethnicity.split(',')[0].trim()}_1.jpg`,
-                caption: "Profile photo",
-                order: 1
-            },
-            {
-                url: `/uploads/${rawProfile.sex === 'm' ? 'male' : 'female'}_${rawProfile.age}_${rawProfile.ethnicity.split(',')[0].trim()}_2.jpg`,
-                caption: "Additional photo",
-                order: 2
-            }
-        ]
+        occupation: cleanText(rawProfile.job) || 'Not specified',
+        location: cleanText(rawProfile.location) || 'Not specified',
+        education: cleanText(rawProfile.education) || 'Not specified',
+        aboutMe: aboutMe,
+        interests: interests,
+        relationshipGoals: relationshipGoals,
+        partnerPreferences: partnerPreferences,
+        photos: generatePhotoUrls(rawProfile)
     };
 };
 
-// Read and format profiles from the extracted dataset
-const rawProfiles = JSON.parse(fs.readFileSync(path.join(__dirname, '../../Model/extracted_10_profiles.json')));
-const extractedProfiles = rawProfiles.slice(0, 3).map(formatProfileData);
+// Select and format extracted profiles
+const extractedProfiles = rawProfiles
+    .filter(profile => {
+        // Filter out profiles with missing critical data
+        return profile.age && 
+               profile.sex && 
+               profile.ethnicity && 
+               profile.height && 
+               profile.essay0; // Ensure we have at least some text content
+    })
+    .slice(0, 7) // Take 7 profiles from the extracted dataset
+    .map(formatProfileData);
 
 // Combine synthetic and extracted profiles
 const allProfiles = [...syntheticProfiles, ...extractedProfiles];
