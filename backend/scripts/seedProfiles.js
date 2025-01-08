@@ -2,13 +2,26 @@ const mongoose = require('mongoose');
 const fs = require('fs');
 const path = require('path');
 const Profile = require('../models/Profile');
-require('dotenv').config({ path: path.join(__dirname, '../../.env') }); // Look for .env in root directory
+require('dotenv').config({ path: path.join(__dirname, '../../.env') });
 
-// MongoDB Atlas connection
-mongoose.connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
+// Get the MongoDB URI and ensure it has the right format
+const MONGODB_URI = process.env.MONGODB_URI.replace('?tls=true', '?retryWrites=true&w=majority');
+
+// Log the MongoDB URI (with password hidden)
+const uriWithHiddenPassword = MONGODB_URI.replace(/\/\/[^:]+:[^@]+@/, '//***:***@');
+console.log('Connecting to MongoDB:', uriWithHiddenPassword);
+
+// MongoDB Atlas connection with better error handling
+mongoose.connect(MONGODB_URI)
+    .then(() => {
+        console.log('Successfully connected to MongoDB.');
+        // Only start seeding after connection is established
+        seedProfiles();
+    })
+    .catch(err => {
+        console.error('MongoDB connection error:', err);
+        process.exit(1);
+    });
 
 // Convert height from inches to readable format
 const formatHeight = (inches) => {
@@ -181,14 +194,17 @@ const copyImages = async () => {
 const seedProfiles = async () => {
     try {
         // Clear existing profiles
+        console.log('Clearing existing profiles...');
         await Profile.deleteMany({});
         console.log('Cleared existing profiles');
 
         // Copy images
+        console.log('Copying images...');
         await copyImages();
         console.log('Copied images to uploads directory');
 
         // Create new profiles
+        console.log('Creating new profiles...');
         const createdProfiles = await Profile.insertMany(allProfiles);
         console.log(`Created ${createdProfiles.length} profiles`);
 
@@ -198,12 +214,10 @@ const seedProfiles = async () => {
         });
 
         console.log('Seeding completed successfully');
+        mongoose.disconnect();
     } catch (error) {
         console.error('Error seeding profiles:', error);
-    } finally {
         mongoose.disconnect();
+        process.exit(1);
     }
 };
-
-// Run the seeding
-seedProfiles();
