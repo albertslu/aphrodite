@@ -31,7 +31,6 @@ const syntheticProfiles = [
         aboutMe: "Dedicated fitness enthusiast and personal trainer. I spend most of my time at the gym, helping others achieve their fitness goals. My athletic build comes from years of dedication to weightlifting and proper nutrition.",
         interests: "Weightlifting, CrossFit, nutrition, outdoor sports, hiking",
         relationshipGoals: "Looking for someone who shares my passion for fitness and healthy living",
-        partnerPreferences: "Athletic and health-conscious individual who enjoys an active lifestyle",
         photos: [
             {
                 url: "/uploads/athletic_male_1.jpg",
@@ -58,7 +57,6 @@ const syntheticProfiles = [
         aboutMe: "Tech professional by day, foodie by night. I have a slim build and maintain an active lifestyle despite long hours coding. Love exploring new restaurants and traveling.",
         interests: "Coding, traveling, fine dining, yoga, photography",
         relationshipGoals: "Seeking a meaningful connection with someone ambitious and curious about life",
-        partnerPreferences: "Well-educated professional who values both career and personal growth",
         photos: [
             {
                 url: "/uploads/professional_female_1.jpg",
@@ -85,7 +83,6 @@ const syntheticProfiles = [
         aboutMe: "Creative soul with a lean build. Covered in tattoos that tell my life story. When I'm not designing, you'll find me at art galleries or working on my photography portfolio.",
         interests: "Art, photography, tattoos, indie music, vintage fashion",
         relationshipGoals: "Looking for someone who appreciates creativity and alternative lifestyle",
-        partnerPreferences: "Creative and open-minded person who loves art and self-expression",
         photos: [
             {
                 url: "/uploads/artistic_male_1.jpg",
@@ -100,9 +97,6 @@ const syntheticProfiles = [
         ]
     }
 ];
-
-// Read and format profiles from the extracted dataset
-const rawProfiles = JSON.parse(fs.readFileSync(path.join(__dirname, '../../Model/extracted_10_profiles.json')));
 
 // Helper function to generate profile photo URLs based on characteristics
 const generatePhotoUrls = (profile) => {
@@ -124,6 +118,9 @@ const generatePhotoUrls = (profile) => {
     ];
 };
 
+// Read and format profiles from the extracted dataset
+const rawProfiles = JSON.parse(fs.readFileSync(path.join(__dirname, '../../Model/extracted_10_profiles.json')));
+
 // Convert profile data from extracted dataset to our schema format
 const formatProfileData = (rawProfile) => {
     // Clean and format the text fields
@@ -133,20 +130,6 @@ const formatProfileData = (rawProfile) => {
                   .replace(/\s+/g, ' ')            // Remove extra spaces
                   .trim();
     };
-
-    // Extract meaningful parts from essays
-    const aboutMe = cleanText(rawProfile.essay0) || 'No description provided';
-    const interests = cleanText(rawProfile.essay2) || 'No interests provided';
-    const relationshipGoals = cleanText(rawProfile.essay9) || 'Looking for meaningful connections';
-    
-    // Extract partner preferences from essay0 if available
-    let partnerPreferences = 'Open to meeting new people';
-    if (rawProfile.essay0) {
-        const prefIndex = rawProfile.essay0.toLowerCase().indexOf('looking for');
-        if (prefIndex !== -1) {
-            partnerPreferences = cleanText(rawProfile.essay0.slice(prefIndex));
-        }
-    }
 
     return {
         name: `User${Math.floor(Math.random() * 10000)}`,
@@ -158,10 +141,9 @@ const formatProfileData = (rawProfile) => {
         occupation: cleanText(rawProfile.job) || 'Not specified',
         location: cleanText(rawProfile.location) || 'Not specified',
         education: cleanText(rawProfile.education) || 'Not specified',
-        aboutMe: aboutMe,
-        interests: interests,
-        relationshipGoals: relationshipGoals,
-        partnerPreferences: partnerPreferences,
+        aboutMe: cleanText(rawProfile.essay0) || 'No description provided',
+        interests: cleanText(rawProfile.essay2) || 'No interests provided',
+        relationshipGoals: cleanText(rawProfile.essay9) || 'Looking for meaningful connections',
         photos: generatePhotoUrls(rawProfile)
     };
 };
