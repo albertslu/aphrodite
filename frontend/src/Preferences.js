@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './App.css';
 
 const Preferences = () => {
     const navigate = useNavigate();
+    const location = useLocation();
     const [preferences, setPreferences] = useState({
         ageRange: { min: 18, max: 50 },
         location: '',
@@ -11,6 +12,7 @@ const Preferences = () => {
         idealMatch: ''
     });
     const [error, setError] = useState('');
+    const [successMessage, setSuccessMessage] = useState(location.state?.message || '');
     const isAdmin = localStorage.getItem('isAdmin') === 'true';
 
     const handleInputChange = (e) => {
@@ -44,14 +46,24 @@ const Preferences = () => {
         }
     };
 
-    const handleCreateNewProfile = () => {
-        navigate('/create-profile');
+    const handleLogout = () => {
+        // Clear all auth-related data from localStorage
+        localStorage.removeItem('token');
+        localStorage.removeItem('isAdmin');
+        // Navigate back to login page
+        navigate('/');
     };
 
     return (
         <div className="preferences-container">
-            <h2>Tell Us Your Preferences</h2>
-            <p className="subtitle">Help our AI find your perfect match</p>
+            <div className="header-section">
+                <h2>Tell Us Your Preferences</h2>
+                <button onClick={handleLogout} className="logout-btn">
+                    Logout
+                </button>
+            </div>
+            {error && <div className="error">{error}</div>}
+            {successMessage && <div className="success">{successMessage}</div>}
             
             <form onSubmit={handleSubmit} className="preferences-form">
                 <div className="form-section">
@@ -121,25 +133,12 @@ const Preferences = () => {
             
             {isAdmin && (
                 <button 
-                    onClick={handleCreateNewProfile}
+                    onClick={() => navigate('/create-profile')}
                     className="create-profile-btn"
-                    style={{ 
-                        marginTop: '20px',
-                        backgroundColor: '#4CAF50', // Green color to differentiate
-                        color: 'white',
-                        padding: '12px',
-                        border: 'none',
-                        borderRadius: '4px',
-                        cursor: 'pointer',
-                        width: '100%',
-                        fontSize: '16px'
-                    }}
                 >
                     Create New Profile
                 </button>
             )}
-            
-            {error && <div className="error">{error}</div>}
         </div>
     );
 };
