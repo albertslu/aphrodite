@@ -89,6 +89,7 @@ const Matches = () => {
                                                 src={`http://localhost:5000${photo}`}
                                                 alt={`${match.profile.name}'s photo ${photoIndex + 1}`}
                                                 className="profile-photo"
+                                                loading="lazy"
                                             />
                                         ))}
                                     </div>
@@ -99,7 +100,7 @@ const Matches = () => {
                             <div className="match-info">
                                 <h3>{match.profile.name}</h3>
                                 <div className="match-score">
-                                    <span>{Math.round(match.matchScore * 100)}% Match</span>
+                                    {Math.round(match.matchScore * 100)}% Match
                                 </div>
                                 <div className="basic-info">
                                     <p>{match.profile.occupation}</p>
@@ -107,7 +108,9 @@ const Matches = () => {
                                 </div>
                                 <div className="interests">
                                     {match.profile.interests.split(',').map((interest, i) => (
-                                        <span key={i} className="interest-tag">{interest.trim()}</span>
+                                        <span key={i} className="interest-tag">
+                                            {interest.trim()}
+                                        </span>
                                     ))}
                                 </div>
                             </div>
