@@ -11,13 +11,16 @@ from typing import List, Dict, Union, Optional
 from pathlib import Path
 
 # Load environment variables
-load_dotenv(dotenv_path=Path(__file__).parent.parent.parent / '.env')
+load_dotenv(dotenv_path=str(Path(__file__).parent.parent.parent / '.env'))
 
 class HybridProfileMatcher:
     def __init__(self):
         """Initialize OpenAI, CLIP, and MongoDB connections"""
         # OpenAI setup
-        self.client = OpenAI(api_key=os.getenv("SECRET_API_KEY"))
+        api_key = os.getenv("SECRET_API_KEY")
+        if not api_key:
+            raise ValueError("SECRET_API_KEY environment variable not set")
+        self.client = OpenAI(api_key=api_key)
         
         # CLIP setup
         self.device = "cuda" if torch.cuda.is_available() else "cpu"

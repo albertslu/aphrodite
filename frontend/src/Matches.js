@@ -10,10 +10,17 @@ const Matches = () => {
     const [error, setError] = useState('');
 
     useEffect(() => {
-        // Get matches from location state or localStorage
-        const matchData = location.state?.matches || JSON.parse(localStorage.getItem('matches') || '[]');
-        setMatches(matchData);
-        setLoading(false);
+        try {
+            // Get matches from location state or localStorage
+            const matchData = location.state?.matches || JSON.parse(localStorage.getItem('matches') || '[]');
+            console.log('Match data received:', matchData); // Debug log
+            setMatches(Array.isArray(matchData) ? matchData : []);
+        } catch (err) {
+            console.error('Error processing match data:', err);
+            setError('Error loading matches');
+        } finally {
+            setLoading(false);
+        }
     }, [location.state]);
 
     const handleLogout = () => {
@@ -57,7 +64,7 @@ const Matches = () => {
                 </div>
             </div>
 
-            {matches.length === 0 ? (
+            {!matches || matches.length === 0 ? (
                 <div className="no-matches">
                     <p>No matches found. Try adjusting your preferences.</p>
                     <button onClick={handleBackToPreferences}>Update Preferences</button>
@@ -65,7 +72,7 @@ const Matches = () => {
             ) : (
                 <div className="matches-grid">
                     {matches.map((match, index) => (
-                        <div key={index} className="match-card">
+                        <div key={match.profile._id || index} className="match-card">
                             <div className="match-photos">
                                 {match.profile.photos && match.profile.photos.length > 0 ? (
                                     <div className="photo-carousel">
@@ -84,37 +91,18 @@ const Matches = () => {
                             </div>
                             <div className="match-info">
                                 <h3>{match.profile.name}</h3>
+                                <div className="match-score">
+                                    <span>{Math.round(match.matchScore * 100)}% Match</span>
+                                </div>
                                 <div className="basic-info">
-                                    <p>{match.profile.age} years old • {match.profile.gender}</p>
-                                    <p>{match.profile.location}</p>
-                                    <p>{match.profile.ethnicity}</p>
-                                </div>
-                                <div className="match-details">
-                                    <h4>About Me</h4>
-                                    <p>{match.profile.aboutMe}</p>
-                                    
-                                    <h4>Occupation</h4>
                                     <p>{match.profile.occupation}</p>
-                                    
-                                    <h4>Education</h4>
-                                    <p>{match.profile.education}</p>
-                                    
-                                    <h4>Interests</h4>
-                                    <div className="interests-tags">
-                                        {match.profile.interests.split(',').map((interest, i) => (
-                                            <span key={i} className="interest-tag">{interest.trim()}</span>
-                                        ))}
-                                    </div>
-
-                                    <h4>Relationship Goals</h4>
-                                    <p>{match.profile.relationshipGoals}</p>
+                                    <p>{match.profile.bio}</p>
                                 </div>
-                                {match.matchScore && (
-                                    <div className="match-score">
-                                        <h4>Match Score</h4>
-                                        <div className="score">{Math.round(match.matchScore * 100)}% Match</div>
-                                    </div>
-                                )}
+                                <div className="interests">
+                                    {match.profile.interests.split(',').map((interest, i) => (
+                                        <span key={i} className="interest-tag">{interest.trim()}</span>
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     ))}
