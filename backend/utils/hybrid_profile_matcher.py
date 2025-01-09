@@ -50,6 +50,10 @@ class HybridProfileMatcher:
             'features': [
                 'bearded', 'clean-shaven', 'long hair', 'short hair',
                 'tattoos', 'glasses'
+            ],
+            'athletic_context': [
+                'playing sports', 'basketball court', 'football field',
+                'gym', 'working out', 'training', 'athlete', 'sports uniform'
             ]
         }
 
@@ -224,6 +228,23 @@ class HybridProfileMatcher:
     def calculate_text_similarity(self, profile: Dict, prompt: str) -> float:
         """Calculate text similarity between profile and prompt"""
         try:
+            # Check for athletic professions and achievements
+            occupation = profile.get('occupation', '').lower()
+            about_me = profile.get('aboutMe', '').lower()
+            athletic_bonus = 0.0
+            
+            athletic_professions = [
+                'athlete', 'player', 'trainer', 'coach', 'professional', 
+                'nba', 'nfl', 'mlb', 'soccer', 'basketball', 'football',
+                'baseball', 'tennis', 'olympic'
+            ]
+            
+            # Add bonus for athletic professions
+            if any(prof in occupation for prof in athletic_professions):
+                athletic_bonus += 0.2
+            if any(prof in about_me for prof in athletic_professions):
+                athletic_bonus += 0.1
+                
             # Combine relevant profile text fields
             profile_text = " ".join(filter(None, [
                 profile.get('name', ''),
@@ -245,7 +266,8 @@ class HybridProfileMatcher:
             similarity = float(np.dot(profile_embedding, prompt_embedding) / 
                             (np.linalg.norm(profile_embedding) * np.linalg.norm(prompt_embedding)))
             
-            return similarity
+            # Apply athletic bonus to final similarity score
+            return min(1.0, similarity + athletic_bonus)
             
         except Exception as e:
             logger.error(f"Error calculating text similarity: {str(e)}")
