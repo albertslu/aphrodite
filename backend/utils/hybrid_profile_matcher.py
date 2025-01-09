@@ -311,31 +311,52 @@ class HybridProfileMatcher:
             
             # Add extra weight for athletic/fitness-related content when relevant
             athletic_keywords = {
-                'athlete': 2.0,
-                'wrestler': 2.0,
-                'bodybuilder': 2.0,
-                'fitness': 1.5,
-                'gym': 1.5,
-                'sports': 1.5,
-                'athletic': 1.5,
-                'muscular': 1.5,
-                'workout': 1.2,
-                'training': 1.2,
-                'exercise': 1.2
+                # Strong athletic indicators (3.0x boost)
+                'personal trainer': 3.0,
+                'athlete': 3.0,
+                'wrestler': 3.0,
+                'bodybuilder': 3.0,
+                'fitness instructor': 3.0,
+                'crossfit': 3.0,
+                
+                # Clear fitness focus (2.0x boost)
+                'weightlifting': 2.0,
+                'fitness': 2.0,
+                'gym': 2.0,
+                'sports': 2.0,
+                'athletic': 2.0,
+                'muscular': 2.0,
+                'exercise science': 2.0,
+                
+                # Fitness-related activities (1.5x boost)
+                'workout': 1.5,
+                'training': 1.5,
+                'nutrition': 1.5,
+                'strength': 1.5,
+                'hiking': 1.5,
+                'outdoor sports': 1.5
             }
             
             prompt_lower = prompt.lower()
-            if any(word in prompt_lower for word in ['athletic', 'fit', 'muscular', 'strong']):
+            if any(word in prompt_lower for word in ['athletic', 'fit', 'muscular', 'strong', 'gym', 'fitness']):
                 # Check profile text for athletic keywords
                 score_multiplier = 1.0
+                profile_lower = profile_text.lower()
+                
+                # Check for keyword matches
                 for keyword, weight in athletic_keywords.items():
-                    if keyword in profile_text.lower():
+                    if keyword in profile_lower:
                         score_multiplier = max(score_multiplier, weight)
-                        
-                # Also check occupation specifically
-                occupation = profile.get('occupation', '').lower()
-                if any(keyword in occupation for keyword in ['athlete', 'wrestler', 'bodybuilder', 'trainer']):
+                
+                # Extra boost for athletic education
+                education = profile.get('education', '').lower()
+                if any(term in education for term in ['exercise', 'sports', 'physical education', 'kinesiology']):
                     score_multiplier = max(score_multiplier, 2.0)
+                
+                # Extra boost for athletic occupation
+                occupation = profile.get('occupation', '').lower()
+                if any(term in occupation for term in ['trainer', 'athlete', 'fitness', 'coach']):
+                    score_multiplier = max(score_multiplier, 3.0)
                 
                 # Generate and adjust similarity score
                 base_similarity = self.calculate_embedding_similarity(profile_text, prompt)
@@ -346,7 +367,7 @@ class HybridProfileMatcher:
         except Exception as e:
             logger.error(f"Error calculating text similarity: {str(e)}")
             return 0.0
-            
+
     def calculate_embedding_similarity(self, text1: str, text2: str) -> float:
         """Calculate cosine similarity between two text embeddings"""
         try:
@@ -511,63 +532,43 @@ class HybridProfileMatcher:
                     # Calculate text similarity
                     text_score = self.calculate_text_similarity(profile, prompt)
                     
-                    # Calculate image similarity if photos exist
-                    image_score = 0.0
-                    photo_count = 0
+                    # Calculate image similarity for each photo
+                    image_scores = []
+                    for photo in profile.get('photos', []):
+                        if not photo:
+                            continue
+                        image_result = self.calculate_image_similarity(photo, prompt)
+                        if image_result['general_similarity'] > 0:
+                            image_scores.append(image_result['general_similarity'])
                     
-                    if profile.get('photos'):
-                        image_results = []
-                        physical_attrs = [attr for attrs in self.physical_attributes.values() for attr in attrs]
-                        
-                        for photo in profile['photos']:
-                            try:
-                                image_path = self.get_photo_path(photo)
-                                logger.debug(f"Processing image: {image_path}")
-                                
-                                if os.path.exists(image_path):
-                                    result = self.calculate_image_similarity(image_path, prompt, physical_attrs)
-                                    if result['general_similarity'] > 0:
-                                        # Weight image scores by both general similarity and specific attribute detection
-                                        weighted_score = (
-                                            result['general_similarity'] * 0.4 +  # General visual match
-                                            result['attribute_confidence'] * 0.4 +  # Specific attribute detection
-                                            result['clarity_score'] * 0.2  # Photo quality/clarity
-                                        )
-                                        image_results.append(weighted_score)
-                                        photo_count += 1
-                            except Exception as e:
-                                logger.error(f"Error processing image {photo}: {str(e)}")
-                                continue
-                        
-                        if image_results:
-                            image_score = max(image_results)  # Use best matching photo
+                    # Use best photo score if available, otherwise 0
+                    image_score = max(image_scores) if image_scores else 0
                     
-                    # Weight scores based on whether physical attributes were mentioned
-                    physical_weight = self.detect_physical_attributes(prompt)
+                    # Combine scores - text similarity has more weight for attribute matching
+                    final_score = (text_score * 0.7 + image_score * 0.3) * 100
                     
-                    # If physical attributes mentioned heavily, prioritize image matching
-                    if physical_weight > 1.5:
-                        final_score = (text_score * 0.3) + (image_score * 0.7 if photo_count > 0 else 0)
-                    else:
-                        final_score = (text_score * 0.7) + (image_score * 0.3 if photo_count > 0 else 0)
+                    # Ensure score is between 0 and 100
+                    final_score = min(100, max(0, final_score))
                     
-                    profile_scores.append({
-                        'profile': profile,
-                        'matchScore': float(final_score)
-                    })
-                    
+                    # Filter out very low scoring profiles
+                    if final_score >= 20:  # Only include profiles with at least 20% match
+                        profile_scores.append({
+                            'profile': profile,
+                            'score': final_score
+                        })
+                
                 except Exception as e:
-                    logger.error(f"Error processing profile {profile.get('_id')}: {str(e)}")
+                    logger.error(f"Error processing profile {profile.get('name', 'Unknown')}: {str(e)}")
                     continue
             
-            # Sort by score and return top k
-            matches = sorted(profile_scores, key=lambda x: x['matchScore'], reverse=True)[:top_k]
-            logger.info(f"Found {len(matches)} matches out of {len(filtered_profiles)} filtered profiles")
+            # Sort by score in descending order
+            profile_scores.sort(key=lambda x: x['score'], reverse=True)
             
-            return matches
+            # Return top k results
+            return profile_scores[:top_k]
             
         except Exception as e:
-            logger.error(f"Error in find_matching_profiles: {str(e)}")
+            logger.error(f"Error finding matching profiles: {str(e)}")
             return []
 
     def close(self):
@@ -637,7 +638,7 @@ if __name__ == "__main__":
                     'occupation': match['profile'].get('occupation', ''),
                     'photos': photos
                 },
-                'matchScore': float(match['matchScore'])
+                'score': float(match['score'])
             }
             json_matches.append(json_match)
             
