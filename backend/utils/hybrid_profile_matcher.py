@@ -9,61 +9,63 @@ from pymongo import MongoClient
 import re
 from typing import List, Dict, Union, Optional
 from pathlib import Path
+import json
+import logging
+import argparse
+import traceback
+from bson import ObjectId
+import sys
 
 # Load environment variables
 load_dotenv(dotenv_path=str(Path(__file__).parent.parent.parent / '.env'))
 
+class JSONEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, ObjectId):
+            return str(obj)
+        return super().default(obj)
+
 class HybridProfileMatcher:
     def __init__(self):
         """Initialize OpenAI, CLIP, and MongoDB connections"""
-        # OpenAI setup
-        api_key = os.getenv("SECRET_API_KEY")
-        if not api_key:
-            raise ValueError("SECRET_API_KEY environment variable not set")
-        self.client = OpenAI(api_key=api_key)
-        
-        # CLIP setup
-        self.device = "cuda" if torch.cuda.is_available() else "cpu"
-        self.clip_model, self.preprocess = clip.load("ViT-B/32", device=self.device)
-        
-        # MongoDB setup
-        mongodb_uri = os.getenv('MONGODB_URI')
-        if not mongodb_uri:
-            raise ValueError("MONGODB_URI environment variable not set")
-        self.mongo_client = MongoClient(mongodb_uri)
-        self.db = self.mongo_client['profile_matching']
-        self.profiles_collection = self.db['profiles']
+        try:
+            # OpenAI setup
+            api_key = os.getenv("SECRET_API_KEY")
+            if not api_key:
+                raise ValueError("SECRET_API_KEY environment variable not set")
+            self.client = OpenAI(api_key=api_key)
+            
+            # CLIP setup
+            self.device = "cuda" if torch.cuda.is_available() else "cpu"
+            self.clip_model, self.preprocess = clip.load("ViT-B/32", device=self.device)
+            
+            # MongoDB setup
+            mongodb_uri = os.getenv('MONGODB_URI')
+            if not mongodb_uri:
+                raise ValueError("MONGODB_URI environment variable not set")
+            self.mongo_client = MongoClient(mongodb_uri)
+            self.db = self.mongo_client['profile_matching']
+            self.profiles_collection = self.db['profiles']
+            
+        except Exception as e:
+            logger.error(f"Error initializing matcher: {str(e)}")
+            raise
 
     def get_photo_path(self, photo):
         """Convert photo object or string to a full path."""
         uploads_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'uploads')
         
+        # Handle both string and dict photo formats
         if isinstance(photo, dict):
-            photo_url = photo.get('url', '').lstrip('/')
+            photo_url = photo.get('url', '')
         else:
-            photo_url = str(photo).lstrip('/')
+            photo_url = str(photo)
         
-        # Try to find a matching file in uploads directory
+        # Clean up the path
         photo_name = os.path.basename(photo_url)
-        if os.path.exists(os.path.join(uploads_dir, photo_name)):
-            return os.path.normpath(os.path.join(uploads_dir, photo_name))
+        photo_path = os.path.join(uploads_dir, photo_name)
         
-        # If exact match not found, try to find a file with similar name
-        for filename in os.listdir(uploads_dir):
-            # Skip temporary files
-            if filename.startswith('.') or filename.startswith('~'):
-                continue
-                
-            # Try to match the profile type (athletic, artistic, etc.)
-            profile_type = photo_name.split('_')[0]
-            if filename.startswith(profile_type):
-                if photo_name.endswith('1.jpg') and filename.endswith('1.jpg'):
-                    return os.path.normpath(os.path.join(uploads_dir, filename))
-                elif photo_name.endswith('2.jpg') and filename.endswith('2.jpg'):
-                    return os.path.normpath(os.path.join(uploads_dir, filename))
-        
-        # If no match found, return original path
-        return os.path.normpath(os.path.join(uploads_dir, photo_name))
+        return os.path.normpath(photo_path)
 
     def extract_preferences(self, prompt: str) -> Dict:
         """Extract age range, gender, and ethnicity preferences from prompt"""
@@ -146,15 +148,11 @@ class HybridProfileMatcher:
             logger.error(f"Error calculating text similarity: {str(e)}")
             return 0.0
 
-    def calculate_image_similarity(self, image_path: str, prompt: str, physical_attributes: List[str] = None) -> Dict[str, float]:
-        """
-        Calculate similarity between image and prompt using CLIP
-        """
+    def calculate_image_similarity(self, photo, prompt: str) -> Dict[str, float]:
+        """Calculate similarity between image and prompt using CLIP"""
         try:
-            # Ensure image_path is a proper path
-            if isinstance(image_path, dict):
-                image_path = self.get_photo_path(image_path)
-            
+            # Get full path to image
+            image_path = self.get_photo_path(photo)
             if not os.path.exists(image_path):
                 logger.warning(f"Image not found: {image_path}")
                 return {
@@ -189,18 +187,17 @@ class HybridProfileMatcher:
                 text_features /= text_features.norm(dim=-1, keepdim=True)
                 
                 # Calculate similarities
-                similarities = (100.0 * image_features @ text_features.T).softmax(dim=-1)
+                similarities = (image_features @ text_features.T).softmax(dim=-1)
                 
                 # Take the maximum similarity score
                 general_similarity = float(max(similarities[0]))
                 
                 # Calculate clarity score
                 clarity_tokens = clip.tokenize(["a clear photo of a person", "a blurry or unclear photo"]).to(self.device)
-                with torch.no_grad():
-                    clarity_features = self.clip_model.encode_text(clarity_tokens)
-                    clarity_features /= clarity_features.norm(dim=-1, keepdim=True)
-                    clarity_sim = (100.0 * image_features @ clarity_features.T).softmax(dim=-1)
-                    clarity_score = float(clarity_sim[0][0])
+                clarity_features = self.clip_model.encode_text(clarity_tokens)
+                clarity_features /= clarity_features.norm(dim=-1, keepdim=True)
+                clarity_sim = (image_features @ clarity_features.T).softmax(dim=-1)
+                clarity_score = float(clarity_sim[0][0])
                 
                 return {
                     'general_similarity': general_similarity,
@@ -316,18 +313,22 @@ class HybridProfileMatcher:
                     # Use best photo score if available, otherwise 0
                     image_score = max(image_scores) if image_scores else 0
                     
-                    # Combine scores - text similarity has more weight for attribute matching
-                    final_score = (text_score * 0.7 + image_score * 0.3) * 100
+                    # Boost scores for athletic/tall profiles if those terms are in prompt
+                    boost = 1.0
+                    if any(word in prompt.lower() for word in ['athletic', 'fit', 'muscular', 'strong', 'tall']):
+                        if any(word in profile.get('interests', '').lower() for word in ['weightlifting', 'crossfit', 'gym', 'fitness']):
+                            boost = 1.5
                     
-                    # Ensure score is between 0 and 100
+                    # Combine scores with boost
+                    final_score = (text_score * 0.7 + image_score * 0.3) * boost
+                    
+                    # Scale to 0-100 range and ensure it stays within bounds
                     final_score = min(100, max(0, final_score))
                     
-                    # Filter out very low scoring profiles
-                    if final_score >= 20:  # Only include profiles with at least 20% match
-                        profile_scores.append({
-                            'profile': profile,
-                            'matchScore': round(final_score, 1)  # Round to 1 decimal place
-                        })
+                    profile_scores.append({
+                        'profile': profile,
+                        'matchScore': round(final_score, 1)  # Round to 1 decimal place
+                    })
                 
                 except Exception as e:
                     logger.error(f"Error processing profile {profile.get('name', 'Unknown')}: {str(e)}")
@@ -345,72 +346,62 @@ class HybridProfileMatcher:
 
     def format_matches_for_json(self, matches: List[Dict]) -> List[Dict]:
         """Format matches for JSON response"""
-        json_matches = []
-        for match in matches:
-            # Format photos
-            photos = []
-            for photo in match['profile'].get('photos', []):
-                if photo:
-                    photos.append(photo)
+        try:
+            json_matches = []
+            for match in matches:
+                # Format photos to keep full paths
+                photos = []
+                for photo in match['profile'].get('photos', []):
+                    if isinstance(photo, dict):
+                        photos.append(photo.get('url', ''))
+                    else:
+                        photos.append(str(photo))
+
+                # Create JSON match object with string conversion for ObjectId
+                json_match = {
+                    'profile': {
+                        '_id': str(match['profile'].get('_id', '')),
+                        'name': match['profile'].get('name', ''),
+                        'bio': match['profile'].get('bio', ''),
+                        'interests': match['profile'].get('interests', ''),
+                        'occupation': match['profile'].get('occupation', ''),
+                        'photos': photos
+                    },
+                    'matchScore': float(match['matchScore'])
+                }
+                json_matches.append(json_match)
             
-            # Create JSON match object
-            json_match = {
-                'profile': {
-                    '_id': str(match['profile'].get('_id', '')),
-                    'name': match['profile'].get('name', ''),
-                    'bio': match['profile'].get('bio', ''),
-                    'interests': match['profile'].get('interests', ''),
-                    'occupation': match['profile'].get('occupation', ''),
-                    'photos': photos
-                },
-                'matchScore': match['matchScore']  # Use matchScore consistently
-            }
-            json_matches.append(json_match)
-        
-        return json_matches
+            return json_matches
+        except Exception as e:
+            logger.error(f"Error formatting matches for JSON: {str(e)}")
+            return []
 
     def close(self):
         """Close MongoDB connection"""
         self.mongo_client.close()
 
 if __name__ == "__main__":
-    import argparse
-    import json
-    import sys
-    import logging
-
-    # Set up logging
-    logging.basicConfig(
-        level=logging.INFO,
-        format='%(asctime)s - %(levelname)s - %(message)s'
-    )
-    logger = logging.getLogger(__name__)
-
-    # Parse command line arguments
-    parser = argparse.ArgumentParser(description='Profile Matching Script')
-    parser.add_argument('--prompt', type=str, required=True, help='Search prompt')
-    parser.add_argument('--debug', action='store_true', help='Enable debug logging')
-    args = parser.parse_args()
-
-    if args.debug:
-        logging.basicConfig(level=logging.DEBUG, 
-                          format='%(asctime)s - %(levelname)s - %(message)s')
-    else:
-        logging.basicConfig(level=logging.INFO, 
-                          format='%(asctime)s - %(levelname)s - %(message)s')
-
     try:
+        # Set up logging
+        logging.basicConfig(
+            level=logging.INFO,
+            format='%(asctime)s - %(levelname)s - %(message)s'
+        )
+        logger = logging.getLogger(__name__)
+
+        # Parse command line arguments
+        parser = argparse.ArgumentParser(description='Profile Matching Script')
+        parser.add_argument('--prompt', type=str, required=True, help='Search prompt')
+        parser.add_argument('--debug', action='store_true', help='Enable debug logging')
+        args = parser.parse_args()
+
+        if args.debug:
+            logging.getLogger().setLevel(logging.DEBUG)
+
+        # Initialize matcher
         matcher = HybridProfileMatcher()
-        preferences = matcher.extract_preferences(args.prompt)
-        
-        if args.debug:
-            logging.debug(f"Extracted preferences: {preferences}")
-        
-        filtered_profiles = matcher.filter_profiles_by_preferences(preferences)
-        
-        if args.debug:
-            logging.debug(f"Found {len(filtered_profiles)} profiles after filtering")
-        
+
+        # Find matches
         matches = matcher.find_matching_profiles(args.prompt)
         
         if args.debug:
@@ -419,12 +410,17 @@ if __name__ == "__main__":
         # Format matches for JSON response
         json_matches = matcher.format_matches_for_json(matches)
         
-        print(json.dumps(json_matches))
+        # Convert to JSON string with custom encoder
+        json_str = json.dumps(json_matches, cls=JSONEncoder)
+        print(json_str)
         sys.stdout.flush()
         
-        matcher.close()
-        
     except Exception as e:
-        logging.error(f"Error in profile matching: {str(e)}")
-        logging.error(traceback.format_exc())
-        sys.exit(1)
+        logger.error(f"Error in profile matching: {str(e)}")
+        logger.error(traceback.format_exc())
+        # Return empty list on error to prevent frontend crashes
+        print(json.dumps([]))
+        sys.stdout.flush()
+    finally:
+        if 'matcher' in locals():
+            matcher.close()

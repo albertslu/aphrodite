@@ -139,6 +139,40 @@ const ProfileCreation = () => {
         }
     };
 
+    const renderMatchedProfiles = (matches) => {
+        return matches.map((match, index) => (
+            <div key={index} className="profile-card">
+                <h2>{match.profile.name}</h2>
+                <div className={`match-score ${match.matchScore >= 70 ? 'high-match' : match.matchScore >= 50 ? 'medium-match' : 'low-match'}`}>
+                    {Math.round(match.matchScore)}% Match
+                </div>
+                
+                <h3>{match.profile.occupation}</h3>
+                <p>{match.profile.bio}</p>
+                
+                <div className="interests">
+                    {match.profile.interests.split(',').map((interest, index) => (
+                        <span key={index} className="interest-tag">
+                            {interest.trim()}
+                        </span>
+                    ))}
+                </div>
+                
+                {match.profile.photos && match.profile.photos.length > 0 && (
+                    <div className="photos">
+                        {match.profile.photos.map((photo, index) => (
+                            <img 
+                                key={index} 
+                                src={`/uploads/${photo.split('/').pop()}`}
+                                alt={`${match.profile.name}'s photo ${index + 1}`}
+                            />
+                        ))}
+                    </div>
+                )}
+            </div>
+        ));
+    };
+
     function MatchScore({ score }) {
         const displayScore = typeof score === 'number' ? `${Math.round(score)}% Match` : 'No Match';
         return (
