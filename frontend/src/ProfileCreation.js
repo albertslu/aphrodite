@@ -139,6 +139,44 @@ const ProfileCreation = () => {
         }
     };
 
+    function MatchScore({ score }) {
+        const displayScore = typeof score === 'number' ? `${Math.round(score)}% Match` : 'No Match';
+        return (
+            <div className={`match-score ${score >= 70 ? 'high-match' : score >= 50 ? 'medium-match' : 'low-match'}`}>
+                {displayScore}
+            </div>
+        );
+    }
+
+    function ProfileCard({ profile, score }) {
+        return (
+            <div className="profile-card">
+                <h2>{profile.name}</h2>
+                <MatchScore score={score} />
+                
+                <h3>{profile.occupation}</h3>
+                
+                <p>{profile.aboutMe}</p>
+                
+                <div className="interests">
+                    {profile.interests.split(',').map((interest, index) => (
+                        <span key={index} className="interest-tag">
+                            {interest.trim()}
+                        </span>
+                    ))}
+                </div>
+                
+                {profile.photos && profile.photos.length > 0 && (
+                    <div className="photos">
+                        {profile.photos.map((photo, index) => (
+                            <img key={index} src={photo.url} alt={`${profile.name}'s photo ${index + 1}`} />
+                        ))}
+                    </div>
+                )}
+            </div>
+        );
+    }
+
     return (
         <div className="profile-creation-container">
             <h2>Create Your Profile</h2>
