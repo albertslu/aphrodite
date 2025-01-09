@@ -60,7 +60,10 @@ const Matches = () => {
     return (
         <div className="matches-container">
             <div className="header-section">
-                <h2>Your Matches</h2>
+                <div className="header-title">
+                    <h2>AI Found These Profiles For You</h2>
+                    <p className="subtitle">Based on your preferences</p>
+                </div>
                 <div className="header-buttons">
                     <button onClick={handleBackToPreferences} className="back-btn">
                         Back to Preferences
