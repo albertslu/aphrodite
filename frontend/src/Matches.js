@@ -107,7 +107,6 @@ const Matches = () => {
                                 </div>
                                 <div className="basic-info">
                                     <p>{match.profile.occupation}</p>
-                                    <p>{match.profile.bio}</p>
                                 </div>
                                 <div className="interests">
                                     {match.profile.interests.split(',').map((interest, i) => (
@@ -116,6 +115,15 @@ const Matches = () => {
                                         </span>
                                     ))}
                                 </div>
+                                <p className="bio">{match.profile.bio}</p>
+                                <button 
+                                    onClick={() => navigate(`/profile/${match.profile._id}`, { 
+                                        state: { profile: match.profile } 
+                                    })} 
+                                    className="view-profile-btn"
+                                >
+                                    View Full Profile
+                                </button>
                             </div>
                         </div>
                     ))}

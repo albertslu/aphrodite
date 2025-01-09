@@ -801,3 +801,126 @@ button:hover {
 .logout-btn:hover {
   background: #d32f2f;
 }
+
+/* Full Profile Styles */
+.full-profile-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  color: white;
+}
+
+.full-profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.back-btn,
+.back-to-preferences {
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.back-btn:hover,
+.back-to-preferences:hover {
+  background: #444;
+}
+
+.full-profile-content {
+  background: #2a2a2a;
+  border-radius: 8px;
+  padding: 40px;
+}
+
+.full-profile-content h1 {
+  font-size: 2.5rem;
+  margin: 0 0 20px 0;
+  color: #ff69b4;
+}
+
+.match-percentage {
+  display: inline-block;
+  background: #4CAF50;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.profile-occupation {
+  font-size: 1.2rem;
+  color: #888;
+  margin-bottom: 30px;
+}
+
+.profile-photos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.profile-photo {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.profile-details {
+  display: grid;
+  gap: 40px;
+}
+
+.interests-section h2,
+.bio-section h2 {
+  color: #ff69b4;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.interests-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.interest-tag {
+  background: #333;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.bio-section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #ddd;
+}
+
+/* Profile Card View Profile Button */
+.view-profile-btn {
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.view-profile-btn:hover {
+  background: #444;
+}

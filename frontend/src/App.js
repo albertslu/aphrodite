@@ -6,6 +6,7 @@ import Login from './Login';
 import Signup from './Signup';
 import Preferences from './Preferences';
 import Matches from './Matches';
+import FullProfile from './FullProfile';
 import { BrowserRouter as Router, Route, Routes, Navigate, useLocation } from 'react-router-dom';
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
                     <Route path="/create-profile" element={<PrivateRoute><ProfileCreation /></PrivateRoute>} />
                     <Route path="/preferences" element={<PrivateRoute><Preferences /></PrivateRoute>} />
                     <Route path="/matches" element={<PrivateRoute><Matches /></PrivateRoute>} />
+                    <Route path="/profile/:id" element={<FullProfile />} />
                     <Route path="*" element={<Navigate to="/" replace />} />
                 </Routes>
             </div>
