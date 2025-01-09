@@ -43,18 +43,36 @@ class HybridProfileMatcher:
             'height': [
                 'tall', 'short', 'average height'
             ],
+            'hair_color': [
+                'blonde hair', 'brown hair', 'black hair', 'red hair',
+                'dark hair', 'light hair', 'platinum blonde'
+            ],
+            'eye_color': [
+                'blue eyes', 'brown eyes', 'green eyes', 'hazel eyes',
+                'dark eyes', 'light eyes'
+            ],
+            'facial_features': [
+                'bearded', 'clean-shaven', 'long hair', 'short hair',
+                'wavy hair', 'straight hair', 'curly hair'
+            ],
             'style': [
                 'well-dressed', 'casual', 'formal', 'professional',
                 'trendy', 'fashionable', 'sporty'
             ],
-            'features': [
-                'bearded', 'clean-shaven', 'long hair', 'short hair',
-                'tattoos', 'glasses'
-            ],
-            'athletic_context': [
-                'playing sports', 'basketball court', 'football field',
-                'gym', 'working out', 'training', 'athlete', 'sports uniform'
+            'other_features': [
+                'tattoos', 'glasses', 'makeup', 'natural look'
             ]
+        }
+
+        # Weights for different attribute categories when mentioned in prompt
+        self.attribute_weights = {
+            'body_type': 1.0,
+            'height': 0.75,     # Lower weight since height is hard to determine from photos
+            'hair_color': 1.5,  # Higher weight for hair color
+            'eye_color': 1.5,   # Higher weight for eye color
+            'facial_features': 1.2,
+            'style': 0.8,
+            'other_features': 0.8
         }
 
     def get_photo_path(self, photo):
@@ -153,57 +171,67 @@ class HybridProfileMatcher:
                 }
             
             # Load and preprocess image
-            image = Image.open(image_path)
+            image = Image.open(image_path).convert('RGB')
             image_input = self.preprocess(image).unsqueeze(0).to(self.device)
             
-            # Calculate general prompt similarity
-            text = clip.tokenize([prompt]).to(self.device)
+            # Prepare text inputs for CLIP
+            prompt_tokens = prompt.replace(',', ' ').split()
+            text_inputs = [prompt] + [f"a photo of a person with {attr}" for attr in physical_attributes] if physical_attributes else [prompt]
+            text_tokens = clip.tokenize(text_inputs).to(self.device)
             
+            # Get feature vectors
             with torch.no_grad():
                 image_features = self.clip_model.encode_image(image_input)
-                text_features = self.clip_model.encode_text(text)
+                text_features = self.clip_model.encode_text(text_tokens)
                 
-                # Normalize features
+                # Normalize feature vectors
                 image_features /= image_features.norm(dim=-1, keepdim=True)
                 text_features /= text_features.norm(dim=-1, keepdim=True)
                 
-                general_similarity = float((100.0 * image_features @ text_features.T).softmax(dim=-1)[0][0])
+                # Calculate similarities
+                similarities = (100.0 * image_features @ text_features.T).softmax(dim=-1)
+                general_similarity = float(similarities[0][0])
+                
+                # Calculate attribute confidences with category weights
+                attribute_confidences = []
+                attribute_weights = []
+                
+                for attr in (physical_attributes or []):
+                    # Find which category this attribute belongs to
+                    category = None
+                    for cat, attrs in self.physical_attributes.items():
+                        if any(a in attr.lower() for a in attrs):
+                            category = cat
+                            break
+                    
+                    # Get the weight for this category
+                    weight = self.attribute_weights.get(category, 1.0)
+                    
+                    # Calculate confidence score for this attribute
+                    attr_text = f"a photo of a person with {attr}"
+                    attr_tokens = clip.tokenize([attr_text]).to(self.device)
+                    with torch.no_grad():
+                        attr_features = self.clip_model.encode_text(attr_tokens)
+                        attr_features /= attr_features.norm(dim=-1, keepdim=True)
+                        attr_similarity = float((100.0 * image_features @ attr_features.T).softmax(dim=-1)[0][0])
+                    
+                    attribute_confidences.append(attr_similarity * weight)
+                    attribute_weights.append(weight)
             
-            # If no physical attributes to check, return general similarity
-            if not physical_attributes:
-                return {
-                    'general_similarity': general_similarity,
-                    'attribute_confidence': 0.0,
-                    'clarity_score': 0.0,
-                    'attribute_scores': {}
-                }
-            
-            # Check for specific physical attributes
-            attribute_prompts = [
-                f"a photo clearly showing a person with {attr}" for attr in physical_attributes
-            ]
-            attribute_prompts += [
-                f"a clear full-body photo of a person",
-                f"a clear photo showing someone's physical appearance"
-            ]
-            
-            text_tokens = clip.tokenize(attribute_prompts).to(self.device)
-            
+            # Calculate clarity confidence (how clearly the person is visible)
+            clarity_tokens = clip.tokenize(["a clear photo of a person's face", "a blurry or unclear photo"]).to(self.device)
             with torch.no_grad():
-                text_features = self.clip_model.encode_text(text_tokens)
-                text_features /= text_features.norm(dim=-1, keepdim=True)
-                
-                # Calculate similarity for each attribute prompt
-                attribute_similarities = (100.0 * image_features @ text_features.T).softmax(dim=-1)
-                
-                # Get individual attribute confidences
-                attribute_confidences = [float(s) for s in attribute_similarities[0][:len(physical_attributes)]]
-                
-                # Get photo clarity confidence (how well it shows the person)
-                clarity_confidence = float(attribute_similarities[0][-2:].mean())
+                clarity_features = self.clip_model.encode_text(clarity_tokens)
+                clarity_features /= clarity_features.norm(dim=-1, keepdim=True)
+                clarity_similarities = (100.0 * image_features @ clarity_features.T).softmax(dim=-1)
+                clarity_confidence = float(clarity_similarities[0][0])
             
             # Calculate weighted attribute confidence
-            avg_attribute_confidence = np.mean(attribute_confidences) if attribute_confidences else 0
+            if attribute_confidences:
+                weighted_confidence = sum(conf * weight for conf, weight in zip(attribute_confidences, attribute_weights))
+                avg_attribute_confidence = weighted_confidence / sum(attribute_weights)
+            else:
+                avg_attribute_confidence = 0
             
             # Final attribute confidence is affected by both specific attribute detection
             # and how clearly the photo shows the person
