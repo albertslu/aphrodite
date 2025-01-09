@@ -206,7 +206,22 @@ class HybridProfileMatcher:
             
             # Prepare text inputs for CLIP
             prompt_tokens = prompt.replace(',', ' ').split()
-            text_inputs = [prompt] + [f"a photo of a person with {attr}" for attr in physical_attributes] if physical_attributes else [prompt]
+            
+            # Add athletic-specific prompts if relevant
+            if any(word in prompt.lower() for word in ['athletic', 'fit', 'muscular', 'strong']):
+                athletic_prompts = [
+                    "a photo of an athletic person",
+                    "a photo of someone with muscular build",
+                    "a photo showing fitness and strength",
+                    "a photo of someone who works out",
+                ]
+                text_inputs = [prompt] + athletic_prompts
+            else:
+                text_inputs = [prompt]
+                
+            if physical_attributes:
+                text_inputs.extend([f"a photo of a person with {attr}" for attr in physical_attributes])
+                
             text_tokens = clip.tokenize(text_inputs).to(self.device)
             
             # Get feature vectors
@@ -222,32 +237,37 @@ class HybridProfileMatcher:
                 similarities = (100.0 * image_features @ text_features.T).softmax(dim=-1)
                 general_similarity = float(similarities[0][0])
                 
-                # Calculate attribute confidences with category weights
-                attribute_confidences = []
-                attribute_weights = []
-                
-                for attr in (physical_attributes or []):
-                    # Find which category this attribute belongs to
-                    category = None
-                    for cat, attrs in self.physical_attributes.items():
-                        if any(a in attr.lower() for a in attrs):
-                            category = cat
-                            break
-                    
-                    # Get the weight for this category
-                    weight = self.attribute_weights.get(category, 1.0)
-                    
-                    # Calculate confidence score for this attribute
-                    attr_text = f"a photo of a person with {attr}"
-                    attr_tokens = clip.tokenize([attr_text]).to(self.device)
-                    with torch.no_grad():
-                        attr_features = self.clip_model.encode_text(attr_tokens)
-                        attr_features /= attr_features.norm(dim=-1, keepdim=True)
-                        attr_similarity = float((100.0 * image_features @ attr_features.T).softmax(dim=-1)[0][0])
-                    
-                    attribute_confidences.append(attr_similarity * weight)
-                    attribute_weights.append(weight)
+                # For athletic prompts, take the max similarity with any athletic-specific prompt
+                if any(word in prompt.lower() for word in ['athletic', 'fit', 'muscular', 'strong']):
+                    athletic_similarity = float(max(similarities[0][1:5]))  # Indices 1-4 are athletic prompts
+                    general_similarity = max(general_similarity, athletic_similarity)
             
+            # Calculate attribute confidences with category weights
+            attribute_confidences = []
+            attribute_weights = []
+            
+            for attr in (physical_attributes or []):
+                # Find which category this attribute belongs to
+                category = None
+                for cat, attrs in self.physical_attributes.items():
+                    if any(a in attr.lower() for a in attrs):
+                        category = cat
+                        break
+                
+                # Get the weight for this category
+                weight = self.attribute_weights.get(category, 1.0)
+                
+                # Calculate confidence score for this attribute
+                attr_text = f"a photo of a person with {attr}"
+                attr_tokens = clip.tokenize([attr_text]).to(self.device)
+                with torch.no_grad():
+                    attr_features = self.clip_model.encode_text(attr_tokens)
+                    attr_features /= attr_features.norm(dim=-1, keepdim=True)
+                    attr_similarity = float((100.0 * image_features @ attr_features.T).softmax(dim=-1)[0][0])
+                
+                attribute_confidences.append(attr_similarity * weight)
+                attribute_weights.append(weight)
+        
             # Calculate clarity confidence (how clearly the person is visible)
             clarity_tokens = clip.tokenize(["a clear photo of a person's face", "a blurry or unclear photo"]).to(self.device)
             with torch.no_grad():
@@ -286,49 +306,60 @@ class HybridProfileMatcher:
     def calculate_text_similarity(self, profile: Dict, prompt: str) -> float:
         """Calculate text similarity between profile and prompt"""
         try:
-            # Check for athletic professions and achievements
-            occupation = profile.get('occupation', '').lower()
-            about_me = profile.get('aboutMe', '').lower()
-            athletic_bonus = 0.0
-            
-            athletic_professions = [
-                'athlete', 'player', 'trainer', 'coach', 'professional', 
-                'nba', 'nfl', 'mlb', 'soccer', 'basketball', 'football',
-                'baseball', 'tennis', 'olympic'
-            ]
-            
-            # Add bonus for athletic professions
-            if any(prof in occupation for prof in athletic_professions):
-                athletic_bonus += 0.2
-            if any(prof in about_me for prof in athletic_professions):
-                athletic_bonus += 0.1
-                
             # Combine relevant profile text fields
-            profile_text = " ".join(filter(None, [
-                profile.get('name', ''),
-                profile.get('aboutMe', ''),
-                profile.get('interests', ''),
-                profile.get('occupation', ''),
-                profile.get('height', ''),
-                profile.get('ethnicity', '')
-            ]))
+            profile_text = f"{profile.get('occupation', '')} {profile.get('aboutMe', '')} {profile.get('interests', '')}"
             
-            if not profile_text.strip():
-                return 0.0
+            # Add extra weight for athletic/fitness-related content when relevant
+            athletic_keywords = {
+                'athlete': 2.0,
+                'wrestler': 2.0,
+                'bodybuilder': 2.0,
+                'fitness': 1.5,
+                'gym': 1.5,
+                'sports': 1.5,
+                'athletic': 1.5,
+                'muscular': 1.5,
+                'workout': 1.2,
+                'training': 1.2,
+                'exercise': 1.2
+            }
             
-            # Generate embeddings
-            profile_embedding = self.generate_text_embedding(profile_text)
-            prompt_embedding = self.generate_text_embedding(prompt)
+            prompt_lower = prompt.lower()
+            if any(word in prompt_lower for word in ['athletic', 'fit', 'muscular', 'strong']):
+                # Check profile text for athletic keywords
+                score_multiplier = 1.0
+                for keyword, weight in athletic_keywords.items():
+                    if keyword in profile_text.lower():
+                        score_multiplier = max(score_multiplier, weight)
+                        
+                # Also check occupation specifically
+                occupation = profile.get('occupation', '').lower()
+                if any(keyword in occupation for keyword in ['athlete', 'wrestler', 'bodybuilder', 'trainer']):
+                    score_multiplier = max(score_multiplier, 2.0)
+                
+                # Generate and adjust similarity score
+                base_similarity = self.calculate_embedding_similarity(profile_text, prompt)
+                return base_similarity * score_multiplier
             
-            # Calculate cosine similarity
-            similarity = float(np.dot(profile_embedding, prompt_embedding) / 
-                            (np.linalg.norm(profile_embedding) * np.linalg.norm(prompt_embedding)))
-            
-            # Apply athletic bonus to final similarity score
-            return min(1.0, similarity + athletic_bonus)
+            return self.calculate_embedding_similarity(profile_text, prompt)
             
         except Exception as e:
             logger.error(f"Error calculating text similarity: {str(e)}")
+            return 0.0
+            
+    def calculate_embedding_similarity(self, text1: str, text2: str) -> float:
+        """Calculate cosine similarity between two text embeddings"""
+        try:
+            # Generate embeddings
+            embedding1 = self.generate_text_embedding(text1)
+            embedding2 = self.generate_text_embedding(text2)
+            
+            # Calculate cosine similarity
+            similarity = np.dot(embedding1, embedding2) / (np.linalg.norm(embedding1) * np.linalg.norm(embedding2))
+            return float(similarity)
+            
+        except Exception as e:
+            logger.error(f"Error calculating embedding similarity: {str(e)}")
             return 0.0
 
     def detect_physical_attributes(self, prompt: str) -> float:
@@ -398,10 +429,10 @@ class HybridProfileMatcher:
                     '$lte': preferences['max_age']
                 }
             
-            # Apply ethnicity filter if specified
+            # Apply ethnicity filter if specified, with proper capitalization
             if preferences.get('ethnicities'):
                 query['ethnicity'] = {
-                    '$in': preferences['ethnicities']
+                    '$in': [eth.capitalize() for eth in preferences['ethnicities']]  # Capitalize to match DB format
                 }
             
             # Get filtered profiles
