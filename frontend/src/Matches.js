@@ -67,13 +67,13 @@ const Matches = () => {
                     {matches.map((match, index) => (
                         <div key={index} className="match-card">
                             <div className="match-photos">
-                                {match.photos && match.photos.length > 0 ? (
+                                {match.profile.photos && match.profile.photos.length > 0 ? (
                                     <div className="photo-carousel">
-                                        {match.photos.map((photo, photoIndex) => (
+                                        {match.profile.photos.map((photo, photoIndex) => (
                                             <img
                                                 key={photoIndex}
-                                                src={photo.url}
-                                                alt={`${match.name}'s photo ${photoIndex + 1}`}
+                                                src={`http://localhost:5000${photo}`}
+                                                alt={`${match.profile.name}'s photo ${photoIndex + 1}`}
                                                 className="profile-photo"
                                             />
                                         ))}
@@ -83,31 +83,31 @@ const Matches = () => {
                                 )}
                             </div>
                             <div className="match-info">
-                                <h3>{match.name}</h3>
+                                <h3>{match.profile.name}</h3>
                                 <div className="basic-info">
-                                    <p>{match.age} years old • {match.gender}</p>
-                                    <p>{match.location}</p>
-                                    <p>{match.ethnicity}</p>
+                                    <p>{match.profile.age} years old • {match.profile.gender}</p>
+                                    <p>{match.profile.location}</p>
+                                    <p>{match.profile.ethnicity}</p>
                                 </div>
                                 <div className="match-details">
                                     <h4>About Me</h4>
-                                    <p>{match.aboutMe}</p>
+                                    <p>{match.profile.aboutMe}</p>
                                     
                                     <h4>Occupation</h4>
-                                    <p>{match.occupation}</p>
+                                    <p>{match.profile.occupation}</p>
                                     
                                     <h4>Education</h4>
-                                    <p>{match.education}</p>
+                                    <p>{match.profile.education}</p>
                                     
                                     <h4>Interests</h4>
                                     <div className="interests-tags">
-                                        {match.interests.map((interest, i) => (
-                                            <span key={i} className="interest-tag">{interest}</span>
+                                        {match.profile.interests.split(',').map((interest, i) => (
+                                            <span key={i} className="interest-tag">{interest.trim()}</span>
                                         ))}
                                     </div>
 
                                     <h4>Relationship Goals</h4>
-                                    <p>{match.relationshipGoals}</p>
+                                    <p>{match.profile.relationshipGoals}</p>
                                 </div>
                                 {match.matchScore && (
                                     <div className="match-score">

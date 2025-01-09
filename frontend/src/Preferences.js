@@ -51,8 +51,8 @@ const Preferences = () => {
 
             const data = await response.json();
             // Store the matches in localStorage to display them on the next page
-            localStorage.setItem('matches', JSON.stringify(data.matches));
-            navigate('/matches', { state: { matches: data.matches } });
+            localStorage.setItem('matches', JSON.stringify(data));
+            navigate('/matches', { state: { matches: data } });
         } catch (error) {
             console.error('Error finding matches:', error);
             setError(error.message || 'Failed to find matches. Please try again.');
