@@ -123,14 +123,44 @@ class HybridProfileMatcher:
 
         # Extract gender
         prompt_lower = prompt.lower()
-        if 'female' in prompt_lower:
+        if 'female' in prompt_lower or 'woman' in prompt_lower or 'girl' in prompt_lower:
             preferences['gender'] = 'female'
-        elif 'male' in prompt_lower:
+        elif 'male' in prompt_lower or 'man' in prompt_lower or 'guy' in prompt_lower:
             preferences['gender'] = 'male'
 
-        # Extract ethnicity
-        ethnicities = ['white', 'black', 'asian', 'hispanic', 'latin', 'pacific islander', 'indian', 'middle eastern', 'native american']
-        found_ethnicities = [eth for eth in ethnicities if eth in prompt_lower]
+        # Extract ethnicity with more context awareness
+        ethnicities = {
+            'white': ['white', 'caucasian'],
+            'black': ['black', 'african', 'african american'],
+            'asian': ['asian', 'east asian', 'southeast asian'],
+            'hispanic': ['hispanic', 'latina', 'latino'],
+            'latin': ['latin', 'latina', 'latino'],
+            'pacific islander': ['pacific islander', 'polynesian'],
+            'indian': ['indian', 'south asian'],
+            'middle eastern': ['middle eastern', 'arab'],
+            'native american': ['native american', 'indigenous', 'first nations']
+        }
+        
+        found_ethnicities = []
+        words = prompt_lower.split()
+        
+        # Check for ethnicity mentions in context
+        for ethnicity, variants in ethnicities.items():
+            # Check for exact matches
+            if any(variant in prompt_lower for variant in variants):
+                found_ethnicities.append(ethnicity)
+                continue
+                
+            # Check for ethnicity mentions near relevant words
+            context_words = ['person', 'woman', 'man', 'people', 'actress', 'actor']
+            for i, word in enumerate(words):
+                if any(variant == word for variant in variants):
+                    # Check if there's a context word nearby (within 2 words)
+                    nearby_words = words[max(0, i-2):min(len(words), i+3)]
+                    if any(context in nearby_words for context in context_words):
+                        found_ethnicities.append(ethnicity)
+                        break
+        
         if found_ethnicities:
             preferences['ethnicities'] = found_ethnicities
 
