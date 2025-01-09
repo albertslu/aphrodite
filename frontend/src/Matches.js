@@ -14,10 +14,17 @@ const Matches = () => {
             // Get matches from location state or localStorage
             const matchData = location.state?.matches || JSON.parse(localStorage.getItem('matches') || '[]');
             console.log('Match data received:', matchData); // Debug log
-            setMatches(Array.isArray(matchData) ? matchData : []);
+            if (!Array.isArray(matchData)) {
+                console.error('Invalid match data format:', matchData);
+                setError('Invalid match data format');
+                setMatches([]);
+            } else {
+                setMatches(matchData);
+            }
         } catch (err) {
             console.error('Error processing match data:', err);
             setError('Error loading matches');
+            setMatches([]);
         } finally {
             setLoading(false);
         }
