@@ -375,12 +375,9 @@ class HybridProfileMatcher:
                 for photo in match['profile'].get('photos', []):
                     if not photo:
                         continue
-                    photo_path = self.get_photo_path(photo)
-                    if os.path.exists(photo_path):
-                        photos.append(photo)
-
-                # Generate explanation based on profile attributes and match score
-                explanation = self.generate_match_explanation(match['profile'], match['matchScore'], match['prompt'])
+                    # Handle both string and object photo formats
+                    photo_url = photo.get('url', photo) if isinstance(photo, dict) else photo
+                    photos.append('/uploads/' + os.path.basename(photo_url))
 
                 # Create JSON match object with string conversion for ObjectId
                 json_match = {
@@ -391,11 +388,7 @@ class HybridProfileMatcher:
                         'aboutMe': match['profile'].get('aboutMe', ''),
                         'interests': match['profile'].get('interests', ''),
                         'photos': photos,
-                        'location': match['profile'].get('location', ''),
-                        'aiJustification': {
-                            'overallScore': round(match['matchScore'] * 100),
-                            'explanation': explanation
-                        }
+                        'location': match['profile'].get('location', '')
                     },
                     'matchScore': float(match['matchScore'])
                 }

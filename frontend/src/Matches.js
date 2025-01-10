@@ -82,7 +82,7 @@ const Matches = () => {
             ) : (
                 <div className="matches-grid">
                     {matches.map((match, index) => (
-                        <div key={match.profile._id || index} className="match-card">
+                        <div className="match-card" key={match.profile._id}>
                             <div className="match-photos">
                                 {match.profile.photos && match.profile.photos.length > 0 ? (
                                     <div className="photo-carousel">
@@ -107,10 +107,6 @@ const Matches = () => {
                                 </div>
                                 <div className="basic-info">
                                     <p>{match.profile.occupation}</p>
-                                </div>
-                                <div className="ai-justification">
-                                    <p className="debug-info">Match Score: {match.profile.aiJustification.overallScore}%</p>
-                                    <p className="debug-explanation">{match.profile.aiJustification.explanation}</p>
                                 </div>
                                 <div className="interests">
                                     {match.profile.interests.split(/[,.]/)  // Split on commas and periods
