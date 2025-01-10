@@ -42,25 +42,41 @@ const FullProfile = () => {
                 <div className="profile-occupation">{profile.occupation}</div>
 
                 <div className="demographic-info">
-                    <div className="demo-item">
-                        <span className="demo-label">Age</span>
-                        <span className="demo-value">{profile.age}</span>
+                    <div className="demo-row">
+                        <div className="demo-item">
+                            <span className="demo-label">Age</span>
+                            <span className="demo-value">{profile.age}</span>
+                        </div>
+                        <div className="demo-item">
+                            <span className="demo-label">Gender</span>
+                            <span className="demo-value">{profile.gender}</span>
+                        </div>
+                        <div className="demo-item">
+                            <span className="demo-label">Location</span>
+                            <span className="demo-value">{profile.location}</span>
+                        </div>
+                        <div className="demo-item">
+                            <span className="demo-label">Orientation</span>
+                            <span className="demo-value">{profile.sexualOrientation}</span>
+                        </div>
                     </div>
-                    <div className="demo-item">
-                        <span className="demo-label">Location</span>
-                        <span className="demo-value">{profile.location}</span>
-                    </div>
-                    <div className="demo-item">
-                        <span className="demo-label">Height</span>
-                        <span className="demo-value">{profile.height}</span>
-                    </div>
-                    <div className="demo-item">
-                        <span className="demo-label">Ethnicity</span>
-                        <span className="demo-value">{profile.ethnicity}</span>
-                    </div>
-                    <div className="demo-item">
-                        <span className="demo-label">Education</span>
-                        <span className="demo-value">{profile.education}</span>
+                    <div className="demo-row">
+                        <div className="demo-item">
+                            <span className="demo-label">Height</span>
+                            <span className="demo-value">{profile.height}</span>
+                        </div>
+                        <div className="demo-item">
+                            <span className="demo-label">Ethnicity</span>
+                            <span className="demo-value">{profile.ethnicity}</span>
+                        </div>
+                        <div className="demo-item">
+                            <span className="demo-label">Education</span>
+                            <span className="demo-value">{profile.education}</span>
+                        </div>
+                        <div className="demo-item">
+                            <span className="demo-label"></span>
+                            <span className="demo-value"></span>
+                        </div>
                     </div>
                 </div>
 
