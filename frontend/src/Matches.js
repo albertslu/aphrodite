@@ -108,6 +108,10 @@ const Matches = () => {
                                 <div className="basic-info">
                                     <p>{match.profile.occupation}</p>
                                 </div>
+                                <div className="ai-justification">
+                                    <p className="debug-info">Match Score: {match.profile.aiJustification.overallScore}%</p>
+                                    <p className="debug-explanation">{match.profile.aiJustification.explanation}</p>
+                                </div>
                                 <div className="interests">
                                     {match.profile.interests.split(/[,.]/)  // Split on commas and periods
                                         .map(interest => interest.trim())

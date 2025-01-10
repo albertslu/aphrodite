@@ -303,47 +303,42 @@ class HybridProfileMatcher:
         try:
             # Extract preferences from prompt
             preferences = self.extract_preferences(prompt)
-            preferences['prompt'] = prompt  # Store original prompt for complex filters
-            logger.debug(f"Extracted preferences: {preferences}")
             
             # Get filtered profiles
             filtered_profiles = self.filter_profiles_by_preferences(preferences)
-            logger.debug(f"Found {len(filtered_profiles)} profiles after filtering")
             
             if not filtered_profiles:
-                logger.warning("No profiles found after filtering")
                 return []
             
-            # Calculate similarity for each profile
+            # Calculate match scores
             profile_scores = []
+            
             for profile in filtered_profiles:
                 try:
                     # Calculate text similarity
                     text_score = self.calculate_text_similarity(profile, prompt)
+                    if isinstance(text_score, dict):
+                        text_score = text_score.get('score', 0)
                     
-                    # Calculate image similarity for each photo
+                    # Calculate image similarity if photos exist
                     image_scores = []
                     for photo in profile.get('photos', []):
-                        if not photo:
+                        try:
+                            score = self.calculate_image_similarity(photo, prompt)
+                            if score is not None and not isinstance(score, dict):
+                                image_scores.append(score)
+                        except Exception as e:
+                            logger.warning(f"Error calculating image score: {str(e)}")
                             continue
-                        image_result = self.calculate_image_similarity(photo, prompt)
-                        if image_result['general_similarity'] > 0:
-                            image_scores.append(image_result['general_similarity'])
                     
-                    # Use best photo score if available, otherwise 0
-                    image_score = max(image_scores) if image_scores else 0
+                    # Average image scores if any exist
+                    image_score = sum(image_scores) / len(image_scores) if image_scores else 0
                     
-                    # Boost scores for athletic/tall profiles if those terms are in prompt
-                    boost = 1.0
-                    if any(word in prompt.lower() for word in ['athletic', 'fit', 'muscular', 'strong', 'tall']):
-                        if any(word in profile.get('interests', '').lower() for word in ['weightlifting', 'crossfit', 'gym', 'fitness']):
-                            boost = 1.5
-                    
-                    # Combine scores with boost
-                    final_score = (text_score * 0.7 + image_score * 0.3) * boost
-                    
-                    # Scale to 0-100 range and ensure it stays within bounds
-                    final_score = min(100, max(0, final_score))
+                    # Combine scores (70% text, 30% image if images exist)
+                    if image_scores:
+                        final_score = (0.7 * float(text_score)) + (0.3 * float(image_score))
+                    else:
+                        final_score = float(text_score)
                     
                     profile_scores.append({
                         'profile': profile,
@@ -352,13 +347,11 @@ class HybridProfileMatcher:
                     })
                 
                 except Exception as e:
-                    logger.error(f"Error processing profile {profile.get('name', 'Unknown')}: {str(e)}")
+                    logger.error(f"Error processing profile {profile.get('_id', '')}: {str(e)}")
                     continue
             
-            # Sort by score in descending order
+            # Sort by match score and return top k
             profile_scores.sort(key=lambda x: x['matchScore'], reverse=True)
-            
-            # Return top k results
             return profile_scores[:top_k]
             
         except Exception as e:
@@ -379,6 +372,9 @@ class HybridProfileMatcher:
                     photo_url = photo.get('url', photo) if isinstance(photo, dict) else photo
                     photos.append('/uploads/' + os.path.basename(photo_url))
 
+                # Generate explanation based on profile attributes and match score
+                explanation = self.generate_match_explanation(match['profile'], match['matchScore'], match['prompt'])
+
                 # Create JSON match object with string conversion for ObjectId
                 json_match = {
                     'profile': {
@@ -388,7 +384,11 @@ class HybridProfileMatcher:
                         'aboutMe': match['profile'].get('aboutMe', ''),
                         'interests': match['profile'].get('interests', ''),
                         'photos': photos,
-                        'location': match['profile'].get('location', '')
+                        'location': match['profile'].get('location', ''),
+                        'aiJustification': {
+                            'overallScore': round(match['matchScore'] * 100),
+                            'explanation': explanation
+                        }
                     },
                     'matchScore': float(match['matchScore'])
                 }
