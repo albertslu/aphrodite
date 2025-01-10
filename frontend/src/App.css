@@ -49,7 +49,7 @@
 .login-container h2 {
   color: #ff69b4;
   margin-bottom: 0.5rem;
-  font-size: 1.5rem;
+  font-size: 1.5rem;      
 }
 
 .login-container .subtitle {
@@ -1043,4 +1043,31 @@ button:hover {
   border-radius: 20px;
   color: white;
   font-weight: bold;
+}
+
+.demographic-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+  padding: 0.5rem;
+}
+
+.demo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+}
+
+.demo-label {
+  color: #888;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.demo-value {
+  color: #333;
+  font-size: 0.9rem;
+  font-weight: 400;
 }

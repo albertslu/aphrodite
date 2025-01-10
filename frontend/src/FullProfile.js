@@ -41,6 +41,29 @@ const FullProfile = () => {
 
                 <div className="profile-occupation">{profile.occupation}</div>
 
+                <div className="demographic-info">
+                    <div className="demo-item">
+                        <span className="demo-label">Age</span>
+                        <span className="demo-value">{profile.age}</span>
+                    </div>
+                    <div className="demo-item">
+                        <span className="demo-label">Location</span>
+                        <span className="demo-value">{profile.location}</span>
+                    </div>
+                    <div className="demo-item">
+                        <span className="demo-label">Height</span>
+                        <span className="demo-value">{profile.height}</span>
+                    </div>
+                    <div className="demo-item">
+                        <span className="demo-label">Ethnicity</span>
+                        <span className="demo-value">{profile.ethnicity}</span>
+                    </div>
+                    <div className="demo-item">
+                        <span className="demo-label">Education</span>
+                        <span className="demo-value">{profile.education}</span>
+                    </div>
+                </div>
+
                 {profile.photos && profile.photos.length > 0 && (
                     <div className="profile-photos">
                         {profile.photos.map((photo, index) => (
