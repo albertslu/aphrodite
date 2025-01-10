@@ -81,8 +81,8 @@ class HybridProfileMatcher:
         # Extract age range
         age_match = re.search(r'aged?\s*(\d+)\s*-\s*(\d+)', prompt_lower)
         if age_match:
-            preferences['min_age'] = int(age_match.group(1))
-            preferences['max_age'] = int(age_match.group(2))
+            preferences['minAge'] = int(age_match.group(1))
+            preferences['maxAge'] = int(age_match.group(2))
 
         # Extract location - look for common location patterns
         location_patterns = [
@@ -114,31 +114,14 @@ class HybridProfileMatcher:
     def calculate_text_similarity(self, profile: Dict, prompt: str) -> float:
         """Calculate text similarity between profile and prompt"""
         try:
-            # First, check if this is an occupation-focused search
-            occupation_check_prompt = "Is this prompt primarily searching for people by their occupation?"
-            is_occupation_search = self.calculate_embedding_similarity(prompt, occupation_check_prompt) > 0.7
-
-            # If it's an occupation search, get occupation relevance
-            if is_occupation_search:
-                occupation_prompt = "Is this occupation: " + profile.get('occupation', '') + " related to what this prompt is looking for: " + prompt
-                occupation_score = self.calculate_embedding_similarity(
-                    "Yes, they are very related",  # positive case
-                    occupation_prompt
-                )
-                
-                # If occupation doesn't match well, significantly reduce score
-                if occupation_score < 0.6:
-                    return 0.1  # Very low score for occupation mismatch
+            # Create a comprehensive profile text including occupation and interests
+            profile_text = f"{profile.get('occupation', '')} {profile.get('bio', '')} {' '.join(profile.get('interests', []))}"
             
-            # Get base similarity from all profile text
-            profile_text = f"{profile.get('occupation', '')} {profile.get('aboutMe', '')} {profile.get('interests', '')}"
-            base_similarity = self.calculate_embedding_similarity(profile_text, prompt)
+            # Calculate semantic similarity using embeddings
+            similarity_score = self.calculate_embedding_similarity(profile_text, prompt)
             
-            # For occupation searches, weight occupation match more heavily
-            if is_occupation_search:
-                return (0.8 * occupation_score) + (0.2 * base_similarity)
-            
-            return base_similarity
+            # Return score
+            return similarity_score
             
         except Exception as e:
             logger.error(f"Error calculating text similarity: {str(e)}")
@@ -225,66 +208,28 @@ class HybridProfileMatcher:
     def filter_profiles_by_preferences(self, preferences: Dict) -> List[Dict]:
         """Filter profiles based on extracted preferences"""
         try:
-            # Start with basic filters
-            query = {
-                'gender': preferences.get('gender', 'female'),  # Default to female
-                'age': {'$gte': preferences.get('min_age', 18), '$lte': preferences.get('max_age', 100)}
-            }
-
-            # Location filtering - strict match first
-            if 'location' in preferences:
-                target_location = preferences['location'].lower()
-                # First try exact location match
-                exact_matches = list(self.profiles_collection.find({
-                    **query,
-                    'location': {'$regex': target_location, '$options': 'i'}
-                }))
-                
-                if exact_matches:
-                    filtered_profiles = exact_matches
-                else:
-                    # If no exact matches, get all profiles and do semantic location matching
-                    all_profiles = list(self.profiles_collection.find(query))
-                    filtered_profiles = []
-                    
-                    for profile in all_profiles:
-                        profile_location = profile.get('location', '').lower()
-                        if not profile_location:
-                            continue
-                            
-                        # Use embeddings to check if locations are semantically related
-                        location_prompt = f"Are these locations in the same area: {target_location} and {profile_location}?"
-                        location_score = self.calculate_embedding_similarity(
-                            "Yes, they are in the same area",
-                            location_prompt
-                        )
-                        
-                        if location_score > 0.7:  # High confidence they're in same area
-                            filtered_profiles.append(profile)
-            else:
-                filtered_profiles = list(self.profiles_collection.find(query))
-
-            # If prompt mentions occupation, filter by occupation first
-            if 'prompt' in preferences:
-                occupation_check_prompt = "Is this prompt primarily searching for people by their occupation?"
-                is_occupation_search = self.calculate_embedding_similarity(preferences['prompt'], occupation_check_prompt) > 0.7
-
-                if is_occupation_search:
-                    occupation_filtered = []
-                    for profile in filtered_profiles:
-                        occupation_prompt = f"Is this occupation: {profile.get('occupation', '')} related to what this prompt is looking for: {preferences['prompt']}"
-                        occupation_score = self.calculate_embedding_similarity(
-                            "Yes, they are very related",
-                            occupation_prompt
-                        )
-                        
-                        if occupation_score > 0.6:  # Only keep strong occupation matches
-                            occupation_filtered.append(profile)
-                    
-                    filtered_profiles = occupation_filtered
-
-            return filtered_profiles
-
+            query = {}
+            
+            # Basic filters
+            if preferences.get('gender'):
+                query['gender'] = preferences['gender']
+            
+            if preferences.get('minAge') and preferences.get('maxAge'):
+                query['age'] = {
+                    '$gte': preferences['minAge'],
+                    '$lte': preferences['maxAge']
+                }
+            
+            # Location filter
+            if preferences.get('location'):
+                query['location'] = {
+                    '$regex': preferences['location'],
+                    '$options': 'i'
+                }
+            
+            # Get matching profiles
+            return list(self.profiles_collection.find(query))
+            
         except Exception as e:
             logger.error(f"Error filtering profiles: {str(e)}")
             return []
@@ -304,28 +249,38 @@ class HybridProfileMatcher:
             # Extract preferences from prompt
             preferences = self.extract_preferences(prompt)
             
-            # Get filtered profiles
+            # Get filtered profiles based on hierarchical matching (age, gender, location)
             filtered_profiles = self.filter_profiles_by_preferences(preferences)
             
             if not filtered_profiles:
                 return []
             
-            # Calculate match scores
+            # Calculate match scores for filtered profiles
             profile_scores = []
             
             for profile in filtered_profiles:
                 try:
-                    # Calculate text similarity
-                    text_score = self.calculate_text_similarity(profile, prompt)
-                    if isinstance(text_score, dict):
-                        text_score = text_score.get('score', 0)
+                    # Calculate text similarity with emphasis on occupation matching
+                    occupation_text = profile.get('occupation', '')
+                    bio_text = profile.get('bio', '')
+                    interests = ' '.join(profile.get('interests', []))
+                    
+                    # Calculate occupation similarity separately
+                    occupation_score = self.calculate_embedding_similarity(occupation_text, prompt) if occupation_text else 0
+                    
+                    # Calculate general profile text similarity
+                    profile_text = f"{bio_text} {interests}"
+                    profile_score = self.calculate_embedding_similarity(profile_text, prompt)
+                    
+                    # Combine text scores (60% occupation, 40% general profile)
+                    text_score = (0.6 * occupation_score + 0.4 * profile_score) if occupation_text else profile_score
                     
                     # Calculate image similarity if photos exist
                     image_scores = []
                     for photo in profile.get('photos', []):
                         try:
                             score = self.calculate_image_similarity(photo, prompt)
-                            if score is not None and not isinstance(score, dict):
+                            if score is not None:
                                 image_scores.append(score)
                         except Exception as e:
                             logger.warning(f"Error calculating image score: {str(e)}")
@@ -342,8 +297,8 @@ class HybridProfileMatcher:
                     
                     profile_scores.append({
                         'profile': profile,
-                        'matchScore': round(final_score, 1),  # Round to 1 decimal place
-                        'prompt': prompt  # Store prompt for explanation generation
+                        'matchScore': round(final_score, 2),
+                        'prompt': prompt
                     })
                 
                 except Exception as e:
