@@ -55,14 +55,14 @@ const FullProfile = () => {
                 )}
 
                 <div className="profile-details">
-                    <div className="interests-section">
-                        <h2>Interests</h2>
-                        <p className="interests-text">{profile.interests}</p>
-                    </div>
-
                     <div className="bio-section">
                         <h2>About Me</h2>
                         <p>{profile.aboutMe}</p>
+                    </div>
+
+                    <div className="interests-section">
+                        <h2>Interests</h2>
+                        <p className="interests-text">{profile.interests}</p>
                     </div>
 
                     {profile.dealBreakers && (

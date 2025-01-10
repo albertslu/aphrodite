@@ -109,11 +109,16 @@ const Matches = () => {
                                     <p>{match.profile.occupation}</p>
                                 </div>
                                 <div className="interests">
-                                    {match.profile.interests.split(',').map((interest, i) => (
-                                        <span key={i} className="interest-tag">
-                                            {interest.trim()}
-                                        </span>
-                                    ))}
+                                    {match.profile.interests.split(',').map((interest, i) => {
+                                        // Take only first 3 words for display
+                                        const words = interest.trim().split(' ');
+                                        const displayText = words.slice(0, 3).join(' ');
+                                        return (
+                                            <span key={i} className="interest-tag">
+                                                {displayText}
+                                            </span>
+                                        );
+                                    })}
                                 </div>
                                 <p className="bio">{match.profile.aboutMe}</p>
                                 <button 
