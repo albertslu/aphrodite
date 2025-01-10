@@ -57,11 +57,7 @@ const FullProfile = () => {
                 <div className="profile-details">
                     <div className="interests-section">
                         <h2>Interests</h2>
-                        <div className="interests-tags">
-                            {profile.interests.split(',').map((interest, index) => (
-                                <span key={index} className="interest-tag">{interest.trim()}</span>
-                            ))}
-                        </div>
+                        <p className="interests-text">{profile.interests}</p>
                     </div>
 
                     <div className="bio-section">

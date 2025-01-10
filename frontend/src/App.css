@@ -707,6 +707,19 @@ textarea {
 }
 
 .interests {
+  margin: 15px 0;
+}
+
+.interests-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #ddd;
+  text-align: left;
+  padding: 0 20px;
+  margin: 0;
+}
+
+.interests-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
@@ -890,12 +903,24 @@ button:hover {
   margin-top: 30px;
 }
 
-.interests-section h2,
-.bio-section h2,
-.dealbreakers-section h2 {
+.interests-section {
+  margin-top: 30px;
+}
+
+.interests-section h2 {
   color: #ff69b4;
   margin-bottom: 20px;
   font-size: 1.5rem;
+  text-align: center;
+}
+
+.interests-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #ddd;
+  white-space: pre-wrap;
+  text-align: left;
+  padding: 0 20px;
 }
 
 .interests-tags {
