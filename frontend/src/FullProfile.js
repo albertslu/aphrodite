@@ -7,6 +7,9 @@ const FullProfile = () => {
     const navigate = useNavigate();
     const profile = location.state?.profile;
 
+    // Debug log to see what data we're receiving
+    console.log('Profile data received:', profile);
+
     if (!profile) {
         return <div>Profile not found</div>;
     }

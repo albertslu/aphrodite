@@ -153,6 +153,18 @@ const Matches = () => {
                                         state: { 
                                             profile: {
                                                 ...match.profile,
+                                                name: match.profile.name,
+                                                age: match.profile.age,
+                                                gender: match.profile.gender,
+                                                location: match.profile.location,
+                                                height: match.profile.height,
+                                                ethnicity: match.profile.ethnicity,
+                                                education: match.profile.education,
+                                                sexualOrientation: match.profile.sexualOrientation,
+                                                occupation: match.profile.occupation,
+                                                aboutMe: match.profile.aboutMe,
+                                                interests: match.profile.interests,
+                                                photos: match.profile.photos,
                                                 matchPercentage: Math.round(match.matchScore * 100)
                                             }
                                         } 

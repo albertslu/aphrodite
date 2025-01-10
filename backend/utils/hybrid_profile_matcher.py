@@ -317,11 +317,17 @@ class HybridProfileMatcher:
                     'profile': {
                         '_id': str(match['profile'].get('_id', '')),
                         'name': match['profile'].get('name', ''),
+                        'age': match['profile'].get('age'),
+                        'gender': match['profile'].get('gender', ''),
+                        'location': match['profile'].get('location', ''),
+                        'height': match['profile'].get('height', ''),
+                        'ethnicity': match['profile'].get('ethnicity', ''),
+                        'education': match['profile'].get('education', ''),
+                        'sexualOrientation': match['profile'].get('sexualOrientation', ''),
                         'occupation': match['profile'].get('occupation', ''),
                         'aboutMe': match['profile'].get('aboutMe', ''),
                         'interests': match['profile'].get('interests', ''),
                         'photos': photos,
-                        'location': match['profile'].get('location', ''),
                         'aiJustification': {
                             'overallScore': round(match['matchScore'] * 100),
                             'explanation': explanation
