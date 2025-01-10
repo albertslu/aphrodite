@@ -42,7 +42,7 @@ const FullProfile = () => {
                 <div className="profile-occupation">{profile.occupation}</div>
 
                 <div className="demographic-info">
-                    <div className="demo-row">
+                    <div className="demo-column">
                         <div className="demo-item">
                             <span className="demo-label">Age</span>
                             <span className="demo-value">{profile.age}</span>
@@ -60,7 +60,7 @@ const FullProfile = () => {
                             <span className="demo-value">{profile.sexualOrientation}</span>
                         </div>
                     </div>
-                    <div className="demo-row">
+                    <div className="demo-column">
                         <div className="demo-item">
                             <span className="demo-label">Height</span>
                             <span className="demo-value">{profile.height}</span>
@@ -72,10 +72,6 @@ const FullProfile = () => {
                         <div className="demo-item">
                             <span className="demo-label">Education</span>
                             <span className="demo-value">{profile.education}</span>
-                        </div>
-                        <div className="demo-item">
-                            <span className="demo-label"></span>
-                            <span className="demo-value"></span>
                         </div>
                     </div>
                 </div>
