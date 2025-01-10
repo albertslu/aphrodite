@@ -3,7 +3,7 @@ ftfy
 regex
 tqdm
 git+https://github.com/openai/CLIP.git
-Pillow==10.0.0
+Pillow>=10.1.0
 numpy==1.24.3
 pymongo==4.5.0
 python-dotenv==1.0.0
