@@ -5,7 +5,6 @@ import torch
 import clip
 from PIL import Image
 import numpy as np
-from pymongo import MongoClient
 import re
 from typing import List, Dict, Union, Optional
 from pathlib import Path
@@ -15,6 +14,7 @@ import argparse
 import traceback
 from bson import ObjectId
 import sys
+from pymongo import MongoClient
 
 # Load environment variables
 load_dotenv(dotenv_path=str(Path(__file__).parent.parent.parent / '.env'))
@@ -43,9 +43,13 @@ class HybridProfileMatcher:
             mongodb_uri = os.getenv('MONGODB_URI')
             if not mongodb_uri:
                 raise ValueError("MONGODB_URI environment variable not set")
+            
+            # Simple MongoDB connection with minimal settings
             self.mongo_client = MongoClient(mongodb_uri)
             self.db = self.mongo_client['profile_matching']
             self.profiles_collection = self.db['profiles']
+            
+            logger.debug("MongoDB client initialized")
             
         except Exception as e:
             logger.error(f"Error initializing matcher: {str(e)}")
@@ -83,24 +87,28 @@ class HybridProfileMatcher:
         if age_match:
             preferences['minAge'] = int(age_match.group(1))
             preferences['maxAge'] = int(age_match.group(2))
+        elif 'any age' in prompt_lower:
+            # Don't set age preferences for "any age"
+            pass
 
         # Extract location - look for common location patterns
-        location_patterns = [
-            r'from\s+(.*?)(?:\.|$|\s+(?:who|and|,))',  # "from Los Angeles." or "from LA who"
-            r'in\s+(.*?)(?:\.|$|\s+(?:who|and|,))',    # "in New York." or "in NYC who"
-            r'near\s+(.*?)(?:\.|$|\s+(?:who|and|,))',  # "near Chicago." or "near CHI who"
-            r'around\s+(.*?)(?:\.|$|\s+(?:who|and|,))', # "around Miami." or "around MIA who"
-        ]
+        if 'anywhere' in prompt_lower or 'any location' in prompt_lower:
+            preferences['location'] = 'anywhere'
+        else:
+            location_patterns = [
+                r'from\s+(.*?)(?:\.|$|\s+(?:who|and|,))',  # "from Los Angeles." or "from LA who"
+                r'in\s+(.*?)(?:\.|$|\s+(?:who|and|,))',    # "in New York." or "in NYC who"
+                r'near\s+(.*?)(?:\.|$|\s+(?:who|and|,))',  # "near Chicago." or "near CHI who"
+                r'around\s+(.*?)(?:\.|$|\s+(?:who|and|,))', # "around Miami." or "around MIA who"
+            ]
 
-        for pattern in location_patterns:
-            location_match = re.search(pattern, prompt_lower)
-            if location_match:
-                preferences['location'] = location_match.group(1).strip()
-                break
+            for pattern in location_patterns:
+                location_match = re.search(pattern, prompt_lower)
+                if location_match:
+                    preferences['location'] = location_match.group(1).strip()
+                    break
 
-        # Store original prompt for complex filtering
-        preferences['prompt'] = prompt
-
+        logger.debug(f"Extracted preferences: {preferences}")
         return preferences
 
     def generate_text_embedding(self, text: str) -> np.ndarray:
@@ -127,130 +135,106 @@ class HybridProfileMatcher:
             logger.error(f"Error calculating text similarity: {str(e)}")
             return 0.0
 
-    def calculate_image_similarity(self, photo, prompt: str) -> Dict[str, float]:
+    def calculate_embedding_similarity(self, text1: str, text2: str) -> float:
+        """Calculate cosine similarity between two text embeddings"""
+        try:
+            if not text1 or not text2:
+                return 0.0
+                
+            # Generate embeddings
+            embedding1 = self.generate_text_embedding(text1)
+            embedding2 = self.generate_text_embedding(text2)
+            
+            # Calculate cosine similarity
+            similarity = float(np.dot(embedding1, embedding2) / (np.linalg.norm(embedding1) * np.linalg.norm(embedding2)))
+            
+            return similarity
+            
+        except Exception as e:
+            logger.error(f"Error calculating embedding similarity: {str(e)}")
+            return 0.0
+
+    def calculate_image_similarity(self, photo, prompt: str) -> float:
         """Calculate similarity between image and prompt using CLIP"""
         try:
             # Get full path to image
             image_path = self.get_photo_path(photo)
             if not os.path.exists(image_path):
                 logger.warning(f"Image not found: {image_path}")
-                return {
-                    'general_similarity': 0.0,
-                    'clarity_score': 0.0
-                }
+                return 0.0
             
             # Load and preprocess image
             image = Image.open(image_path).convert('RGB')
             image_input = self.preprocess(image).unsqueeze(0).to(self.device)
             
             # Prepare text inputs for CLIP
-            text_inputs = [prompt]
+            text_inputs = clip.tokenize([prompt]).to(self.device)
             
-            # Add body type and athletic prompts if relevant
-            if any(word in prompt.lower() for word in ['athletic', 'fit', 'muscular', 'strong', 'tall']):
-                text_inputs.extend([
-                    "a photo of an athletic person",
-                    "a photo of someone with muscular build",
-                    "a photo of a tall person"
-                ])
-            
-            text_tokens = clip.tokenize(text_inputs).to(self.device)
-            
-            # Get feature vectors
+            # Get features
             with torch.no_grad():
                 image_features = self.clip_model.encode_image(image_input)
-                text_features = self.clip_model.encode_text(text_tokens)
-                
-                # Normalize feature vectors
-                image_features /= image_features.norm(dim=-1, keepdim=True)
-                text_features /= text_features.norm(dim=-1, keepdim=True)
-                
-                # Calculate similarities
-                similarities = (image_features @ text_features.T).softmax(dim=-1)
-                
-                # Take the maximum similarity score
-                general_similarity = float(max(similarities[0]))
-                
-                # Calculate clarity score
-                clarity_tokens = clip.tokenize(["a clear photo of a person", "a blurry or unclear photo"]).to(self.device)
-                clarity_features = self.clip_model.encode_text(clarity_tokens)
-                clarity_features /= clarity_features.norm(dim=-1, keepdim=True)
-                clarity_sim = (image_features @ clarity_features.T).softmax(dim=-1)
-                clarity_score = float(clarity_sim[0][0])
-                
-                return {
-                    'general_similarity': general_similarity,
-                    'clarity_score': clarity_score
-                }
-                
+                text_features = self.clip_model.encode_text(text_inputs)
+            
+            # Normalize features
+            image_features = image_features / image_features.norm(dim=-1, keepdim=True)
+            text_features = text_features / text_features.norm(dim=-1, keepdim=True)
+            
+            # Calculate similarity
+            similarity = float((100.0 * image_features @ text_features.T).sigmoid().item())
+            
+            return similarity
+            
         except Exception as e:
             logger.error(f"Error calculating image similarity: {str(e)}")
-            return {
-                'general_similarity': 0.0,
-                'clarity_score': 0.0
-            }
-
-    def calculate_embedding_similarity(self, text1: str, text2: str) -> float:
-        """Calculate cosine similarity between two text embeddings"""
-        try:
-            # Generate embeddings
-            embedding1 = self.generate_text_embedding(text1)
-            embedding2 = self.generate_text_embedding(text2)
-            
-            # Calculate cosine similarity
-            similarity = np.dot(embedding1, embedding2) / (np.linalg.norm(embedding1) * np.linalg.norm(embedding2))
-            return float(similarity)
-            
-        except Exception as e:
-            logger.error(f"Error calculating embedding similarity: {str(e)}")
             return 0.0
 
     def filter_profiles_by_preferences(self, preferences: Dict) -> List[Dict]:
         """Filter profiles based on extracted preferences"""
         try:
-            query = {}
+            filtered_profiles = []
             
-            # Basic filters
-            if preferences.get('gender'):
-                query['gender'] = preferences['gender']
+            for profile in self.profiles_collection.find():
+                matches_criteria = True
+                
+                # Basic filters
+                if preferences.get('gender') and profile.get('gender') != preferences['gender']:
+                    matches_criteria = False
+                    continue
+                
+                # Only filter age if specific age range is provided
+                if preferences.get('minAge') is not None and preferences.get('maxAge') is not None:
+                    age = profile.get('age')
+                    if not age or not (preferences['minAge'] <= age <= preferences['maxAge']):
+                        matches_criteria = False
+                        continue
+                
+                # Only filter location if specific location is provided
+                if preferences.get('location') and preferences['location'].lower() not in ['any', 'anywhere']:
+                    profile_location = profile.get('location', '').lower()
+                    if not profile_location or preferences['location'].lower() not in profile_location:
+                        matches_criteria = False
+                        continue
+                
+                if matches_criteria:
+                    filtered_profiles.append(profile)
             
-            if preferences.get('minAge') and preferences.get('maxAge'):
-                query['age'] = {
-                    '$gte': preferences['minAge'],
-                    '$lte': preferences['maxAge']
-                }
-            
-            # Location filter
-            if preferences.get('location'):
-                query['location'] = {
-                    '$regex': preferences['location'],
-                    '$options': 'i'
-                }
-            
-            # Get matching profiles
-            return list(self.profiles_collection.find(query))
+            logger.debug(f"Found {len(filtered_profiles)} profiles after filtering")
+            return filtered_profiles
             
         except Exception as e:
             logger.error(f"Error filtering profiles: {str(e)}")
             return []
 
     def find_matching_profiles(self, prompt: str, top_k: int = 5) -> List[Dict]:
-        """
-        Find profiles that match the given prompt.
-        
-        Args:
-            prompt (str): User's search prompt
-            top_k (int): Number of top matches to return
-        
-        Returns:
-            List[Dict]: List of matching profiles with scores
-        """
+        """Find profiles that match the given prompt."""
         try:
             # Extract preferences from prompt
             preferences = self.extract_preferences(prompt)
+            logger.debug(f"Extracted preferences: {preferences}")
             
-            # Get filtered profiles based on hierarchical matching (age, gender, location)
+            # Get filtered profiles based on hierarchical matching
             filtered_profiles = self.filter_profiles_by_preferences(preferences)
+            logger.debug(f"Found {len(filtered_profiles)} profiles after filtering")
             
             if not filtered_profiles:
                 return []
@@ -266,7 +250,7 @@ class HybridProfileMatcher:
                     interests = ' '.join(profile.get('interests', []))
                     
                     # Calculate occupation similarity separately
-                    occupation_score = self.calculate_embedding_similarity(occupation_text, prompt) if occupation_text else 0
+                    occupation_score = self.calculate_embedding_similarity(occupation_text, prompt) if occupation_text else 0.0
                     
                     # Calculate general profile text similarity
                     profile_text = f"{bio_text} {interests}"
@@ -287,26 +271,24 @@ class HybridProfileMatcher:
                             continue
                     
                     # Average image scores if any exist
-                    image_score = sum(image_scores) / len(image_scores) if image_scores else 0
+                    image_score = sum(image_scores) / len(image_scores) if image_scores else 0.0
                     
-                    # Combine scores (70% text, 30% image if images exist)
-                    if image_scores:
-                        final_score = (0.7 * float(text_score)) + (0.3 * float(image_score))
-                    else:
-                        final_score = float(text_score)
+                    # Combine scores (70% text, 30% image)
+                    final_score = (0.7 * text_score) + (0.3 * image_score)
                     
                     profile_scores.append({
                         'profile': profile,
                         'matchScore': round(final_score, 2),
                         'prompt': prompt
                     })
-                
+                    
                 except Exception as e:
                     logger.error(f"Error processing profile {profile.get('_id', '')}: {str(e)}")
                     continue
             
             # Sort by match score and return top k
             profile_scores.sort(key=lambda x: x['matchScore'], reverse=True)
+            logger.debug(f"Found {len(profile_scores)} matches after similarity calculation")
             return profile_scores[:top_k]
             
         except Exception as e:
