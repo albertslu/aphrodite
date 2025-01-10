@@ -41,31 +41,40 @@ const FullProfile = () => {
 
                 <div className="profile-occupation">{profile.occupation}</div>
 
-                <div className="profile-photos">
-                    {profile.photos.map((photo, index) => (
-                        <img 
-                            key={index}
-                            src={photo}
-                            alt={`${profile.name} photo ${index + 1}`}
-                            className="profile-photo"
-                        />
-                    ))}
-                </div>
+                {profile.photos && profile.photos.length > 0 && (
+                    <div className="profile-photos">
+                        {profile.photos.map((photo, index) => (
+                            <img 
+                                key={index}
+                                src={`http://localhost:5000${photo}`}
+                                alt={`${profile.name} photo ${index + 1}`}
+                                className="profile-photo"
+                            />
+                        ))}
+                    </div>
+                )}
 
                 <div className="profile-details">
                     <div className="interests-section">
                         <h2>Interests</h2>
                         <div className="interests-tags">
-                            {profile.interests.map((interest, index) => (
-                                <span key={index} className="interest-tag">{interest}</span>
+                            {profile.interests.split(',').map((interest, index) => (
+                                <span key={index} className="interest-tag">{interest.trim()}</span>
                             ))}
                         </div>
                     </div>
 
                     <div className="bio-section">
                         <h2>About Me</h2>
-                        <p>{profile.bio}</p>
+                        <p>{profile.aboutMe}</p>
                     </div>
+
+                    {profile.dealBreakers && (
+                        <div className="dealbreakers-section">
+                            <h2>Deal Breakers</h2>
+                            <p>{profile.dealBreakers}</p>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>

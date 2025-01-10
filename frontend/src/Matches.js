@@ -115,10 +115,15 @@ const Matches = () => {
                                         </span>
                                     ))}
                                 </div>
-                                <p className="bio">{match.profile.bio}</p>
+                                <p className="bio">{match.profile.aboutMe}</p>
                                 <button 
                                     onClick={() => navigate(`/profile/${match.profile._id}`, { 
-                                        state: { profile: match.profile } 
+                                        state: { 
+                                            profile: {
+                                                ...match.profile,
+                                                matchPercentage: Math.round(match.matchScore * 100)
+                                            }
+                                        } 
                                     })} 
                                     className="view-profile-btn"
                                 >

@@ -362,7 +362,7 @@ class HybridProfileMatcher:
                     'profile': {
                         '_id': str(match['profile'].get('_id', '')),
                         'name': match['profile'].get('name', ''),
-                        'bio': match['profile'].get('bio', ''),
+                        'aboutMe': match['profile'].get('aboutMe', ''),
                         'interests': match['profile'].get('interests', ''),
                         'occupation': match['profile'].get('occupation', ''),
                         'photos': photos
