@@ -981,3 +981,22 @@ button:hover {
 .view-profile-btn:hover {
   background: #444;
 }
+
+.ai-justification {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: rgba(255, 105, 180, 0.1);
+  border-radius: 4px;
+}
+
+.debug-info {
+  font-size: 0.9rem;
+  color: #ff69b4;
+  margin: 0;
+}
+
+.debug-explanation {
+  font-size: 0.8rem;
+  color: #888;
+  margin: 5px 0 0 0;
+}

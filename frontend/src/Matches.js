@@ -108,17 +108,44 @@ const Matches = () => {
                                 <div className="basic-info">
                                     <p>{match.profile.occupation}</p>
                                 </div>
+                                <div className="ai-justification">
+                                    <p className="debug-info">Match Score: {match.profile.aiJustification.overallScore}%</p>
+                                    <p className="debug-explanation">{match.profile.aiJustification.explanation}</p>
+                                </div>
                                 <div className="interests">
-                                    {match.profile.interests.split(',').map((interest, i) => {
-                                        // Take only first 3 words for display
-                                        const words = interest.trim().split(' ');
-                                        const displayText = words.slice(0, 3).join(' ');
-                                        return (
+                                    {match.profile.interests.split(/[,.]/)  // Split on commas and periods
+                                        .map(interest => interest.trim())
+                                        .filter(interest => interest.length > 0)  // Remove empty strings
+                                        .map(interest => {
+                                            // Remove common connecting words at start
+                                            interest = interest.replace(/^(and|i also|also)\s+/i, '');
+                                            
+                                            // Special case for "dog owner" type phrases
+                                            if (interest.toLowerCase().includes('dog') || 
+                                                interest.toLowerCase().includes('pet')) {
+                                                return 'dog owner';
+                                            }
+
+                                            // Take meaningful words (up to 3)
+                                            const words = interest.trim().split(' ');
+                                            if (words.length <= 3) return interest.trim();
+                                            
+                                            // For longer phrases, try to extract main concept
+                                            if (interest.toLowerCase().includes('history')) return 'history';
+                                            if (interest.toLowerCase().includes('gaming')) return 'gaming';
+                                            if (interest.toLowerCase().includes('travel')) return 'traveling';
+                                            
+                                            return words.slice(0, 2).join(' ');
+                                        })
+                                        .filter((interest, index, self) => 
+                                            // Remove duplicates and empty strings
+                                            interest && self.indexOf(interest) === index
+                                        )
+                                        .map((interest, i) => (
                                             <span key={i} className="interest-tag">
-                                                {displayText}
+                                                {interest}
                                             </span>
-                                        );
-                                    })}
+                                        ))}
                                 </div>
                                 <p className="bio">{match.profile.aboutMe}</p>
                                 <button 

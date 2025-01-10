@@ -68,62 +68,38 @@ class HybridProfileMatcher:
         return os.path.normpath(photo_path)
 
     def extract_preferences(self, prompt: str) -> Dict:
-        """Extract age range, gender, and ethnicity preferences from prompt"""
+        """Extract age range, gender, and location preferences from prompt"""
         preferences = {}
-        
-        # Extract age range
-        age_match = re.search(r'aged? (\d+)-(\d+)|(\d+)-(\d+) \w+', prompt)
-        if age_match:
-            groups = age_match.groups()
-            if groups[0] and groups[1]:
-                preferences['min_age'] = int(groups[0])
-                preferences['max_age'] = int(groups[1])
-            elif groups[2] and groups[3]:
-                preferences['min_age'] = int(groups[2])
-                preferences['max_age'] = int(groups[3])
+        prompt_lower = prompt.lower()
 
         # Extract gender
-        prompt_lower = prompt.lower()
-        if 'female' in prompt_lower or 'woman' in prompt_lower or 'girl' in prompt_lower:
+        if 'female' in prompt_lower or 'woman' in prompt_lower:
             preferences['gender'] = 'female'
-        elif 'male' in prompt_lower or 'man' in prompt_lower or 'guy' in prompt_lower:
+        elif 'male' in prompt_lower or 'man' in prompt_lower:
             preferences['gender'] = 'male'
 
-        # Extract ethnicity with more context awareness
-        ethnicities = {
-            'white': ['white', 'caucasian'],
-            'black': ['black', 'african', 'african american'],
-            'asian': ['asian', 'east asian', 'southeast asian'],
-            'hispanic': ['hispanic', 'latina', 'latino'],
-            'latin': ['latin', 'latina', 'latino'],
-            'pacific islander': ['pacific islander', 'polynesian'],
-            'indian': ['indian', 'south asian'],
-            'middle eastern': ['middle eastern', 'arab'],
-            'native american': ['native american', 'indigenous', 'first nations']
-        }
-        
-        found_ethnicities = []
-        words = prompt_lower.split()
-        
-        # Check for ethnicity mentions in context
-        for ethnicity, variants in ethnicities.items():
-            # Check for exact matches
-            if any(variant in prompt_lower for variant in variants):
-                found_ethnicities.append(ethnicity)
-                continue
-                
-            # Check for ethnicity mentions near relevant words
-            context_words = ['person', 'woman', 'man', 'people', 'actress', 'actor']
-            for i, word in enumerate(words):
-                if any(variant == word for variant in variants):
-                    # Check if there's a context word nearby (within 2 words)
-                    nearby_words = words[max(0, i-2):min(len(words), i+3)]
-                    if any(context in nearby_words for context in context_words):
-                        found_ethnicities.append(ethnicity)
-                        break
-        
-        if found_ethnicities:
-            preferences['ethnicities'] = found_ethnicities
+        # Extract age range
+        age_match = re.search(r'aged?\s*(\d+)\s*-\s*(\d+)', prompt_lower)
+        if age_match:
+            preferences['min_age'] = int(age_match.group(1))
+            preferences['max_age'] = int(age_match.group(2))
+
+        # Extract location - look for common location patterns
+        location_patterns = [
+            r'from\s+(.*?)(?:\.|$|\s+(?:who|and|,))',  # "from Los Angeles." or "from LA who"
+            r'in\s+(.*?)(?:\.|$|\s+(?:who|and|,))',    # "in New York." or "in NYC who"
+            r'near\s+(.*?)(?:\.|$|\s+(?:who|and|,))',  # "near Chicago." or "near CHI who"
+            r'around\s+(.*?)(?:\.|$|\s+(?:who|and|,))', # "around Miami." or "around MIA who"
+        ]
+
+        for pattern in location_patterns:
+            location_match = re.search(pattern, prompt_lower)
+            if location_match:
+                preferences['location'] = location_match.group(1).strip()
+                break
+
+        # Store original prompt for complex filtering
+        preferences['prompt'] = prompt
 
         return preferences
 
@@ -138,11 +114,31 @@ class HybridProfileMatcher:
     def calculate_text_similarity(self, profile: Dict, prompt: str) -> float:
         """Calculate text similarity between profile and prompt"""
         try:
-            # Combine relevant profile text fields
-            profile_text = f"{profile.get('occupation', '')} {profile.get('aboutMe', '')} {profile.get('interests', '')}"
+            # First, check if this is an occupation-focused search
+            occupation_check_prompt = "Is this prompt primarily searching for people by their occupation?"
+            is_occupation_search = self.calculate_embedding_similarity(prompt, occupation_check_prompt) > 0.7
+
+            # If it's an occupation search, get occupation relevance
+            if is_occupation_search:
+                occupation_prompt = "Is this occupation: " + profile.get('occupation', '') + " related to what this prompt is looking for: " + prompt
+                occupation_score = self.calculate_embedding_similarity(
+                    "Yes, they are very related",  # positive case
+                    occupation_prompt
+                )
+                
+                # If occupation doesn't match well, significantly reduce score
+                if occupation_score < 0.6:
+                    return 0.1  # Very low score for occupation mismatch
             
-            # Calculate similarity using embeddings
-            return self.calculate_embedding_similarity(profile_text, prompt)
+            # Get base similarity from all profile text
+            profile_text = f"{profile.get('occupation', '')} {profile.get('aboutMe', '')} {profile.get('interests', '')}"
+            base_similarity = self.calculate_embedding_similarity(profile_text, prompt)
+            
+            # For occupation searches, weight occupation match more heavily
+            if is_occupation_search:
+                return (0.8 * occupation_score) + (0.2 * base_similarity)
+            
+            return base_similarity
             
         except Exception as e:
             logger.error(f"Error calculating text similarity: {str(e)}")
@@ -229,40 +225,64 @@ class HybridProfileMatcher:
     def filter_profiles_by_preferences(self, preferences: Dict) -> List[Dict]:
         """Filter profiles based on extracted preferences"""
         try:
-            # Build query based on preferences
-            query = {}
-            
-            # Always apply gender filter if specified
-            if preferences.get('gender'):
-                query['gender'] = preferences['gender']
-            
-            # Apply age filter if both min and max are specified
-            if preferences.get('min_age') and preferences.get('max_age'):
-                query['age'] = {
-                    '$gte': preferences['min_age'],
-                    '$lte': preferences['max_age']
-                }
-            
-            # Apply ethnicity filter if specified, with proper capitalization
-            if preferences.get('ethnicities'):
-                query['ethnicity'] = {
-                    '$in': [eth.capitalize() for eth in preferences['ethnicities']]  # Capitalize to match DB format
-                }
-            
-            # Get filtered profiles
-            profiles = list(self.profiles_collection.find(query))
-            
-            # Post-query filters for more complex criteria
-            filtered_profiles = []
-            for profile in profiles:
-                # Fix photo paths
-                if 'photos' not in profile or not profile['photos']:
-                    profile['photos'] = []
-                else:
-                    profile['photos'] = [photo for photo in profile['photos'] if photo]
+            # Start with basic filters
+            query = {
+                'gender': preferences.get('gender', 'female'),  # Default to female
+                'age': {'$gte': preferences.get('min_age', 18), '$lte': preferences.get('max_age', 100)}
+            }
+
+            # Location filtering - strict match first
+            if 'location' in preferences:
+                target_location = preferences['location'].lower()
+                # First try exact location match
+                exact_matches = list(self.profiles_collection.find({
+                    **query,
+                    'location': {'$regex': target_location, '$options': 'i'}
+                }))
                 
-                filtered_profiles.append(profile)
-            
+                if exact_matches:
+                    filtered_profiles = exact_matches
+                else:
+                    # If no exact matches, get all profiles and do semantic location matching
+                    all_profiles = list(self.profiles_collection.find(query))
+                    filtered_profiles = []
+                    
+                    for profile in all_profiles:
+                        profile_location = profile.get('location', '').lower()
+                        if not profile_location:
+                            continue
+                            
+                        # Use embeddings to check if locations are semantically related
+                        location_prompt = f"Are these locations in the same area: {target_location} and {profile_location}?"
+                        location_score = self.calculate_embedding_similarity(
+                            "Yes, they are in the same area",
+                            location_prompt
+                        )
+                        
+                        if location_score > 0.7:  # High confidence they're in same area
+                            filtered_profiles.append(profile)
+            else:
+                filtered_profiles = list(self.profiles_collection.find(query))
+
+            # If prompt mentions occupation, filter by occupation first
+            if 'prompt' in preferences:
+                occupation_check_prompt = "Is this prompt primarily searching for people by their occupation?"
+                is_occupation_search = self.calculate_embedding_similarity(preferences['prompt'], occupation_check_prompt) > 0.7
+
+                if is_occupation_search:
+                    occupation_filtered = []
+                    for profile in filtered_profiles:
+                        occupation_prompt = f"Is this occupation: {profile.get('occupation', '')} related to what this prompt is looking for: {preferences['prompt']}"
+                        occupation_score = self.calculate_embedding_similarity(
+                            "Yes, they are very related",
+                            occupation_prompt
+                        )
+                        
+                        if occupation_score > 0.6:  # Only keep strong occupation matches
+                            occupation_filtered.append(profile)
+                    
+                    filtered_profiles = occupation_filtered
+
             return filtered_profiles
 
         except Exception as e:
@@ -327,7 +347,8 @@ class HybridProfileMatcher:
                     
                     profile_scores.append({
                         'profile': profile,
-                        'matchScore': round(final_score, 1)  # Round to 1 decimal place
+                        'matchScore': round(final_score, 1),  # Round to 1 decimal place
+                        'prompt': prompt  # Store prompt for explanation generation
                     })
                 
                 except Exception as e:
@@ -347,34 +368,104 @@ class HybridProfileMatcher:
     def format_matches_for_json(self, matches: List[Dict]) -> List[Dict]:
         """Format matches for JSON response"""
         try:
-            json_matches = []
+            formatted_matches = []
             for match in matches:
-                # Format photos to keep full paths
+                # Get photo paths
                 photos = []
                 for photo in match['profile'].get('photos', []):
-                    if isinstance(photo, dict):
-                        photos.append(photo.get('url', ''))
-                    else:
-                        photos.append(str(photo))
+                    if not photo:
+                        continue
+                    photo_path = self.get_photo_path(photo)
+                    if os.path.exists(photo_path):
+                        photos.append(photo)
+
+                # Generate explanation based on profile attributes and match score
+                explanation = self.generate_match_explanation(match['profile'], match['matchScore'], match['prompt'])
 
                 # Create JSON match object with string conversion for ObjectId
                 json_match = {
                     'profile': {
                         '_id': str(match['profile'].get('_id', '')),
                         'name': match['profile'].get('name', ''),
+                        'occupation': match['profile'].get('occupation', ''),
                         'aboutMe': match['profile'].get('aboutMe', ''),
                         'interests': match['profile'].get('interests', ''),
-                        'occupation': match['profile'].get('occupation', ''),
-                        'photos': photos
+                        'photos': photos,
+                        'location': match['profile'].get('location', ''),
+                        'aiJustification': {
+                            'overallScore': round(match['matchScore'] * 100),
+                            'explanation': explanation
+                        }
                     },
                     'matchScore': float(match['matchScore'])
                 }
-                json_matches.append(json_match)
+                formatted_matches.append(json_match)
+
+            return formatted_matches
             
-            return json_matches
         except Exception as e:
-            logger.error(f"Error formatting matches for JSON: {str(e)}")
+            logger.error(f"Error formatting matches: {str(e)}")
             return []
+
+    def generate_match_explanation(self, profile: Dict, match_score: float, prompt: str) -> str:
+        """Generate a human-readable explanation for why this profile matched"""
+        try:
+            # Get key profile attributes
+            occupation = profile.get('occupation', '')
+            location = profile.get('location', '')
+            
+            # Build explanation based on match criteria
+            reasons = []
+            
+            # Check if prompt is asking about location
+            location_check = f"Is this prompt asking about location or area: {prompt}"
+            is_location_search = self.calculate_embedding_similarity(location_check, "Yes, this prompt is asking about location") > 0.7
+            
+            if is_location_search and location:
+                # Check if the location matches what's asked for
+                location_match = f"Is {location} the same area that this prompt is asking about: {prompt}"
+                location_score = self.calculate_embedding_similarity(
+                    "Yes, it's the same area",
+                    location_match
+                )
+                if location_score > 0.7:
+                    reasons.append(f"located in {location}")
+
+            # Check if prompt is asking about occupation
+            occupation_check = f"Is this prompt asking about someone's job or occupation: {prompt}"
+            is_occupation_search = self.calculate_embedding_similarity(occupation_check, "Yes, this prompt is asking about occupation") > 0.7
+            
+            if is_occupation_search and occupation:
+                # Check if the occupation matches what's asked for
+                occupation_match = f"Is being {occupation} relevant to what this prompt is looking for: {prompt}"
+                occupation_score = self.calculate_embedding_similarity(
+                    "Yes, it's very relevant",
+                    occupation_match
+                )
+                if occupation_score > 0.7:
+                    reasons.append(f"works as {occupation}")
+                elif occupation_score > 0.5:
+                    reasons.append(f"has a related role as {occupation}")
+            
+            # Match quality
+            if match_score > 0.8:
+                confidence = "strong"
+            elif match_score > 0.6:
+                confidence = "moderate"
+            else:
+                confidence = "partial"
+                
+            # Combine into natural language explanation
+            if reasons:
+                explanation = f"{confidence.capitalize()} match: Profile is {' and '.join(reasons)}"
+            else:
+                explanation = f"{confidence.capitalize()} match based on overall profile similarity"
+            
+            return explanation
+            
+        except Exception as e:
+            logger.error(f"Error generating explanation: {str(e)}")
+            return "Match based on profile similarity"
 
     def close(self):
         """Close MongoDB connection"""
