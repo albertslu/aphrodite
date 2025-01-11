@@ -91,6 +91,21 @@ class HybridProfileMatcher:
             # Don't set age preferences for "any age"
             pass
 
+        # Extract ethnicity
+        ethnicity_keywords = {
+            'white': ['white', 'caucasian', 'european'],
+            'asian': ['asian', 'oriental'],
+            'black': ['black', 'african'],
+            'hispanic': ['hispanic', 'latina', 'latino'],
+            'south asian': ['indian', 'south asian'],
+            'middle eastern': ['middle eastern', 'arab'],
+        }
+        
+        for ethnicity, keywords in ethnicity_keywords.items():
+            if any(keyword in prompt_lower for keyword in keywords):
+                preferences['ethnicity'] = ethnicity
+                break
+
         # Extract location - look for common location patterns
         if 'anywhere' in prompt_lower or 'any location' in prompt_lower:
             preferences['location'] = 'anywhere'
@@ -131,13 +146,25 @@ class HybridProfileMatcher:
     def calculate_text_similarity(self, profile: Dict, prompt: str) -> float:
         """Calculate text similarity between profile and prompt"""
         try:
-            # Create a comprehensive profile text including occupation, interests, and relationship goals
+            # Check if physical traits match
+            physical_traits_match = True
+            if 'ethnicity' in profile:
+                ethnicity_score = self.calculate_embedding_similarity(
+                    f"looking for {profile['ethnicity']} person",
+                    prompt
+                )
+                physical_traits_match = physical_traits_match and ethnicity_score > 0.7
+
+            # Create a comprehensive profile text
             profile_text = f"{profile.get('occupation', '')} {profile.get('bio', '')} {' '.join(profile.get('interests', []))} {profile.get('relationshipGoals', '')}"
             
             # Calculate semantic similarity using embeddings
             similarity_score = self.calculate_embedding_similarity(profile_text, prompt)
             
-            # Return score
+            # Reduce score if physical traits don't match
+            if not physical_traits_match:
+                similarity_score *= 0.5
+            
             return similarity_score
             
         except Exception as e:
@@ -256,6 +283,15 @@ class HybridProfileMatcher:
                                 matches_criteria = False
                                 continue
                 
+                # Filter by ethnicity if specified
+                if preferences.get('ethnicity'):
+                    profile_ethnicity = profile.get('ethnicity', '').lower()
+                    search_ethnicity = preferences['ethnicity'].lower()
+                    
+                    if profile_ethnicity != search_ethnicity:
+                        matches_criteria = False
+                        continue
+                
                 if matches_criteria:
                     filtered_profiles.append(profile)
             
@@ -367,7 +403,7 @@ class HybridProfileMatcher:
                         'sexualOrientation': match['profile'].get('sexualOrientation', ''),
                         'occupation': match['profile'].get('occupation', ''),
                         'aboutMe': match['profile'].get('aboutMe', ''),
-                        'interests': match['profile'].get('interests', ''),
+                        'interests': match['profile'].get('interests', []),
                         'relationshipGoals': match['profile'].get('relationshipGoals', ''),
                         'photos': photos,
                         'aiJustification': {
