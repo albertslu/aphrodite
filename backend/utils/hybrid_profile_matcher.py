@@ -220,7 +220,14 @@ class HybridProfileMatcher:
                 # Only filter location if specific location is provided
                 if preferences.get('location') and preferences['location'].lower() not in ['any', 'anywhere']:
                     profile_location = profile.get('location', '').lower()
-                    if not profile_location or preferences['location'].lower() not in profile_location:
+                    search_location = preferences['location'].lower()
+                    
+                    # Split locations into parts to match partial locations
+                    search_parts = set(search_location.replace(',', ' ').split())
+                    profile_parts = set(profile_location.replace(',', ' ').split())
+                    
+                    # Check if any major part matches (city or state)
+                    if not any(part in profile_parts for part in search_parts):
                         matches_criteria = False
                         continue
 
@@ -380,58 +387,39 @@ class HybridProfileMatcher:
     def generate_match_explanation(self, profile: Dict, match_score: float, prompt: str) -> str:
         """Generate a human-readable explanation for why this profile matched"""
         try:
-            # Get key profile attributes
-            occupation = profile.get('occupation', '')
-            location = profile.get('location', '')
-            
-            # Build explanation based on match criteria
-            reasons = []
-            
-            # Check if prompt is asking about location
-            location_check = f"Is this prompt asking about location or area: {prompt}"
-            is_location_search = self.calculate_embedding_similarity(location_check, "Yes, this prompt is asking about location") > 0.7
-            
-            if is_location_search and location:
-                # Check if the location matches what's asked for
-                location_match = f"Is {location} the same area that this prompt is asking about: {prompt}"
-                location_score = self.calculate_embedding_similarity(
-                    "Yes, it's the same area",
-                    location_match
-                )
-                if location_score > 0.7:
-                    reasons.append(f"located in {location}")
+            # Create a comprehensive profile description
+            profile_text = f"Name: {profile.get('name', '')}\n"
+            profile_text += f"Occupation: {profile.get('occupation', '')}\n"
+            profile_text += f"Location: {profile.get('location', '')}\n"
+            profile_text += f"Interests: {', '.join(profile.get('interests', []))}\n"
+            profile_text += f"Bio: {profile.get('bio', '')}"
 
-            # Check if prompt is asking about occupation
-            occupation_check = f"Is this prompt asking about someone's job or occupation: {prompt}"
-            is_occupation_search = self.calculate_embedding_similarity(occupation_check, "Yes, this prompt is asking about occupation") > 0.7
+            # Ask GPT to explain why this profile matches the user's prompt
+            system_message = "You are an AI matchmaker. Explain why this profile might be a good match for the user's search criteria. Be concise but insightful. Focus on relevant aspects that match the user's preferences."
             
-            if is_occupation_search and occupation:
-                # Check if the occupation matches what's asked for
-                occupation_match = f"Is being {occupation} relevant to what this prompt is looking for: {prompt}"
-                occupation_score = self.calculate_embedding_similarity(
-                    "Yes, it's very relevant",
-                    occupation_match
-                )
-                if occupation_score > 0.7:
-                    reasons.append(f"works as {occupation}")
-                elif occupation_score > 0.5:
-                    reasons.append(f"has a related role as {occupation}")
+            user_message = f"User's search: '{prompt}'\n\nProfile:\n{profile_text}\n\nExplain why this might be a good match (in 1-2 sentences)."
             
-            # Match quality
+            response = self.client.chat.completions.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                    {"role": "system", "content": system_message},
+                    {"role": "user", "content": user_message}
+                ],
+                max_tokens=100,
+                temperature=0.7
+            )
+            
+            explanation = response.choices[0].message.content.strip()
+            
+            # Add confidence level
             if match_score > 0.8:
-                confidence = "strong"
+                confidence = "Strong"
             elif match_score > 0.6:
-                confidence = "moderate"
+                confidence = "Moderate"
             else:
-                confidence = "partial"
+                confidence = "Partial"
                 
-            # Combine into natural language explanation
-            if reasons:
-                explanation = f"{confidence.capitalize()} match: Profile is {' and '.join(reasons)}"
-            else:
-                explanation = f"{confidence.capitalize()} match based on overall profile similarity"
-            
-            return explanation
+            return f"{confidence} match: {explanation}"
             
         except Exception as e:
             logger.error(f"Error generating explanation: {str(e)}")
