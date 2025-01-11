@@ -108,6 +108,15 @@ class HybridProfileMatcher:
                     preferences['location'] = location_match.group(1).strip()
                     break
 
+        # Extract height preferences
+        if 'tall' in prompt_lower:
+            # Men: tall >= 72 inches (6'0"), Women: tall >= 68 inches (5'8")
+            # Allow -2 inches flexibility
+            preferences['height_requirement'] = 'tall'
+        elif 'short' in prompt_lower:
+            # Men: short <= 67 inches (5'7"), Women: short <= 63 inches (5'3")
+            preferences['height_requirement'] = 'short'
+
         logger.debug(f"Extracted preferences: {preferences}")
         return preferences
 
@@ -214,6 +223,31 @@ class HybridProfileMatcher:
                     if not profile_location or preferences['location'].lower() not in profile_location:
                         matches_criteria = False
                         continue
+
+                # Filter by height if specified
+                if preferences.get('height_requirement'):
+                    height = profile.get('height')
+                    gender = profile.get('gender', '').lower()
+                    
+                    if height is not None and gender:
+                        # Convert height to int if it's a string
+                        try:
+                            height = int(height) if isinstance(height, str) else height
+                        except (ValueError, TypeError):
+                            continue
+                            
+                        if preferences['height_requirement'] == 'tall':
+                            # Men: tall >= 72 inches (6'0"), Women: tall >= 68 inches (5'8")
+                            tall_threshold = 72 if gender == 'male' else 68
+                            if height < (tall_threshold - 2):  # Allow 2 inches flexibility
+                                matches_criteria = False
+                                continue
+                        elif preferences['height_requirement'] == 'short':
+                            # Men: short <= 67 inches (5'7"), Women: short <= 63 inches (5'3")
+                            short_threshold = 67 if gender == 'male' else 63
+                            if height > short_threshold:
+                                matches_criteria = False
+                                continue
                 
                 if matches_criteria:
                     filtered_profiles.append(profile)
