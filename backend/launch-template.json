@@ -1,0 +1,10 @@
+{
+    "LaunchTemplateName": "aphrodite-template",
+    "VersionDescription": "Initial version",
+    "LaunchTemplateData": {
+        "InstanceType": "t2.micro",
+        "ImageId": "ami-0d7a109bf30624c99",
+        "SecurityGroupIds": ["sg-06267aee1c5664611"],
+        "UserData": ""
+    }
+}
