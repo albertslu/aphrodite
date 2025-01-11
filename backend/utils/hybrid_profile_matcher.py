@@ -131,8 +131,8 @@ class HybridProfileMatcher:
     def calculate_text_similarity(self, profile: Dict, prompt: str) -> float:
         """Calculate text similarity between profile and prompt"""
         try:
-            # Create a comprehensive profile text including occupation and interests
-            profile_text = f"{profile.get('occupation', '')} {profile.get('bio', '')} {' '.join(profile.get('interests', []))}"
+            # Create a comprehensive profile text including occupation, interests, and relationship goals
+            profile_text = f"{profile.get('occupation', '')} {profile.get('bio', '')} {' '.join(profile.get('interests', []))} {profile.get('relationshipGoals', '')}"
             
             # Calculate semantic similarity using embeddings
             similarity_score = self.calculate_embedding_similarity(profile_text, prompt)
@@ -368,6 +368,7 @@ class HybridProfileMatcher:
                         'occupation': match['profile'].get('occupation', ''),
                         'aboutMe': match['profile'].get('aboutMe', ''),
                         'interests': match['profile'].get('interests', ''),
+                        'relationshipGoals': match['profile'].get('relationshipGoals', ''),
                         'photos': photos,
                         'aiJustification': {
                             'overallScore': round(match['matchScore'] * 100),

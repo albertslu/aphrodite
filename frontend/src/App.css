@@ -1081,3 +1081,23 @@ button:hover {
   margin-left: 1rem;
   text-align: right;
 }
+
+.relationship-goals-section {
+  margin-top: 30px;
+}
+
+.relationship-goals-section h2 {
+  color: #ff69b4;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.relationship-goals-section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #ddd;
+  white-space: pre-wrap;
+  text-align: left;
+  padding: 0 20px;
+}

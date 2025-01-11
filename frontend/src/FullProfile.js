@@ -103,6 +103,13 @@ const FullProfile = () => {
                         <p className="interests-text">{profile.interests}</p>
                     </div>
 
+                    {profile.relationshipGoals && (
+                        <div className="relationship-goals-section">
+                            <h2>Relationship Goals</h2>
+                            <p>{profile.relationshipGoals}</p>
+                        </div>
+                    )}
+
                     {profile.dealBreakers && (
                         <div className="dealbreakers-section">
                             <h2>Deal Breakers</h2>
