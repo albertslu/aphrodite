@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './App.css';
+import config from './config';
 
 const Preferences = () => {
     const navigate = useNavigate();
@@ -33,7 +34,7 @@ const Preferences = () => {
             const token = localStorage.getItem('token');
             
             // Call the matching endpoint
-            const response = await fetch('http://localhost:5000/api/match/match-profiles', {
+            const response = await fetch(`${config.apiUrl}/api/match/match-profiles`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './App.css';
+import config from './config';
 
 const Matches = () => {
     const navigate = useNavigate();
@@ -89,7 +90,7 @@ const Matches = () => {
                                         {match.profile.photos.map((photo, photoIndex) => (
                                             <img
                                                 key={photoIndex}
-                                                src={`http://localhost:5000${photo}`}
+                                                src={`${config.apiUrl}${photo}`}
                                                 alt={`${match.profile.name}'s photo ${photoIndex + 1}`}
                                                 className="profile-photo"
                                                 loading="lazy"

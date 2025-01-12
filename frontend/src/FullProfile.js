@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './App.css';
+import config from './config';
 
 const FullProfile = () => {
     const location = useLocation();
@@ -84,7 +85,7 @@ const FullProfile = () => {
                         {profile.photos.map((photo, index) => (
                             <img 
                                 key={index}
-                                src={`http://localhost:5000${photo}`}
+                                src={`${config.apiUrl}${photo}`}
                                 alt={`${profile.name} photo ${index + 1}`}
                                 className="profile-photo"
                             />

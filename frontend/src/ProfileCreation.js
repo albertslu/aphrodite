@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './App.css';
+import config from './config';
 
 const ProfileCreation = () => {
     const navigate = useNavigate();
@@ -73,7 +74,7 @@ const ProfileCreation = () => {
                 const formData = new FormData();
                 formData.append('photo', photos[i]);
 
-                const uploadResponse = await fetch('http://localhost:5000/api/upload', {
+                const uploadResponse = await fetch(`${config.apiUrl}/api/upload`, {
                     method: 'POST',
                     headers: {
                         'Authorization': `Bearer ${token}`
@@ -101,7 +102,7 @@ const ProfileCreation = () => {
 
             console.log('Sending profile data:', profileData);
 
-            const response = await fetch('http://localhost:5000/api/profile', {
+            const response = await fetch(`${config.apiUrl}/api/profile`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`,

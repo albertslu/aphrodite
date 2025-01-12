@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import config from './config';
 import './App.css';
 
 const PreferenceInput = () => {
@@ -57,7 +58,7 @@ const PreferenceInput = () => {
             }
 
             // Update profile with partner preferences
-            const response = await axios.put('http://localhost:5000/api/profile', 
+            const response = await axios.put(`${config.apiUrl}/api/profile`, 
                 { partnerPreferences: JSON.stringify(formData) },
                 {
                     headers: {
