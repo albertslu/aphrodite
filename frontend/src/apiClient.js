@@ -2,16 +2,18 @@ import config from './config';
 
 const fetchWithSSLBypass = async (endpoint, options = {}) => {
     const url = `${config.apiUrl}${endpoint}`;
+    const fetchOptions = {
+        ...options,
+        headers: {
+            'Content-Type': 'application/json',
+            ...options.headers,
+        },
+        mode: 'cors',
+        credentials: 'include'
+    };
+
     try {
-        const response = await fetch(url, {
-            ...options,
-            headers: {
-                'Content-Type': 'application/json',
-                ...options.headers,
-            },
-            mode: 'cors',
-            credentials: 'omit'  // Ignore SSL verification
-        });
+        const response = await fetch(url, fetchOptions);
 
         if (!response.ok) {
             const data = await response.json();
