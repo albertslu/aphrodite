@@ -1,8 +1,9 @@
-import config from './config';
-
 // Updated for domain configuration
 
 const fetchWithSSLBypass = async (endpoint, options = {}) => {
+    const config = {
+        apiUrl: 'http://3.81.131.154:5000'
+    };
     const url = `${config.apiUrl}${endpoint}`;
     try {
         const response = await fetch(url, {

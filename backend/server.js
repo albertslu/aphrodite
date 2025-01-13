@@ -32,10 +32,7 @@ app.use(cors({
     origin: [
         'http://localhost:3000',
         'https://frontend-git-main-albert-lus-projects-aad2419e.vercel.app',
-        'https://frontend-594v6wpah-albert-lus-projects-aad2419e.vercel.app',
-        'https://aphroditeai.org',
-        'https://www.aphroditeai.org',
-        'https://api.aphroditeai.org'
+        'https://frontend-594v6wpah-albert-lus-projects-aad2419e.vercel.app'
     ],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
