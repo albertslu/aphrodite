@@ -1,8 +1,8 @@
-// Updated for direct EC2 HTTPS access
+// Updated to use Cloudflare SSL
 
 const fetchWithSSLBypass = async (endpoint, options = {}) => {
     const config = {
-        apiUrl: 'https://3.81.131.154'  // Use HTTPS with direct IP
+        apiUrl: 'https://api.aphroditeai.org'  // Use Cloudflare SSL
     };
     const url = `${config.apiUrl}${endpoint}`;
     try {
