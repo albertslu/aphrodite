@@ -29,8 +29,15 @@ const port = config.server.port;
 
 // Middleware
 app.use(cors({
-    origin: 'http://localhost:3000',
-    credentials: true
+    origin: [
+        'http://localhost:3000',
+        'https://frontend-zeta-amber.vercel.app',
+        'https://frontend-git-main-albert-lus-projects-aad2419e.vercel.app',
+        'https://frontend-eex45aljl-albert-lus-projects-aad2419e.vercel.app'
+    ],
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
