@@ -33,7 +33,8 @@ app.use(cors({
         'http://localhost:3000',
         'https://frontend-zeta-amber.vercel.app',
         'https://frontend-git-main-albert-lus-projects-aad2419e.vercel.app',
-        'https://frontend-eex45aljl-albert-lus-projects-aad2419e.vercel.app'
+        'https://frontend-eex45aljl-albert-lus-projects-aad2419e.vercel.app',
+        'https://frontend-9kfj6qm5s-albert-lus-projects-aad2419e.vercel.app'
     ],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
