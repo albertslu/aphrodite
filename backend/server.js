@@ -71,7 +71,8 @@ app.get('/api/status', (req, res) => {
 const connectWithRetry = async () => {
     try {
         console.log('Attempting to connect to MongoDB...');
-        console.log('MongoDB URI:', config.mongodb.uri.replace(/:[^:]*@/, ':****@'));
+        console.log('NODE_ENV:', process.env.NODE_ENV);
+        console.log('MongoDB URI:', config.mongodb.uri);
 
         const options = {
             serverSelectionTimeoutMS: 10000,
@@ -85,6 +86,7 @@ const connectWithRetry = async () => {
         console.log('✅ MongoDB connected successfully!');
         console.log('Database:', mongoose.connection.name);
         console.log('Host:', mongoose.connection.host);
+        console.log('Full connection details:', mongoose.connection.client.s.url);
         console.log('=================================');
     } catch (err) {
         console.error('❌ MongoDB connection error:', err.message);
