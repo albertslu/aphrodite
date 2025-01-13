@@ -1,5 +1,7 @@
 import config from './config';
 
+// Updated for domain configuration
+
 const fetchWithSSLBypass = async (endpoint, options = {}) => {
     const url = `${config.apiUrl}${endpoint}`;
     try {
