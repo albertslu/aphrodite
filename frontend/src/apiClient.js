@@ -1,8 +1,8 @@
-// Updated for domain configuration
+// Updated for direct EC2 HTTPS access
 
 const fetchWithSSLBypass = async (endpoint, options = {}) => {
     const config = {
-        apiUrl: 'http://3.81.131.154:5000'
+        apiUrl: 'https://3.81.131.154'  // Use HTTPS with direct IP
     };
     const url = `${config.apiUrl}${endpoint}`;
     try {
