@@ -34,7 +34,9 @@ app.use(cors({
         'https://frontend-zeta-amber.vercel.app',
         'https://frontend-git-main-albert-lus-projects-aad2419e.vercel.app',
         'https://frontend-eex45aljl-albert-lus-projects-aad2419e.vercel.app',
-        'https://frontend-9kfj6qm5s-albert-lus-projects-aad2419e.vercel.app'
+        'https://frontend-9kfj6qm5s-albert-lus-projects-aad2419e.vercel.app',
+        'https://aphroditeai.org',
+        'https://www.aphroditeai.org'
     ],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
