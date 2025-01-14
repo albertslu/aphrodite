@@ -218,6 +218,9 @@ class HybridProfileMatcher:
             # Calculate similarity
             similarity = float((100.0 * image_features @ text_features.T).sigmoid().item())
             
+            # Debug log the similarity score
+            logger.debug(f"CLIP similarity score for '{os.path.basename(image_path)}' with prompt '{prompt}': {similarity}")
+            
             return similarity
             
         except Exception as e:
@@ -432,9 +435,16 @@ class HybridProfileMatcher:
             profile_text += f"Bio: {profile.get('bio', '')}"
 
             # Ask GPT to explain why this profile matches the user's prompt
-            system_message = "You are an AI matchmaker. Explain why this profile might be a good match for the user's search criteria. Be concise but insightful. Focus on relevant aspects that match the user's preferences."
+            system_message = """You are an AI matchmaker. Your task is to explain profile matches based on the user's search criteria.
+When the user's search includes specific physical traits (like hair color, eye color, height, etc.):
+1. Focus primarily on evaluating those specific traits the user asked for
+2. Only mention physical traits that were explicitly searched for
+3. Base your response on the match score - a high score means the traits likely match, a low score means they likely don't
+4. If unsure about a specific trait, don't mention it
+
+For all matches, also consider personality, interests, and other relevant attributes that align with the search criteria."""
             
-            user_message = f"User's search: '{prompt}'\n\nProfile:\n{profile_text}\n\nExplain why this might be a good match (in 1-2 sentences)."
+            user_message = f"User's search: '{prompt}'\nMatch score: {match_score}\n\nProfile:\n{profile_text}\n\nExplain why this might be a good match (in 1-2 sentences)."
             
             response = self.client.chat.completions.create(
                 model="gpt-3.5-turbo",
@@ -448,7 +458,7 @@ class HybridProfileMatcher:
             
             explanation = response.choices[0].message.content.strip()
             
-            # Add confidence level
+            # Add confidence level based on match score
             if match_score > 0.8:
                 confidence = "Strong"
             elif match_score > 0.6:
