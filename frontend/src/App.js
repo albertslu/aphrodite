@@ -42,6 +42,7 @@ function App() {
                     <Route path="/" element={<Login />} />
                     <Route path="/signup" element={<Signup />} />
                     <Route path="/create-profile" element={<PrivateRoute><ProfileCreation /></PrivateRoute>} />
+                    <Route path="/edit-profile" element={<PrivateRoute><ProfileCreation isEditing={true} /></PrivateRoute>} />
                     <Route path="/preferences" element={<PrivateRoute><Preferences /></PrivateRoute>} />
                     <Route path="/matches" element={<PrivateRoute><Matches /></PrivateRoute>} />
                     <Route path="/profile/:id" element={<FullProfile />} />

@@ -71,23 +71,25 @@ const Preferences = () => {
 
     return (
         <div className="preferences-container">
-            <div className="header-section">
-                <h2>Tell Us Your Preferences</h2>
-                <button onClick={handleLogout} className="logout-btn">
-                    Logout
-                </button>
-            </div>
-            <div className="profile-actions">
-                <button 
-                    className="edit-profile-btn"
-                    onClick={() => navigate('/edit-profile')}
-                >
-                    Edit Profile
-                </button>
-            </div>
+            <h2>Preferences</h2>
             {error && <div className="error">{error}</div>}
             {successMessage && <div className="success">{successMessage}</div>}
             
+            <div className="button-container">
+                <button 
+                    onClick={() => navigate('/edit-profile')} 
+                    className="secondary-button"
+                >
+                    Edit Profile
+                </button>
+                <button 
+                    onClick={() => navigate('/matches')} 
+                    className="primary-button"
+                >
+                    View Matches
+                </button>
+            </div>
+
             <form onSubmit={handleSubmit} className="preferences-form">
                 <div className="form-section">
                     <div className="form-group">
@@ -163,6 +165,9 @@ const Preferences = () => {
                     Create New Profile
                 </button>
             )}
+            <button onClick={handleLogout} className="logout-btn">
+                Logout
+            </button>
         </div>
     );
 };
