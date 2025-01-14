@@ -203,25 +203,57 @@ class HybridProfileMatcher:
             image = Image.open(image_path).convert('RGB')
             image_input = self.preprocess(image).unsqueeze(0).to(self.device)
             
-            # Prepare text inputs for CLIP
-            text_inputs = clip.tokenize([prompt]).to(self.device)
+            # For physical traits, break down into specific attributes
+            prompt_lower = prompt.lower()
+            scores = []
             
-            # Get features
+            if 'blonde' in prompt_lower or 'blond' in prompt_lower:
+                text_inputs = clip.tokenize(["a photo of a person with blonde hair", 
+                                          "a close up of blonde hair"]).to(self.device)
+                with torch.no_grad():
+                    image_features = self.clip_model.encode_image(image_input)
+                    text_features = self.clip_model.encode_text(text_inputs)
+                    # Normalize features
+                    image_features = image_features / image_features.norm(dim=-1, keepdim=True)
+                    text_features = text_features / text_features.norm(dim=-1, keepdim=True)
+                    # Take max similarity across prompts
+                    blonde_score = float((100.0 * (image_features @ text_features.T)).max().sigmoid().item())
+                    scores.append(blonde_score)
+                    logger.debug(f"Blonde hair score for {os.path.basename(image_path)}: {blonde_score}")
+            
+            if 'blue eyes' in prompt_lower:
+                text_inputs = clip.tokenize(["a photo of a person with blue eyes",
+                                          "a close up of blue eyes"]).to(self.device)
+                with torch.no_grad():
+                    image_features = self.clip_model.encode_image(image_input)
+                    text_features = self.clip_model.encode_text(text_inputs)
+                    # Normalize features
+                    image_features = image_features / image_features.norm(dim=-1, keepdim=True)
+                    text_features = text_features / text_features.norm(dim=-1, keepdim=True)
+                    # Take max similarity across prompts
+                    blue_eyes_score = float((100.0 * (image_features @ text_features.T)).max().sigmoid().item())
+                    scores.append(blue_eyes_score)
+                    logger.debug(f"Blue eyes score for {os.path.basename(image_path)}: {blue_eyes_score}")
+            
+            # If we're checking physical traits, use the minimum score
+            # This ensures both traits must be present for a high score
+            if scores:
+                final_score = min(scores)
+                logger.debug(f"Final physical trait score for {os.path.basename(image_path)}: {final_score}")
+                return final_score
+            
+            # For non-physical trait prompts, use the original method
+            text_inputs = clip.tokenize([prompt]).to(self.device)
             with torch.no_grad():
                 image_features = self.clip_model.encode_image(image_input)
                 text_features = self.clip_model.encode_text(text_inputs)
-            
-            # Normalize features
-            image_features = image_features / image_features.norm(dim=-1, keepdim=True)
-            text_features = text_features / text_features.norm(dim=-1, keepdim=True)
-            
-            # Calculate similarity
-            similarity = float((100.0 * image_features @ text_features.T).sigmoid().item())
-            
-            # Debug log the similarity score
-            logger.debug(f"CLIP similarity score for '{os.path.basename(image_path)}' with prompt '{prompt}': {similarity}")
-            
-            return similarity
+                # Normalize features
+                image_features = image_features / image_features.norm(dim=-1, keepdim=True)
+                text_features = text_features / text_features.norm(dim=-1, keepdim=True)
+                # Calculate similarity
+                similarity = float((100.0 * image_features @ text_features.T).sigmoid().item())
+                logger.debug(f"General similarity score for {os.path.basename(image_path)}: {similarity}")
+                return similarity
             
         except Exception as e:
             logger.error(f"Error calculating image similarity: {str(e)}")
@@ -353,8 +385,16 @@ class HybridProfileMatcher:
                     # Average image scores if any exist
                     image_score = sum(image_scores) / len(image_scores) if image_scores else 0.0
                     
-                    # Combine scores (70% text, 30% image)
-                    final_score = (0.7 * text_score) + (0.3 * image_score)
+                    # Check if prompt contains physical trait descriptors
+                    physical_traits = ['hair', 'eyes', 'tall', 'short', 'blonde', 'brunette', 'redhead', 'black hair']
+                    has_physical_traits = any(trait in prompt.lower() for trait in physical_traits)
+                    
+                    # Adjust weights based on whether physical traits are mentioned
+                    # If physical traits are mentioned, image similarity becomes more important
+                    if has_physical_traits:
+                        final_score = (0.2 * text_score) + (0.8 * image_score)
+                    else:
+                        final_score = (0.7 * text_score) + (0.3 * image_score)
                     
                     profile_scores.append({
                         'profile': profile,
