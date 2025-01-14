@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './App.css';
-import { auth } from './apiClient';
 
 const Signup = () => {
     const [formData, setFormData] = useState({
@@ -24,10 +23,18 @@ const Signup = () => {
         e.preventDefault();
         try {
             console.log('Attempting to sign up...', formData);
-            const data = await auth.signup(formData);
+            const response = await fetch('/api/auth/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            });
+
+            const data = await response.json();
             console.log('Signup response:', data);
             
-            if (!data.success) {
+            if (!response.ok) {
                 throw new Error(data.message || 'Failed to sign up');
             }
 
