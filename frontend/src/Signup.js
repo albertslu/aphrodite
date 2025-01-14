@@ -22,8 +22,8 @@ const Signup = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const url = '/api/auth/signup';
-            console.log('Making request to:', window.location.origin + url);
+            const url = 'https://api.aphroditeai.org/api/auth/signup';
+            console.log('Making request to:', url);
             console.log('With data:', formData);
             
             const response = await fetch(url, {
