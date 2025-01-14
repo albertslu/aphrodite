@@ -22,8 +22,11 @@ const Signup = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            console.log('Attempting to sign up...', formData);
-            const response = await fetch('/api/auth/signup', {
+            const url = '/api/auth/signup';
+            console.log('Making request to:', window.location.origin + url);
+            console.log('With data:', formData);
+            
+            const response = await fetch(url, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

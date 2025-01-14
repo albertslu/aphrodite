@@ -6,5 +6,12 @@
       "source": "/api/:path*",
       "destination": "https://api.aphroditeai.org/api/:path*"
     }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
+      "dest": "https://api.aphroditeai.org/api/$1"
+    }
   ]
 }
