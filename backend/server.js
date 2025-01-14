@@ -29,11 +29,7 @@ const port = config.server.port;
 
 // Middleware
 app.use(cors({
-    origin: [
-        'http://localhost:3000',
-        'https://frontend-git-main-albert-lus-projects-aad2419e.vercel.app',
-        'https://frontend-594v6wpah-albert-lus-projects-aad2419e.vercel.app'
-    ],
+    origin: '*',  // Allow all origins for MVP
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']

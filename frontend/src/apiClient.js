@@ -2,7 +2,7 @@
 
 const fetchWithSSLBypass = async (endpoint, options = {}) => {
     const config = {
-        apiUrl: 'https://api.aphroditeai.org'  // Use Cloudflare SSL
+        apiUrl: 'http://3.81.131.154:5000'  // Direct EC2 IP
     };
     const url = `${config.apiUrl}${endpoint}`;
     try {
