@@ -251,6 +251,7 @@ class HybridProfileMatcher:
                         f"head shot showing {color} hair",
                         f"close up of {color} hair color"
                     ])
+                    logger.debug(f"Using hair color prompts for {os.path.basename(image_path)}: {clip_prompts}")
                 
                 if 'eye_color' in traits:
                     color = traits['eye_color']
@@ -259,6 +260,7 @@ class HybridProfileMatcher:
                         f"face with {color} eyes",
                         f"close up of {color} eyes"
                     ])
+                    logger.debug(f"Using eye color prompts for {os.path.basename(image_path)}: {clip_prompts}")
                 
                 if clip_prompts:
                     text_inputs = clip.tokenize(clip_prompts).to(self.device)
@@ -270,23 +272,36 @@ class HybridProfileMatcher:
                         image_features = image_features / image_features.norm(dim=-1, keepdim=True)
                         text_features = text_features / text_features.norm(dim=-1, keepdim=True)
                         
-                        # Calculate similarity scores for each trait
-                        similarities = (100.0 * (image_features @ text_features.T)).sigmoid()
+                        # Calculate raw cosine similarities (between -1 and 1)
+                        similarities = image_features @ text_features.T
+                        
+                        # Convert to range 0-1 using a more discriminative scaling
+                        similarities = (similarities + 1) / 2  # Now between 0 and 1
+                        similarities = torch.pow(similarities, 2)  # Square to make differences more pronounced
+                        
+                        # Log raw similarities before processing
+                        for i, prompt in enumerate(clip_prompts):
+                            logger.debug(f"Raw CLIP score for '{prompt}' on {os.path.basename(image_path)}: {float(similarities[0][i])}")
                         
                         # Group scores by trait
                         if 'hair_color' in traits:
-                            hair_score = float(similarities[:, :3].max().item())  # First 3 prompts are for hair
+                            hair_scores = similarities[:, :3]  # First 3 prompts are for hair
+                            hair_score = float(hair_scores.max().item())
                             scores.append(hair_score)
-                            logger.debug(f"Hair color score for {os.path.basename(image_path)}: {hair_score}")
+                            logger.debug(f"Final hair color score for {os.path.basename(image_path)}: {hair_score}")
                         
                         if 'eye_color' in traits and len(similarities[0]) > 3:
-                            eye_score = float(similarities[:, 3:].max().item())  # Last 3 prompts are for eyes
+                            eye_scores = similarities[:, 3:]  # Last 3 prompts are for eyes
+                            eye_score = float(eye_scores.max().item())
                             scores.append(eye_score)
-                            logger.debug(f"Eye color score for {os.path.basename(image_path)}: {eye_score}")
+                            logger.debug(f"Final eye color score for {os.path.basename(image_path)}: {eye_score}")
                 
                 if scores:
                     # Use minimum score to ensure all requested traits must match
                     final_score = min(scores)
+                    # Apply threshold - if score is too low, return 0
+                    if final_score < 0.4:  # Threshold for trait matching
+                        final_score = 0.0
                     logger.debug(f"Final trait score for {os.path.basename(image_path)}: {final_score}")
                     return final_score
             
@@ -298,8 +313,8 @@ class HybridProfileMatcher:
                 # Normalize features
                 image_features = image_features / image_features.norm(dim=-1, keepdim=True)
                 text_features = text_features / text_features.norm(dim=-1, keepdim=True)
-                # Calculate similarity
-                similarity = float((100.0 * image_features @ text_features.T).sigmoid().item())
+                # Calculate raw cosine similarity and scale to 0-1
+                similarity = float(((image_features @ text_features.T + 1) / 2).item())
                 logger.debug(f"General similarity score for {os.path.basename(image_path)}: {similarity}")
                 return similarity
             
