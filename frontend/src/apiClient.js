@@ -1,13 +1,9 @@
 // Updated to use Cloudflare SSL
 
 const fetchWithSSLBypass = async (endpoint, options = {}) => {
-    const config = {
-        apiUrl: ''  // Use relative path for proxy
-    };
-    const url = `${config.apiUrl}${endpoint}`;
     try {
-        console.log('Making request to:', url, 'with options:', options);
-        const response = await fetch(url, {
+        console.log('Making request to:', endpoint, 'with options:', options);
+        const response = await fetch(endpoint, {
             ...options,
             headers: {
                 'Content-Type': 'application/json',
@@ -17,20 +13,13 @@ const fetchWithSSLBypass = async (endpoint, options = {}) => {
         });
 
         console.log('Response status:', response.status);
-        const text = await response.text(); // Get response as text first
-        console.log('Response text:', text);
 
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}, body: ${text}`);
+            const error = await response.json().catch(() => ({ message: 'An error occurred' }));
+            throw new Error(error.message || `HTTP error! status: ${response.status}`);
         }
 
-        try {
-            const data = JSON.parse(text); // Try to parse as JSON
-            return data;
-        } catch (e) {
-            console.error('Failed to parse JSON:', e);
-            throw new Error('Invalid JSON response from server');
-        }
+        return response.json();
     } catch (error) {
         console.error('API request error:', error);
         throw error;
@@ -51,21 +40,15 @@ export const auth = {
 export const profile = {
     create: (formData, token) => fetchWithSSLBypass('/api/profile', {
         method: 'POST',
-        headers: {
-            'Authorization': `Bearer ${token}`
-        },
+        headers: { Authorization: `Bearer ${token}` },
         body: JSON.stringify(formData)
     }),
     update: (formData, token) => fetchWithSSLBypass('/api/profile', {
         method: 'PUT',
-        headers: {
-            'Authorization': `Bearer ${token}`
-        },
+        headers: { Authorization: `Bearer ${token}` },
         body: JSON.stringify(formData)
     }),
     get: (token) => fetchWithSSLBypass('/api/profile', {
-        headers: {
-            'Authorization': `Bearer ${token}`
-        }
+        headers: { Authorization: `Bearer ${token}` }
     })
 };
