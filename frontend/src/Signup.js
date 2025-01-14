@@ -31,19 +31,23 @@ const Signup = () => {
                 body: JSON.stringify(formData)
             });
 
-            console.log('Response status:', response.status);
+            console.log('Full response:', {
+                status: response.status,
+                statusText: response.statusText,
+                headers: Object.fromEntries(response.headers.entries())
+            });
+
             const responseText = await response.text();
-            console.log('Raw response:', responseText);
+            console.log('Raw response text:', responseText);
 
             let data;
             try {
                 data = JSON.parse(responseText);
+                console.log('Parsed response data:', data);
             } catch (parseError) {
-                console.error('Failed to parse response:', parseError);
+                console.error('JSON parse error:', parseError);
                 throw new Error('Server response was not valid JSON');
             }
-
-            console.log('Parsed response:', data);
             
             if (!response.ok) {
                 throw new Error(data.message || `Server error: ${response.status}`);
