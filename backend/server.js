@@ -103,60 +103,12 @@ app.get('/api/health', (req, res) => {
     res.json({ status: 'ok' });
 });
 
-const Profile = require('./models/Profile'); // Assuming Profile model is defined in this file
-const authenticateToken = require('./middleware/authenticateToken'); // Assuming authenticateToken middleware is defined in this file
-
-// Get current user's profile
-app.get('/api/profile', authenticateToken, async (req, res) => {
-    try {
-        const profile = await Profile.findOne({ user: req.user.id });
-        if (!profile) {
-            return res.status(404).json({ message: 'Profile not found' });
-        }
-        res.json(profile);
-    } catch (error) {
-        console.error('Error fetching profile:', error);
-        res.status(500).json({ message: 'Server error' });
-    }
-});
-
-// Update user's profile
-app.put('/api/profile', authenticateToken, async (req, res) => {
-    try {
-        const profile = await Profile.findOne({ user: req.user.id });
-        if (!profile) {
-            return res.status(404).json({ message: 'Profile not found' });
-        }
-
-        // Update profile fields
-        Object.keys(req.body).forEach(key => {
-            if (key !== 'user' && key !== '_id') { // Don't allow updating user ID or MongoDB _id
-                profile[key] = req.body[key];
-            }
-        });
-
-        await profile.save();
-        res.json(profile);
-    } catch (error) {
-        console.error('Error updating profile:', error);
-        res.status(500).json({ message: 'Server error' });
-    }
-});
-
+// Use the existing routes
 app.use('/api/auth', authRoutes);
 app.use('/api/profile', profileRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/upload', uploadRoutes);
 app.use('/api/match', matchRoutes);
-
-// Basic route for testing
-app.get('/api/test', (req, res) => {
-    res.json({ 
-        message: 'Backend server is running',
-        mongoStatus: mongoose.connection.readyState === 1 ? 'connected' : 'disconnected',
-        timestamp: new Date().toISOString()
-    });
-});
 
 // Error handling middleware
 app.use((err, req, res, next) => {

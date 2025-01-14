@@ -38,8 +38,9 @@ const Login = () => {
                 throw new Error(data.message || 'Invalid credentials');
             }
 
+            // Store token and admin status
             localStorage.setItem('token', data.token);
-            localStorage.setItem('isAdmin', data.isAdmin);
+            localStorage.setItem('isAdmin', data.isAdmin ? 'true' : 'false');
 
             // If admin user, always go to profile creation
             if (data.isAdmin) {
@@ -48,18 +49,31 @@ const Login = () => {
             }
 
             // For regular users, check if they have a profile
-            const profileResponse = await fetch(`${config.apiUrl}/api/profile`, {
-                headers: {
-                    'Authorization': `Bearer ${data.token}`
-                }
-            });
+            try {
+                const profileResponse = await fetch(`${config.apiUrl}/api/profile`, {
+                    headers: {
+                        'Authorization': `Bearer ${data.token}`
+                    }
+                });
 
-            if (profileResponse.ok) {
-                navigate('/preferences');
-            } else if (profileResponse.status === 404) {
-                navigate('/create-profile');
-            } else {
-                throw new Error('Error checking profile status');
+                if (profileResponse.status === 404) {
+                    navigate('/create-profile');
+                } else if (profileResponse.ok) {
+                    const profileData = await profileResponse.json();
+                    if (profileData) {
+                        navigate('/preferences');
+                    } else {
+                        navigate('/create-profile');
+                    }
+                } else {
+                    throw new Error('Error checking profile status');
+                }
+            } catch (profileError) {
+                console.error('Profile check error:', profileError);
+                setError('Error checking profile status. Please try again.');
+                // Clear token since we couldn't complete the login flow
+                localStorage.removeItem('token');
+                localStorage.removeItem('isAdmin');
             }
         } catch (error) {
             console.error('Login error:', error);
