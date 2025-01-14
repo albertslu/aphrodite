@@ -44,15 +44,45 @@ const ProfileCreation = () => {
             return;
         }
 
-        // Check file sizes
-        if (files.some(file => file.size > 5 * 1024 * 1024)) {
-            setPhotoErrors('Each photo must be less than 5MB');
+        // Check each file's size and collect valid ones
+        const validFiles = [];
+        const largeFiles = [];
+        
+        files.forEach(file => {
+            if (file.size > 10 * 1024 * 1024) {
+                largeFiles.push(file.name);
+            } else {
+                validFiles.push(file);
+            }
+        });
+
+        // If any files were too large, show specific error message
+        if (largeFiles.length > 0) {
+            const fileNames = largeFiles.join(', ');
+            setPhotoErrors(`Please choose different photos. The following ${largeFiles.length === 1 ? 'file is' : 'files are'} too large (max 10MB): ${fileNames}`);
+            e.target.value = ''; // Clear the file input
             return;
         }
 
-        setPhotoErrors('');
-        // Append new photos to existing ones
-        setPhotos(prevPhotos => [...prevPhotos, ...files].slice(0, 3));
+        // Process valid files
+        Promise.all(
+            validFiles.map(file => {
+                return new Promise((resolve) => {
+                    const reader = new FileReader();
+                    reader.onloadend = () => {
+                        resolve({
+                            file,
+                            preview: reader.result
+                        });
+                    };
+                    reader.readAsDataURL(file);
+                });
+            })
+        ).then(newPhotos => {
+            setPhotos(prevPhotos => [...prevPhotos, ...newPhotos]);
+            setPhotoErrors('');
+            e.target.value = ''; // Clear the file input
+        });
     };
 
     const removePhoto = (index) => {
@@ -72,7 +102,7 @@ const ProfileCreation = () => {
             const uploadedPhotos = [];
             for (let i = 0; i < photos.length; i++) {
                 const formData = new FormData();
-                formData.append('photo', photos[i]);
+                formData.append('photo', photos[i].file);
 
                 const uploadResponse = await fetch(`${config.apiUrl}/api/upload`, {
                     method: 'POST',
@@ -317,13 +347,13 @@ const ProfileCreation = () => {
                         onChange={handlePhotoChange}
                         required={photos.length === 0}
                     />
-                    <small>Upload up to 3 photos (max 5MB each)</small>
+                    <small>Upload up to 3 photos (max 10MB each)</small>
                     {photoErrors && <p className="error">{photoErrors}</p>}
                     <div className="photo-preview">
                         {photos.map((photo, index) => (
                             <div key={index} className="photo-item">
                                 <img
-                                    src={URL.createObjectURL(photo)}
+                                    src={photo.preview}
                                     alt={`Preview ${index + 1}`}
                                 />
                                 <button 
