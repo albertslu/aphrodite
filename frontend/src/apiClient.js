@@ -6,6 +6,7 @@ const fetchWithSSLBypass = async (endpoint, options = {}) => {
     };
     const url = `${config.apiUrl}${endpoint}`;
     try {
+        console.log('Making request to:', url, 'with options:', options);
         const response = await fetch(url, {
             ...options,
             headers: {
@@ -15,12 +16,21 @@ const fetchWithSSLBypass = async (endpoint, options = {}) => {
             mode: 'cors'
         });
 
+        console.log('Response status:', response.status);
+        const text = await response.text(); // Get response as text first
+        console.log('Response text:', text);
+
         if (!response.ok) {
-            const data = await response.json();
-            throw new Error(data.message || 'API request failed');
+            throw new Error(`HTTP error! status: ${response.status}, body: ${text}`);
         }
 
-        return response.json();
+        try {
+            const data = JSON.parse(text); // Try to parse as JSON
+            return data;
+        } catch (e) {
+            console.error('Failed to parse JSON:', e);
+            throw new Error('Invalid JSON response from server');
+        }
     } catch (error) {
         console.error('API request error:', error);
         throw error;
