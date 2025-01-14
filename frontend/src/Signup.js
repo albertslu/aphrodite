@@ -23,13 +23,12 @@ const Signup = () => {
         e.preventDefault();
         try {
             console.log('Attempting to sign up...', formData);
-            const response = await fetch('http://3.81.131.154:5000/api/auth/signup', {
+            const response = await fetch('/api/auth/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(formData),
-                mode: 'cors'
+                body: JSON.stringify(formData)
             });
 
             console.log('Response status:', response.status);
