@@ -135,6 +135,39 @@ class HybridProfileMatcher:
         logger.debug(f"Extracted preferences: {preferences}")
         return preferences
 
+    def extract_physical_traits(self, prompt: str) -> Dict[str, str]:
+        """Extract physical traits from the prompt more intelligently"""
+        traits = {}
+        prompt_lower = prompt.lower()
+        
+        # Hair color detection
+        hair_colors = {
+            'blonde': ['blonde hair', 'blond hair', 'golden hair'],
+            'black': ['black hair', 'dark hair'],
+            'brown': ['brown hair', 'brunette'],
+            'red': ['red hair', 'ginger hair', 'redhead']
+        }
+        
+        for color, patterns in hair_colors.items():
+            if any(pattern in prompt_lower for pattern in patterns):
+                traits['hair_color'] = color
+                break
+        
+        # Eye color detection
+        eye_colors = {
+            'blue': ['blue eyes', 'light blue eyes'],
+            'brown': ['brown eyes', 'dark eyes'],
+            'green': ['green eyes'],
+            'hazel': ['hazel eyes']
+        }
+        
+        for color, patterns in eye_colors.items():
+            if any(pattern in prompt_lower for pattern in patterns):
+                traits['eye_color'] = color
+                break
+                
+        return traits
+
     def generate_text_embedding(self, text: str) -> np.ndarray:
         """Generate embedding for text using OpenAI's API"""
         response = self.client.embeddings.create(
@@ -203,46 +236,61 @@ class HybridProfileMatcher:
             image = Image.open(image_path).convert('RGB')
             image_input = self.preprocess(image).unsqueeze(0).to(self.device)
             
-            # For physical traits, break down into specific attributes
-            prompt_lower = prompt.lower()
+            # Extract specific physical traits from prompt
+            traits = self.extract_physical_traits(prompt)
             scores = []
             
-            if 'blonde' in prompt_lower or 'blond' in prompt_lower:
-                text_inputs = clip.tokenize(["a photo of a person with blonde hair", 
-                                          "a close up of blonde hair"]).to(self.device)
-                with torch.no_grad():
-                    image_features = self.clip_model.encode_image(image_input)
-                    text_features = self.clip_model.encode_text(text_inputs)
-                    # Normalize features
-                    image_features = image_features / image_features.norm(dim=-1, keepdim=True)
-                    text_features = text_features / text_features.norm(dim=-1, keepdim=True)
-                    # Take max similarity across prompts
-                    blonde_score = float((100.0 * (image_features @ text_features.T)).max().sigmoid().item())
-                    scores.append(blonde_score)
-                    logger.debug(f"Blonde hair score for {os.path.basename(image_path)}: {blonde_score}")
+            if traits:
+                # Build specific CLIP prompts based on detected traits
+                clip_prompts = []
+                
+                if 'hair_color' in traits:
+                    color = traits['hair_color']
+                    clip_prompts.extend([
+                        f"person with {color} colored hair",
+                        f"head shot showing {color} hair",
+                        f"close up of {color} hair color"
+                    ])
+                
+                if 'eye_color' in traits:
+                    color = traits['eye_color']
+                    clip_prompts.extend([
+                        f"person with {color} colored eyes",
+                        f"face with {color} eyes",
+                        f"close up of {color} eyes"
+                    ])
+                
+                if clip_prompts:
+                    text_inputs = clip.tokenize(clip_prompts).to(self.device)
+                    with torch.no_grad():
+                        image_features = self.clip_model.encode_image(image_input)
+                        text_features = self.clip_model.encode_text(text_inputs)
+                        
+                        # Normalize features
+                        image_features = image_features / image_features.norm(dim=-1, keepdim=True)
+                        text_features = text_features / text_features.norm(dim=-1, keepdim=True)
+                        
+                        # Calculate similarity scores for each trait
+                        similarities = (100.0 * (image_features @ text_features.T)).sigmoid()
+                        
+                        # Group scores by trait
+                        if 'hair_color' in traits:
+                            hair_score = float(similarities[:, :3].max().item())  # First 3 prompts are for hair
+                            scores.append(hair_score)
+                            logger.debug(f"Hair color score for {os.path.basename(image_path)}: {hair_score}")
+                        
+                        if 'eye_color' in traits and len(similarities[0]) > 3:
+                            eye_score = float(similarities[:, 3:].max().item())  # Last 3 prompts are for eyes
+                            scores.append(eye_score)
+                            logger.debug(f"Eye color score for {os.path.basename(image_path)}: {eye_score}")
+                
+                if scores:
+                    # Use minimum score to ensure all requested traits must match
+                    final_score = min(scores)
+                    logger.debug(f"Final trait score for {os.path.basename(image_path)}: {final_score}")
+                    return final_score
             
-            if 'blue eyes' in prompt_lower:
-                text_inputs = clip.tokenize(["a photo of a person with blue eyes",
-                                          "a close up of blue eyes"]).to(self.device)
-                with torch.no_grad():
-                    image_features = self.clip_model.encode_image(image_input)
-                    text_features = self.clip_model.encode_text(text_inputs)
-                    # Normalize features
-                    image_features = image_features / image_features.norm(dim=-1, keepdim=True)
-                    text_features = text_features / text_features.norm(dim=-1, keepdim=True)
-                    # Take max similarity across prompts
-                    blue_eyes_score = float((100.0 * (image_features @ text_features.T)).max().sigmoid().item())
-                    scores.append(blue_eyes_score)
-                    logger.debug(f"Blue eyes score for {os.path.basename(image_path)}: {blue_eyes_score}")
-            
-            # If we're checking physical traits, use the minimum score
-            # This ensures both traits must be present for a high score
-            if scores:
-                final_score = min(scores)
-                logger.debug(f"Final physical trait score for {os.path.basename(image_path)}: {final_score}")
-                return final_score
-            
-            # For non-physical trait prompts, use the original method
+            # For non-physical trait prompts or if no traits detected, use general matching
             text_inputs = clip.tokenize([prompt]).to(self.device)
             with torch.no_grad():
                 image_features = self.clip_model.encode_image(image_input)
