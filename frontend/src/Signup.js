@@ -23,19 +23,31 @@ const Signup = () => {
         e.preventDefault();
         try {
             console.log('Attempting to sign up...', formData);
-            const response = await fetch('/api/auth/signup', {
+            const response = await fetch('http://3.81.131.154:5000/api/auth/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(formData)
+                body: JSON.stringify(formData),
+                mode: 'cors'
             });
 
-            const data = await response.json();
-            console.log('Signup response:', data);
+            console.log('Response status:', response.status);
+            const responseText = await response.text();
+            console.log('Raw response:', responseText);
+
+            let data;
+            try {
+                data = JSON.parse(responseText);
+            } catch (parseError) {
+                console.error('Failed to parse response:', parseError);
+                throw new Error('Server response was not valid JSON');
+            }
+
+            console.log('Parsed response:', data);
             
             if (!response.ok) {
-                throw new Error(data.message || 'Failed to sign up');
+                throw new Error(data.message || `Server error: ${response.status}`);
             }
 
             localStorage.setItem('token', data.token);
