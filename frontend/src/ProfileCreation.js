@@ -108,7 +108,8 @@ const ProfileCreation = ({ isEditing = false }) => {
                     reader.onloadend = () => {
                         resolve({
                             file,
-                            preview: reader.result
+                            preview: reader.result,
+                            isNew: true // Flag to identify newly uploaded photos
                         });
                     };
                     reader.readAsDataURL(file);
@@ -200,6 +201,30 @@ const ProfileCreation = ({ isEditing = false }) => {
         }
     };
 
+    const handleLogout = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('isAdmin');
+        navigate('/login');
+    };
+
+    const renderPhotoPreview = (photo, index) => {
+        // For both new and existing photos, use the preview URL
+        const previewUrl = photo.isNew ? photo.preview : `${config.apiUrl}${photo.preview}`;
+        
+        return (
+            <div key={index} className="photo-preview">
+                <img src={previewUrl} alt={`Preview ${index + 1}`} />
+                <button 
+                    type="button" 
+                    onClick={() => removePhoto(index)}
+                    className="remove-photo"
+                >
+                    ×
+                </button>
+            </div>
+        );
+    };
+
     const renderMatchedProfiles = (matches) => {
         return matches.map((match, index) => (
             <div key={index} className="profile-card">
@@ -274,8 +299,15 @@ const ProfileCreation = ({ isEditing = false }) => {
 
     return (
         <div className="profile-creation-container">
-            <h2>{isEditing ? 'Edit Your Profile' : 'Create Your Profile'}</h2>
-            <form onSubmit={handleSubmit}>
+            <div className="header-section">
+                <h2>{isEditing ? 'Edit Profile' : 'Create Your Profile'}</h2>
+                <button onClick={handleLogout} className="logout-btn">
+                    Logout
+                </button>
+            </div>
+            {error && <p className="error">{error}</p>}
+            
+            <form onSubmit={handleSubmit} className="profile-form">
                 <div className="section">
                     <h3>Basic Information</h3>
                     <input
@@ -372,28 +404,13 @@ const ProfileCreation = ({ isEditing = false }) => {
                     <input
                         type="file"
                         accept="image/*"
-                        multiple
                         onChange={handlePhotoChange}
-                        required={photos.length === 0}
+                        multiple
                     />
-                    <small>Upload up to 3 photos (max 10MB each)</small>
+                    <p className="photo-limit-text">Upload up to 3 photos (max 10MB each)</p>
                     {photoErrors && <p className="error">{photoErrors}</p>}
-                    <div className="photo-preview">
-                        {photos.map((photo, index) => (
-                            <div key={index} className="photo-item">
-                                <img
-                                    src={photo.preview}
-                                    alt={`Preview ${index + 1}`}
-                                />
-                                <button 
-                                    type="button" 
-                                    className="remove-photo"
-                                    onClick={() => removePhoto(index)}
-                                >
-                                    ✕
-                                </button>
-                            </div>
-                        ))}
+                    <div className="photo-previews">
+                        {photos.map((photo, index) => renderPhotoPreview(photo, index))}
                     </div>
                 </div>
 
@@ -421,10 +438,11 @@ const ProfileCreation = ({ isEditing = false }) => {
                     />
                 </div>
 
-                <button type="submit" className="create-profile-btn" disabled={loading}>
-                    {loading ? (isEditing ? 'Saving...' : 'Creating Profile...') : (isEditing ? 'Save Profile' : 'Create Profile')}
-                </button>
-                {error && <p className="error">{error}</p>}
+                <div className="form-actions">
+                    <button type="submit" className="create-profile-btn" disabled={loading}>
+                        {loading ? (isEditing ? 'Saving...' : 'Creating Profile...') : (isEditing ? 'Save Profile' : 'Create Profile')}
+                    </button>
+                </div>
             </form>
         </div>
     );
