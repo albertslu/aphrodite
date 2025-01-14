@@ -36,11 +36,10 @@ app.use((req, res, next) => {
 });
 
 app.use(cors({
-    origin: '*',
+    origin: ['https://frontend-zeta-amber.vercel.app', 'http://localhost:3000'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
-    preflightContinue: true,
     optionsSuccessStatus: 200
 }));
 
