@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './App.css';
 import config from './config';
 
-const ProfileCreation = () => {
+function ProfileCreation() {
     const navigate = useNavigate();
+    const location = useLocation();
+    const [isEditing, setIsEditing] = useState(false);
+    const [submitting, setSubmitting] = useState(false);
+    const [error, setError] = useState('');
+    const [photos, setPhotos] = useState([]);
+    const [photoErrors, setPhotoErrors] = useState('');
     const [formFields, setFormFields] = useState({
         name: '',
         gender: '',
@@ -15,18 +21,64 @@ const ProfileCreation = () => {
         occupation: '',
         location: '',
         education: '',
-        photos: [],
         aboutMe: '',
         interests: '',
-        relationshipGoals: '',
-        idealDate: '',
-        partnerPreferences: ''
+        relationshipGoals: ''
     });
 
-    const [photos, setPhotos] = useState([]);
-    const [photoErrors, setPhotoErrors] = useState('');
-    const [submitting, setSubmitting] = useState(false);
-    const [error, setError] = useState('');
+    useEffect(() => {
+        // Check if we're in edit mode
+        const fetchProfile = async () => {
+            try {
+                const token = localStorage.getItem('token');
+                if (!token) {
+                    navigate('/login');
+                    return;
+                }
+
+                const response = await fetch(`${config.apiUrl}/api/profile`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
+                if (response.ok) {
+                    const profile = await response.json();
+                    setIsEditing(true);
+                    setFormFields({
+                        name: profile.name || '',
+                        gender: profile.gender || '',
+                        sexualOrientation: profile.sexualOrientation || '',
+                        age: profile.age || '',
+                        height: profile.height || '',
+                        ethnicity: profile.ethnicity || '',
+                        occupation: profile.occupation || '',
+                        location: profile.location || '',
+                        education: profile.education || '',
+                        aboutMe: profile.aboutMe || '',
+                        interests: profile.interests || '',
+                        relationshipGoals: profile.relationshipGoals || ''
+                    });
+                    
+                    // Convert existing photos to the format expected by the component
+                    if (profile.photos && profile.photos.length > 0) {
+                        const existingPhotos = profile.photos.map(photo => ({
+                            preview: photo.url,
+                            existingUrl: photo.url // Flag to identify existing photos
+                        }));
+                        setPhotos(existingPhotos);
+                    }
+                }
+            } catch (error) {
+                console.error('Error fetching profile:', error);
+            }
+        };
+
+        // Only fetch if we're in edit mode (accessed from preferences)
+        if (location.pathname === '/edit-profile') {
+            fetchProfile();
+        }
+    }, [navigate, location.pathname]);
 
     const handleInputChange = (e) => {
         setFormFields({
@@ -96,75 +148,76 @@ const ProfileCreation = () => {
 
         try {
             const token = localStorage.getItem('token');
-            const isAdmin = localStorage.getItem('isAdmin') === 'true';
-
-            // First, upload all photos
-            const uploadedPhotos = [];
-            for (let i = 0; i < photos.length; i++) {
-                const formData = new FormData();
-                formData.append('photo', photos[i].file);
-
-                const uploadResponse = await fetch(`${config.apiUrl}/api/upload`, {
-                    method: 'POST',
-                    headers: {
-                        'Authorization': `Bearer ${token}`
-                    },
-                    body: formData
-                });
-
-                if (!uploadResponse.ok) {
-                    throw new Error(`Failed to upload photo ${i + 1}`);
-                }
-
-                const uploadData = await uploadResponse.json();
-                uploadedPhotos.push({
-                    url: uploadData.url,
-                    order: i + 1
-                });
+            if (!token) {
+                navigate('/login');
+                return;
             }
 
-            // Convert age to number and prepare profile data
+            // Upload any new photos first
+            const uploadedPhotos = [];
+            for (let i = 0; i < photos.length; i++) {
+                if (!photos[i].existingUrl) { // Only upload new photos
+                    const formData = new FormData();
+                    formData.append('photo', photos[i].file);
+
+                    const uploadResponse = await fetch(`${config.apiUrl}/api/upload`, {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        },
+                        body: formData
+                    });
+
+                    if (!uploadResponse.ok) {
+                        throw new Error('Failed to upload photo');
+                    }
+
+                    const uploadResult = await uploadResponse.json();
+                    uploadedPhotos.push({
+                        url: uploadResult.url,
+                        caption: '',
+                        order: i
+                    });
+                } else {
+                    // Keep existing photos
+                    uploadedPhotos.push({
+                        url: photos[i].existingUrl,
+                        caption: '',
+                        order: i
+                    });
+                }
+            }
+
+            // Create or update profile
             const profileData = {
                 ...formFields,
-                age: Number(formFields.age),
-                photos: uploadedPhotos  // Add the uploaded photos to profile data
+                photos: uploadedPhotos
             };
 
-            console.log('Sending profile data:', profileData);
+            const url = isEditing ? 
+                `${config.apiUrl}/api/profile` : 
+                `${config.apiUrl}/api/profile/create`;
 
-            const response = await fetch(`${config.apiUrl}/api/profile`, {
-                method: 'POST',
+            const method = isEditing ? 'PUT' : 'POST';
+
+            const response = await fetch(url, {
+                method: method,
                 headers: {
-                    'Authorization': `Bearer ${token}`,
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify(profileData)
             });
 
-            const data = await response.json();
-            console.log('Profile creation response:', data);
-            
             if (!response.ok) {
-                if (data.errors) {
-                    // Format validation errors nicely
-                    const errorMessages = Object.entries(data.errors)
-                        .map(([field, error]) => `${field}: ${error.message}`)
-                        .join('\n');
-                    throw new Error(errorMessages);
-                }
-                throw new Error(data.message || data.error || 'Failed to create profile');
+                throw new Error('Failed to save profile');
             }
 
-            // For admin users, redirect to preferences with a success message
-            // For regular users, just redirect to preferences
-            navigate('/preferences', { 
-                state: { 
-                    message: isAdmin ? 'Profile created successfully. You can create another profile or set preferences.' : undefined 
-                } 
-            });
+            // Navigate to preferences page after successful save
+            navigate('/preferences');
         } catch (error) {
-            console.error('Profile creation error:', error);
-            setError(error.message || 'Failed to create profile');
+            console.error('Error saving profile:', error);
+            setError('Failed to save profile. Please try again.');
         } finally {
             setSubmitting(false);
         }
@@ -244,7 +297,7 @@ const ProfileCreation = () => {
 
     return (
         <div className="profile-creation-container">
-            <h2>Create Your Profile</h2>
+            <h2>{isEditing ? 'Edit Your Profile' : 'Create Your Profile'}</h2>
             <form onSubmit={handleSubmit}>
                 <div className="section">
                     <h3>Basic Information</h3>
@@ -314,10 +367,9 @@ const ProfileCreation = () => {
                     <input
                         type="text"
                         name="occupation"
-                        placeholder="Occupation"
+                        placeholder="Occupation (optional)"
                         value={formFields.occupation}
                         onChange={handleInputChange}
-                        required
                     />
                     
                     <input
@@ -372,31 +424,28 @@ const ProfileCreation = () => {
                     <h3>About You</h3>
                     <textarea
                         name="aboutMe"
-                        placeholder="Tell us about yourself..."
+                        placeholder="Tell us about yourself... (optional)"
                         value={formFields.aboutMe}
                         onChange={handleInputChange}
-                        required
                     />
                     
                     <textarea
                         name="interests"
-                        placeholder="What are your interests and hobbies?"
+                        placeholder="What are your interests and hobbies? (optional)"
                         value={formFields.interests}
                         onChange={handleInputChange}
-                        required
                     />
                     
                     <textarea
                         name="relationshipGoals"
-                        placeholder="What are you looking for in a relationship? (Long-term, casual, friendship, etc.)"
+                        placeholder="What are you looking for in a relationship? (optional)"
                         value={formFields.relationshipGoals}
                         onChange={handleInputChange}
-                        required
                     />
                 </div>
 
                 <button type="submit" className="create-profile-btn" disabled={submitting}>
-                    {submitting ? 'Creating Profile...' : 'Create Profile'}
+                    {submitting ? (isEditing ? 'Saving...' : 'Creating Profile...') : (isEditing ? 'Save Profile' : 'Create Profile')}
                 </button>
                 {error && <p className="error">{error}</p>}
             </form>

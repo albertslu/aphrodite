@@ -77,6 +77,14 @@ const Preferences = () => {
                     Logout
                 </button>
             </div>
+            <div className="profile-actions">
+                <button 
+                    className="edit-profile-btn"
+                    onClick={() => navigate('/edit-profile')}
+                >
+                    Edit Profile
+                </button>
+            </div>
             {error && <div className="error">{error}</div>}
             {successMessage && <div className="success">{successMessage}</div>}
             

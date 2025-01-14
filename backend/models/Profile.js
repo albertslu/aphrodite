@@ -30,8 +30,7 @@ const profileSchema = new mongoose.Schema({
     },
     ethnicity: String,
     occupation: {
-        type: String,
-        required: true
+        type: String
     },
     location: {
         type: String,
@@ -45,15 +44,15 @@ const profileSchema = new mongoose.Schema({
     }],
     aboutMe: {
         type: String,
-        required: true
+        default: ''
     },
     interests: {
         type: String,
-        required: true
+        default: ''
     },
     relationshipGoals: {
         type: String,
-        required: true
+        default: ''
     },
     partnerPreferences: {
         type: String,
