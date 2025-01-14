@@ -28,23 +28,30 @@ const app = express();
 const port = config.server.port;
 
 // Middleware
+app.use((req, res, next) => {
+    console.log(`${new Date().toISOString()} - ${req.method} ${req.url}`);
+    console.log('Request Headers:', req.headers);
+    console.log('Request Body:', req.body);
+    next();
+});
+
 app.use(cors({
-    origin: '*',  // Allow all origins for MVP
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
+    preflightContinue: true,
+    optionsSuccessStatus: 200
 }));
+
+// Handle OPTIONS requests explicitly
+app.options('*', cors());
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Serve uploads directory
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-
-// Request logging middleware
-app.use((req, res, next) => {
-    console.log(`${new Date().toISOString()} - ${req.method} ${req.url}`);
-    next();
-});
 
 // MongoDB connection status endpoint
 app.get('/api/status', (req, res) => {
@@ -115,9 +122,8 @@ app.get('/api/test', (req, res) => {
 app.use((err, req, res, next) => {
     console.error('Error:', err);
     res.status(500).json({ 
-        message: 'Something went wrong!', 
-        error: err.message,
-        stack: process.env.NODE_ENV === 'development' ? err.stack : undefined
+        message: 'Internal server error',
+        error: err.message 
     });
 });
 
