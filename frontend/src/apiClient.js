@@ -2,7 +2,7 @@
 
 const fetchWithSSLBypass = async (endpoint, options = {}) => {
     const config = {
-        apiUrl: 'http://3.81.131.154:5000'  // Direct EC2 IP
+        apiUrl: ''  // Use relative path for proxy
     };
     const url = `${config.apiUrl}${endpoint}`;
     try {
