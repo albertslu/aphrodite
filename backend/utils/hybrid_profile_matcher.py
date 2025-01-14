@@ -275,9 +275,14 @@ class HybridProfileMatcher:
                         # Calculate raw cosine similarities (between -1 and 1)
                         similarities = image_features @ text_features.T
                         
-                        # Convert to range 0-1 using a more discriminative scaling
+                        # Convert to range 0-1 with enhanced scaling for better differentiation
                         similarities = (similarities + 1) / 2  # Now between 0 and 1
-                        similarities = torch.pow(similarities, 2)  # Square to make differences more pronounced
+                        
+                        # Apply non-linear scaling to boost high scores while keeping low scores low
+                        # This creates more separation between good and bad matches
+                        similarities = torch.pow(similarities, 0.5)  # Square root to boost scores
+                        similarities = (similarities - 0.4) / 0.6  # Rescale above threshold
+                        similarities = torch.clamp(similarities, 0, 1)  # Ensure 0-1 range
                         
                         # Log raw similarities before processing
                         for i, prompt in enumerate(clip_prompts):
@@ -302,6 +307,9 @@ class HybridProfileMatcher:
                     # Apply threshold - if score is too low, return 0
                     if final_score < 0.4:  # Threshold for trait matching
                         final_score = 0.0
+                    else:
+                        # Boost scores above threshold to spread them out more
+                        final_score = 0.4 + (final_score - 0.4) * 1.5
                     logger.debug(f"Final trait score for {os.path.basename(image_path)}: {final_score}")
                     return final_score
             
@@ -313,8 +321,12 @@ class HybridProfileMatcher:
                 # Normalize features
                 image_features = image_features / image_features.norm(dim=-1, keepdim=True)
                 text_features = text_features / text_features.norm(dim=-1, keepdim=True)
-                # Calculate raw cosine similarity and scale to 0-1
-                similarity = float(((image_features @ text_features.T + 1) / 2).item())
+                # Calculate similarity with enhanced scaling
+                similarity = float((image_features @ text_features.T + 1) / 2)
+                if similarity >= 0.4:
+                    similarity = 0.4 + (similarity - 0.4) * 1.5
+                else:
+                    similarity = 0.0
                 logger.debug(f"General similarity score for {os.path.basename(image_path)}: {similarity}")
                 return similarity
             
