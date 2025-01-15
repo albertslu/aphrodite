@@ -4,20 +4,35 @@ const { spawn } = require('child_process');
 const path = require('path');
 const os = require('os');
 
-// Use full Python path
-const PYTHON_PATH = 'C:\\Users\\bert\\AppData\\Local\\Programs\\Python\\Python312\\python.exe';
+// Determine Python path based on environment
+const PYTHON_PATH = os.platform() === 'win32' 
+    ? 'C:\\Users\\bert\\AppData\\Local\\Programs\\Python\\Python312\\python.exe'
+    : 'python3';
+
+// Track if response has been sent
+let hasResponded = false;
+
+// Helper function to send response only once
+const sendResponseOnce = (res, statusCode, data) => {
+    if (!hasResponded) {
+        hasResponded = true;
+        res.status(statusCode).json(data);
+    }
+};
 
 // POST endpoint for profile matching
 router.post('/match-profiles', async (req, res) => {
     const { prompt } = req.body;
+    hasResponded = false; // Reset for new request
     
     if (!prompt) {
-        return res.status(400).json({ error: 'Prompt is required' });
+        return sendResponseOnce(res, 400, { error: 'Prompt is required' });
     }
 
     try {
         const pythonScript = path.join(__dirname, '..', 'utils', 'hybrid_profile_matcher.py');
         console.log('Running matcher with script:', pythonScript);
+        console.log('Using Python path:', PYTHON_PATH);
         
         const matcherProcess = spawn(PYTHON_PATH, [
             pythonScript,
@@ -40,7 +55,7 @@ router.post('/match-profiles', async (req, res) => {
 
         matcherProcess.on('error', (error) => {
             console.error('Failed to start Python process:', error);
-            return res.status(500).json({ 
+            sendResponseOnce(res, 500, { 
                 error: 'Failed to start matcher process',
                 details: error.message
             });
@@ -50,22 +65,22 @@ router.post('/match-profiles', async (req, res) => {
             if (code !== 0) {
                 console.error('Matcher process failed with code:', code);
                 console.error('Error output:', matcherError);
-                return res.status(500).json({ 
+                return sendResponseOnce(res, 500, { 
                     error: 'Profile matching failed',
-                    details: matcherError
+                    details: matcherError || 'Unknown error occurred'
                 });
             }
 
             try {
                 const matches = JSON.parse(matcherData);
                 if (!matches || matches.length === 0) {
-                    return res.status(404).json({
+                    return sendResponseOnce(res, 404, {
                         error: 'No matches found',
                         message: 'No profiles matched your preferences. Try broadening your search criteria.'
                     });
                 }
 
-                res.json({ 
+                sendResponseOnce(res, 200, { 
                     matches,
                     metadata: {
                         totalMatches: matches.length,
@@ -75,16 +90,15 @@ router.post('/match-profiles', async (req, res) => {
             } catch (parseError) {
                 console.error('Error parsing matcher output:', parseError);
                 console.error('Raw output:', matcherData);
-                res.status(500).json({ 
+                sendResponseOnce(res, 500, { 
                     error: 'Invalid matcher output',
-                    details: parseError.message,
-                    rawOutput: matcherData
+                    details: parseError.message
                 });
             }
         });
     } catch (error) {
         console.error('Route error:', error);
-        res.status(500).json({ 
+        sendResponseOnce(res, 500, { 
             error: 'Internal server error',
             details: error.message
         });
@@ -95,19 +109,20 @@ router.post('/match-profiles', async (req, res) => {
 router.get('/status', (req, res) => {
     try {
         const pythonScript = path.join(__dirname, '..', 'utils', 'hybrid_profile_matcher.py');
-        const pythonExecutable = os.platform() === 'win32' ? 'python' : 'python3';
-        const pythonProcess = spawn(pythonExecutable, [pythonScript, '--check']);
+        const pythonProcess = spawn(PYTHON_PATH, [pythonScript, '--check']);
 
         pythonProcess.on('close', (code) => {
             res.json({
                 status: code === 0 ? 'available' : 'unavailable',
-                timestamp: new Date().toISOString()
+                timestamp: new Date().toISOString(),
+                pythonPath: PYTHON_PATH
             });
         });
     } catch (error) {
         res.status(500).json({ 
             status: 'unavailable',
-            error: error.message
+            error: error.message,
+            pythonPath: PYTHON_PATH
         });
     }
 });
