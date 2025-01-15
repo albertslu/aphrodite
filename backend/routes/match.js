@@ -109,13 +109,30 @@ router.post('/match-profiles', async (req, res) => {
 router.get('/status', (req, res) => {
     try {
         const pythonScript = path.join(__dirname, '..', 'utils', 'hybrid_profile_matcher.py');
-        const pythonProcess = spawn(PYTHON_PATH, [pythonScript, '--check']);
+        const pythonProcess = spawn(PYTHON_PATH, [
+            pythonScript,
+            '--prompt', 'test status',
+            '--debug'
+        ]);
+
+        let processOutput = '';
+        let processError = '';
+
+        pythonProcess.stdout.on('data', (data) => {
+            processOutput += data.toString();
+        });
+
+        pythonProcess.stderr.on('data', (data) => {
+            console.error('Python error:', data.toString());
+            processError += data.toString();
+        });
 
         pythonProcess.on('close', (code) => {
             res.json({
                 status: code === 0 ? 'available' : 'unavailable',
                 timestamp: new Date().toISOString(),
-                pythonPath: PYTHON_PATH
+                pythonPath: PYTHON_PATH,
+                error: processError || undefined
             });
         });
     } catch (error) {
