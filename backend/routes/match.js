@@ -109,6 +109,8 @@ router.post('/match-profiles', async (req, res) => {
 router.get('/status', (req, res) => {
     try {
         const pythonScript = path.join(__dirname, '..', 'utils', 'hybrid_profile_matcher.py');
+        console.log('Starting Python process with:', PYTHON_PATH, pythonScript);
+        
         const pythonProcess = spawn(PYTHON_PATH, [
             pythonScript,
             '--prompt', 'test status',
@@ -119,23 +121,42 @@ router.get('/status', (req, res) => {
         let processError = '';
 
         pythonProcess.stdout.on('data', (data) => {
-            processOutput += data.toString();
+            const output = data.toString();
+            console.log('Python stdout:', output);
+            processOutput += output;
         });
 
         pythonProcess.stderr.on('data', (data) => {
-            console.error('Python error:', data.toString());
-            processError += data.toString();
+            const error = data.toString();
+            console.error('Python stderr:', error);
+            processError += error;
+        });
+
+        pythonProcess.on('error', (error) => {
+            console.error('Failed to start Python process:', error);
+            res.status(500).json({
+                status: 'unavailable',
+                error: `Failed to start process: ${error.message}`,
+                pythonPath: PYTHON_PATH
+            });
         });
 
         pythonProcess.on('close', (code) => {
+            console.log('Python process exited with code:', code);
+            console.log('Final output:', processOutput);
+            console.log('Final error:', processError);
+            
             res.json({
                 status: code === 0 ? 'available' : 'unavailable',
                 timestamp: new Date().toISOString(),
                 pythonPath: PYTHON_PATH,
-                error: processError || undefined
+                exitCode: code,
+                error: processError || undefined,
+                output: processOutput || undefined
             });
         });
     } catch (error) {
+        console.error('Status check error:', error);
         res.status(500).json({ 
             status: 'unavailable',
             error: error.message,
