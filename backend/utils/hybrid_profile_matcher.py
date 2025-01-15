@@ -39,6 +39,10 @@ class HybridProfileMatcher:
             self.device = "cuda" if torch.cuda.is_available() else "cpu"
             self.clip_model, self.preprocess = clip.load("ViT-B/32", device=self.device)
             
+            # Add image embeddings cache
+            self.image_embeddings_cache = {}
+            logger.debug("Initialized image embeddings cache")
+            
             # MongoDB setup
             mongodb_uri = os.getenv('MONGODB_URI')
             if not mongodb_uri:
@@ -232,9 +236,23 @@ class HybridProfileMatcher:
                 logger.warning(f"Image not found: {image_path}")
                 return 0.0
             
-            # Load and preprocess image
-            image = Image.open(image_path).convert('RGB')
-            image_input = self.preprocess(image).unsqueeze(0).to(self.device)
+            # Check cache first
+            cached_features = None
+            if image_path in self.image_embeddings_cache:
+                cached_features = self.image_embeddings_cache[image_path]
+                logger.debug(f"Using cached embedding for {os.path.basename(image_path)}")
+            else:
+                # Load and preprocess image
+                image = Image.open(image_path).convert('RGB')
+                image_input = self.preprocess(image).unsqueeze(0).to(self.device)
+                
+                # Generate and cache embedding
+                with torch.no_grad():
+                    image_features = self.clip_model.encode_image(image_input)
+                    image_features = image_features / image_features.norm(dim=-1, keepdim=True)
+                    self.image_embeddings_cache[image_path] = image_features
+                    cached_features = image_features
+                logger.debug(f"Cached new embedding for {os.path.basename(image_path)}")
             
             # Extract specific physical traits from prompt
             traits = self.extract_physical_traits(prompt)
@@ -265,21 +283,16 @@ class HybridProfileMatcher:
                 if clip_prompts:
                     text_inputs = clip.tokenize(clip_prompts).to(self.device)
                     with torch.no_grad():
-                        image_features = self.clip_model.encode_image(image_input)
                         text_features = self.clip_model.encode_text(text_inputs)
-                        
-                        # Normalize features
-                        image_features = image_features / image_features.norm(dim=-1, keepdim=True)
                         text_features = text_features / text_features.norm(dim=-1, keepdim=True)
                         
-                        # Calculate raw cosine similarities (between -1 and 1)
-                        similarities = image_features @ text_features.T
+                        # Use cached image features
+                        similarities = cached_features @ text_features.T
                         
-                        # Convert to range 0-1 with enhanced scaling for better differentiation
+                        # Convert to range 0-1 with enhanced scaling
                         similarities = (similarities + 1) / 2  # Now between 0 and 1
                         
                         # Apply non-linear scaling to boost high scores while keeping low scores low
-                        # This creates more separation between good and bad matches
                         similarities = torch.pow(similarities, 0.5)  # Square root to boost scores
                         similarities = (similarities - 0.4) / 0.6  # Rescale above threshold
                         similarities = torch.clamp(similarities, 0, 1)  # Ensure 0-1 range
@@ -316,13 +329,10 @@ class HybridProfileMatcher:
             # For non-physical trait prompts or if no traits detected, use general matching
             text_inputs = clip.tokenize([prompt]).to(self.device)
             with torch.no_grad():
-                image_features = self.clip_model.encode_image(image_input)
                 text_features = self.clip_model.encode_text(text_inputs)
-                # Normalize features
-                image_features = image_features / image_features.norm(dim=-1, keepdim=True)
                 text_features = text_features / text_features.norm(dim=-1, keepdim=True)
-                # Calculate similarity with enhanced scaling
-                similarity = float((image_features @ text_features.T + 1) / 2)
+                # Calculate similarity with enhanced scaling using cached features
+                similarity = float((cached_features @ text_features.T + 1) / 2)
                 if similarity >= 0.4:
                     similarity = 0.4 + (similarity - 0.4) * 1.5
                 else:
