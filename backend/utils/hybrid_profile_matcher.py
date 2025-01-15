@@ -41,7 +41,8 @@ class HybridProfileMatcher:
             
             # Add image embeddings cache
             self.image_embeddings_cache = {}
-            logger.debug("Initialized image embeddings cache")
+            print("Initialized new image embeddings cache")
+            logger.debug("Initialized new image embeddings cache")
             
             # MongoDB setup
             mongodb_uri = os.getenv('MONGODB_URI')
@@ -58,6 +59,13 @@ class HybridProfileMatcher:
         except Exception as e:
             logger.error(f"Error initializing matcher: {str(e)}")
             raise
+
+    def __del__(self):
+        """Cleanup when object is destroyed"""
+        print(f"Cache stats before cleanup - Size: {len(self.image_embeddings_cache)} images")
+        logger.info(f"Cache stats before cleanup - Size: {len(self.image_embeddings_cache)} images")
+        self.image_embeddings_cache.clear()
+        logger.info("Image embeddings cache cleared")
 
     def get_photo_path(self, photo):
         """Convert photo object or string to a full path."""
@@ -240,8 +248,11 @@ class HybridProfileMatcher:
             cached_features = None
             if image_path in self.image_embeddings_cache:
                 cached_features = self.image_embeddings_cache[image_path]
-                logger.debug(f"Using cached embedding for {os.path.basename(image_path)}")
+                print(f"CACHE HIT: Using cached embedding for {os.path.basename(image_path)}")
+                logger.info(f"CACHE HIT: Using cached embedding for {os.path.basename(image_path)}")
             else:
+                print(f"CACHE MISS: Generating new embedding for {os.path.basename(image_path)}")
+                logger.info(f"CACHE MISS: Generating new embedding for {os.path.basename(image_path)}")
                 # Load and preprocess image
                 image = Image.open(image_path).convert('RGB')
                 image_input = self.preprocess(image).unsqueeze(0).to(self.device)
@@ -252,7 +263,8 @@ class HybridProfileMatcher:
                     image_features = image_features / image_features.norm(dim=-1, keepdim=True)
                     self.image_embeddings_cache[image_path] = image_features
                     cached_features = image_features
-                logger.debug(f"Cached new embedding for {os.path.basename(image_path)}")
+                print(f"CACHED: New embedding generated and cached for {os.path.basename(image_path)}")
+                logger.info(f"CACHED: New embedding generated and cached for {os.path.basename(image_path)}")
             
             # Extract specific physical traits from prompt
             traits = self.extract_physical_traits(prompt)
