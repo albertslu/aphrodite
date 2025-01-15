@@ -202,14 +202,23 @@ class HybridProfileMatcher:
     def calculate_text_similarity(self, text1, text2):
         """Calculate cosine similarity between two texts using embeddings."""
         try:
+            if not text1 or not text2:
+                return 0.0
+                
             # Get embeddings using cache
             embedding1 = self.get_text_embedding(text1)
             embedding2 = self.get_text_embedding(text2)
             
-            # Convert to tensors and calculate similarity
-            tensor1 = torch.tensor(embedding1)
-            tensor2 = torch.tensor(embedding2)
-            similarity = F.cosine_similarity(tensor1.unsqueeze(0), tensor2.unsqueeze(0))
+            # Convert to numpy arrays and calculate similarity
+            embedding1_np = np.array(embedding1)
+            embedding2_np = np.array(embedding2)
+            
+            # Normalize the vectors
+            embedding1_normalized = embedding1_np / np.linalg.norm(embedding1_np)
+            embedding2_normalized = embedding2_np / np.linalg.norm(embedding2_np)
+            
+            # Calculate cosine similarity
+            similarity = np.dot(embedding1_normalized, embedding2_normalized)
             
             return float(similarity)
         except Exception as e:
