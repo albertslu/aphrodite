@@ -600,6 +600,13 @@ if __name__ == "__main__":
         )
         logger = logging.getLogger(__name__)
 
+        # Debug: Print environment variables
+        logger.info("Environment check:")
+        logger.info(f"OPENAI_API_KEY exists: {'SECRET_API_KEY' in os.environ}")
+        logger.info(f"MONGODB_URI exists: {'MONGODB_URI' in os.environ}")
+        logger.info(f"Current working directory: {os.getcwd()}")
+        logger.info(f"Script directory: {os.path.dirname(os.path.abspath(__file__))}")
+
         # Parse command line arguments
         parser = argparse.ArgumentParser(description='Profile Matching Script')
         parser.add_argument('--prompt', type=str, required=True, help='Search prompt')
