@@ -41,7 +41,7 @@ class HybridProfileMatcher:
             
             # Add image embeddings cache
             self.image_embeddings_cache = {}
-            print("Initialized new image embeddings cache")
+            print("Initialized new image embeddings cache", file=sys.stderr)
             logger.debug("Initialized new image embeddings cache")
             
             # MongoDB setup - with shorter timeouts
@@ -250,10 +250,10 @@ class HybridProfileMatcher:
             cached_features = None
             if image_path in self.image_embeddings_cache:
                 cached_features = self.image_embeddings_cache[image_path]
-                print(f"CACHE HIT: Using cached embedding for {os.path.basename(image_path)}")
+                print(f"CACHE HIT: Using cached embedding for {os.path.basename(image_path)}", file=sys.stderr)
                 logger.info(f"CACHE HIT: Using cached embedding for {os.path.basename(image_path)}")
             else:
-                print(f"CACHE MISS: Generating new embedding for {os.path.basename(image_path)}")
+                print(f"CACHE MISS: Generating new embedding for {os.path.basename(image_path)}", file=sys.stderr)
                 logger.info(f"CACHE MISS: Generating new embedding for {os.path.basename(image_path)}")
                 # Load and preprocess image
                 image = Image.open(image_path).convert('RGB')
@@ -265,7 +265,7 @@ class HybridProfileMatcher:
                     image_features = image_features / image_features.norm(dim=-1, keepdim=True)
                     self.image_embeddings_cache[image_path] = image_features
                     cached_features = image_features
-                print(f"CACHED: New embedding generated and cached for {os.path.basename(image_path)}")
+                print(f"CACHED: New embedding generated and cached for {os.path.basename(image_path)}", file=sys.stderr)
                 logger.info(f"CACHED: New embedding generated and cached for {os.path.basename(image_path)}")
             
             # Extract specific physical traits from prompt
