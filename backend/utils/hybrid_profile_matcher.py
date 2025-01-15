@@ -193,8 +193,7 @@ class HybridProfileMatcher:
         print(f"TEXT CACHE MISS: {text[:30]}...", file=sys.stderr)
         response = self.client.embeddings.create(
             model="text-embedding-ada-002",
-            input=text,
-            encoding_format="base64"
+            input=text
         )
         embedding = response.data[0].embedding
         self.text_embeddings_cache[text] = embedding
