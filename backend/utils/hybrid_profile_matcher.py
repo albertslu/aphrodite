@@ -44,28 +44,30 @@ class HybridProfileMatcher:
             print("Initialized new image embeddings cache")
             logger.debug("Initialized new image embeddings cache")
             
-            # MongoDB setup
+            # MongoDB setup - with shorter timeouts
             mongodb_uri = os.getenv('MONGODB_URI')
             if not mongodb_uri:
                 raise ValueError("MONGODB_URI environment variable not set")
+                
+            logger.info("Initializing MongoDB client...")
             
-            # Simple MongoDB connection with minimal settings
-            self.mongo_client = MongoClient(mongodb_uri)
+            # Simple MongoDB connection with minimal settings and shorter timeouts
+            self.mongo_client = MongoClient(
+                mongodb_uri,
+                serverSelectionTimeoutMS=5000,  # 5 second timeout
+                connectTimeoutMS=5000,
+                socketTimeoutMS=5000
+            )
             self.db = self.mongo_client['profile_matching']
             self.profiles_collection = self.db['profiles']
             
-            logger.debug("MongoDB client initialized")
+            # Test MongoDB connection
+            self.mongo_client.admin.command('ping')
+            logger.info("MongoDB client initialized and connected successfully")
             
         except Exception as e:
             logger.error(f"Error initializing matcher: {str(e)}")
             raise
-
-    def __del__(self):
-        """Cleanup when object is destroyed"""
-        print(f"Cache stats before cleanup - Size: {len(self.image_embeddings_cache)} images")
-        logger.info(f"Cache stats before cleanup - Size: {len(self.image_embeddings_cache)} images")
-        self.image_embeddings_cache.clear()
-        logger.info("Image embeddings cache cleared")
 
     def get_photo_path(self, photo):
         """Convert photo object or string to a full path."""
