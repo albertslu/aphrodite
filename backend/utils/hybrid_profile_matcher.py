@@ -15,6 +15,7 @@ import traceback
 from bson import ObjectId
 import sys
 from pymongo import MongoClient
+from torch.nn.functional import cosine_similarity as F
 
 # Load environment variables
 load_dotenv(dotenv_path=str(Path(__file__).parent.parent.parent / '.env'))
@@ -41,8 +42,9 @@ class HybridProfileMatcher:
             
             # Add image embeddings cache
             self.image_embeddings_cache = {}
-            print("Initialized new image embeddings cache", file=sys.stderr)
-            logger.debug("Initialized new image embeddings cache")
+            self.text_embeddings_cache = {}  
+            print("Initialized caches", file=sys.stderr)
+            logger.debug("Initialized caches")
             
             # MongoDB setup - with shorter timeouts
             mongodb_uri = os.getenv('MONGODB_URI')
@@ -182,6 +184,39 @@ class HybridProfileMatcher:
                 
         return traits
 
+    def get_text_embedding(self, text):
+        """Get text embedding with caching."""
+        if text in self.text_embeddings_cache:
+            print(f"TEXT CACHE HIT: {text[:30]}...", file=sys.stderr)
+            return self.text_embeddings_cache[text]
+        
+        print(f"TEXT CACHE MISS: {text[:30]}...", file=sys.stderr)
+        response = self.client.embeddings.create(
+            model="text-embedding-ada-002",
+            input=text,
+            encoding_format="base64"
+        )
+        embedding = response.data[0].embedding
+        self.text_embeddings_cache[text] = embedding
+        return embedding
+
+    def calculate_text_similarity(self, text1, text2):
+        """Calculate cosine similarity between two texts using embeddings."""
+        try:
+            # Get embeddings using cache
+            embedding1 = self.get_text_embedding(text1)
+            embedding2 = self.get_text_embedding(text2)
+            
+            # Convert to tensors and calculate similarity
+            tensor1 = torch.tensor(embedding1)
+            tensor2 = torch.tensor(embedding2)
+            similarity = F.cosine_similarity(tensor1.unsqueeze(0), tensor2.unsqueeze(0))
+            
+            return float(similarity)
+        except Exception as e:
+            logger.error(f"Error calculating text similarity: {str(e)}")
+            return 0.0
+
     def generate_text_embedding(self, text: str) -> np.ndarray:
         """Generate embedding for text using OpenAI's API"""
         response = self.client.embeddings.create(
@@ -189,34 +224,6 @@ class HybridProfileMatcher:
             input=text
         )
         return np.array(response.data[0].embedding)
-
-    def calculate_text_similarity(self, profile: Dict, prompt: str) -> float:
-        """Calculate text similarity between profile and prompt"""
-        try:
-            # Check if physical traits match
-            physical_traits_match = True
-            if 'ethnicity' in profile:
-                ethnicity_score = self.calculate_embedding_similarity(
-                    f"looking for {profile['ethnicity']} person",
-                    prompt
-                )
-                physical_traits_match = physical_traits_match and ethnicity_score > 0.7
-
-            # Create a comprehensive profile text
-            profile_text = f"{profile.get('occupation', '')} {profile.get('bio', '')} {' '.join(profile.get('interests', []))} {profile.get('relationshipGoals', '')}"
-            
-            # Calculate semantic similarity using embeddings
-            similarity_score = self.calculate_embedding_similarity(profile_text, prompt)
-            
-            # Reduce score if physical traits don't match
-            if not physical_traits_match:
-                similarity_score *= 0.5
-            
-            return similarity_score
-            
-        except Exception as e:
-            logger.error(f"Error calculating text similarity: {str(e)}")
-            return 0.0
 
     def calculate_embedding_similarity(self, text1: str, text2: str) -> float:
         """Calculate cosine similarity between two text embeddings"""
@@ -461,11 +468,11 @@ class HybridProfileMatcher:
                     interests = ' '.join(profile.get('interests', []))
                     
                     # Calculate occupation similarity separately
-                    occupation_score = self.calculate_embedding_similarity(occupation_text, prompt) if occupation_text else 0.0
+                    occupation_score = self.calculate_text_similarity(occupation_text, prompt) if occupation_text else 0.0
                     
                     # Calculate general profile text similarity
                     profile_text = f"{bio_text} {interests}"
-                    profile_score = self.calculate_embedding_similarity(profile_text, prompt)
+                    profile_score = self.calculate_text_similarity(profile_text, prompt)
                     
                     # Combine text scores (60% occupation, 40% general profile)
                     text_score = (0.6 * occupation_score + 0.4 * profile_score) if occupation_text else profile_score
