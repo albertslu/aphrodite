@@ -202,24 +202,16 @@ class HybridProfileMatcher:
     def calculate_text_similarity(self, text1, text2):
         """Calculate cosine similarity between two texts using embeddings."""
         try:
-            if not text1 or not text2:
-                return 0.0
-                
             # Get embeddings using cache
             embedding1 = self.get_text_embedding(text1)
             embedding2 = self.get_text_embedding(text2)
             
-            # Convert to numpy arrays and calculate similarity
-            embedding1_np = np.array(embedding1)
-            embedding2_np = np.array(embedding2)
+            # Convert to tensors and calculate similarity
+            tensor1 = torch.tensor(embedding1)
+            tensor2 = torch.tensor(embedding2)
+            similarity = F.cosine_similarity(tensor1.unsqueeze(0), tensor2.unsqueeze(0))
             
-            # Calculate cosine similarity using dot product
-            similarity = float(np.dot(embedding1_np, embedding2_np) / 
-                            (np.linalg.norm(embedding1_np) * np.linalg.norm(embedding2_np)))
-            
-            print(f"Text similarity between '{text1[:30]}...' and '{text2[:30]}...': {similarity}", file=sys.stderr)
-            return similarity
-            
+            return float(similarity)
         except Exception as e:
             logger.error(f"Error calculating text similarity: {str(e)}")
             return 0.0
@@ -235,9 +227,6 @@ class HybridProfileMatcher:
     def calculate_embedding_similarity(self, text1: str, text2: str) -> float:
         """Calculate cosine similarity between two text embeddings"""
         try:
-            if not text1 or not text2:
-                return 0.0
-                
             # Generate embeddings
             embedding1 = self.generate_text_embedding(text1)
             embedding2 = self.generate_text_embedding(text2)
@@ -464,9 +453,6 @@ class HybridProfileMatcher:
             if not filtered_profiles:
                 return []
             
-            # Pre-calculate prompt embedding
-            prompt_embedding = self.get_text_embedding(prompt)
-            
             # Calculate match scores for filtered profiles
             profile_scores = []
             
@@ -474,19 +460,15 @@ class HybridProfileMatcher:
                 try:
                     # Calculate text similarity with emphasis on occupation matching
                     occupation_text = profile.get('occupation', '')
-                    bio_text = profile.get('aboutMe', '')  # Changed from 'bio' to 'aboutMe'
-                    interests = profile.get('interests', '')
+                    bio_text = profile.get('bio', '')
+                    interests = ' '.join(profile.get('interests', []))
                     
                     # Calculate occupation similarity separately
-                    occupation_embedding = self.get_text_embedding(occupation_text) if occupation_text else None
-                    occupation_score = float(np.dot(prompt_embedding, occupation_embedding) / 
-                                          (np.linalg.norm(prompt_embedding) * np.linalg.norm(occupation_embedding))) if occupation_embedding else 0.0
+                    occupation_score = self.calculate_text_similarity(occupation_text, prompt) if occupation_text else 0.0
                     
                     # Calculate general profile text similarity
                     profile_text = f"{bio_text} {interests}"
-                    profile_embedding = self.get_text_embedding(profile_text)
-                    profile_score = float(np.dot(prompt_embedding, profile_embedding) / 
-                                       (np.linalg.norm(prompt_embedding) * np.linalg.norm(profile_embedding)))
+                    profile_score = self.calculate_text_similarity(profile_text, prompt)
                     
                     # Combine text scores (60% occupation, 40% general profile)
                     text_score = (0.6 * occupation_score + 0.4 * profile_score) if occupation_text else profile_score
@@ -510,12 +492,11 @@ class HybridProfileMatcher:
                     has_physical_traits = any(trait in prompt.lower() for trait in physical_traits)
                     
                     # Adjust weights based on whether physical traits are mentioned
+                    # If physical traits are mentioned, image similarity becomes more important
                     if has_physical_traits:
                         final_score = (0.2 * text_score) + (0.8 * image_score)
                     else:
                         final_score = (0.7 * text_score) + (0.3 * image_score)
-                    
-                    print(f"Profile {profile.get('name')}: text={text_score}, image={image_score}, final={final_score}", file=sys.stderr)
                     
                     profile_scores.append({
                         'profile': profile,
