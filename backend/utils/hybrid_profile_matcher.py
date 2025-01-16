@@ -27,45 +27,67 @@ class JSONEncoder(json.JSONEncoder):
         return super().default(obj)
 
 class HybridProfileMatcher:
+    # Class-level variables for caching
+    _instance = None
+    _clip_model = None
+    _preprocess = None
+    _mongo_client = None
+    _openai_client = None
+    
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super(HybridProfileMatcher, cls).__new__(cls)
+            cls._instance._initialized = False
+        return cls._instance
+    
     def __init__(self):
         """Initialize OpenAI, CLIP, and MongoDB connections"""
+        # Skip if already initialized
+        if getattr(self, '_initialized', False):
+            return
+            
         try:
-            # OpenAI setup
-            api_key = os.getenv("SECRET_API_KEY")
-            if not api_key:
-                raise ValueError("SECRET_API_KEY environment variable not set")
-            self.client = OpenAI(api_key=api_key)
+            # OpenAI setup - only create client once
+            if self._openai_client is None:
+                api_key = os.getenv("SECRET_API_KEY")
+                if not api_key:
+                    raise ValueError("SECRET_API_KEY environment variable not set")
+                self._openai_client = OpenAI(api_key=api_key)
+            self.client = self._openai_client
             
-            # CLIP setup
-            self.device = "cuda" if torch.cuda.is_available() else "cpu"
-            self.clip_model, self.preprocess = clip.load("ViT-B/32", device=self.device)
+            # CLIP setup - only load model once
+            if self._clip_model is None:
+                self.device = "cuda" if torch.cuda.is_available() else "cpu"
+                self._clip_model, self._preprocess = clip.load("ViT-B/32", device=self.device)
+            self.clip_model = self._clip_model
+            self.preprocess = self._preprocess
             
-            # Add image embeddings cache
+            # Add embeddings caches
             self.image_embeddings_cache = {}
-            self.text_embeddings_cache = {}  
+            self.text_embeddings_cache = {}
             print("Initialized caches", file=sys.stderr)
-            logger.debug("Initialized caches")
             
-            # MongoDB setup - with shorter timeouts
-            mongodb_uri = os.getenv('MONGODB_URI')
-            if not mongodb_uri:
-                raise ValueError("MONGODB_URI environment variable not set")
+            # MongoDB setup - only connect once
+            if self._mongo_client is None:
+                mongodb_uri = os.getenv('MONGODB_URI')
+                if not mongodb_uri:
+                    raise ValueError("MONGODB_URI environment variable not set")
+                    
+                # Simple MongoDB connection with shorter timeouts
+                self._mongo_client = MongoClient(
+                    mongodb_uri,
+                    serverSelectionTimeoutMS=5000,
+                    connectTimeoutMS=5000,
+                    socketTimeoutMS=5000
+                )
+                # Test connection once
+                self._mongo_client.admin.command('ping')
                 
-            logger.info("Initializing MongoDB client...")
-            
-            # Simple MongoDB connection with minimal settings and shorter timeouts
-            self.mongo_client = MongoClient(
-                mongodb_uri,
-                serverSelectionTimeoutMS=5000,  # 5 second timeout
-                connectTimeoutMS=5000,
-                socketTimeoutMS=5000
-            )
+            self.mongo_client = self._mongo_client
             self.db = self.mongo_client['profile_matching']
             self.profiles_collection = self.db['profiles']
             
-            # Test MongoDB connection
-            self.mongo_client.admin.command('ping')
-            logger.info("MongoDB client initialized and connected successfully")
+            self._initialized = True
             
         except Exception as e:
             logger.error(f"Error initializing matcher: {str(e)}")
